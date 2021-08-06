@@ -34,7 +34,7 @@ namespace e_Locadora.Dominio
 
         public override string Validar() {
             string resultadoValidacao = "";
-            if (String.IsNullOrEmpty(categoria))
+            if (string.IsNullOrEmpty(categoria))
                 resultadoValidacao = "O atributo categoria é obrigatório e não pode ser vazio.";
             if (planoDiarioValorKm <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoDiarioValorKm deve ser maior que zero.";
@@ -48,7 +48,7 @@ namespace e_Locadora.Dominio
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmLivreValorDiario deve ser maior que zero.";
 
             
-            return "";
+            return resultadoValidacao;
         }
     }
 }
