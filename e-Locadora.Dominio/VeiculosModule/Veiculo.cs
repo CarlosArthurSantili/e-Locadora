@@ -35,7 +35,36 @@ namespace e_Locadora.Dominio.VeiculosModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Placa))
+                resultadoValidacao = "O campo Placa é obrigatório";
+
+            if (string.IsNullOrEmpty(Fabricante))
+                resultadoValidacao = "O campo Fabricante é obrigatório";
+
+            if (string.IsNullOrEmpty(QtdLitrosTanque))
+                resultadoValidacao = "O campo Quantidade De Litros do Tanque de Combustivel é obrigatório";
+
+            if (string.IsNullOrEmpty(NumeroChassi))
+                resultadoValidacao = "O campo Numero do Chassi é obrigatório";
+
+            if (string.IsNullOrEmpty(Cor))
+                resultadoValidacao = "O campo Cor do Veiculo é obrigatório";
+
+            if (CapacidadeOcupantes < 2 && CapacidadeOcupantes > 7)
+                resultadoValidacao = "O campo Capacidade de Ocupantes do Veiculo é obrigatório(Com Minimo 2 Lugares e Maximo 7)";
+
+            if (AnoFabricacao <= 0)
+                resultadoValidacao = "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
+
+            if (TamanhoPortaMalas <= 0)
+                resultadoValidacao = "O campo Tamanho do Porta Malas é Obrigatorio ";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
