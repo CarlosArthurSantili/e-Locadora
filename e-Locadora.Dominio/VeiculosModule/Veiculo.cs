@@ -59,7 +59,10 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao = "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
 
             if (TamanhoPortaMalas <= 0)
-                resultadoValidacao = "O campo Tamanho do Porta Malas é Obrigatorio ";
+                resultadoValidacao = "O campo Tamanho do Porta Malas é obrigatório ";
+
+            if (string.IsNullOrEmpty(Combustivel.ToString()))
+                resultadoValidacao = "O Campo Tipo de combustivel é obrigatório";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
