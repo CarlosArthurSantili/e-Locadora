@@ -42,7 +42,7 @@ namespace e_Locadora.Dominio
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoDiarioValorDiario deve ser maior que zero.";
             if (planoKmControladoValorKm <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmControladoValorKm deve ser maior que zero.";
-            if (planoKmControladoValorKm <= 0)
+            if (planoKmControladoValorDiario <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmControladoValorDiario deve ser maior que zero.";
             if (planoKmLivreValorDiario <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmLivreValorDiario deve ser maior que zero.";
