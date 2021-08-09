@@ -28,5 +28,6 @@ namespace e_Locadora.Controladores
             fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
         }
 
+
     }
 }
