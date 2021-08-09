@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VeiculoModule\GrupoVeiculo.cs" />
+    <Compile Include="GrupoVeiculoModule\GrupoVeiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
     <Compile Include="VeiculosModule\Combustivel.cs" />
