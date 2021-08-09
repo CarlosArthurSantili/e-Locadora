@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Categorias] (
-    [Id]                      INT           NOT NULL,
+    [Id]                      INT    IDENTITY       NOT NULL,
     [Categoria]               VARCHAR (100) NOT NULL,
     [valorDiarioKM]           NUMERIC (18)  NOT NULL,
     [ValorDiario]             NUMERIC (18)  NOT NULL,
