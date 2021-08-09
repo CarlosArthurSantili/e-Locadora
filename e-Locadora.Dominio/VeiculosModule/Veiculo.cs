@@ -54,14 +54,14 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (string.IsNullOrEmpty(Cor))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Cor do Veiculo é obrigatório";
 
-            if (CapacidadeOcupantes < 2 && CapacidadeOcupantes > 7)
+            if (CapacidadeOcupantes < 2 || CapacidadeOcupantes > 7)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Capacidade de Ocupantes do Veiculo é obrigatório(Com Minimo 2 Lugares e Maximo 7)";
 
             if (AnoFabricacao <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
 
             if (TamanhoPortaMalas <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório ";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório";
 
             if (string.IsNullOrEmpty(Combustivel.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Tipo de combustivel é obrigatório";
