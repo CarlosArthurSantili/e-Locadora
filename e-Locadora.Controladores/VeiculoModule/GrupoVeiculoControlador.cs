@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace e_Locadora.Controladores.VeiculoModule
 {
@@ -118,6 +119,38 @@ namespace e_Locadora.Controladores.VeiculoModule
             }
 
             return true;
+        }
+
+        public override bool Existe(int id)
+        {
+            return Db.Exists(sqlExisteGrupoVeiculo, AdicionarParametro("ID", id));
+        }
+
+        public override GrupoVeiculo SelecionarPorId(int id)
+        {
+            return Db.Get(sqlSelecionarGrupoVeiculoPorId, ConverterEmGrupoVeiculo, AdicionarParametro("ID", id));
+        }
+
+        public override List<GrupoVeiculo> SelecionarTodos()
+        {
+            return Db.GetAll(sqlSelecionarTodosGrupoVeiculos, ConverterEmGrupoVeiculo);
+        }
+
+        private GrupoVeiculo ConverterEmGrupoVeiculo(IDataReader reader)
+        {
+            int id = Convert.ToInt32(reader["ID"]);
+            string categoria = Convert.ToString(reader["CATEGORIA"]);
+            double planoDiarioValorKm = Convert.ToDouble(reader["VALORDIARIOKM"]);
+            double planoDiarioValorDiario = Convert.ToDouble(reader["VALORDIARIO"]);
+            double planoKmControladoValorKm = Convert.ToDouble(reader["VALORCONTROLADODIARIOKM"]);
+            double planoKmControladoValorDiario = Convert.ToDouble(reader["VALORCONTROLADODIARIO"]);
+            double planoKmLivreValorDiario = Convert.ToDouble(reader["VALORLIVRE"]);
+
+            GrupoVeiculo contato = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+
+            contato.Id = id;
+
+            return contato;
         }
 
         private Dictionary<string, object> ObtemParametrosGrupoVeiculo(GrupoVeiculo grupoVeiculo)
