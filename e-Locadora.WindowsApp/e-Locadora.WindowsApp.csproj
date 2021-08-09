@@ -46,13 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GrupodeVeiculos\ConfiguracaoGrupoVeiculosToolBox.cs" />
-    <Compile Include="GrupodeVeiculos\OperacoesGrupoVeiculos.cs" />
-    <Compile Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.cs">
+    <Compile Include="GrupoVeiculo\ConfiguracaoGrupoVeiculoToolBox.cs" />
+    <Compile Include="GrupoVeiculo\OperacoesGrupoVeiculo.cs" />
+    <Compile Include="GrupoVeiculo\TabelaGrupoVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
-      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    <Compile Include="GrupoVeiculo\TabelaGrupoVeiculoControl.Designer.cs">
+      <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
@@ -67,8 +67,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.resx">
-      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    <EmbeddedResource Include="GrupoVeiculo\TabelaGrupoVeiculoControl.resx">
+      <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

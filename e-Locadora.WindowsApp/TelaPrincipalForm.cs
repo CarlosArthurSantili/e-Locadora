@@ -62,7 +62,7 @@ namespace e_Locadora.WindowsApp
 
         private void menuItemGrupoVeiculos_Click(object sender, EventArgs e)
         {
-            ConfiguracaoGrupoVeiculosToolBox configuracao = new ConfiguracaoGrupoVeiculosToolBox();
+            ConfiguracaoGrupoVeiculoToolBox configuracao = new ConfiguracaoGrupoVeiculoToolBox();
 
             ConfigurarToolBox(configuracao);
 

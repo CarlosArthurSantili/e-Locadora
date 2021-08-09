@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace e_Locadora.WindowsApp.GrupodeVeiculos
 {
-    public class OperacoesGrupoVeiculos : ICadastravel
+    public class OperacoesGrupoVeiculo : ICadastravel
     {
         private readonly ControladorGrupoVeiculo controlador = null;
 
-        private readonly TabelaGrupoDeVeiculosControl tabela = null;
+        private readonly TabelaGrupoVeiculoControl tabela = null;
 
-        public OperacoesGrupoVeiculos(ControladorGrupoVeiculo controlador)
+        public OperacoesGrupoVeiculo(ControladorGrupoVeiculo controlador)
         {
             this.controlador = controlador;
-            tabela = new TabelaGrupoDeVeiculosControl();
+            tabela = new TabelaGrupoVeiculoControl();
         }
 
         public void InserirNovoRegistro()

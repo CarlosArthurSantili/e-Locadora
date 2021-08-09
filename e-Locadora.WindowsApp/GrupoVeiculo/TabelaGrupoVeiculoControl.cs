@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace e_Locadora.WindowsApp.GrupodeVeiculos
 {
-    public partial class TabelaGrupoDeVeiculosControl : UserControl
+    public partial class TabelaGrupoVeiculoControl : UserControl
     {
-        public TabelaGrupoDeVeiculosControl()
+        public TabelaGrupoVeiculoControl()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace e_Locadora.WindowsApp.GrupodeVeiculos
 {
-    partial class TabelaGrupoDeVeiculosControl
+    partial class TabelaGrupoVeiculoControl
     {
         /// <summary> 
         /// Required designer variable.
