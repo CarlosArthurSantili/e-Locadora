@@ -9,7 +9,7 @@ namespace e_Locadora.Dominio.VeiculosModule
 {
     public class Veiculo : EntidadeBase
     {
-        public Veiculo(string placa,string fabricante,string qtdlitros,string chassi,string cor,
+        public Veiculo(string placa,string fabricante,int qtdlitros,string chassi,string cor,
             int passageiros,int ano,int portamalas, CombustivelEnum combustivel,GrupoVeiculo grupo)
         {
             Placa = placa;
@@ -26,7 +26,7 @@ namespace e_Locadora.Dominio.VeiculosModule
 
         public string Placa { get; }
         public string Fabricante { get; }
-        public string QtdLitrosTanque { get; }
+        public int QtdLitrosTanque { get; }
         public string NumeroChassi { get; }
         public string Cor { get; }
         public int CapacidadeOcupantes { get; }
@@ -45,7 +45,7 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (string.IsNullOrEmpty(Fabricante))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Fabricante é obrigatório";
 
-            if (string.IsNullOrEmpty(QtdLitrosTanque))
+            if (QtdLitrosTanque <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade De Litros do Tanque de Combustivel é obrigatório";
 
             if (string.IsNullOrEmpty(NumeroChassi))
