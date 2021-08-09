@@ -12,7 +12,7 @@ namespace e_Locadora.Controladores.VeiculoModule
     public class ControladorGrupoVeiculo : Controlador<GrupoVeiculo>
     {
         private const string sqlInserirGrupoVeiculo =
-            @"INSERT INTO TBCATEGORIAS 
+            @"INSERT INTO CATEGORIAS 
 	                (
 		                [CATEGORIA], 
 		                [VALORDIARIOKM], 
@@ -32,7 +32,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 	                )";
 
         private const string sqlEditarGrupoVeiculo =
-            @"UPDATE TBCATEGORIAS
+            @"UPDATE CATEGORIAS
                     SET
                         [CATEGORIA], 
 		                [VALORDIARIOKM], 
@@ -46,7 +46,7 @@ namespace e_Locadora.Controladores.VeiculoModule
         private const string sqlExcluirGrupoVeiculo =
             @"DELETE 
 	                FROM
-                        TBCATEGORIAS
+                        CATEGORIAS
                     WHERE 
                         ID = @ID";
 
@@ -59,7 +59,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
 	                FROM
-                        TBCATEGORIAS
+                        CATEGORIAS
                     WHERE 
                         ID = @ID";
 
@@ -72,13 +72,13 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
 	                FROM
-                        TBCATEGORIAS ORDER BY CATEGORIA;";
+                        CATEGORIAS ORDER BY CATEGORIA;";
 
         private const string sqlExisteGrupoVeiculo =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBCATEGORIAS]
+                [CATEGORIAS]
             WHERE 
                 [ID] = @ID";
 
