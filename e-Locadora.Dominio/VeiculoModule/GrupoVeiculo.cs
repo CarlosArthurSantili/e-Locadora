@@ -45,7 +45,9 @@ namespace e_Locadora.Dominio
             if (planoKmLivreValorDiario <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmLivreValorDiario deve ser maior que zero.";
 
-            
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
             return resultadoValidacao;
         }
     }

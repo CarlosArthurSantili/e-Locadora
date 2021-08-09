@@ -8,6 +8,20 @@ namespace e_Locadora.Tests.GrupoVeiculos
     public class GrupoVeiculosDominioTest
     {
         [TestMethod]
+        public void Deve_Validar_GrupoDeVeiculos()
+        {
+            string categoria = "SUV";
+            double planoDiarioValorKm = 2000;
+            double planoDiarioValorDiario = 3000;
+            double planoKmControladoValorKm = 4000;
+            double planoKmControladoValorDiario = 6000;
+            double planoKmLivreValorDiario = 2000;
+
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            Assert.AreEqual("ESTA_VALIDO", grupoVeiculo.Validar());
+        }
+
+        [TestMethod]
         public void Nao_Deve_Validar_Categoria()
         {
             string categoria = "";
