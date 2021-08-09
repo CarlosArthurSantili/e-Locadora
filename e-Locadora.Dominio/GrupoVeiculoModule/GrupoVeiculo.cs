@@ -50,5 +50,22 @@ namespace e_Locadora.Dominio
 
             return resultadoValidacao;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as GrupoVeiculo);
+        }
+
+        public bool Equals(GrupoVeiculo other)
+        {
+            return other != null
+                && Id == other.Id
+                && categoria == other.categoria
+                && planoDiarioValorDiario == other.planoDiarioValorDiario
+                && planoDiarioValorKm == other.planoDiarioValorKm
+                && planoKmControladoValorDiario == other.planoKmControladoValorDiario
+                && planoKmControladoValorKm == other.planoKmControladoValorKm
+                && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
+        }
     }
 }
