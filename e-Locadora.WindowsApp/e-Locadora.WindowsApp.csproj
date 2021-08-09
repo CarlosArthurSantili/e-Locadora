@@ -46,13 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GrupoVeiculo\ConfiguracaoGrupoVeiculoToolBox.cs" />
-    <Compile Include="GrupoVeiculo\OperacoesGrupoVeiculo.cs" />
-    <Compile Include="GrupoVeiculo\TabelaGrupoVeiculoControl.cs">
+    <Compile Include="GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
+    <Compile Include="GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
+    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GrupoVeiculo\TabelaGrupoVeiculoControl.Designer.cs">
+    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.Designer.cs">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
+      <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
@@ -67,8 +73,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GrupoVeiculo\TabelaGrupoVeiculoControl.resx">
+    <EmbeddedResource Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
+      <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +139,10 @@
     <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
       <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
       <Name>e-Locadora.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
+      <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
+      <Name>e-Locadora.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

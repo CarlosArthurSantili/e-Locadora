@@ -127,6 +127,7 @@ namespace e_Locadora.WindowsApp
             this.btnAdicionar.Padding = new System.Windows.Forms.Padding(5);
             this.btnAdicionar.Size = new System.Drawing.Size(38, 38);
             this.btnAdicionar.Text = "toolStripButton1";
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnEditar
             // 
@@ -138,6 +139,7 @@ namespace e_Locadora.WindowsApp
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
             this.btnEditar.Size = new System.Drawing.Size(38, 38);
             this.btnEditar.Text = "toolStripButton1";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -149,6 +151,7 @@ namespace e_Locadora.WindowsApp
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
             this.btnExcluir.Size = new System.Drawing.Size(38, 38);
             this.btnExcluir.Text = "toolStripButton1";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -165,6 +168,7 @@ namespace e_Locadora.WindowsApp
             this.btnFiltrar.Padding = new System.Windows.Forms.Padding(5);
             this.btnFiltrar.Size = new System.Drawing.Size(38, 38);
             this.btnFiltrar.Text = "toolStripButton1";
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // toolStripSeparator3
             // 
@@ -181,6 +185,7 @@ namespace e_Locadora.WindowsApp
             this.btnAgrupar.Padding = new System.Windows.Forms.Padding(5);
             this.btnAgrupar.Size = new System.Drawing.Size(38, 38);
             this.btnAgrupar.Text = "toolStripButton1";
+            this.btnAgrupar.Click += new System.EventHandler(this.btnAgrupar_Click);
             // 
             // toolStripSeparator4
             // 
@@ -197,6 +202,7 @@ namespace e_Locadora.WindowsApp
             this.btnDesagrupar.Padding = new System.Windows.Forms.Padding(5);
             this.btnDesagrupar.Size = new System.Drawing.Size(38, 38);
             this.btnDesagrupar.Text = "toolStripButton1";
+            this.btnDesagrupar.Click += new System.EventHandler(this.btnDesagrupar_Click);
             // 
             // toolStripSeparator2
             // 

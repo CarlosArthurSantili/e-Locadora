@@ -1,4 +1,5 @@
-﻿using e_Locadora.WindowsApp.GrupodeVeiculos;
+﻿using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,13 @@ namespace e_Locadora.WindowsApp
         private ICadastravel operacoes;
 
         public static TelaPrincipalForm Instancia;
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
             Instancia = this;
         }
+
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
@@ -68,9 +71,39 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = operacoes;
+            operacoes = new OperacoesGrupoVeiculo(new ControladorGrupoVeiculo());
 
             ConfigurarPainelRegistros();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            operacoes.InserirNovoRegistro();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            operacoes.EditarRegistro();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            operacoes.ExcluirRegistro();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            operacoes.FiltrarRegistros();
+        }
+
+        private void btnAgrupar_Click(object sender, EventArgs e)
+        {
+            operacoes.AgruparRegistros();
+        }
+
+        private void btnDesagrupar_Click(object sender, EventArgs e)
+        {
+            operacoes.DesagruparRegistros();
         }
     }
 }

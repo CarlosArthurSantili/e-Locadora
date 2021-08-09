@@ -1,5 +1,5 @@
 ﻿
-namespace e_Locadora.WindowsApp.GrupodeVeiculos
+namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 {
     partial class TabelaGrupoVeiculoControl
     {
@@ -29,18 +29,33 @@ namespace e_Locadora.WindowsApp.GrupodeVeiculos
         /// </summary>
         private void InitializeComponent()
         {
+            this.gridGrupoVeiculo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridGrupoVeiculo)).BeginInit();
             this.SuspendLayout();
             // 
-            // TabelaGrupoDeVeiculosControl
+            // gridGrupoVeiculo
+            // 
+            this.gridGrupoVeiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridGrupoVeiculo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridGrupoVeiculo.Location = new System.Drawing.Point(0, 0);
+            this.gridGrupoVeiculo.Name = "gridGrupoVeiculo";
+            this.gridGrupoVeiculo.Size = new System.Drawing.Size(484, 358);
+            this.gridGrupoVeiculo.TabIndex = 0;
+            // 
+            // TabelaGrupoVeiculoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "TabelaGrupoDeVeiculosControl";
+            this.Controls.Add(this.gridGrupoVeiculo);
+            this.Name = "TabelaGrupoVeiculoControl";
             this.Size = new System.Drawing.Size(484, 358);
+            ((System.ComponentModel.ISupportInitialize)(this.gridGrupoVeiculo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView gridGrupoVeiculo;
     }
 }

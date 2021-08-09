@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_Locadora.WindowsApp.GrupodeVeiculos
+namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 {
     public class ConfiguracaoGrupoVeiculoToolBox : IConfiguracaoToolBox
     {
         public string TipoCadastro 
         {
-            get { return "Cadastro de Tarefas"; }
+            get { return "Cadastro Grupo de Veiculos"; }
         }
 
         public string ObterDescricao()
@@ -33,10 +33,10 @@ namespace e_Locadora.WindowsApp.GrupodeVeiculos
         {
             return new ConfiguracaoToolTips()
             {
-                Adicionar = "Adicionar uma nova Categoria",
-                Editar = "Atualizar uma Categoria existente",
-                Excluir = "Excluir uma Categoria existente",
-                Filtrar = "Filtrar categorias"
+                Adicionar = "Adicionar um novo Grupo de Veiculo",
+                Editar = "Atualizar um Grupo de Veiculo existente",
+                Excluir = "Excluir um Grupo de Veiculo existente",
+                Filtrar = "Filtrar Grupo de Veiculos"
             };
         }
     }
