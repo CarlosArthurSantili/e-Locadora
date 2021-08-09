@@ -20,8 +20,6 @@ namespace e_Locadora.Dominio
 
         public double planoKmLivreValorDiario { get; set; }
 
-
-
         public GrupoVeiculo(string categoria, double planoDiarioValorKm, double planoDiarioValorDiario, double planoKmControladoValorKm, double planoKmControladoValorDiario, double planoKmLivreValorDiario)
         {
             this.categoria = categoria;
