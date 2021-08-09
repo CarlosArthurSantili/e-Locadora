@@ -71,5 +71,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
+      <Project>{BF3E7C9C-3390-46CB-93B6-54E8929F509A}</Project>
+      <Name>e-Locadora.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
