@@ -9,7 +9,7 @@ using System.Data;
 
 namespace e_Locadora.Controladores.VeiculoModule
 {
-    public class GrupoVeiculoControlador : Controlador<GrupoVeiculo>
+    public class ControladorGrupoVeiculo : Controlador<GrupoVeiculo>
     {
         private const string sqlInserirGrupoVeiculo =
             @"INSERT INTO TBCATEGORIAS 
