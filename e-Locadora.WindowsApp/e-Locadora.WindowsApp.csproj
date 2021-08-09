@@ -46,11 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
+    <Compile Include="Shared\ConfiguracaoToolTips.cs" />
+    <Compile Include="Shared\DataGridViewExtensions.cs" />
+    <Compile Include="Shared\ICadastravel.cs" />
+    <Compile Include="Shared\IConfiguracaoToolBox.cs" />
+    <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TelaPrincipalForm.Designer.cs">
+      <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,7 +67,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TelaPrincipalForm.resx">
+      <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,9 +87,34 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Veiculo\" />
+    <Folder Include="GrupodeVeiculos\" />
     <Folder Include="Libraries\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Filter Configuration.png" />
+    <None Include="Resources\outline_compress_black_24dp2.png" />
+    <None Include="Resources\outline_expand_black_24dp2.png" />
+    <None Include="Resources\outline_table_rows_black_24dp1.png" />
+    <None Include="Resources\outline_mode_edit_black_24dp1.png" />
+    <None Include="Resources\outline_list_alt_black_24dp1.png" />
+    <None Include="Resources\outline_filter_alt_black_24dp1.png" />
+    <None Include="Resources\outline_expand_black_24dp1.png" />
+    <None Include="Resources\outline_delete_black_24dp1.png" />
+    <None Include="Resources\outline_compress_black_24dp1.png" />
+    <None Include="Resources\outline_add_circle_outline_black_24dp1.png" />
+    <None Include="Resources\Filter Configuration1.png" />
+    <Content Include="Resources\outline_add_circle_outline_black_24dp.png" />
+    <Content Include="Resources\outline_compress_black_24dp.png" />
+    <Content Include="Resources\outline_delete_black_24dp.png" />
+    <Content Include="Resources\outline_expand_black_24dp.png" />
+    <Content Include="Resources\outline_filter_alt_black_24dp.png" />
+    <Content Include="Resources\outline_list_alt_black_24dp.png" />
+    <Content Include="Resources\outline_mode_edit_black_24dp.png" />
+    <Content Include="Resources\outline_table_rows_black_24dp.png" />
+    <Content Include="Resources\outline_view_list_black_24dp.png" />
+    <Content Include="Resources\Symbol Add.png" />
+    <Content Include="Resources\Symbol Delete.png" />
+    <Content Include="Resources\Symbol Pencil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

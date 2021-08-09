@@ -22,8 +22,14 @@ namespace e_Locadora.Tests.GrupoVeiculos
 
             public ControladorGrupoVeiculoTest()
             {
+                LimparTabelas();
                 controlador = new ControladorGrupoVeiculo();
-                Db.Update("DELETE FROM [TBCATEGORIAS]");
+            }
+
+            [TestCleanup()]
+            public void LimparTabelas()
+            {
+                Db.Update("DELETE FROM CATEGORIAS");
             }
 
             [TestMethod]
