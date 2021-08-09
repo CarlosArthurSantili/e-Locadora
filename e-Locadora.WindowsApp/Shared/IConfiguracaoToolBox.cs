@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.WindowsApp.Shared
+namespace e_Locadora.WindowsApp.Shared
 {
     public interface IConfiguracaoToolBox
     {
