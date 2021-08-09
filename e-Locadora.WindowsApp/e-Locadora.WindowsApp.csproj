@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GrupodeVeiculos\ConfiguracaoGrupoVeiculosToolBox.cs" />
+    <Compile Include="GrupodeVeiculos\OperacoesGrupoVeiculos.cs" />
+    <Compile Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -59,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GrupodeVeiculos\TabelaGrupoDeVeiculosControl.resx">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -87,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Veiculo\" />
-    <Folder Include="GrupodeVeiculos\" />
     <Folder Include="Libraries\" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +125,12 @@
     <Content Include="Resources\Symbol Add.png" />
     <Content Include="Resources\Symbol Delete.png" />
     <Content Include="Resources\Symbol Pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
+      <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
+      <Name>e-Locadora.Controladores</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

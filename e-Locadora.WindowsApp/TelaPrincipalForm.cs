@@ -1,4 +1,6 @@
-﻿using System;
+﻿using e_Locadora.WindowsApp.GrupodeVeiculos;
+using e_Locadora.WindowsApp.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +14,14 @@ namespace e_Locadora.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
     {
+        private ICadastravel operacoes;
+
         public static TelaPrincipalForm Instancia;
         public TelaPrincipalForm()
         {
             InitializeComponent();
             Instancia = this;
         }
-
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
@@ -59,7 +62,15 @@ namespace e_Locadora.WindowsApp
 
         private void menuItemGrupoVeiculos_Click(object sender, EventArgs e)
         {
+            ConfiguracaoGrupoVeiculosToolBox configuracao = new ConfiguracaoGrupoVeiculosToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = operacoes;
+
+            ConfigurarPainelRegistros();
         }
     }
 }
