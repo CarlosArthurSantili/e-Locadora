@@ -4,7 +4,9 @@
     [valorDiarioKM]           NUMERIC (18)  NOT NULL,
     [ValorDiario]             NUMERIC (18)  NOT NULL,
     [ValorControladoDiarioKm] NUMERIC (18)  NOT NULL,
-    [ValorControladorDiario]  NUMERIC (18)  NOT NULL,
+    [ValorControladoDiario]  NUMERIC (18)  NOT NULL,
     [ValorLivre]              NUMERIC (18)  NOT NULL
 );
+
+
 

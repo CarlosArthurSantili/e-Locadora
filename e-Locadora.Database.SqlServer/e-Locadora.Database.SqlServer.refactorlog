@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="89a97f56-9e50-4525-b645-463b86062cd6" ChangeDateTime="08/09/2021 17:19:56">
+    <Property Name="ElementName" Value="[dbo].[Categorias].[ValorControladorDiario]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Categorias]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ValorControladoDiario" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2a7d0cb2-e1af-4ef7-85d1-a7e2d762df38" ChangeDateTime="08/09/2021 17:24:02">
+    <Property Name="ElementName" Value="[dbo].[Categorias].[ValorControladorDiario]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Categorias]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ValorControladoDiario" />
+  </Operation>
+</Operations>
