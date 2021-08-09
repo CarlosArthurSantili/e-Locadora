@@ -73,5 +73,89 @@ namespace e_Locadora.Controladores
         {
             Update(sql, parameters);
         }
+        public static List<T> GetAll<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters = null)
+        {
+            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
+
+                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    command.Connection = connection;
+
+                    command.SetParameters(parameters);
+
+                    connection.Open();
+
+                    var list = new List<T>();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var obj = convert(reader);
+                            list.Add(obj);
+                        }
+
+                        return list;
+                    }
+                }
+            }
+        }
+
+        public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters)
+        {
+            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
+
+                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    command.Connection = connection;
+
+                    command.SetParameters(parameters);
+
+                    connection.Open();
+
+                    T t = default;
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+
+                        if (reader.Read())
+                            t = convert(reader);
+
+                        return t;
+                    }
+                }
+            }
+        }
+
+        public static bool Exists(string sql, Dictionary<string, object> parameters)
+        {
+            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
+
+                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    command.Connection = connection;
+
+                    command.SetParameters(parameters);
+
+                    connection.Open();
+
+                    int numberRows = Convert.ToInt32(command.ExecuteScalar());
+
+                    return numberRows > 0;
+                }
+            }
+        }
     }
 }
