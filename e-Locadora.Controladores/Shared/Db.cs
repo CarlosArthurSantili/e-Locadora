@@ -28,6 +28,25 @@ namespace e_Locadora.Controladores
             fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
         }
 
+        public static int Insert(string sql, Dictionary<string, object> parameters)
+        {
+            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
 
+                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                {
+                    command.CommandText = sql.AppendSelectIdentity();
+                    command.Connection = connection;
+                    command.SetParameters(parameters);
+
+                    connection.Open();
+
+                    int id = Convert.ToInt32(command.ExecuteScalar());
+
+                    return id;
+                }
+            }
+        }
     }
 }
