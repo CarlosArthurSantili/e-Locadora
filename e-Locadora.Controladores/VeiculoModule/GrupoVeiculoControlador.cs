@@ -1,4 +1,6 @@
-﻿using System;
+﻿using e_Locadora.Dominio;
+using e_Locadora.Controladores.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.Controladores.VeiculoModule
 {
-    public class GrupoVeiculoControlador
+    public class GrupoVeiculoControlador : Controlador<GrupoVeiculo>
     {
         private const string sqlInserirGrupoVeiculo =
             @"INSERT INTO TBCATEGORIAS 
@@ -78,5 +80,32 @@ namespace e_Locadora.Controladores.VeiculoModule
                 [TBCATEGORIAS]
             WHERE 
                 [ID] = @ID";
+
+        public override string InserirNovo(GrupoVeiculo registro)
+        {
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.Id = Db.Insert(sqlInserirGrupoVeiculo, ObtemParametrosGrupoVeiculo(registro));
+            }
+
+            return resultadoValidacao;
+        }
+
+        private Dictionary<string, object> ObtemParametrosGrupoVeiculo(GrupoVeiculo grupoVeiculo)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", grupoVeiculo.Id);
+            parametros.Add("CATEGORIA", grupoVeiculo.categoria);
+            parametros.Add("VALORDIARIOKM", grupoVeiculo.planoDiarioValorKm);
+            parametros.Add("VALORDIARIO", grupoVeiculo.planoDiarioValorDiario);
+            parametros.Add("VALORCONTROLADODIARIOKM", grupoVeiculo.planoKmControladoValorKm);
+            parametros.Add("VALORCONTROLADODIARIO", grupoVeiculo.planoKmControladoValorDiario);
+            parametros.Add("VALORLIVRE", grupoVeiculo.planoKmLivreValorDiario);
+
+            return parametros;
+        }
     }
 }
