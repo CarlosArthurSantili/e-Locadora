@@ -176,5 +176,22 @@ namespace e_Locadora.Controladores
                 command.Parameters.Add(dbParameter);
             }
         }
+        private static string AppendSelectIdentity(this string sql)
+        {
+            switch (nomeProvider)
+            {
+                case "System.Data.SqlClient": return sql + ";SELECT SCOPE_IDENTITY()";
+
+                case "System.Data.SQLite": return sql + ";SELECT LAST_INSERT_ROWID()";
+
+                default: return sql;
+            }
+        }
+
+        public static bool IsNullOrEmpty(this object value)
+        {
+            return (value is string && string.IsNullOrEmpty((string)value)) ||
+                    value == null;
+        }
     }
 }
