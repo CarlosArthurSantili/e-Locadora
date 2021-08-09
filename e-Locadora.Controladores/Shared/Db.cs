@@ -157,5 +157,24 @@ namespace e_Locadora.Controladores
                 }
             }
         }
+        private static void SetParameters(this IDbCommand command, Dictionary<string, object> parameters)
+        {
+            if (parameters == null || parameters.Count == 0)
+                return;
+
+            foreach (var parameter in parameters)
+            {
+                string name = parameter.Key;
+
+                object value = parameter.Value.IsNullOrEmpty() ? DBNull.Value : parameter.Value;
+
+                IDataParameter dbParameter = command.CreateParameter();
+
+                dbParameter.ParameterName = name;
+                dbParameter.Value = value;
+
+                command.Parameters.Add(dbParameter);
+            }
+        }
     }
 }
