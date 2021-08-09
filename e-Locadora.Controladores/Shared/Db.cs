@@ -48,5 +48,30 @@ namespace e_Locadora.Controladores
                 }
             }
         }
+        public static void Update(string sql, Dictionary<string, object> parameters = null)
+        {
+            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            {
+                connection.ConnectionString = connectionString;
+
+                using (IDbCommand command = fabricaProvedor.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    command.Connection = connection;
+
+                    command.SetParameters(parameters);
+
+                    connection.Open();
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void Delete(string sql, Dictionary<string, object> parameters)
+        {
+            Update(sql, parameters);
+        }
     }
 }
