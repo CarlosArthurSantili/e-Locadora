@@ -93,6 +93,33 @@ namespace e_Locadora.Controladores.VeiculoModule
             return resultadoValidacao;
         }
 
+        public override string Editar(int id, GrupoVeiculo registro)
+        {
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "")
+            {
+                registro.Id = id;
+                Db.Update(sqlEditarGrupoVeiculo, ObtemParametrosGrupoVeiculo(registro));
+            }
+
+            return resultadoValidacao;
+        }
+
+        public override bool Excluir(int id)
+        {
+            try
+            {
+                Db.Delete(sqlExcluirGrupoVeiculo, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private Dictionary<string, object> ObtemParametrosGrupoVeiculo(GrupoVeiculo grupoVeiculo)
         {
             var parametros = new Dictionary<string, object>();
