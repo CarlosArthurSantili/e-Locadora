@@ -15,7 +15,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
-		                [VALORCONTROLADORDIARIO],
+		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
 	                ) 
 	                VALUES
@@ -24,7 +24,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                @VALORDIARIOKM, 
 		                @VALORDIARIO,
                         @VALORCONTROLADODIARIOKM, 
-		                @VALORCONTROLADORDIARIO,
+		                @VALORCONTROLADODIARIO,
                         @VALORLIVRE
 	                )";
 
@@ -35,7 +35,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
-		                [VALORCONTROLADORDIARIO],
+		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
                     WHERE 
                         ID = @ID";
@@ -53,7 +53,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
-		                [VALORCONTROLADORDIARIO],
+		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
 	                FROM
                         TBCATEGORIAS
@@ -66,7 +66,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
-		                [VALORCONTROLADORDIARIO],
+		                [VALORCONTROLADODIARIO],
                         [VALORLIVRE]
 	                FROM
                         TBCATEGORIAS ORDER BY CATEGORIA;";
