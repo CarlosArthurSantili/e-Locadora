@@ -146,11 +146,11 @@ namespace e_Locadora.Controladores.VeiculoModule
             double planoKmControladoValorDiario = Convert.ToDouble(reader["VALORCONTROLADODIARIO"]);
             double planoKmLivreValorDiario = Convert.ToDouble(reader["VALORLIVRE"]);
 
-            GrupoVeiculo contato = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
-            contato.Id = id;
+            grupoVeiculo.Id = id;
 
-            return contato;
+            return grupoVeiculo;
         }
 
         private Dictionary<string, object> ObtemParametrosGrupoVeiculo(GrupoVeiculo grupoVeiculo)
