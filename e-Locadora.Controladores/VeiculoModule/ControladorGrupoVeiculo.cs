@@ -34,12 +34,12 @@ namespace e_Locadora.Controladores.VeiculoModule
         private const string sqlEditarGrupoVeiculo =
             @"UPDATE CATEGORIAS
                     SET
-                        [CATEGORIA], 
-		                [VALORDIARIOKM], 
-		                [VALORDIARIO],
-                        [VALORCONTROLADODIARIOKM], 
-		                [VALORCONTROLADODIARIO],
-                        [VALORLIVRE]
+                        [CATEGORIA] = @CATEGORIA, 
+		                [VALORDIARIOKM] = @VALORDIARIOKM, 
+		                [VALORDIARIO] = @VALORDIARIO,
+                        [VALORCONTROLADODIARIOKM] = @VALORCONTROLADODIARIOKM, 
+		                [VALORCONTROLADODIARIO] = @VALORCONTROLADODIARIO,
+                        [VALORLIVRE] = @VALORLIVRE
                     WHERE 
                         ID = @ID";
 
@@ -52,6 +52,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 
         private const string sqlSelecionarGrupoVeiculoPorId =
             @"SELECT
+                        [ID],
                         [CATEGORIA], 
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
@@ -65,14 +66,13 @@ namespace e_Locadora.Controladores.VeiculoModule
 
         private const string sqlSelecionarTodosGrupoVeiculos =
             @"SELECT
+                        [ID],
                         [CATEGORIA], 
 		                [VALORDIARIOKM], 
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
 		                [VALORCONTROLADODIARIO],
-                        [VALORLIVRE]
-	                FROM
-                        CATEGORIAS ORDER BY CATEGORIA;";
+                        [VALORLIVRE] FROM CATEGORIAS";
 
         private const string sqlExisteGrupoVeiculo =
             @"SELECT 
@@ -98,7 +98,7 @@ namespace e_Locadora.Controladores.VeiculoModule
         {
             string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "")
+            if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarGrupoVeiculo, ObtemParametrosGrupoVeiculo(registro));
