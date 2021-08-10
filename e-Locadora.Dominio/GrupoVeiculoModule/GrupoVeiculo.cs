@@ -67,5 +67,15 @@ namespace e_Locadora.Dominio
                 && planoKmControladoValorKm == other.planoKmControladoValorKm
                 && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

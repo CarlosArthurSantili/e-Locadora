@@ -163,6 +163,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // txtId
             // 
+            this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(15, 23);
             this.txtId.Name = "txtId";

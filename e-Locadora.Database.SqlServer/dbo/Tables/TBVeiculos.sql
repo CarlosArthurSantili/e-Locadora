@@ -10,6 +10,7 @@
     [TamanhoPortaMalas]   INT          NOT NULL,
     [TipoCombustivel]     VARCHAR (50) NOT NULL,
     [GrupoVeiculo]        INT          NOT NULL,
+    [Foto] VARBINARY(MAX) NULL, 
     CONSTRAINT [PK_TBVeiculos] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_TBVeiculos_Categorias] FOREIGN KEY ([GrupoVeiculo]) REFERENCES [dbo].[Categorias] ([Id])
 );
