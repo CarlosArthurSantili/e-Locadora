@@ -8,7 +8,7 @@ namespace e_Locadora.Dominio.Shared
 {
     public abstract class EntidadeBase
     {
-        public int Id;
+        public int Id { get; set; }
 
         public abstract string Validar();
 

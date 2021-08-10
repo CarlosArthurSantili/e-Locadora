@@ -41,7 +41,6 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
             string categoria = txtCategoria.Text;
             double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
             double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
