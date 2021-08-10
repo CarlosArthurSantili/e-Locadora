@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_Locadora.Controladores.ClientesModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace e_Locadora.WindowsApp.ClientesModule
 {
     public partial class TabelaClientesControl : UserControl
     {
+        private readonly ControladorClientes controladorContato;
+
+        private Subro.Controls.DataGridViewGrouper gridClientesAgrupados;
+        private AgrupamentoClientesEnum tipoAgrupamento;
         public TabelaClientesControl()
         {
             InitializeComponent();
