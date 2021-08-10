@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_Locadora.WindowsApp.Features.Veiculo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace e_Locadora.WindowsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaPrincipalForm());
+            Application.Run(new TelaVeiculoForm());
+            //Application.Run(new TelaPrincipalForm());
         }
     }
 }
