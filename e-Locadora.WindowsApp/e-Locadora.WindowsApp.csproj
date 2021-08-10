@@ -46,6 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesModule\ConfiguracaoClientesToolBox.cs" />
+    <Compile Include="ClientesModule\OperacoesClientes.cs" />
+    <Compile Include="ClientesModule\TabelaClientesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClientesModule\TabelaClientesControl.Designer.cs">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesModule\TelaClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesModule\TelaClientesForm.Designer.cs">
+      <DependentUpon>TelaClientesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
     <Compile Include="GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
     <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
@@ -73,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClientesModule\TabelaClientesControl.resx">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
