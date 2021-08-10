@@ -41,8 +41,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            try
-            {
+
                 string categoria = txtCategoria.Text;
                 double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
                 double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
@@ -63,13 +62,6 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
                     DialogResult = DialogResult.None;
                 }
-                this.Close();
-            }
-            catch (Exception e)
-            {
-                
-            }
         }
-
     }
 }
