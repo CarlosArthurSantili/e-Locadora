@@ -46,24 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\Veiculo\TelaVeiculoForm.cs">
+    <Compile Include="Features\VeiculoModule\TelaVeiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Veiculo\TelaVeiculoForm.Designer.cs">
+    <Compile Include="Features\VeiculoModule\TelaVeiculoForm.Designer.cs">
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
-    <Compile Include="GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
-    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
+    <Compile Include="Features\GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
+    <Compile Include="Features\GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
+    <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.Designer.cs">
+    <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.Designer.cs">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.cs">
+    <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
+    <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
@@ -79,21 +79,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VeiculoModule\OperacoesVeiculo.cs" />
-    <Compile Include="VeiculoModule\ConfiguracaoVeiculoToolBox.cs" />
-    <Compile Include="VeiculoModule\TabelaVeiculoControl.cs">
+    <Compile Include="Features\VeiculoModule\OperacoesVeiculo.cs" />
+    <Compile Include="Features\VeiculoModule\ConfiguracaoVeiculoToolBox.cs" />
+    <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VeiculoModule\TabelaVeiculoControl.Designer.cs">
+    <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.Designer.cs">
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Features\Veiculo\TelaVeiculoForm.resx">
+    <EmbeddedResource Include="Features\VeiculoModule\TelaVeiculoForm.resx">
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
+    <EmbeddedResource Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
+    <EmbeddedResource Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -109,7 +109,7 @@
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeiculoModule\TabelaVeiculoControl.resx">
+    <EmbeddedResource Include="Features\VeiculoModule\TabelaVeiculoControl.resx">
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
