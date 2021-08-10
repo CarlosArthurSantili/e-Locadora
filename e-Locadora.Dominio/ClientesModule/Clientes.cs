@@ -37,13 +37,7 @@ namespace e_Locadora.Dominio.ClientesModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo endereço é obrigatório e não pode ser vazio.";
             if(Telefone.Length < 9 )
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Telefone está invalido.";
-            if(RG.Length <=0 || RG.Length > 9)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo RG está invalido.";
-            if (CPF.Length <= 0 || CPF.Length > 11)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo CPF está invalido.";
-            if (CNPJ.Length <= 0 || CNPJ.Length > 14)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo CNPJ está invalido.";
-
+           
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
