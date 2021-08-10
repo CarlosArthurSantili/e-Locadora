@@ -41,33 +41,25 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string categoria = txtCategoria.Text;
-                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
-                double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
-                double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
-                double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
-                double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
+            string categoria = txtCategoria.Text;
+            double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
+            double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
+            double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
+            double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
+            double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
             
 
-                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoValorKm, planoLivreValorDiario);
+            grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoValorKm, planoLivreValorDiario);
 
-                string resultadoValidacao = grupoVeiculo.Validar();
+            string resultadoValidacao = grupoVeiculo.Validar();
 
-                if (resultadoValidacao != "ESTA_VALIDO")
-                {
-                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-
-                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
-
-                    DialogResult = DialogResult.None;
-                }
-                this.Close();
-            }
-            catch (Exception e)
+            if (resultadoValidacao != "ESTA_VALIDO")
             {
-                
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
             }
         }
 

@@ -50,6 +50,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // btnGravar
             // 
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(228, 160);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
@@ -60,6 +61,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(309, 160);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
