@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_Locadora.Dominio.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,47 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.Dominio.ClientesModule
 {
-    public class Clientes
+    public class Clientes : EntidadeBase
     {
+        public string Nome { get; }
+        public string Endereco { get; }
+        public string Telefone { get; }
+        public string RG { get; }
+        public string CPF { get; }
+        public string CNPJ { get; }
 
+        public Clientes(string nome, string endereco, string telefone, string rG,
+            string cPF, string cNPJ)
+        {
+            Nome = nome;
+            Endereco = endereco;
+            Telefone = telefone;
+            RG = rG;
+            CPF = cPF;
+            CNPJ = cNPJ;
+        }
+
+        public override string Validar()
+        {
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
+            if(string.IsNullOrEmpty(Endereco))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo endereço é obrigatório e não pode ser vazio.";
+            if(Telefone.Length < 9 )
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Telefone está invalido.";
+            if(RG.Length <=0 || RG.Length > 9)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo RG está invalido.";
+            if (CPF.Length <= 0 || CPF.Length > 11)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo CPF está invalido.";
+            if (CNPJ.Length <= 0 || CNPJ.Length > 14)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo CNPJ está invalido.";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
+        }
     }
 }
