@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.Controladores.VeiculoModule
 {
-    class ControladorVeiculos : Controlador<Veiculo>
+    public class ControladorVeiculos : Controlador<Veiculo>
     {
         #region Queries
         private const string sqlInserirVeiculo =
