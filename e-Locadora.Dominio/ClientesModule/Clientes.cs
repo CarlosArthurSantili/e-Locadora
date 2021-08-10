@@ -49,5 +49,30 @@ namespace e_Locadora.Dominio.ClientesModule
 
             return resultadoValidacao;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Clientes clientes &&
+                   Id == clientes.Id &&
+                   Nome == clientes.Nome &&
+                   Endereco == clientes.Endereco &&
+                   Telefone == clientes.Telefone &&
+                   RG == clientes.RG &&
+                   CPF == clientes.CPF &&
+                   CNPJ == clientes.CNPJ;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1618408693;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RG);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CPF);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CNPJ);
+            return hashCode;
+        }
     }
 }
