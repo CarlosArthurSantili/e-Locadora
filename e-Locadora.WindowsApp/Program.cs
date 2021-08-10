@@ -1,4 +1,4 @@
-﻿using e_Locadora.WindowsApp.Features.Veiculo;
+﻿using e_Locadora.WindowsApp.Features.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

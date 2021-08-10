@@ -15,7 +15,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 {
     public partial class TabelaVeiculoControl : UserControl
     {
-        public ControladorVeiculos contorladorVeiculos = new ControladorVeiculos();
+        public ControladorVeiculos controladorVeiculos = new ControladorVeiculos();
         public TabelaVeiculoControl()
         {
             InitializeComponent();
@@ -60,15 +60,12 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             return gridVeiculo.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<Veiculo> veiculos)
+        public void AtualizarRegistros()
         {
-            gridVeiculo.Rows.Clear();
+            var veiculo = controladorVeiculos.SelecionarTodos();
 
-            foreach (Veiculo veiculo in veiculos)
-            {
-                gridVeiculo.Rows.Add(veiculo.Id, veiculo.Placa, veiculo.Fabricante, veiculo.QtdLitrosTanque,
-                    veiculo.NumeroChassi, veiculo.Cor, veiculo.CapacidadeOcupantes, veiculo.AnoFabricacao, veiculo.TamanhoPortaMalas, veiculo.Combustivel,  veiculo.GrupoVeiculo.categoria); ;
-            }
+            CarregarTabela(veiculo);
+
         }
 
         private void CarregarTabela(List<Veiculo> grupoVeiculos)

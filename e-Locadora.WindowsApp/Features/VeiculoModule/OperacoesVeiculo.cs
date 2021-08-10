@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio.VeiculosModule;
+using e_Locadora.WindowsApp.Features.VeiculoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -37,53 +38,53 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
         public void EditarRegistro()
         {
-            //int id = tabelaVeiculoControl.ObtemIdSelecionado();
+            int id = tabelaVeiculoControl.ObtemIdSelecionado();
 
-            //if (id == 0)
-            //{
-            //    MessageBox.Show("Selecione um Veiculo para poder editar!", "Edição de Veiculos",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Veiculo para poder editar!", "Edição de Veiculos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            //Veiculo VeiculoSelecionada = controladorVeiculo.SelecionarPorId(id);
+            Veiculo VeiculoSelecionada = controladorVeiculo.SelecionarPorId(id);
 
-            //TelaVeiculoForm tela = new TelaVeiculoForm();
+            TelaVeiculoForm tela = new TelaVeiculoForm();
 
-            //tela.Veiculo = VeiculoSelecionada;
+            tela.Veiculo = VeiculoSelecionada;
 
-            //if (tela.ShowDialog() == DialogResult.OK)
-            //{
-            //    controladorVeiculo.Editar(id, tela.Veiculo);
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controladorVeiculo.Editar(id, tela.Veiculo);
 
-            //    tabelaVeiculoControl.AtualizarRegistros();
+                tabelaVeiculoControl.AtualizarRegistros();
 
-            //    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.placa}] editado com sucesso");
-            //}
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
         {
-            //int id = tabelaVeiculoControl.ObtemIdSelecionado();
+            int id = tabelaVeiculoControl.ObtemIdSelecionado();
 
-            //if (id == 0)
-            //{
-            //    MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Veiculo",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Veiculo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            //Veiculo VeiculoSelecionada = controladorVeiculo.SelecionarPorId(id);
+            Veiculo VeiculoSelecionada = controladorVeiculo.SelecionarPorId(id);
 
-            //if (MessageBox.Show($"Tem certeza que deseja excluir o veiculo: [{VeiculoSelecionada.Placa}] ?",
-            //    "Exclusão de Veiculo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            //{
-            //    controladorVeiculo.Excluir(id);
+            if (MessageBox.Show($"Tem certeza que deseja excluir o veiculo: [{VeiculoSelecionada.Placa}] ?",
+                "Exclusão de Veiculo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controladorVeiculo.Excluir(id);
 
-            //    tabelaVeiculoControl.AtualizarRegistros();
+                tabelaVeiculoControl.AtualizarRegistros();
 
-            //    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{VeiculoSelecionada.Placa}] removido com sucesso");
-            //}
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{VeiculoSelecionada.Placa}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
@@ -93,25 +94,21 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
         public void InserirNovoRegistro()
         {
-            //TelaVeiculoForm tela = new TelaVeiculoForm();
+            TelaVeiculoForm tela = new TelaVeiculoForm();
 
-            //if (tela.ShowDialog() == DialogResult.OK)
-            //{
-            //    controladorVeiculo.InserirNovo(tela.Veiculo);
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controladorVeiculo.InserirNovo(tela.Veiculo);
 
-            //    List<Veiculo> veiculos = controladorVeiculo.SelecionarTodos();
+                tabelaVeiculoControl.AtualizarRegistros();
 
-            //    tabelaVeiculoControl.AtualizarRegistros(veiculos);
-
-            //    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo}] inserido com sucesso");
-            //}
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] inserido com sucesso");
+            }
         }
 
         public UserControl ObterTabela()
         {
-            List<Veiculo> veiculos = controladorVeiculo.SelecionarTodos();
-
-            tabelaVeiculoControl.AtualizarRegistros(veiculos);
+            tabelaVeiculoControl.AtualizarRegistros();
 
             return tabelaVeiculoControl;
         }

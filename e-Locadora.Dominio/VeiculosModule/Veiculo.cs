@@ -9,12 +9,13 @@ namespace e_Locadora.Dominio.VeiculosModule
 {
     public class Veiculo : EntidadeBase
     {
-        public Veiculo(string placa,string fabricante,int qtdlitros,string chassi,string cor,
+        public Veiculo(string placa,string fabricante,int qtdlitros,int qtdPortas, string chassi,string cor,
             int passageiros,int ano,int portamalas, CombustivelEnum combustivel,GrupoVeiculo grupo)
         {
             Placa = placa;
             Fabricante = fabricante;
             QtdLitrosTanque = qtdlitros;
+            QtdPortas = qtdPortas;
             NumeroChassi = chassi;
             Cor = cor;
             CapacidadeOcupantes = passageiros;
@@ -27,6 +28,7 @@ namespace e_Locadora.Dominio.VeiculosModule
         public string Placa { get; }
         public string Fabricante { get; }
         public int QtdLitrosTanque { get; }
+        public int QtdPortas { get; }
         public string NumeroChassi { get; }
         public string Cor { get; }
         public int CapacidadeOcupantes { get; }
