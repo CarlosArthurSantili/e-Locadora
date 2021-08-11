@@ -34,7 +34,33 @@ namespace e_Locadora.Dominio.CondutoresModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
+
+            if (string.IsNullOrEmpty(Endereco))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo endereço é obrigatório e não pode ser vazio.";
+
+            if (Telefone.Length < 9)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Telefone está invalido.";
+
+            if (string.IsNullOrEmpty(Rg))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Numero do Rg é obrigatório e não pode ser vazio.";
+
+            if (string.IsNullOrEmpty(Cpf))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Numero do Cpf é obrigatório e não pode ser vazio.";
+
+            if (string.IsNullOrEmpty(NumeroCNH))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Numero da CNH é obrigatório e não pode ser vazio.";
+
+            if (ValidadeCNH == DateTime.MinValue)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Data é obrigatório";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
