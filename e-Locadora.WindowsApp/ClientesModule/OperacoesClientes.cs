@@ -94,12 +94,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
 
         public void AgruparRegistros()
         {
-            AgrupamentosClientesForm telaAgrupamento = new AgrupamentosClientesForm();
-
-            if (telaAgrupamento.ShowDialog() == DialogResult.OK)
-            {
-                tabelaClientes.AgruparClientes(telaAgrupamento.TipoAgrupamento);
-            }
+         
         }
         public void DesagruparRegistros()
         {
