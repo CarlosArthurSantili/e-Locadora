@@ -83,5 +83,11 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
+
+        private void TelaClientesForm_Load(object sender, EventArgs e)
+        {
+            rbCPF.Checked = true;
+            txtCnpj.Enabled = false;
+        }
     }
 }

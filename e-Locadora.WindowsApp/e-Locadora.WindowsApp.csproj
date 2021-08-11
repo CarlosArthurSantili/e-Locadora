@@ -180,10 +180,6 @@
       <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
       <Name>e-Locadora.Controladores</Name>
     </ProjectReference>
-    <ProjectReference Include="..\e-Locadora.Database.SqlServer\e-Locadora.Database.SqlServer.sqlproj">
-      <Project>{83e89b3f-3c2c-491b-b248-130f72c2cfc0}</Project>
-      <Name>e-Locadora.Database.SqlServer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
       <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
       <Name>e-Locadora.Dominio</Name>

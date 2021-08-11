@@ -64,8 +64,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
    
         private void CarregarTbela(List<Clientes> clientes)
         {
-            gridClientes.DataSource = clientes;
-    
+            gridClientes.DataSource = clientes;    
         }
 
     }
