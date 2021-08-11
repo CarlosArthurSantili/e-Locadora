@@ -25,7 +25,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANODEFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [GRUPOVEICULO] 
+                        [IDGRUPOVEICULO],
+                        [IMAGEM] 
 	                ) 
 	                VALUES
 	                (
@@ -38,7 +39,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         @ANODEFABRICACAO,
                         @TAMANHOPORTAMALAS,
                         @TIPOCOMBUSTIVEL,
-                        @GRUPOVEICULO
+                        @IDGRUPOVEICULO,
+                        @IMAGEM
 	                )";
 
         private const string sqlEditarVeiculo =
@@ -53,7 +55,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANODEFABRICACAO] = @ANODEFABRICACAO,
                         [TAMANHOPORTAMALAS] = @TAMANHOPORTAMALAS,
                         [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
-                        [GRUPOVEICULO] = @GRUPOVEICULO
+                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO
+                        [IMAGEM] = @IMAGEM
                     WHERE 
                         ID = @ID";
 
@@ -84,7 +87,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANODEFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [GRUPOVEICULO]
+                        [GRUPOVEICULO],
+                        [IMAGEM]
 	                FROM
                         TBVEICULOS
                     WHERE 
@@ -102,7 +106,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANODEFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [GRUPOVEICULO]";
+                        [GRUPOVEICULO],
+                        [IMAGEM]";
 
 
         #endregion
@@ -168,13 +173,14 @@ namespace e_Locadora.Controladores.VeiculoModule
             int id = Convert.ToInt32(reader["ID"]);
             string placa = Convert.ToString(reader["PLACA"]);
             string fabricante = Convert.ToString(reader["FABRICANTE"]);
-            int qtdlitros = Convert.ToInt32(reader["QTDLITROSTANQUE"]);
+            int qtdLitrosTanque = Convert.ToInt32(reader["QTDLITROSTANQUE"]);
+
             string numeroChassi = Convert.ToString(reader["NUMEROCHASSI"]);
             string cor = Convert.ToString(reader["COR"]);
             int capacidadeDeOcupantes = Convert.ToInt32(reader["CAPACIDADEOCUPANTES"]);
-            int anoFabricacao = Convert.ToInt32(reader["ANODEFABRICACAO"]);
-            int tamanhoPortaMalas = Convert.ToInt32(reader["TAMANHOPORTAMALAS"]);
-            var combustivel  = Convert.ToInt32(reader["TIPOCOMBUSTIVEL"]);
+            int anoFabricacao = Convert.ToInt32(reader["ANOFABRICACAO"]);
+            string tamanhoPortaMalas = Convert.ToString(reader["TAMANHOPORTAMALAS"]);
+            string combustivel  = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
 
             string categoria = Convert.ToString(reader["CATEGORIA"]);
             double planoDiarioValorKm = Convert.ToDouble(reader["VALORDIARIOKM"]);
@@ -185,11 +191,11 @@ namespace e_Locadora.Controladores.VeiculoModule
 
             GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
-            Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros,qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
+            //Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
 
-            veiculo.Id = id;
+            //veiculo.Id = id;
 
-            return veiculo;
+            return null;
         }
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {

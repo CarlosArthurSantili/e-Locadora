@@ -88,6 +88,7 @@ namespace e_Locadora.WindowsApp
             this.menuItemContato.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.menuItemContato.Size = new System.Drawing.Size(188, 22);
             this.menuItemContato.Text = "Veiculos";
+            this.menuItemContato.Click += new System.EventHandler(this.menuItemContato_Click);
             // 
             // menuItemClientes
             // 

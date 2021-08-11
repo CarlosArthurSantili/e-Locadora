@@ -17,8 +17,8 @@ namespace e_Locadora.WindowsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaVeiculoForm());
-            //Application.Run(new TelaPrincipalForm());
+            //Application.Run(new TelaVeiculoForm());
+            Application.Run(new TelaPrincipalForm());
         }
     }
 }
