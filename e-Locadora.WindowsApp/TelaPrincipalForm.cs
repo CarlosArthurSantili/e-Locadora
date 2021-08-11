@@ -3,6 +3,7 @@ using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Shared;
+using e_Locadora.WindowsApp.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +121,17 @@ namespace e_Locadora.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
- 
+        private void menuItemContato_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesVeiculo(new ControladorVeiculos());
+
+            ConfigurarPainelRegistros();
+        }
     }
 }
