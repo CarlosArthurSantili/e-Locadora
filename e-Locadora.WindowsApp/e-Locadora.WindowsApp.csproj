@@ -127,9 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Veiculo\" />
+    <Folder Include="Libraries\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Libraries\DataGridViewGrouper.dll" />
     <Content Include="Resources\Filter Configuration.png" />
     <None Include="Resources\outline_compress_black_24dp2.png" />
     <None Include="Resources\outline_expand_black_24dp2.png" />

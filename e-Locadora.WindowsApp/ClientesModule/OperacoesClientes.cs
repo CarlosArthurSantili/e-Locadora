@@ -86,10 +86,16 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
             }
         }
+        public UserControl ObterTabela()
+        {
+            tabelaClientes.AtualizarRegistros();
+
+            return tabelaClientes;
+        }
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
+           
         }
 
         public void AgruparRegistros()
@@ -98,14 +104,9 @@ namespace e_Locadora.WindowsApp.ClientesModule
         }
         public void DesagruparRegistros()
         {
-            tabelaClientes.DesagruparClientes();
+          
         }
 
-        public UserControl ObterTabela()
-        {
-            tabelaClientes.AtualizarRegistros();
-
-            return tabelaClientes;
-        }
+ 
     }
 }

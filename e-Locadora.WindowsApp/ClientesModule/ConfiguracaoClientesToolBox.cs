@@ -23,8 +23,8 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             return new ConfiguracaoEstadoBotoes()
             {
-                Agrupar = true,
-                Desagrupar = true,
+                Agrupar = false,
+                Desagrupar = false,
                 Filtrar = false
             };
         }
