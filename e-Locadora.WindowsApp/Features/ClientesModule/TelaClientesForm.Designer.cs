@@ -239,6 +239,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Cadastro de Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaClientesForm_FormClosing);
+            this.Load += new System.EventHandler(this.TelaClientesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
