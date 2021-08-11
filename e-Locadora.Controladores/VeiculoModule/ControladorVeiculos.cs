@@ -23,11 +23,10 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
-                        [ANODEFABRICACAO],
+                        [ANOFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [IDGRUPOVEICULO],
-                        [IMAGEM] 
+                        [IDGRUPOVEICULO]
 	                ) 
 	                VALUES
 	                (
@@ -38,17 +37,18 @@ namespace e_Locadora.Controladores.VeiculoModule
                         @NUMEROCHASSI,
                         @COR, 
 		                @CAPACIDADEOCUPANTES,
-                        @ANODEFABRICACAO,
+                        @ANOFABRICACAO,
                         @TAMANHOPORTAMALAS,
                         @TIPOCOMBUSTIVEL,
-                        @IDGRUPOVEICULO,
-                        @IMAGEM
+                        @IDGRUPOVEICULO
 	                )";
+
+
 
         private const string sqlEditarVeiculo =
          @"UPDATE TBVEICULOS
                     SET
-                        [PLACA] = @PLACA
+                        [PLACA] = @PLACA,
 		                [FABRICANTE] = @FABRICANTE, 
 		                [QTDLITROSTANQUE] = @QTDLITROSTANQUE,
                         [QTDPORTAS] = @QTDPORTAS,
@@ -59,7 +59,6 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [TAMANHOPORTAMALAS] = @TAMANHOPORTAMALAS,
                         [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
                         [IDGRUPOVEICULO] = @IDGRUPOVEICULO
-                        [IMAGEM] = @IMAGEM
                     WHERE 
                         ID = @ID";
 
@@ -187,15 +186,10 @@ namespace e_Locadora.Controladores.VeiculoModule
             int anoFabricacao = Convert.ToInt32(reader["ANOFABRICACAO"]);
             string tamanhoPortaMalas = Convert.ToString(reader["TAMANHOPORTAMALAS"]);
             string combustivel  = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
+            int idGrupoVeiculo = Convert.ToInt32(reader["IDGRUPOVEICULO"]);
 
-            string categoria = Convert.ToString(reader["CATEGORIA"]);
-            double planoDiarioValorKm = Convert.ToDouble(reader["VALORDIARIOKM"]);
-            double planoDiarioValorDiario = Convert.ToDouble(reader["VALORDIARIO"]);
-            double planoKmControladoValorKm = Convert.ToDouble(reader["VALORCONTROLADODIARIOKM"]);
-            double planoKmControladoValorDiario = Convert.ToDouble(reader["VALORCONTROLADODIARIO"]);
-            double planoKmLivreValorDiario = Convert.ToDouble(reader["VALORLIVRE"]);
-
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
+            GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
             Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo);
 
@@ -211,13 +205,14 @@ namespace e_Locadora.Controladores.VeiculoModule
             parametros.Add("PLACA", veiculo.Placa);
             parametros.Add("FABRICANTE", veiculo.Fabricante);
             parametros.Add("QTDLITROSTANQUE", veiculo.QtdLitrosTanque);
+            parametros.Add("QTDPORTAS", veiculo.QtdPortas);
             parametros.Add("NUMEROCHASSI", veiculo.NumeroChassi);
             parametros.Add("COR", veiculo.Cor);
             parametros.Add("CAPACIDADEOCUPANTES", veiculo.CapacidadeOcupantes);
-            parametros.Add("ANODEFABRICACAO", veiculo.AnoFabricacao);
+            parametros.Add("ANOFABRICACAO", veiculo.AnoFabricacao);
             parametros.Add("TAMANHOPORTAMALAS", veiculo.TamanhoPortaMalas);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.Combustivel);
-            parametros.Add("GRUPOVEICULOS", veiculo.GrupoVeiculo);
+            parametros.Add("IDGRUPOVEICULO", veiculo.GrupoVeiculo.Id);
 
 
             return parametros;

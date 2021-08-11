@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace e_Locadora.Dominio.VeiculosModule
 {
@@ -36,6 +37,8 @@ namespace e_Locadora.Dominio.VeiculosModule
         public string TamanhoPortaMalas { get; set; }
         public string Combustivel { get; set; }
         public GrupoVeiculo GrupoVeiculo { get; set; }
+
+        //public byte[] Imagem{ get; set; }
 
         public override string Validar()
         {

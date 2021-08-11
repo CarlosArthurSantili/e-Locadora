@@ -48,7 +48,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Combustivel", HeaderText = "Combustivel" },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "GrupoVeiculos", HeaderText = "Grupo Veiculos" }
+                new DataGridViewTextBoxColumn { DataPropertyName = "GrupoVeiculo", HeaderText = "Grupo Veiculo" }
 
           };
            

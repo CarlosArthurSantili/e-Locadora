@@ -158,7 +158,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelPlaca
             // 
             this.labelPlaca.AutoSize = true;
-            this.labelPlaca.Location = new System.Drawing.Point(7, 49);
+            this.labelPlaca.Location = new System.Drawing.Point(7, 45);
             this.labelPlaca.Name = "labelPlaca";
             this.labelPlaca.Size = new System.Drawing.Size(34, 13);
             this.labelPlaca.TabIndex = 11;
@@ -168,7 +168,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelChassi
             // 
             this.labelChassi.AutoSize = true;
-            this.labelChassi.Location = new System.Drawing.Point(7, 74);
+            this.labelChassi.Location = new System.Drawing.Point(7, 71);
             this.labelChassi.Name = "labelChassi";
             this.labelChassi.Size = new System.Drawing.Size(38, 13);
             this.labelChassi.TabIndex = 12;
@@ -177,7 +177,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCor
             // 
             this.labelCor.AutoSize = true;
-            this.labelCor.Location = new System.Drawing.Point(8, 100);
+            this.labelCor.Location = new System.Drawing.Point(7, 97);
             this.labelCor.Name = "labelCor";
             this.labelCor.Size = new System.Drawing.Size(23, 13);
             this.labelCor.TabIndex = 13;
@@ -186,7 +186,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelFabricante
             // 
             this.labelFabricante.AutoSize = true;
-            this.labelFabricante.Location = new System.Drawing.Point(8, 126);
+            this.labelFabricante.Location = new System.Drawing.Point(7, 123);
             this.labelFabricante.Name = "labelFabricante";
             this.labelFabricante.Size = new System.Drawing.Size(57, 13);
             this.labelFabricante.TabIndex = 14;
@@ -195,7 +195,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCapacidadeTanque
             // 
             this.labelCapacidadeTanque.AutoSize = true;
-            this.labelCapacidadeTanque.Location = new System.Drawing.Point(8, 152);
+            this.labelCapacidadeTanque.Location = new System.Drawing.Point(8, 149);
             this.labelCapacidadeTanque.Name = "labelCapacidadeTanque";
             this.labelCapacidadeTanque.Size = new System.Drawing.Size(104, 13);
             this.labelCapacidadeTanque.TabIndex = 15;
@@ -245,6 +245,11 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // comboBoxGasolina
             // 
             this.comboBoxGasolina.FormattingEnabled = true;
+            this.comboBoxGasolina.Items.AddRange(new object[] {
+            "Gasolina",
+            "Etanol",
+            "Diesel",
+            "Flex"});
             this.comboBoxGasolina.Location = new System.Drawing.Point(121, 250);
             this.comboBoxGasolina.Name = "comboBoxGasolina";
             this.comboBoxGasolina.Size = new System.Drawing.Size(121, 21);
@@ -296,6 +301,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // txtId
             // 
+            this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(121, 16);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
@@ -313,10 +320,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // comboBoxGrupoVeiculo
             // 
             this.comboBoxGrupoVeiculo.FormattingEnabled = true;
-            this.comboBoxGrupoVeiculo.Items.AddRange(new object[] {
-            "Pequeno",
-            "Médio",
-            "Grande"});
             this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(370, 227);
             this.comboBoxGrupoVeiculo.Name = "comboBoxGrupoVeiculo";
             this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(121, 21);

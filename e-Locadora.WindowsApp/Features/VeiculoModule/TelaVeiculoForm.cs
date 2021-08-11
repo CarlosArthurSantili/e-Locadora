@@ -28,7 +28,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         public Veiculo Veiculo
         {
-            get { return Veiculo; }
+            get { return veiculo; }
 
             set
             {
@@ -39,13 +39,15 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 txtChassi.Text = veiculo.NumeroChassi;
                 txtCor.Text = veiculo.Cor;
                 txtFabricante.Text = veiculo.Fabricante;
-                txtCapacidadeTanque.Text = veiculo.Combustivel.ToString();
+                txtCapacidadeTanque.Text = veiculo.QtdLitrosTanque.ToString();
                 txtQtdPortas.Text = veiculo.QtdPortas.ToString();
                 txtAno.Text = veiculo.AnoFabricacao.ToString();
                 txtCapacidadePessoas.Text = veiculo.CapacidadeOcupantes.ToString();
                 comboBoxGasolina.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
+
+                
             }
         }
 
@@ -105,6 +107,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 comboBoxGrupoVeiculo.Items.Add(grupoVeiculo);
         }
 
+        #region Eventos não utilizados
         private void comboBoxPortaMalas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -129,5 +132,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         {
 
         }
+        #endregion
     }
 }
