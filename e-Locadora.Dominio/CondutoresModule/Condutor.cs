@@ -62,5 +62,34 @@ namespace e_Locadora.Dominio.CondutoresModule
 
             return resultadoValidacao;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Condutor condutor &&
+                   Id == condutor.Id &&
+                   Nome == condutor.Nome &&
+                   Endereco == condutor.Endereco &&
+                   Telefone == condutor.Telefone &&
+                   Rg == condutor.Rg &&
+                   Cpf == condutor.Cpf &&
+                   NumeroCNH == condutor.NumeroCNH &&
+                   ValidadeCNH == condutor.ValidadeCNH &&
+                   EqualityComparer<Clientes>.Default.Equals(Cliente, condutor.Cliente);
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 987487998;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Rg);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cpf);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(NumeroCNH);
+            hashCode = hashCode * -1521134295 + ValidadeCNH.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Clientes>.Default.GetHashCode(Cliente);
+            return hashCode;
+        }
     }
 }
