@@ -24,13 +24,16 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             get { return tipoAgrupamento; }
         }
-        public TabelaClientesControl()
+
+        public TabelaClientesControl(ControladorClientes controladorClientes)
         {
             InitializeComponent();
             gridClientes.ConfigurarGridZebrado();
             gridClientes.ConfigurarGridSomenteLeitura();
             gridClientes.Columns.AddRange(ObterColunas());
             this.controladorClientes = controladorClientes;
+
+            tipoAgrupamento = AgrupamentoClientesEnum.TodosClientes;
         }
         public DataGridViewColumn[] ObterColunas()
         {
