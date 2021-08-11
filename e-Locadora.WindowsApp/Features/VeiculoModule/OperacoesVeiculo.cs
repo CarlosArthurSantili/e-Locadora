@@ -14,9 +14,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
     public class OperacoesVeiculo : ICadastravel
     {
         private ControladorVeiculos controladorVeiculo = null;
-        private ControladorGrupoVeiculo controladorGrupoVeiculo = null;
         private TabelaVeiculoControl tabelaVeiculoControl = null;
-
 
 
         public OperacoesVeiculo(ControladorVeiculos ctrlVeiculo)
@@ -28,12 +26,10 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
         public void AgruparRegistros()
         {
-            throw new NotImplementedException();
         }
 
         public void DesagruparRegistros()
         {
-            throw new NotImplementedException();
         }
 
         public void EditarRegistro()
@@ -89,7 +85,6 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
         }
 
         public void InserirNovoRegistro()
