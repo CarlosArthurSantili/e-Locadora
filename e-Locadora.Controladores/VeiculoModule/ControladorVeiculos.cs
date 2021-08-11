@@ -52,7 +52,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [NUMEROCHASSI] = @NUMEROCHASSI, 
 		                [COR] = @COR,
                         [CAPACIDADEOCUPANTES] = @CAPACIDADEOCUPANTES,
-                        [ANODEFABRICACAO] = @ANODEFABRICACAO,
+                        [ANOFABRICACAO] = @ANOFABRICACAO,
                         [TAMANHOPORTAMALAS] = @TAMANHOPORTAMALAS,
                         [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
                         [IDGRUPOVEICULO] = @IDGRUPOVEICULO
@@ -84,10 +84,10 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
-                        [ANODEFABRICACAO],
+                        [ANOFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [GRUPOVEICULO],
+                        [IDGRUPOVEICULO],
                         [IMAGEM]
 	                FROM
                         TBVEICULOS
@@ -103,11 +103,12 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
-                        [ANODEFABRICACAO],
+                        [ANOFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [GRUPOVEICULO],
-                        [IMAGEM]";
+                        [IDGRUPOVEICULO],
+                        [IMAGEM]
+FROM TBVEICULOS";
 
 
         #endregion
