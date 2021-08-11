@@ -14,4 +14,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ValorControladoDiario" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="57450777-adbe-4a1d-99f7-83cbaeed6440" ChangeDateTime="08/11/2021 16:11:42">
+    <Property Name="ElementName" Value="[dbo].[TBVeiculos].[GrupoVeiculo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBVeiculos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="idGrupoVeiculo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ea8067a5-c6d0-4902-869d-e0b7f68fe3f8" ChangeDateTime="08/11/2021 16:11:59">
+    <Property Name="ElementName" Value="[dbo].[TBVeiculos].[AnoDeFabricação]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBVeiculos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AnoFabricacao" />
+  </Operation>
 </Operations>
