@@ -11,12 +11,15 @@ namespace e_Locadora.Dominio.TaxasServicosModule
     public class TaxasServicos : EntidadeBase
     {
         public string Descricao { get; }
-        public double Valor { get; } 
+        public double Valor { get; }
+        public double TaxaFixa { get; }
+        public double TaxaVariavel { get; }
 
-        public TaxasServicos(string descricao, double valor)
+        public TaxasServicos(string descricao, double taxaFixa, double taxaVariavel)
         {
             Descricao = descricao;
-            Valor = valor;
+            TaxaFixa = taxaFixa;
+            TaxaVariavel = taxaVariavel;    
         }
         public override string Validar()
         {
@@ -24,9 +27,6 @@ namespace e_Locadora.Dominio.TaxasServicosModule
 
             if (string.IsNullOrEmpty(Descricao))
                 resultadoValidacao = "O campo descrição é obrigatório e não pode ser vazio.";
-
-            if (Valor <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Valor nao pode Ser Nullo";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
@@ -38,7 +38,9 @@ namespace e_Locadora.Dominio.TaxasServicosModule
         {
             return obj is TaxasServicos servicos &&
                    Descricao == servicos.Descricao &&
-                   Valor == servicos.Valor;
+                   Valor == servicos.Valor &&
+                   TaxaFixa == servicos.TaxaFixa &&
+                   TaxaVariavel == servicos.TaxaVariavel;
         }
 
         public override int GetHashCode()
