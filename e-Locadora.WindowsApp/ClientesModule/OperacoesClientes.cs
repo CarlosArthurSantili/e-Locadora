@@ -86,31 +86,27 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
             }
         }
-
-        public void FiltrarRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AgruparRegistros()
-        {
-            AgrupamentosClientesForm telaAgrupamento = new AgrupamentosClientesForm();
-
-            if (telaAgrupamento.ShowDialog() == DialogResult.OK)
-            {
-                tabelaClientes.AgruparClientes(telaAgrupamento.TipoAgrupamento);
-            }
-        }
-        public void DesagruparRegistros()
-        {
-            tabelaClientes.DesagruparClientes();
-        }
-
         public UserControl ObterTabela()
         {
             tabelaClientes.AtualizarRegistros();
 
             return tabelaClientes;
         }
+
+        public void FiltrarRegistros()
+        {
+           
+        }
+
+        public void AgruparRegistros()
+        {
+         
+        }
+        public void DesagruparRegistros()
+        {
+          
+        }
+
+ 
     }
 }

@@ -17,13 +17,6 @@ namespace e_Locadora.WindowsApp.ClientesModule
     {
         private readonly ControladorClientes controladorClientes;
 
-        private Subro.Controls.DataGridViewGrouper gridClientesAgrupados;
-        private AgrupamentoClientesEnum tipoAgrupamento;
-
-        public AgrupamentoClientesEnum TipoAgrupamento
-        {
-            get { return tipoAgrupamento; }
-        }
 
         public TabelaClientesControl(ControladorClientes controladorClientes)
         {
@@ -33,7 +26,6 @@ namespace e_Locadora.WindowsApp.ClientesModule
             gridClientes.Columns.AddRange(ObterColunas());
             this.controladorClientes = controladorClientes;
 
-            tipoAgrupamento = AgrupamentoClientesEnum.TodosClientes;
         }
         public DataGridViewColumn[] ObterColunas()
         {
@@ -60,79 +52,20 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             return gridClientes.SelecionarId<int>();
         }
-        public void AgruparClientes(AgrupamentoClientesEnum tipoAgrupamento)
-        {
-            this.tipoAgrupamento = tipoAgrupamento;
-
-            AgruparClientes();
-        }
+       
         public void AtualizarRegistros()
-        {
-            DesagruparClientes();
+        {      
 
             var clientes = controladorClientes.SelecionarTodos();
 
             CarregarTbela(clientes);
 
-            AgruparClientes();
         }
    
-        public void DesagruparClientes()
-        {
-            if (gridClientesAgrupados == null)
-                return;
-
-            var campos = new string[] { "Cargo", "Empresa" };
-
-            gridClientesAgrupados.RemoveGrouping();
-            gridClientes.RowHeadersVisible = true;
-
-            foreach (var campo in campos)
-                foreach (DataGridViewColumn item in gridClientes.Columns)
-                    if (item.DataPropertyName == campo)
-                        item.Visible = true;
-        }
-        public void AgruparClientesPor(string campo)
-        {
-            if (gridClientesAgrupados == null)
-                return;
-            gridClientesAgrupados.RemoveGrouping();
-            gridClientesAgrupados.SetGroupOn(campo);
-            gridClientesAgrupados.Options.ShowGroupName = false;
-            gridClientesAgrupados.Options.GroupSortOrder = SortOrder.None;
-
-            foreach (DataGridViewColumn item in gridClientes.Columns)
-                if (item.DataPropertyName == campo)
-                    item.Visible = false;
-            gridClientes.RowHeadersVisible = false;
-            gridClientes.ClearSelection();
-
-        }
-        private void AgruparClientes()
-        {
-            switch (TipoAgrupamento)
-            {
-                case AgrupamentoClientesEnum.TodosClientes:
-                    DesagruparClientes();
-                    break;
-
-                case AgrupamentoClientesEnum.ClientesAgrupadoPorCPF:
-                    AgruparClientesPor("CPF");
-                    break;
-
-                case AgrupamentoClientesEnum.ClientesAgrupadosPorCNPJ:
-                    AgruparClientesPor("CNPJ");
-                    break;
-
-                default:
-                    break;
-            }
-        }
         private void CarregarTbela(List<Clientes> clientes)
         {
             gridClientes.DataSource = clientes;
-
-            gridClientesAgrupados = new Subro.Controls.DataGridViewGrouper(gridClientes);
+    
         }
 
     }
