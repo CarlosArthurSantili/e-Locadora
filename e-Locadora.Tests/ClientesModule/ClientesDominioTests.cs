@@ -1,4 +1,5 @@
-﻿using e_Locadora.Dominio.ClientesModule;
+﻿
+using e_Locadora.Dominio.ClientesModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,6 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "5231255";
             string cpf = "10250540499";
             string cnpj = "";
-
-
 
             Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
             Assert.AreEqual("ESTA_VALIDO", grupoVeiculo.Validar());

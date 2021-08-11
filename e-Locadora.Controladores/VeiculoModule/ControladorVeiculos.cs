@@ -187,7 +187,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
 
-            Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
+            Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros,qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
 
             veiculo.Id = id;
 
