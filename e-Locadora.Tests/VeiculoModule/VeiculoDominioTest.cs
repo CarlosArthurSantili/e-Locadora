@@ -13,7 +13,7 @@ namespace e_Locadora.Tests.VeiculoModule
         {
             var grupo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 4000, 500);
 
-            Veiculo veiculo = new Veiculo("ABC-1234", "BMW", 55, "123584832", "AZUL", 4, 2010, 20, CombustivelEnum.Gasolina, grupo);
+            Veiculo veiculo = new Veiculo("ABC-1234", "BMW", 55, 10,"123584832","AZUL", 4, 2010, 20, CombustivelEnum.Gasolina, grupo);
             Assert.AreEqual("ESTA_VALIDO", veiculo.Validar());
         }
 

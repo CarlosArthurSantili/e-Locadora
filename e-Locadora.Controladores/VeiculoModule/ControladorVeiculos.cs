@@ -183,9 +183,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             double planoKmControladoValorDiario = Convert.ToDouble(reader["VALORCONTROLADODIARIO"]);
             double planoKmLivreValorDiario = Convert.ToDouble(reader["VALORLIVRE"]);
 
-  
             GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
-
 
             Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros,qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
 
