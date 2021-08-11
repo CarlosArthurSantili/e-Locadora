@@ -18,7 +18,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
         public OperacoesClientes(ControladorClientes controlador)
         {
             this.controlador = controlador;
-            tabelaClientes = new TabelaClientesControl();
+            tabelaClientes = new TabelaClientesControl(controlador);
         }
 
         public void InserirNovoRegistro()

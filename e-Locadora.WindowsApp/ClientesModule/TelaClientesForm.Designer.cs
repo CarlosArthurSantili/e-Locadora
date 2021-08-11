@@ -191,12 +191,10 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // rbCPF
             // 
             this.rbCPF.AutoSize = true;
-            this.rbCPF.Checked = true;
             this.rbCPF.Location = new System.Drawing.Point(18, 24);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(152, 17);
             this.rbCPF.TabIndex = 32;
-            this.rbCPF.TabStop = true;
             this.rbCPF.Text = "Cadastro de Pessoa Física";
             this.rbCPF.UseVisualStyleBackColor = true;
             this.rbCPF.CheckedChanged += new System.EventHandler(this.rbCPF_CheckedChanged);
