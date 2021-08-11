@@ -205,16 +205,6 @@ namespace e_Locadora.Controladores.VeiculoModule
             return veiculo;
         }
 
-        //Convert image to binary
-        byte[] ConvertImageToBinary(Image img)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                return ms.ToArray();
-            }
-        }
-
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>();
