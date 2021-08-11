@@ -88,10 +88,13 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório";
 
             if (string.IsNullOrEmpty(Combustivel.ToString()))
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Tipo de combustivel é obrigatório";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tipo de combustivel é obrigatório";
 
             if (string.IsNullOrEmpty(GrupoVeiculo.ToString()))
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Grupo de Veiculo é obrigatório";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Grupo de Veiculo é obrigatório";
+
+            if (Imagem.Length == 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Imagem é obrigatório";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
