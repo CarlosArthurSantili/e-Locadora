@@ -19,6 +19,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [PLACA], 
 		                [FABRICANTE], 
 		                [QTDLITROSTANQUE],
+                        [QTDPORTAS],
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
@@ -33,6 +34,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         @PLACA, 
 		                @FABRICANTE, 
 		                @QTDLITROSTANQUE,
+                        @QTDPORTAS,
                         @NUMEROCHASSI,
                         @COR, 
 		                @CAPACIDADEOCUPANTES,
@@ -49,6 +51,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [PLACA] = @PLACA
 		                [FABRICANTE] = @FABRICANTE, 
 		                [QTDLITROSTANQUE] = @QTDLITROSTANQUE,
+                        [QTDPORTAS] = @QTDPORTAS,
                         [NUMEROCHASSI] = @NUMEROCHASSI, 
 		                [COR] = @COR,
                         [CAPACIDADEOCUPANTES] = @CAPACIDADEOCUPANTES,
@@ -81,6 +84,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [PLACA], 
 		                [FABRICANTE], 
 		                [QTDLITROSTANQUE],
+                        [QTDPORTAS],
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
@@ -100,6 +104,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [PLACA], 
 		                [FABRICANTE], 
 		                [QTDLITROSTANQUE],
+                        [QTDPORTAS],
                         [NUMEROCHASSI], 
 		                [COR],
                         [CAPACIDADEOCUPANTES],
@@ -108,7 +113,7 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [TIPOCOMBUSTIVEL],
                         [IDGRUPOVEICULO],
                         [IMAGEM]
-FROM TBVEICULOS";
+                        FROM TBVEICULOS";
 
 
         #endregion
@@ -175,7 +180,7 @@ FROM TBVEICULOS";
             string placa = Convert.ToString(reader["PLACA"]);
             string fabricante = Convert.ToString(reader["FABRICANTE"]);
             int qtdLitrosTanque = Convert.ToInt32(reader["QTDLITROSTANQUE"]);
-
+            int qtdPortas = Convert.ToInt32(reader["QTDPORTAS"]);
             string numeroChassi = Convert.ToString(reader["NUMEROCHASSI"]);
             string cor = Convert.ToString(reader["COR"]);
             int capacidadeDeOcupantes = Convert.ToInt32(reader["CAPACIDADEOCUPANTES"]);
@@ -192,11 +197,11 @@ FROM TBVEICULOS";
 
             GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
-            //Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
+            Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo);
 
-            //veiculo.Id = id;
+            veiculo.Id = id;
 
-            return null;
+            return veiculo;
         }
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {
