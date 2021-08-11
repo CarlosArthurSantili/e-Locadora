@@ -12,29 +12,41 @@ namespace e_Locadora.Dominio.TaxasServicosModule
     {
         public string Descricao { get; }
         public double Valor { get; } 
-        public EstruturaTaxaServico EstruturaTaxaServico { get; }
 
-        public TaxasServicos(string descricao, double valor, TaxaServicoEnum taxaServico)
+        public TaxasServicos(string descricao, double valor)
         {
             Descricao = descricao;
             Valor = valor;
-            EstruturaTaxaServico = new EstruturaTaxaServico(taxaServico);
         }
-
         public override string Validar()
         {
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Descricao))
-                resultadoValidacao = "O atributo descrição é obrigatório e não pode ser vazio.";
+                resultadoValidacao = "O campo descrição é obrigatório e não pode ser vazio.";
 
             if (Valor <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Valor nao pode Ser Nullo";
 
-            if (string.IsNullOrEmpty(EstruturaTaxaServico.ToString()))
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Taxa de Serviço é obrigatório";
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
 
             return resultadoValidacao;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is TaxasServicos servicos &&
+                   Descricao == servicos.Descricao &&
+                   Valor == servicos.Valor;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -44572661;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Descricao);
+            hashCode = hashCode * -1521134295 + Valor.GetHashCode();
+            return hashCode;
         }
     }
 }

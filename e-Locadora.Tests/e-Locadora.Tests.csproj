@@ -60,6 +60,7 @@
     <Compile Include="GrupoVeiculos\GrupoVeiculoControladorTests.cs" />
     <Compile Include="GrupoVeiculos\GrupoVeiculosDominioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaxasServicosModule\TaxasServicosDominioTest.cs" />
     <Compile Include="VeiculoModule\VeiculoDominioTest.cs" />
   </ItemGroup>
   <ItemGroup>
