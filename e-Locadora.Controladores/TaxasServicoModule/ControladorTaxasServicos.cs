@@ -27,13 +27,12 @@ namespace e_Locadora.Controladores.TaxasServicoModule
 		                @TAXA_VARIAVEL
 	                )";
 
-
         private const string sqlEditarTaxasServicos =
         @"UPDATE TBTAXASSERVICOS
                     SET
-                        [DESCRICAO], 
-		                [TAXA_FIXA], 
-		                [TAXA_VARIAVEL]
+                        [DESCRICAO] = @DESCRICAO, 
+		                [TAXA_FIXA] = @TAXA_FIXA, 
+		                [TAXA_VARIAVEL] = @TAXA_VARIAVEL
                     WHERE 
                         ID = @ID";
 
