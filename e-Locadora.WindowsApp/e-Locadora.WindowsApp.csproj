@@ -46,23 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientesModule\ConfiguracaoClientesToolBox.cs" />
-    <Compile Include="ClientesModule\OperacoesClientes.cs" />
-    <Compile Include="ClientesModule\TabelaClientesControl.cs">
+    <Compile Include="Features\ClientesModule\ConfiguracaoClientesToolBox.cs" />
+    <Compile Include="Features\ClientesModule\OperacoesClientes.cs" />
+    <Compile Include="Features\ClientesModule\TabelaClientesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ClientesModule\TabelaClientesControl.Designer.cs">
+    <Compile Include="Features\ClientesModule\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientesModule\TelaClientesForm.cs">
+    <Compile Include="Features\ClientesModule\TelaClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientesModule\TelaClientesForm.Designer.cs">
+    <Compile Include="Features\ClientesModule\TelaClientesForm.Designer.cs">
       <DependentUpon>TelaClientesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
-    <Compile Include="GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
-    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
+    <Compile Include="Features\GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
+    <Compile Include="Features\GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
+    <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.Designer.cs">
@@ -73,6 +73,20 @@
     </Compile>
     <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\VeiculoModule\ConfiguracaoVeiculoToolBox.cs" />
+    <Compile Include="Features\VeiculoModule\OperacoesVeiculo.cs" />
+    <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.Designer.cs">
+      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\VeiculoModule\TelaVeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\VeiculoModule\TelaVeiculoForm.Designer.cs">
+      <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
@@ -87,17 +101,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ClientesModule\TabelaClientesControl.resx">
+    <EmbeddedResource Include="Features\ClientesModule\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientesModule\TelaClientesForm.resx">
+    <EmbeddedResource Include="Features\ClientesModule\TelaClientesForm.resx">
       <DependentUpon>TelaClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
+    <EmbeddedResource Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\VeiculoModule\TelaVeiculoForm.resx">
+      <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,6 +179,10 @@
     <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
       <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
       <Name>e-Locadora.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\e-Locadora.Database.SqlServer\e-Locadora.Database.SqlServer.sqlproj">
+      <Project>{83e89b3f-3c2c-491b-b248-130f72c2cfc0}</Project>
+      <Name>e-Locadora.Database.SqlServer</Name>
     </ProjectReference>
     <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
       <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
