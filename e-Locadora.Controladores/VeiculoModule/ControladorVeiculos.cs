@@ -4,6 +4,8 @@ using e_Locadora.Dominio.VeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +28,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANOFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [IDGRUPOVEICULO]
+                        [IDGRUPOVEICULO],
+                        [IMAGEM]
 	                ) 
 	                VALUES
 	                (
@@ -40,7 +43,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         @ANOFABRICACAO,
                         @TAMANHOPORTAMALAS,
                         @TIPOCOMBUSTIVEL,
-                        @IDGRUPOVEICULO
+                        @IDGRUPOVEICULO,
+                        @IMAGEM
 	                )";
 
 
@@ -58,7 +62,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANOFABRICACAO] = @ANOFABRICACAO,
                         [TAMANHOPORTAMALAS] = @TAMANHOPORTAMALAS,
                         [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
-                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO
+                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO,
+                        [IMAGEM] = @IMAGEM
                     WHERE 
                         ID = @ID";
 
@@ -187,16 +192,29 @@ namespace e_Locadora.Controladores.VeiculoModule
             string tamanhoPortaMalas = Convert.ToString(reader["TAMANHOPORTAMALAS"]);
             string combustivel  = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
             int idGrupoVeiculo = Convert.ToInt32(reader["IDGRUPOVEICULO"]);
+            //if (reader["IMAGEM"] != null)
+                byte[] imagem = (byte[])reader["IMAGEM"];
 
             ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
             GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
-            Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo);
+            Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo, imagem);
 
             veiculo.Id = id;
 
             return veiculo;
         }
+
+        //Convert image to binary
+        byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>();
@@ -213,6 +231,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             parametros.Add("TAMANHOPORTAMALAS", veiculo.TamanhoPortaMalas);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.Combustivel);
             parametros.Add("IDGRUPOVEICULO", veiculo.GrupoVeiculo.Id);
+            parametros.Add("IMAGEM", veiculo.Imagem);
 
 
             return parametros;

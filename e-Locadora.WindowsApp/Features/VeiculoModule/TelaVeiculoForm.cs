@@ -46,8 +46,17 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 comboBoxGasolina.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
-
+                pictureBoxVeiculo.Image = ConvertBinaryToImage(veiculo.Imagem);
                 
+            }
+        }
+
+        //Convert binary to image
+        Image ConvertBinaryToImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
             }
         }
 
@@ -65,10 +74,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private void btnGravar_Click(object sender, EventArgs e)
         {
             //Código para obter imagem
-            byte[] images = null;
+            byte[] imagem = null;
             FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
             BinaryReader brs = new BinaryReader(stream);
-            images = brs.ReadBytes((int)stream.Length);
+            imagem = brs.ReadBytes((int)stream.Length);
 
             string placa = txtPlaca.Text;
             string chassi = txtChassi.Text;
@@ -82,7 +91,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
             GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
-            veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo);
+            veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
 
             string resultadoValidacao = veiculo.Validar();
 

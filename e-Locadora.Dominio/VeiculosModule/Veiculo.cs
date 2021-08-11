@@ -4,41 +4,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using System.Drawing;
+using System.ComponentModel;
+using System.Data;
+using System.IO;
 
 namespace e_Locadora.Dominio.VeiculosModule
 {
     public class Veiculo : EntidadeBase
     {
-        public Veiculo(string placa, string fabricante, int qtdLitrosTanque, int qtdPortas, string chassi, string cor,
-            int capacidadeOcupantes, int ano, string tamanhoPortaMalas, string combustivel, GrupoVeiculo grupoVeiculo)
+        public Veiculo(string placa,string fabricante,int qtdlitros,int qtdPortas, string chassi,string cor,
+            int passageiros,int ano,string portamalas, string combustivel,GrupoVeiculo grupo, byte[] imagem)
         {
             Placa = placa;
             Fabricante = fabricante;
-            QtdLitrosTanque = qtdLitrosTanque;
+            QtdLitrosTanque = qtdlitros;
             QtdPortas = qtdPortas;
             NumeroChassi = chassi;
             Cor = cor;
-            CapacidadeOcupantes = capacidadeOcupantes;
+            CapacidadeOcupantes = passageiros;
             AnoFabricacao = ano;
-            TamanhoPortaMalas = tamanhoPortaMalas;
+            TamanhoPortaMalas = portamalas;
             Combustivel = combustivel;
-            GrupoVeiculo = grupoVeiculo;
+            GrupoVeiculo = grupo;
+            Imagem = imagem;
+        }
+        public Veiculo(string placa, string fabricante, int qtdlitros, int qtdPortas, string chassi, string cor,
+            int passageiros, int ano, string portamalas, string combustivel, GrupoVeiculo grupo)
+        {
+            Placa = placa;
+            Fabricante = fabricante;
+            QtdLitrosTanque = qtdlitros;
+            QtdPortas = qtdPortas;
+            NumeroChassi = chassi;
+            Cor = cor;
+            CapacidadeOcupantes = passageiros;
+            AnoFabricacao = ano;
+            TamanhoPortaMalas = portamalas;
+            Combustivel = combustivel;
+            GrupoVeiculo = grupo;
         }
 
-        public string Placa { get; set; }
-        public string Fabricante { get; set; }
-        public int QtdLitrosTanque { get; set; }
-        public int QtdPortas { get; set; }
-        public string NumeroChassi { get; set; }
-        public string Cor { get; set; }
-        public int CapacidadeOcupantes { get; set; }
-        public int AnoFabricacao { get; set; }
-        public string TamanhoPortaMalas { get; set; }
-        public string Combustivel { get; set; }
-        public GrupoVeiculo GrupoVeiculo { get; set; }
+        public string Placa { get; }
+        public string Fabricante { get; }
+        public int QtdLitrosTanque { get; }
+        public int QtdPortas { get; }
+        public string NumeroChassi { get; }
+        public string Cor { get; }
+        public int CapacidadeOcupantes { get; }
+        public int AnoFabricacao { get; }
+        public string TamanhoPortaMalas { get; }
+        public string Combustivel { get; }
+        public GrupoVeiculo GrupoVeiculo { get; }
 
-        //public byte[] Imagem{ get; set; }
+        public byte[] Imagem { get; }
 
         public override string Validar()
         {
@@ -65,10 +84,10 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (AnoFabricacao <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
 
-            if (string.IsNullOrEmpty(TamanhoPortaMalas))
+            if (string.IsNullOrEmpty(TamanhoPortaMalas.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório";
 
-            if (string.IsNullOrEmpty(Combustivel))
+            if (string.IsNullOrEmpty(Combustivel.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Tipo de combustivel é obrigatório";
 
             if (string.IsNullOrEmpty(GrupoVeiculo.ToString()))
@@ -78,27 +97,6 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao = "ESTA_VALIDO";
 
             return resultadoValidacao;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Veiculo);
-        }
-
-        public bool Equals(Veiculo other)
-        {
-            return other != null
-                && Id == other.Id
-                && Placa == other.Placa
-                && Fabricante == other.Fabricante
-                && QtdLitrosTanque == other.QtdLitrosTanque
-                && QtdPortas == other.QtdPortas
-                && NumeroChassi == other.NumeroChassi
-                && Cor == other.Cor
-                && CapacidadeOcupantes == other.CapacidadeOcupantes
-                && AnoFabricacao == other.AnoFabricacao
-                && TamanhoPortaMalas == other.TamanhoPortaMalas
-                && Combustivel == other.Combustivel;
         }
     }
 }
