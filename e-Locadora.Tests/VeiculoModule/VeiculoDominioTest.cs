@@ -148,15 +148,15 @@
 
 //        //}
 
-//    //    [TestMethod]
-//    //    public void Nao_Deve_Validar_Grupo()
-//    //    {
-//    //        var grupo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 4000, 500);
+    //    [TestMethod]
+    //    public void Nao_Deve_Validar_Grupo()
+    //    {
+    //        var grupo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 4000, 500);
 
-//    //        Veiculo veiculo = new Veiculo("ABC-1234", "BMW", 55, "123456789", "AZUL", 4, 2010, 20, CombustivelEnum.Gasolina, null);
+    //        Veiculo veiculo = new Veiculo("ABC-1234", "BMW", 55, "123456789", "AZUL", 4, 2010, 20, CombustivelEnum.Gasolina, null);
 
-//    //        Assert.AreEqual("O Campo Grupo de Veiculo é obrigatório", veiculo.Validar());
+    //        Assert.AreEqual("O Campo Grupo de Veiculo é obrigatório", veiculo.Validar());
 
-//    //    }
+    //    }
 //     }
 //}

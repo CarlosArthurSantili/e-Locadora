@@ -45,6 +45,9 @@
     <Compile Include="GrupoVeiculoModule\GrupoVeiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
+    <Compile Include="TaxasServicosModule\TaxaServicoEnum.cs" />
+    <Compile Include="TaxasServicosModule\TaxasServicos.cs" />
+    <Compile Include="TaxasServicosModule\EstruturaTaxaServico.cs" />
     <Compile Include="VeiculosModule\Combustivel.cs" />
     <Compile Include="VeiculosModule\CombustivelEnum.cs" />
     <Compile Include="VeiculosModule\Veiculo.cs" />
