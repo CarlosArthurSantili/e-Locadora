@@ -61,6 +61,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesModule\ControladorClientes.cs" />
     <Compile Include="Shared\Controlador.cs" />
     <Compile Include="Shared\Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

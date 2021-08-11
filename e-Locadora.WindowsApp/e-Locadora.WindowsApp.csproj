@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataGridViewGrouper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DataGridViewGrouper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +59,30 @@
     <Compile Include="Features\GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
     <Compile Include="Features\GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
     <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
+    <Compile Include="ClientesModule\AgrupamentoClientesEnum.cs" />
+    <Compile Include="ClientesModule\AgrupamentosClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesModule\AgrupamentosClientesForm.Designer.cs">
+      <DependentUpon>AgrupamentosClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesModule\ConfiguracaoClientesToolBox.cs" />
+    <Compile Include="ClientesModule\OperacoesClientes.cs" />
+    <Compile Include="ClientesModule\TabelaClientesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClientesModule\TabelaClientesControl.Designer.cs">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesModule\TelaClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesModule\TelaClientesForm.Designer.cs">
+      <DependentUpon>TelaClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
+    <Compile Include="GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
+    <Compile Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.Designer.cs">
@@ -91,6 +119,16 @@
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
+    <EmbeddedResource Include="ClientesModule\AgrupamentosClientesForm.resx">
+      <DependentUpon>AgrupamentosClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesModule\TabelaClientesControl.resx">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesModule\TelaClientesForm.resx">
+      <DependentUpon>TelaClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
@@ -126,9 +164,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\Veiculo\" />
     <Folder Include="Libraries\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libraries\DataGridViewGrouper.dll" />
     <Content Include="Resources\Filter Configuration.png" />
     <None Include="Resources\outline_compress_black_24dp2.png" />
     <None Include="Resources\outline_expand_black_24dp2.png" />

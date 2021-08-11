@@ -1,4 +1,6 @@
-﻿using e_Locadora.Controladores.VeiculoModule;
+﻿using e_Locadora.Controladores.ClientesModule;
+using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
@@ -75,6 +77,18 @@ namespace e_Locadora.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        private void menuItemClientes_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoClientesToolBox configuracao = new ConfiguracaoClientesToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesClientes(new ControladorClientes());
+
+            ConfigurarPainelRegistros();
+        }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -105,5 +119,7 @@ namespace e_Locadora.WindowsApp
         {
             operacoes.DesagruparRegistros();
         }
+
+ 
     }
 }

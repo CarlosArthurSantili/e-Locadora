@@ -62,6 +62,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Categorias.sql" />
     <Build Include="dbo\Tables\TBVeiculos.sql" />
+    <Build Include="dbo\Tables\TBClientes.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="e-Locadora.Database.SqlServer.refactorlog" />
