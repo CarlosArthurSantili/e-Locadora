@@ -57,6 +57,12 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             return gridClientes.SelecionarId<int>();
         }
+        public void AgruparClientes(AgrupamentoClientesEnum tipoAgrupamento)
+        {
+            this.tipoAgrupamento = tipoAgrupamento;
+
+            AgruparClientes();
+        }
         public void AtualizarRegistros()
         {
             DesagruparClientes();
@@ -83,7 +89,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
                     if (item.DataPropertyName == campo)
                         item.Visible = true;
         }
-        public void AgruparContatosPor(string campo)
+        public void AgruparClientesPor(string campo)
         {
             if (gridClientesAgrupados == null)
                 return;
@@ -108,11 +114,11 @@ namespace e_Locadora.WindowsApp.ClientesModule
                     break;
 
                 case AgrupamentoClientesEnum.ClientesAgrupadoPorCPF:
-                    AgruparContatosPor("CPF");
+                    AgruparClientesPor("CPF");
                     break;
 
                 case AgrupamentoClientesEnum.ClientesAgrupadosPorCNPJ:
-                    AgruparContatosPor("CNPJ");
+                    AgruparClientesPor("CNPJ");
                     break;
 
                 default:
