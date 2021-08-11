@@ -70,7 +70,7 @@ namespace e_Locadora.Dominio
 
         public override string ToString()
         {
-            return base.ToString();
+            return categoria;
         }
 
         public override int GetHashCode()

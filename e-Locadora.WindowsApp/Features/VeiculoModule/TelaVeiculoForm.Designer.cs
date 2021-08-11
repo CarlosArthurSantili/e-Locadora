@@ -56,6 +56,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.comboBoxPortaMalas = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.labelGrupoVeiculo = new System.Windows.Forms.Label();
+            this.comboBoxGrupoVeiculo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeiculo)).BeginInit();
             this.groupBoxImagemVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +95,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(427, 244);
+            this.btnCancelar.Location = new System.Drawing.Point(430, 277);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -103,7 +105,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(346, 244);
+            this.btnGravar.Location = new System.Drawing.Point(349, 277);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 4;
@@ -272,6 +274,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // comboBoxPortaMalas
             // 
             this.comboBoxPortaMalas.FormattingEnabled = true;
+            this.comboBoxPortaMalas.Items.AddRange(new object[] {
+            "Pequeno",
+            "Médio",
+            "Grande"});
             this.comboBoxPortaMalas.Location = new System.Drawing.Point(121, 279);
             this.comboBoxPortaMalas.Name = "comboBoxPortaMalas";
             this.comboBoxPortaMalas.Size = new System.Drawing.Size(121, 21);
@@ -295,11 +301,34 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 26;
             // 
+            // labelGrupoVeiculo
+            // 
+            this.labelGrupoVeiculo.AutoSize = true;
+            this.labelGrupoVeiculo.Location = new System.Drawing.Point(257, 228);
+            this.labelGrupoVeiculo.Name = "labelGrupoVeiculo";
+            this.labelGrupoVeiculo.Size = new System.Drawing.Size(90, 13);
+            this.labelGrupoVeiculo.TabIndex = 28;
+            this.labelGrupoVeiculo.Text = "Categoria Veiculo";
+            // 
+            // comboBoxGrupoVeiculo
+            // 
+            this.comboBoxGrupoVeiculo.FormattingEnabled = true;
+            this.comboBoxGrupoVeiculo.Items.AddRange(new object[] {
+            "Pequeno",
+            "Médio",
+            "Grande"});
+            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(370, 227);
+            this.comboBoxGrupoVeiculo.Name = "comboBoxGrupoVeiculo";
+            this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGrupoVeiculo.TabIndex = 27;
+            // 
             // TelaVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 307);
+            this.Controls.Add(this.labelGrupoVeiculo);
+            this.Controls.Add(this.comboBoxGrupoVeiculo);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.id);
             this.Controls.Add(this.labelPortaMalas);
@@ -365,5 +394,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private System.Windows.Forms.ComboBox comboBoxPortaMalas;
         private System.Windows.Forms.Label id;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label labelGrupoVeiculo;
+        private System.Windows.Forms.ComboBox comboBoxGrupoVeiculo;
     }
 }

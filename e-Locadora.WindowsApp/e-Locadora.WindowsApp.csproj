@@ -146,7 +146,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Veiculo\" />
     <Folder Include="Libraries\" />
   </ItemGroup>
   <ItemGroup>

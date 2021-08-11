@@ -173,8 +173,8 @@ namespace e_Locadora.Controladores.VeiculoModule
             string cor = Convert.ToString(reader["COR"]);
             int capacidadeDeOcupantes = Convert.ToInt32(reader["CAPACIDADEOCUPANTES"]);
             int anoFabricacao = Convert.ToInt32(reader["ANODEFABRICACAO"]);
-            int tamanhoPortaMalas = Convert.ToInt32(reader["TAMANHOPORTAMALAS"]);
-            var combustivel  = Convert.ToInt32(reader["TIPOCOMBUSTIVEL"]);
+            string tamanhoPortaMalas = Convert.ToString(reader["TAMANHOPORTAMALAS"]);
+            string combustivel  = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
 
             string categoria = Convert.ToString(reader["CATEGORIA"]);
             double planoDiarioValorKm = Convert.ToDouble(reader["VALORDIARIOKM"]);
@@ -185,7 +185,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 
             GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
-            Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros,qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, (CombustivelEnum)combustivel, grupoVeiculo);
+            Veiculo veiculo = new Veiculo(placa, fabricante, qtdlitros,qtdlitros, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo);
 
             veiculo.Id = id;
 

@@ -9,33 +9,33 @@ namespace e_Locadora.Dominio.VeiculosModule
 {
     public class Veiculo : EntidadeBase
     {
-        public Veiculo(string placa,string fabricante,int qtdlitros,int qtdPortas, string chassi,string cor,
-            int passageiros,int ano,int portamalas, CombustivelEnum combustivel,GrupoVeiculo grupo)
+        public Veiculo(string placa, string fabricante, int qtdLitrosTanque, int qtdPortas, string chassi, string cor,
+            int capacidadeOcupantes, int ano, string tamanhoPortaMalas, string combustivel, GrupoVeiculo grupoVeiculo)
         {
             Placa = placa;
             Fabricante = fabricante;
-            QtdLitrosTanque = qtdlitros;
+            QtdLitrosTanque = qtdLitrosTanque;
             QtdPortas = qtdPortas;
             NumeroChassi = chassi;
             Cor = cor;
-            CapacidadeOcupantes = passageiros;
+            CapacidadeOcupantes = capacidadeOcupantes;
             AnoFabricacao = ano;
-            TamanhoPortaMalas = portamalas;
-            Combustivel = new Combustivel(combustivel);
-            GrupoVeiculo = grupo;
+            TamanhoPortaMalas = tamanhoPortaMalas;
+            Combustivel = combustivel;
+            GrupoVeiculo = grupoVeiculo;
         }
 
-        public string Placa { get; }
-        public string Fabricante { get; }
-        public int QtdLitrosTanque { get; }
-        public int QtdPortas { get; }
-        public string NumeroChassi { get; }
-        public string Cor { get; }
-        public int CapacidadeOcupantes { get; }
-        public int AnoFabricacao { get; }
-        public int TamanhoPortaMalas { get; }
-        public Combustivel Combustivel { get; }
-        public GrupoVeiculo GrupoVeiculo { get; }
+        public string Placa { get; set; }
+        public string Fabricante { get; set; }
+        public int QtdLitrosTanque { get; set; }
+        public int QtdPortas { get; set; }
+        public string NumeroChassi { get; set; }
+        public string Cor { get; set; }
+        public int CapacidadeOcupantes { get; set; }
+        public int AnoFabricacao { get; set; }
+        public string TamanhoPortaMalas { get; set; }
+        public string Combustivel { get; set; }
+        public GrupoVeiculo GrupoVeiculo { get; set; }
 
         public override string Validar()
         {
@@ -62,10 +62,10 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (AnoFabricacao <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
 
-            if (TamanhoPortaMalas <= 0)
+            if (string.IsNullOrEmpty(TamanhoPortaMalas))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório";
 
-            if (string.IsNullOrEmpty(Combustivel.ToString()))
+            if (string.IsNullOrEmpty(Combustivel))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Tipo de combustivel é obrigatório";
 
             if (string.IsNullOrEmpty(GrupoVeiculo.ToString()))

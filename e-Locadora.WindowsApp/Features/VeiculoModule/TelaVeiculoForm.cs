@@ -8,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.Dominio;
 using e_Locadora.Dominio.VeiculosModule;
 
 namespace e_Locadora.WindowsApp.Features.VeiculoModule
 {
     public partial class TelaVeiculoForm : Form
     {
-
+        private ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
         private Veiculo veiculo;
 
         string imgLocation = "";
@@ -41,9 +43,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 txtQtdPortas.Text = veiculo.QtdPortas.ToString();
                 txtAno.Text = veiculo.AnoFabricacao.ToString();
                 txtCapacidadePessoas.Text = veiculo.CapacidadeOcupantes.ToString();
-                comboBoxGasolina.Text = veiculo.Combustivel.ToString();
-                comboBoxPortaMalas.Text = veiculo.TamanhoPortaMalas.ToString();
-
+                comboBoxGasolina.SelectedItem = veiculo.Combustivel.ToString();
+                comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
+                comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
             }
         }
 
@@ -74,10 +76,11 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             int qtdPortas = Convert.ToInt32(txtQtdPortas.Text);
             int ano = Convert.ToInt32(txtAno.Text);
             int capacidadePessoas = Convert.ToInt32(txtCapacidadePessoas.Text);
-            string tipoGasolina = comboBoxGasolina.Text;
-            string tamanhoPortaMalas = comboBoxPortaMalas.Text;
+            string tipoGasolina = comboBoxGasolina.SelectedItem.ToString();
+            string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
+            GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
-            //veiculo = new Veiculo();
+            veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo);
 
             string resultadoValidacao = veiculo.Validar();
 
@@ -93,7 +96,13 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         private void TelaVeiculoForm_Load(object sender, EventArgs e)
         {
+            CarregarContatos();
+        }
 
+        private void CarregarContatos()
+        {
+            foreach (GrupoVeiculo grupoVeiculo in controladorGrupoVeiculo.SelecionarTodos())
+                comboBoxGrupoVeiculo.Items.Add(grupoVeiculo);
         }
 
         private void comboBoxPortaMalas_SelectedIndexChanged(object sender, EventArgs e)

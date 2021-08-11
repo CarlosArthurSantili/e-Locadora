@@ -79,10 +79,6 @@
       <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
       <Name>e-Locadora.Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\e-Locadora.WindowsApp\e-Locadora.WindowsApp.csproj">
-      <Project>{974356f2-fd91-4d53-9893-ab93d24db3ff}</Project>
-      <Name>e-Locadora.WindowsApp</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

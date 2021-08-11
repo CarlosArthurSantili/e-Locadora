@@ -8,6 +8,6 @@ namespace e_Locadora.Dominio.VeiculosModule
 {
     public enum CombustivelEnum
     {
-        Gasolina,Alcool,Diesiel,Flex
+        Gasolina, Alcool, Diesel, Flex
     }
 }
