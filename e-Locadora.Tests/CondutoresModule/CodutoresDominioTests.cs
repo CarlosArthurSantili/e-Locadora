@@ -22,5 +22,32 @@ namespace e_Locadora.Tests.CondutoresModule
 
             validar.Should().Be("ESTA_VALIDO");
         }
+        [TestMethod]
+        public void Deve_Validar_informacoes()
+        {
+            var cliente = new Clientes("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "");
+
+            Condutor condutor = new Condutor("", "", "", "", "", "",
+                DateTime.MinValue, cliente);
+
+            var validar = condutor.Validar();
+
+            var resultadoEsperado =
+                "O atributo nome é obrigatório e não pode ser vazio."
+               + Environment.NewLine
+               + "O atributo endereço é obrigatório e não pode ser vazio."
+               + Environment.NewLine
+               + "O atributo Telefone está invalido."
+               + Environment.NewLine
+               + "O atributo Numero do Rg é obrigatório e não pode ser vazio."
+               + Environment.NewLine
+               + "O atributo Numero do Cpf é obrigatório e não pode ser vazio."
+               + Environment.NewLine
+               + "O atributo Numero da CNH é obrigatório e não pode ser vazio."
+               + Environment.NewLine
+               + "O campo Data é obrigatório" ;
+
+            validar.Should().Be(resultadoEsperado);
+        }
     }
 }

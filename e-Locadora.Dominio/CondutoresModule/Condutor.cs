@@ -57,6 +57,9 @@ namespace e_Locadora.Dominio.CondutoresModule
             if (ValidadeCNH == DateTime.MinValue)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Data é obrigatório";
 
+            if(string.IsNullOrEmpty(Cliente.ToString()))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Cliente  é obrigatório e não pode ser Vazio";
+
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
