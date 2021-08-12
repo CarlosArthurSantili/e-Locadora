@@ -50,8 +50,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.txtAno = new System.Windows.Forms.TextBox();
             this.labelCapacidadePessoas = new System.Windows.Forms.Label();
             this.txtCapacidadePessoas = new System.Windows.Forms.TextBox();
-            this.comboBoxGasolina = new System.Windows.Forms.ComboBox();
-            this.labelGasolina = new System.Windows.Forms.Label();
+            this.comboBoxCombustivel = new System.Windows.Forms.ComboBox();
+            this.labelCombustivel = new System.Windows.Forms.Label();
             this.labelPortaMalas = new System.Windows.Forms.Label();
             this.comboBoxPortaMalas = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.Label();
@@ -244,27 +244,27 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // comboBoxGasolina
             // 
-            this.comboBoxGasolina.FormattingEnabled = true;
-            this.comboBoxGasolina.Items.AddRange(new object[] {
+            this.comboBoxCombustivel.FormattingEnabled = true;
+            this.comboBoxCombustivel.Items.AddRange(new object[] {
             "Gasolina",
             "Etanol",
             "Diesel",
             "Flex"});
-            this.comboBoxGasolina.Location = new System.Drawing.Point(121, 250);
-            this.comboBoxGasolina.Name = "comboBoxGasolina";
-            this.comboBoxGasolina.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxGasolina.TabIndex = 21;
-            this.comboBoxGasolina.SelectedIndexChanged += new System.EventHandler(this.comboBoxGasolina_SelectedIndexChanged);
+            this.comboBoxCombustivel.Location = new System.Drawing.Point(121, 250);
+            this.comboBoxCombustivel.Name = "comboBoxGasolina";
+            this.comboBoxCombustivel.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxCombustivel.TabIndex = 21;
+            this.comboBoxCombustivel.SelectedIndexChanged += new System.EventHandler(this.comboBoxGasolina_SelectedIndexChanged);
             // 
             // labelGasolina
             // 
-            this.labelGasolina.AutoSize = true;
-            this.labelGasolina.Location = new System.Drawing.Point(8, 253);
-            this.labelGasolina.Name = "labelGasolina";
-            this.labelGasolina.Size = new System.Drawing.Size(87, 13);
-            this.labelGasolina.TabIndex = 22;
-            this.labelGasolina.Text = "Tipo de Gasolina";
-            this.labelGasolina.Click += new System.EventHandler(this.labelGasolina_Click);
+            this.labelCombustivel.AutoSize = true;
+            this.labelCombustivel.Location = new System.Drawing.Point(8, 253);
+            this.labelCombustivel.Name = "labelGasolina";
+            this.labelCombustivel.Size = new System.Drawing.Size(87, 13);
+            this.labelCombustivel.TabIndex = 22;
+            this.labelCombustivel.Text = "Tipo de Gasolina";
+            this.labelCombustivel.Click += new System.EventHandler(this.labelGasolina_Click);
             // 
             // labelPortaMalas
             // 
@@ -336,8 +336,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.Controls.Add(this.id);
             this.Controls.Add(this.labelPortaMalas);
             this.Controls.Add(this.comboBoxPortaMalas);
-            this.Controls.Add(this.labelGasolina);
-            this.Controls.Add(this.comboBoxGasolina);
+            this.Controls.Add(this.labelCombustivel);
+            this.Controls.Add(this.comboBoxCombustivel);
             this.Controls.Add(this.labelCapacidadePessoas);
             this.Controls.Add(this.txtCapacidadePessoas);
             this.Controls.Add(this.labelAno);
@@ -392,8 +392,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private System.Windows.Forms.TextBox txtAno;
         private System.Windows.Forms.Label labelCapacidadePessoas;
         private System.Windows.Forms.TextBox txtCapacidadePessoas;
-        private System.Windows.Forms.ComboBox comboBoxGasolina;
-        private System.Windows.Forms.Label labelGasolina;
+        private System.Windows.Forms.ComboBox comboBoxCombustivel;
+        private System.Windows.Forms.Label labelCombustivel;
         private System.Windows.Forms.Label labelPortaMalas;
         private System.Windows.Forms.ComboBox comboBoxPortaMalas;
         private System.Windows.Forms.Label id;

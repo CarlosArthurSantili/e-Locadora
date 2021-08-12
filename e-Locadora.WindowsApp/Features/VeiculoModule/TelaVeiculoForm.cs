@@ -43,7 +43,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 txtQtdPortas.Text = veiculo.QtdPortas.ToString();
                 txtAno.Text = veiculo.AnoFabricacao.ToString();
                 txtCapacidadePessoas.Text = veiculo.CapacidadeOcupantes.ToString();
-                comboBoxGasolina.SelectedItem = veiculo.Combustivel.ToString();
+                comboBoxCombustivel.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
                 pictureBoxVeiculo.Image = ConvertBinaryToImage(veiculo.Imagem);
@@ -90,7 +90,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 int qtdPortas = Convert.ToInt32(txtQtdPortas.Text);
                 int ano = Convert.ToInt32(txtAno.Text);
                 int capacidadePessoas = Convert.ToInt32(txtCapacidadePessoas.Text);
-                string tipoGasolina = comboBoxGasolina.SelectedItem.ToString();
+                string tipoGasolina = comboBoxCombustivel.SelectedItem.ToString();
                 string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
                 GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
@@ -123,69 +123,81 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         public bool ValidarCampos() 
         {
             if(string.IsNullOrEmpty(txtPlaca.Text)) {
-                txtPlaca.ForeColor = Color.Red;
+                labelPlaca.ForeColor = Color.Red;
+                //labelPlaca.Text = "Placa é obrigatório";
                 return false;
             }
 
             if(string.IsNullOrEmpty(txtChassi.Text)) {
-                txtChassi.ForeColor = Color.Red;
+                labelChassi.ForeColor = Color.Red;
+                //labelChassi.Text = "Chassi é obrigatório";
                 return false;
             }
 
             if(txtCor.Text.Equals("")) {
-                txtCor.BackColor = Color.Red;
-                txtCor.ForeColor = Color.Red;
+                labelCor.ForeColor = Color.Red;
+                //labelCor.Text = "Cor é obrigatório";
                 return false;
             }
 
             if(string.IsNullOrEmpty(txtFabricante.Text)) {
-                txtFabricante.ForeColor = Color.Red;
+                labelFabricante.ForeColor = Color.Red;
+                //labelFabricante.Text = "Fabricante é obrigatório";
                 return false;
             }
 
             if(string.IsNullOrEmpty(txtCapacidadeTanque.Text)) {
-                txtCapacidadeTanque.ForeColor = Color.Red;
+                labelCapacidadeTanque.ForeColor = Color.Red;
+                //labelCapacidadeTanque.Text = "Capacidade Tanque é obrigatório";
                 return false;
             }
 
             if(string.IsNullOrEmpty(txtQtdPortas.Text)) {
-                txtQtdPortas.ForeColor = Color.Red;
+                labelQtdPortas.ForeColor = Color.Red;
+                //labelQtdPortas.Text = "Quantidade de Portas é obrigatório";
                 return false;
             }
 
             if(string.IsNullOrEmpty(txtAno.Text)) {
                 labelAno.ForeColor = Color.Red;
-                txtAno.ForeColor = Color.Red;
+                //labelAno.Text = "Ano de Fabricação é obrigatório";
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtCapacidadePessoas.Text))
             {
-                txtCapacidadePessoas.ForeColor = Color.Red;
+                labelCapacidadePessoas.ForeColor = Color.Red;
+                //labelCapacidadePessoas.Text = "Capacidade de Pessoas é obrigatório";
                 return false;
             }
 
-            if(comboBoxGasolina.SelectedItem == null) 
+            if(comboBoxCombustivel.SelectedItem == null) 
             {
-                comboBoxGasolina.ForeColor = Color.Red;
+                labelCombustivel.ForeColor = Color.Red;
+                //comboBoxCombustivel.ForeColor = Color.Red;
+                //labelCombustivel.Text = "Tipo de combustível é obrigatório";
                 return false;
             }
 
             if(comboBoxGrupoVeiculo.SelectedItem == null) 
             {
-                comboBoxGrupoVeiculo.ForeColor = Color.Red;
+                labelGrupoVeiculo.ForeColor = Color.Red;
+                //comboBoxGrupoVeiculo.ForeColor = Color.Red;
+                //labelGrupoVeiculo.Text = "Grupo do veículo é obrigatório";
                 return false;
             }
 
             if (comboBoxPortaMalas.SelectedItem == null) {
                 labelPortaMalas.ForeColor = Color.Red;
-                comboBoxPortaMalas.ForeColor = Color.Red;
+                //comboBoxPortaMalas.ForeColor = Color.Red;
+                //labelPortaMalas.Text = "Tamanho do porta malas é obrigatório";
                 return false;
             }
 
             if (pictureBoxVeiculo.Image == null)
             {
                 groupBoxImagemVeiculo.ForeColor = Color.Red;
+                //labelPortaMalas.Text = "Imagem do veículo é obrigatório";
                 return false;
             }
 
