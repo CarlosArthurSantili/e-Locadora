@@ -17,8 +17,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
     public partial class TelaVeiculoForm : Form
     {
         private ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
+        private ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         private Veiculo veiculo;
-
+        private bool imagemAlterada = false;
         string imgLocation = "";
 
         public TelaVeiculoForm()
@@ -70,7 +71,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             {
                 imgLocation = dialog.FileName.ToString();
                 pictureBoxVeiculo.ImageLocation = imgLocation;
+                imagemAlterada = true;
             }
+            else
+                imagemAlterada = false;
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -88,7 +92,11 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 }
                 else
                 {
-                    imagem = ConvertImageToBinary(pictureBoxVeiculo.Image);
+                    if (imagemAlterada)
+                        imagem = ConvertImageToBinary(pictureBoxVeiculo.Image);
+                    else
+                        imagem = controladorVeiculo.SelecionarPorId(Convert.ToInt32(txtId.Text)).Imagem;
+                        
                 }
                 string placa = txtPlaca.Text;
                 string modelo = txtModelo.Text;
@@ -130,7 +138,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 return ms.ToArray();
             }
         }
-
 
         private void TelaVeiculoForm_Load(object sender, EventArgs e)
         {
