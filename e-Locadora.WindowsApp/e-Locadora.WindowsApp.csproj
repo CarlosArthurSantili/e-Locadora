@@ -131,6 +131,9 @@
     <EmbeddedResource Include="Features\CondutorModule\FiltroCondutoresForm.resx">
       <DependentUpon>FiltroCondutoresForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\CondutorModule\TabelaCondutorControl.resx">
+      <DependentUpon>TabelaCondutorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\CondutorModule\TelaCondutorForm.resx">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.WindowsApp.Features.CondutorModule
 {
-    class FlitroCondutoresEnum
+    
+    public enum FlitroCondutoresEnum
     {
+        TodosCondutores,CondutoresCnhVencida
     }
 }

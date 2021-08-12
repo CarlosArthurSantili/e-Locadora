@@ -29,10 +29,33 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.gridCondutores = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCondutores)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gridCondutores
+            // 
+            this.gridCondutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCondutores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCondutores.Location = new System.Drawing.Point(0, 0);
+            this.gridCondutores.Name = "gridCondutores";
+            this.gridCondutores.Size = new System.Drawing.Size(414, 315);
+            this.gridCondutores.TabIndex = 2;
+            // 
+            // TabelaCondutorControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridCondutores);
+            this.Name = "TabelaCondutorControl";
+            this.Size = new System.Drawing.Size(414, 315);
+            ((System.ComponentModel.ISupportInitialize)(this.gridCondutores)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView gridCondutores;
     }
 }
