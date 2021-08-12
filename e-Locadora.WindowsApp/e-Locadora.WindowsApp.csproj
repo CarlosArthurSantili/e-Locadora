@@ -63,6 +63,27 @@
     <Compile Include="Features\ClientesModule\TelaClientesForm.Designer.cs">
       <DependentUpon>TelaClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\CondutorModule\ConfiguracaoCondutoresToolBox.cs" />
+    <Compile Include="Features\CondutorModule\FiltroCondutoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\CondutorModule\FiltroCondutoresForm.Designer.cs">
+      <DependentUpon>FiltroCondutoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CondutorModule\FlitroCondutoresEnum.cs" />
+    <Compile Include="Features\CondutorModule\OperacoesCondutores.cs" />
+    <Compile Include="Features\CondutorModule\TabelaCondutorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\CondutorModule\TabelaCondutorControl.Designer.cs">
+      <DependentUpon>TabelaCondutorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CondutorModule\TelaCondutorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\CondutorModule\TelaCondutorForm.Designer.cs">
+      <DependentUpon>TelaCondutorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
     <Compile Include="Features\GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
     <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
@@ -123,6 +144,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\ClientesModule\TelaClientesForm.resx">
       <DependentUpon>TelaClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CondutorModule\FiltroCondutoresForm.resx">
+      <DependentUpon>FiltroCondutoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CondutorModule\TabelaCondutorControl.resx">
+      <DependentUpon>TabelaCondutorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CondutorModule\TelaCondutorForm.resx">
+      <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
