@@ -34,8 +34,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             {
                 Adicionar = "Adicionar um novo Veiculo",
                 Editar = "Atualizar um Veiculo existente",
-                Excluir = "Excluir um Veiculo existente",
-                Filtrar = "Filtrar  Veiculos"
+                Excluir = "Excluir um Veiculo existente"
             };
         }
     }
