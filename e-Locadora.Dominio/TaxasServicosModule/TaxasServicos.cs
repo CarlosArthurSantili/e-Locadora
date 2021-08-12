@@ -38,7 +38,6 @@ namespace e_Locadora.Dominio.TaxasServicosModule
         {
             return obj is TaxasServicos servicos &&
                    Descricao == servicos.Descricao &&
-                   Valor == servicos.Valor &&
                    TaxaFixa == servicos.TaxaFixa &&
                    TaxaVariavel == servicos.TaxaVariavel;
         }
@@ -47,7 +46,8 @@ namespace e_Locadora.Dominio.TaxasServicosModule
         {
             int hashCode = -44572661;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Descricao);
-            hashCode = hashCode * -1521134295 + Valor.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(TaxaFixa);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(TaxaVariavel);
             return hashCode;
         }
     }

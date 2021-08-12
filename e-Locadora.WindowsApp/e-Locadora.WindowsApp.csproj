@@ -74,6 +74,8 @@
     <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\TaxasServicosModule\OperacoesTaxaServicos.cs" />
+    <Compile Include="Features\TaxasServicosModule\ConfiguracaoTaxaServicosToolBox.cs" />
     <Compile Include="Features\VeiculoModule\ConfiguracaoVeiculoToolBox.cs" />
     <Compile Include="Features\VeiculoModule\OperacoesVeiculo.cs" />
     <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.cs">
