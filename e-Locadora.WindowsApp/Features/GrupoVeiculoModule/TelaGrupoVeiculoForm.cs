@@ -60,7 +60,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
                 return "Valor Plano Livre Valor Diario inválido, tente novamente";
 
-            return "CAMPOS_VALIDIS";
+            return "CAMPOS_VALIDOS";
         }
 
         private bool ValidarTipoDouble(string texto)
