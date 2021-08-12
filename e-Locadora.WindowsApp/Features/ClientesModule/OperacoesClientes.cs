@@ -60,7 +60,6 @@ namespace e_Locadora.WindowsApp.ClientesModule
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Cliente.Nome}] editado com sucesso");
             }
-
         }
 
         public void ExcluirRegistro()
