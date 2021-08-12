@@ -72,7 +72,7 @@ namespace e_Locadora.WindowsApp
             this.menuItemGrupoVeiculos,
             this.menuItemContato,
             this.menuItemClientes,
-            this.menuItemCondutor});
+            this.menuItemCondutor,
             this.menuItemClientes,
             this.MenuItemTaxasEServicos});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
