@@ -404,7 +404,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.MinimizeBox = false;
             this.Name = "TelaVeiculoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela Cadastro Veículo";
+            this.Text = "Cadastro de Veículos";
             this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeiculo)).EndInit();
             this.groupBoxImagemVeiculo.ResumeLayout(false);
