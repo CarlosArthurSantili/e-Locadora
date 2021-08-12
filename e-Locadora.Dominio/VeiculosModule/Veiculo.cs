@@ -93,8 +93,8 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (string.IsNullOrEmpty(GrupoVeiculo.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Grupo de Veiculo é obrigatório";
 
-            if (Imagem.Length == 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Imagem é obrigatório";
+            //if (Imagem!=null || Imagem.Length == 0)
+                //resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Imagem é obrigatório";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

@@ -73,35 +73,39 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            //Código para obter imagem
-            byte[] imagem = null;
-            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader brs = new BinaryReader(stream);
-            imagem = brs.ReadBytes((int)stream.Length);
-
-            string placa = txtPlaca.Text;
-            string chassi = txtChassi.Text;
-            string cor = txtCor.Text;
-            string fabricante = txtFabricante.Text;
-            int capacidadeTanque = Convert.ToInt32(txtCapacidadeTanque.Text);
-            int qtdPortas = Convert.ToInt32(txtQtdPortas.Text);
-            int ano = Convert.ToInt32(txtAno.Text);
-            int capacidadePessoas = Convert.ToInt32(txtCapacidadePessoas.Text);
-            string tipoGasolina = comboBoxGasolina.SelectedItem.ToString();
-            string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
-            GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
-
-            veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
-
-            string resultadoValidacao = veiculo.Validar();
-
-            if (resultadoValidacao != "ESTA_VALIDO")
+            if (ValidarCampos())
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                DialogResult = DialogResult.OK;
+                //Código para obter imagem
+                byte[] imagem = null;
+                FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(stream);
+                imagem = brs.ReadBytes((int)stream.Length);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                string placa = txtPlaca.Text;
+                string chassi = txtChassi.Text;
+                string cor = txtCor.Text;
+                string fabricante = txtFabricante.Text;
+                int capacidadeTanque = Convert.ToInt32(txtCapacidadeTanque.Text);
+                int qtdPortas = Convert.ToInt32(txtQtdPortas.Text);
+                int ano = Convert.ToInt32(txtAno.Text);
+                int capacidadePessoas = Convert.ToInt32(txtCapacidadePessoas.Text);
+                string tipoGasolina = comboBoxGasolina.SelectedItem.ToString();
+                string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
+                GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
-                DialogResult = DialogResult.None;
+                veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
+
+                string resultadoValidacao = veiculo.Validar();
+
+                if (resultadoValidacao != "ESTA_VALIDO")
+                {
+                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                    DialogResult = DialogResult.None;
+                }
             }
         }
 
@@ -114,6 +118,78 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         {
             foreach (GrupoVeiculo grupoVeiculo in controladorGrupoVeiculo.SelecionarTodos())
                 comboBoxGrupoVeiculo.Items.Add(grupoVeiculo);
+        }
+
+        public bool ValidarCampos() 
+        {
+            if(string.IsNullOrEmpty(txtPlaca.Text)) {
+                txtPlaca.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(txtChassi.Text)) {
+                txtChassi.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(txtCor.Text.Equals("")) {
+                txtCor.BackColor = Color.Red;
+                txtCor.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(txtFabricante.Text)) {
+                txtFabricante.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(txtCapacidadeTanque.Text)) {
+                txtCapacidadeTanque.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(txtQtdPortas.Text)) {
+                txtQtdPortas.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(string.IsNullOrEmpty(txtAno.Text)) {
+                labelAno.ForeColor = Color.Red;
+                txtAno.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtCapacidadePessoas.Text))
+            {
+                txtCapacidadePessoas.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(comboBoxGasolina.SelectedItem == null) 
+            {
+                comboBoxGasolina.ForeColor = Color.Red;
+                return false;
+            }
+
+            if(comboBoxGrupoVeiculo.SelectedItem == null) 
+            {
+                comboBoxGrupoVeiculo.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (comboBoxPortaMalas.SelectedItem == null) {
+                labelPortaMalas.ForeColor = Color.Red;
+                comboBoxPortaMalas.ForeColor = Color.Red;
+                return false;
+            }
+
+            if (pictureBoxVeiculo.Image == null)
+            {
+                groupBoxImagemVeiculo.ForeColor = Color.Red;
+                return false;
+            }
+
+            return true;
         }
 
         #region Eventos não utilizados

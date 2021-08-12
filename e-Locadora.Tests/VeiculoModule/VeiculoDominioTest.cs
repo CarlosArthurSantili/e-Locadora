@@ -108,5 +108,15 @@ namespace e_Locadora.Tests.VeiculoModule
 
         }
 
-     }
+        /*[TestMethod]
+        public void Nao_Deve_Validar_Imagem()
+        {
+            var grupo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 4000, 500);
+
+            Veiculo veiculo = new Veiculo("ABC-1234", "BMW", 55, 4, "123456789", "AZUL", 4, 2010, "grande", "Etanol", grupo, null);
+
+            Assert.AreEqual("O campo Imagem é obrigatório", veiculo.Validar());
+
+        }*/
+    }
 }

@@ -104,7 +104,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(349, 277);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
@@ -116,6 +115,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(121, 42);
+            this.txtPlaca.MaxLength = 7;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(100, 20);
             this.txtPlaca.TabIndex = 5;
@@ -252,7 +252,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             "Flex"});
             this.comboBoxGasolina.Location = new System.Drawing.Point(121, 250);
             this.comboBoxGasolina.Name = "comboBoxGasolina";
-            this.comboBoxGasolina.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGasolina.Size = new System.Drawing.Size(100, 21);
             this.comboBoxGasolina.TabIndex = 21;
             this.comboBoxGasolina.SelectedIndexChanged += new System.EventHandler(this.comboBoxGasolina_SelectedIndexChanged);
             // 
@@ -285,7 +285,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             "Grande"});
             this.comboBoxPortaMalas.Location = new System.Drawing.Point(121, 279);
             this.comboBoxPortaMalas.Name = "comboBoxPortaMalas";
-            this.comboBoxPortaMalas.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPortaMalas.Size = new System.Drawing.Size(100, 21);
             this.comboBoxPortaMalas.TabIndex = 23;
             this.comboBoxPortaMalas.SelectedIndexChanged += new System.EventHandler(this.comboBoxPortaMalas_SelectedIndexChanged);
             // 
@@ -320,16 +320,16 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // comboBoxGrupoVeiculo
             // 
             this.comboBoxGrupoVeiculo.FormattingEnabled = true;
-            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(370, 227);
+            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(353, 224);
             this.comboBoxGrupoVeiculo.Name = "comboBoxGrupoVeiculo";
-            this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(100, 21);
             this.comboBoxGrupoVeiculo.TabIndex = 27;
             // 
             // TelaVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 307);
+            this.ClientSize = new System.Drawing.Size(514, 311);
             this.Controls.Add(this.labelGrupoVeiculo);
             this.Controls.Add(this.comboBoxGrupoVeiculo);
             this.Controls.Add(this.txtId);
@@ -358,6 +358,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBoxImagemVeiculo);
             this.Controls.Add(this.btnImagem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TelaVeiculoForm";
             this.Text = "TelaVeiculoForm";
             this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);

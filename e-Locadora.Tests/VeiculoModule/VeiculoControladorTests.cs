@@ -74,7 +74,7 @@ namespace e_Locadora.Tests.VeiculoModule
             [TestMethod]
             public void DeveExcluir_Veiculo()
             {
-                //arrange            
+                //arrange
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
                 var veiculo = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);

@@ -90,15 +90,16 @@ namespace e_Locadora.WindowsApp.VeiculoModule
         public void InserirNovoRegistro()
         {
             TelaVeiculoForm tela = new TelaVeiculoForm();
+            tela.ShowDialog();
+            if (tela.ValidarCampos() == true)
+                if (tela.DialogResult == DialogResult.OK)
+                {
+                    controladorVeiculo.InserirNovo(tela.Veiculo);
 
-            if (tela.ShowDialog() == DialogResult.OK)
-            {
-                controladorVeiculo.InserirNovo(tela.Veiculo);
+                    tabelaVeiculoControl.AtualizarRegistros();
 
-                tabelaVeiculoControl.AtualizarRegistros();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] inserido com sucesso");
-            }
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] inserido com sucesso");
+                }
         }
 
         public UserControl ObterTabela()
