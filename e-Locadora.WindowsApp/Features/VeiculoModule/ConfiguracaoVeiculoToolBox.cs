@@ -32,10 +32,10 @@ namespace e_Locadora.WindowsApp.VeiculoModule
         {
             return new ConfiguracaoToolTips()
             {
-                Adicionar = "Adicionar um novo Grupo de Veiculo",
-                Editar = "Atualizar um Grupo de Veiculo existente",
-                Excluir = "Excluir um Grupo de Veiculo existente",
-                Filtrar = "Filtrar Grupo de Veiculos"
+                Adicionar = "Adicionar um novo Veiculo",
+                Editar = "Atualizar um Veiculo existente",
+                Excluir = "Excluir um Veiculo existente",
+                Filtrar = "Filtrar  Veiculos"
             };
         }
     }
