@@ -94,7 +94,9 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
                 List<Condutor> condutores = new List<Condutor>();
+
                 string condutorValidadeCnh = "";
+
                 switch (telaFiltro.TipoFiltro)
                 {
                     case FlitroCondutoresEnum.TodosCondutores:
@@ -111,6 +113,8 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
                     default:
                         break;
                 }
+                tabelaCondutor.AtualizarRegistros();
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {condutores.Count} Com CNH {condutorValidadeCnh}");
             }
         }
 
