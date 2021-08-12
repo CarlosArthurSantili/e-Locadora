@@ -34,6 +34,7 @@ namespace e_Locadora.WindowsApp
             this.menuItemGrupoVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemContato = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -69,7 +70,8 @@ namespace e_Locadora.WindowsApp
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemGrupoVeiculos,
             this.menuItemContato,
-            this.menuItemClientes});
+            this.menuItemClientes,
+            this.MenuItemTaxasEServicos});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -96,6 +98,14 @@ namespace e_Locadora.WindowsApp
             this.menuItemClientes.Size = new System.Drawing.Size(188, 22);
             this.menuItemClientes.Text = "Clientes";
             this.menuItemClientes.Click += new System.EventHandler(this.menuItemClientes_Click);
+            // 
+            // MenuItemTaxasEServicos
+            // 
+            this.MenuItemTaxasEServicos.Name = "MenuItemTaxasEServicos";
+            this.MenuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(188, 22);
+            this.MenuItemTaxasEServicos.Text = "Taxas e Servicos";
+            this.MenuItemTaxasEServicos.Click += new System.EventHandler(this.MenuItemTaxasEServicos_Click);
             // 
             // toolboxAcoes
             // 
@@ -286,6 +296,7 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.Panel panelRegistros;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labelRodape;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemTaxasEServicos;
     }
 }
 

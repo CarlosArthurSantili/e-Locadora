@@ -1,6 +1,8 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
+using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.WindowsApp.ClientesModule;
+using e_Locadora.WindowsApp.Features.TaxasServicosModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
@@ -89,7 +91,19 @@ namespace e_Locadora.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        private void MenuItemTaxasEServicos_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoTaxaServicosToolBox configuracao = new ConfiguracaoTaxaServicosToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesTaxaServicos(new ControladorTaxasServicos());
+
+            ConfigurarPainelRegistros();
+
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
@@ -120,6 +134,6 @@ namespace e_Locadora.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
- 
+
     }
 }

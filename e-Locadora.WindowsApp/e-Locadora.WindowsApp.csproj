@@ -74,8 +74,20 @@
     <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\TaxasServicosModule\TelaTaxaServicosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasServicosModule\TelaTaxaServicosForm.Designer.cs">
+      <DependentUpon>TelaTaxaServicosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\TaxasServicosModule\OperacoesTaxaServicos.cs" />
     <Compile Include="Features\TaxasServicosModule\ConfiguracaoTaxaServicosToolBox.cs" />
+    <Compile Include="Features\TaxasServicosModule\TabelaTaxaServico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasServicosModule\TabelaTaxaServico.Designer.cs">
+      <DependentUpon>TabelaTaxaServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\VeiculoModule\ConfiguracaoVeiculoToolBox.cs" />
     <Compile Include="Features\VeiculoModule\OperacoesVeiculo.cs" />
     <Compile Include="Features\VeiculoModule\TabelaVeiculoControl.cs">
@@ -114,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasServicosModule\TabelaTaxaServico.resx">
+      <DependentUpon>TabelaTaxaServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasServicosModule\TelaTaxaServicosForm.resx">
+      <DependentUpon>TelaTaxaServicosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\VeiculoModule\TelaVeiculoForm.resx">
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
