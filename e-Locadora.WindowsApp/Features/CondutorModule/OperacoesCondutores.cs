@@ -30,7 +30,9 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             {
                 controlador.InserirNovo(tela.Condutor);
 
-                tabelaCondutor.AtualizarRegistros();
+                List<Condutor> condutores = controlador.SelecionarTodos();
+
+                tabelaCondutor.CarregarTabela(condutores);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{tela.Condutor.Nome}] inserido com sucesso");
             }
@@ -57,7 +59,9 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             {
                 controlador.Editar(id, tela.Condutor);
 
-                tabelaCondutor.AtualizarRegistros();
+                List<Condutor> condutores = controlador.SelecionarTodos();
+
+                tabelaCondutor.CarregarTabela(condutores);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{tela.Condutor.Nome}] editado com sucesso");
             }
@@ -81,7 +85,9 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             {
                 controlador.Excluir(id);
 
-                tabelaCondutor.AtualizarRegistros();
+                List<Condutor> condutores = controlador.SelecionarTodos();
+
+                tabelaCondutor.CarregarTabela(condutores);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{condutorSelecionado.Nome}] removido com sucesso");
             }
@@ -113,14 +119,16 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
                     default:
                         break;
                 }
-                tabelaCondutor.AtualizarRegistros();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {condutores.Count} Com CNH {condutorValidadeCnh}");
+                tabelaCondutor.CarregarTabela(condutores);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {condutores.Count} condutores Com CNH {condutorValidadeCnh}");
             }
         }
 
         public UserControl ObterTabela()
         {
-            tabelaCondutor.AtualizarRegistros();
+            List<Condutor> condutores = controlador.SelecionarTodos(); 
+
+            tabelaCondutor.CarregarTabela(condutores);
 
             return tabelaCondutor;
         }

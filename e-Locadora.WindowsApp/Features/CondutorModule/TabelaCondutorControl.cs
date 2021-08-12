@@ -36,15 +36,15 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "NumeroRg", HeaderText = "Numero RG"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Rg", HeaderText = "Numero RG"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "NumeroCpf", HeaderText = "Numero CPF"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Cpf", HeaderText = "Numero CPF"},
 
                  new DataGridViewTextBoxColumn {DataPropertyName = "NumeroCnh", HeaderText = "Numero CNH"},
 
                  new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "Data Validade Cnh"},
 
-                 new DataGridViewTextBoxColumn {DataPropertyName = "Id_Cliente", HeaderText = "Cliente"}
+                 new DataGridViewTextBoxColumn {DataPropertyName = "Cliente", HeaderText = "Cliente"}
             };
 
             return colunas;
@@ -53,15 +53,21 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
         {
             return gridCondutores.SelecionarId<int>();
         }
-        public void AtualizarRegistros()
+        public void AtualizarRegistrosCnhVencida()
         {
-
-            var condutores = controladorCondutor.SelecionarTodos();
+            var condutores = controladorCondutor.SelecionarCondutoresComCnhVencida(DateTime.Now);
 
             CarregarTabela(condutores);
 
         }
-        private void CarregarTabela(List<Condutor> condutores)
+        //public void AtualizarRegistros()
+        //{
+        //    var condutores = controladorCondutor.SelecionarTodos();
+
+        //    CarregarTabela(condutores);
+
+        //}
+        public void CarregarTabela(List<Condutor> condutores)
         {
             gridCondutores.DataSource = condutores;
         }

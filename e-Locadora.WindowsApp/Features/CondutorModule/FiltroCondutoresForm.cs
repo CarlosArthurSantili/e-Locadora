@@ -24,7 +24,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
                 if (rbCnhVencida.Checked)
                     return FlitroCondutoresEnum.CondutoresCnhVencida;
 
-                else
+                else 
                     return FlitroCondutoresEnum.TodosCondutores;
             }
         }
