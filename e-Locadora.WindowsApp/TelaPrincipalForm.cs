@@ -103,7 +103,6 @@ namespace e_Locadora.WindowsApp
             operacoes = new OperacoesTaxaServicos(new ControladorTaxasServicos());
 
             ConfigurarPainelRegistros();
-
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {

@@ -242,6 +242,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaGrupoVeiculoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Grupo de Veículos";
             this.groupBoxPlanoDiario.ResumeLayout(false);
             this.groupBoxPlanoDiario.PerformLayout();

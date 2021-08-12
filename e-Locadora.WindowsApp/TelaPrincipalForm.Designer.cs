@@ -263,7 +263,7 @@ namespace e_Locadora.WindowsApp
             this.Controls.Add(this.toolboxAcoes);
             this.Controls.Add(this.menuStrip1);
             this.Name = "TelaPrincipalForm";
-            this.Text = "Tela de Menu Principal";
+            this.Text = "Menu Principal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolboxAcoes.ResumeLayout(false);
