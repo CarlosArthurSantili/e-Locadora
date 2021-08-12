@@ -1,4 +1,5 @@
-﻿using e_Locadora.WindowsApp.Shared;
+﻿using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,15 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
 {
     public class OperacoesCondutores : ICadastravel
     {
+        private ControladorCondutor controlador = null;
+        private TabelaCondutorControl tabelaCondutor = null;
+
+        public OperacoesCondutores(ControladorCondutor controlador)
+        {
+            this.controlador = controlador;
+            tabelaCondutor = new TabelaCondutorControl(controlador);
+        }
+
         public void InserirNovoRegistro()
         {
             throw new NotImplementedException();

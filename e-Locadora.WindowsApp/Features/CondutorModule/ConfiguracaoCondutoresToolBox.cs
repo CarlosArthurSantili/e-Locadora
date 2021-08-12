@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.WindowsApp.Features.CondutorModule
 {
-    class ConfiguracaoCondutoresToolBox
+    public class ConfiguracaoCondutoresToolBox
     {
     }
 }
