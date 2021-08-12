@@ -25,6 +25,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         public TelaVeiculoForm()
         {
             InitializeComponent();
+            CarregarContatos();
         }
 
         public Veiculo Veiculo
@@ -48,6 +49,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 txtCapacidadePessoas.Text = veiculo.CapacidadeOcupantes.ToString();
                 comboBoxCombustivel.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
+
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
                 pictureBoxVeiculo.Image = ConvertBinaryToImage(veiculo.Imagem);
                 
@@ -127,8 +129,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 }
             }
             else {
-                MessageBox.Show(validacaoCampos, "Erro: Veículo inválido",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string primeiroErro = new StringReader(validacaoCampos).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
             }
         }
 
@@ -148,6 +150,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         private void CarregarContatos()
         {
+            comboBoxGrupoVeiculo.Items.Clear();
             foreach (GrupoVeiculo grupoVeiculo in controladorGrupoVeiculo.SelecionarTodos())
                 comboBoxGrupoVeiculo.Items.Add(grupoVeiculo);
         }
@@ -158,28 +161,59 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 return "Placa é obrigatório";;
             }
 
-            if(string.IsNullOrEmpty(txtChassi.Text)) {
-                return "Chassi é obrigatório";
+            if (string.IsNullOrEmpty(txtModelo.Text))
+            {
+                return "Modelo é obrigatório"; ;
             }
 
-            if(txtCor.Text.Equals("")) {
-                return "Cor é obrigatório";
-            }
-
-            if(string.IsNullOrEmpty(txtFabricante.Text)) {
+            if (string.IsNullOrEmpty(txtFabricante.Text))
+            {
                 return "Fabricante é obrigatório";
             }
 
+            if (string.IsNullOrEmpty(txtQuilometragem.Text))
+            {
+                return "Quilometragem é obrigatório";
+            }
+
+            if (!ValidarTipoInt(txtQuilometragem.Text))
+            {
+                return "Digite um valor válido para Quilometragem";
+            }
+
+            if (string.IsNullOrEmpty(txtChassi.Text)) {
+                return "Chassi é obrigatório";
+            }
+
+            if(string.IsNullOrEmpty(txtCor.Text)) {
+                return "Cor é obrigatório";
+            }
+            
             if(string.IsNullOrEmpty(txtCapacidadeTanque.Text)) {
                 return "Capacidade Tanque é obrigatório";
             }
 
-            if(string.IsNullOrEmpty(txtQtdPortas.Text)) {
+            if (!ValidarTipoInt(txtCapacidadeTanque.Text))
+            {
+                return "Digite um valor válido para Capacidade do Tanque";
+            }
+
+            if (string.IsNullOrEmpty(txtQtdPortas.Text)) {
                 return "Quantidade de Portas é obrigatório";
             }
 
-            if(string.IsNullOrEmpty(txtAno.Text)) {
+            if (!ValidarTipoInt(txtQtdPortas.Text))
+            {
+                return "Digite um valor válido para Quantidade de Portas";
+            }
+
+            if (string.IsNullOrEmpty(txtAno.Text)) {
                 return "Ano de Fabricação é obrigatório";
+            }
+
+            if (!ValidarTipoInt(txtAno.Text))
+            {
+                return "Digite um valor válido para Ano de Fabricação";
             }
 
             if (string.IsNullOrEmpty(txtCapacidadePessoas.Text))
@@ -187,7 +221,12 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 return "Capacidade de Pessoas é obrigatório";
             }
 
-            if(comboBoxCombustivel.SelectedItem == null) 
+            if (!ValidarTipoInt(txtCapacidadePessoas.Text))
+            {
+                return "Digite um valor válido para Capacidade de Pessoas";
+            }
+
+            if (comboBoxCombustivel.SelectedItem == null) 
             {
                 return "Tipo de combustível é obrigatório";
             }
@@ -207,6 +246,19 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             }
 
             return "VALIDO";
+        }
+
+        private bool ValidarTipoInt(string texto)
+        {
+            try
+            {
+                double numeroConvertido = Convert.ToInt32(texto);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         #region Eventos não utilizados
