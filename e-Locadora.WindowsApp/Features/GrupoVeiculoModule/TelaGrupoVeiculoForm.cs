@@ -43,24 +43,24 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
         public string ValidarCampos() 
         {
             if (string.IsNullOrEmpty(txtCategoria.Text))
-                return "Categoria Invalido, tente novamente";
+                return "Categoria inválida, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoDiarioValorDiario.Text))
-                return "Valor Plano Diario inválido, tente novamente";
+                return "Plano Diário: Valor Diário inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoDiarioValorKm.Text))
-                return "Valor Plano Diario Valor KM inválido, tente novamente";
+                return "Plano Diário: Valor KM inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoControladoValorDiario.Text))
-                return "Valor Plano Controlado Valor Diario inválido, tente novamente";
+                return "Plano KM Controlado: Valor Diário inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
-                return "Valor Plano Controlado Valor Km inválido, tente novamente";
+                return "Plano KM Controlado: Valor KM inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
-                return "Valor Plano Livre Valor Diario inválido, tente novamente";
+                return "Plano KM Livre: Valor Diário inválido, tente novamente";
 
-            return "CAMPOS_VALIDIS";
+            return "CAMPOS_VALIDOS";
         }
 
         private bool ValidarTipoDouble(string texto)

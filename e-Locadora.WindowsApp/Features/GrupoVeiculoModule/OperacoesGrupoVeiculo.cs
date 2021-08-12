@@ -28,7 +28,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             TelaGrupoVeiculoForm tela = new TelaGrupoVeiculoForm();
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == "CAMPOS_VALIDO" && tela.DialogResult == DialogResult.OK)
+            if (tela.ValidarCampos() == "CAMPOS_VALIDOS" && tela.DialogResult == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.GrupoVeiculo);
 
@@ -56,7 +56,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             tela.GrupoVeiculo = grupoVeiculoSelecionada;
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == "CAMPOS_VALIDO" && tela.DialogResult == DialogResult.OK)
+            if (tela.ValidarCampos() == "CAMPOS_VALIDOS" && tela.DialogResult == DialogResult.OK)
             {
                 controlador.Editar(id, tela.GrupoVeiculo);
 

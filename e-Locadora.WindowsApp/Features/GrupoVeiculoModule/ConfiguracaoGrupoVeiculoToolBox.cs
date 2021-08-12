@@ -25,7 +25,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = true
+                Filtrar = false
             };
         }
 
@@ -35,8 +35,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             {
                 Adicionar = "Adicionar um novo Grupo de Veiculo",
                 Editar = "Atualizar um Grupo de Veiculo existente",
-                Excluir = "Excluir um Grupo de Veiculo existente",
-                Filtrar = "Filtrar Grupo de Veiculos"
+                Excluir = "Excluir um Grupo de Veiculo existente"
             };
         }
     }
