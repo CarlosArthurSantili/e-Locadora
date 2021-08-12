@@ -66,7 +66,7 @@ namespace e_Locadora.Dominio.CondutoresModule
             return resultadoValidacao;
         }
 
-        public override bool Equals(object obj)
+        public  bool Equals(Condutor obj)
         {
             return obj is Condutor condutor &&
                    Id == condutor.Id &&
@@ -93,6 +93,10 @@ namespace e_Locadora.Dominio.CondutoresModule
             hashCode = hashCode * -1521134295 + ValidadeCNH.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Clientes>.Default.GetHashCode(Cliente);
             return hashCode;
+        }
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Condutor);
         }
     }
 }

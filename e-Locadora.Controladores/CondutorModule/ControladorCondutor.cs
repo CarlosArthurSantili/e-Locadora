@@ -1,4 +1,5 @@
-﻿using e_Locadora.Controladores.Shared;
+﻿using e_Locadora.Controladores.ClientesModule;
+using e_Locadora.Controladores.Shared;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
 using System;
@@ -12,6 +13,7 @@ namespace e_Locadora.Controladores.CondutorModule
 {
     public class ControladorCondutor : Controlador<Condutor>
     {
+        ControladorClientes controlador = new ControladorClientes();
         #region Queries
         private const string sqlInserirCondutor =
          @"INSERT INTO TBCONDUTOR
@@ -40,7 +42,7 @@ namespace e_Locadora.Controladores.CondutorModule
         private const string sqlEditarCondutor =
          @"UPDATE TBCONDUTOR
                     SET
-                        [NOME] = @NOME
+                        [NOME] = @NOME,
 		                [ENDERECO] = @ENDERECO, 
 		                [TELEFONE] = @TELEFONE,
                         [NUMERORG] = @NUMERORG, 
@@ -87,7 +89,7 @@ namespace e_Locadora.Controladores.CondutorModule
                 [TBCONDUTOR] AS CP LEFT JOIN 
                 [TBCLIENTES] AS CT
             ON
-                CT.ID = CP.ID_CONTATO
+                CT.ID = CP.ID_CLIENTE
             WHERE
                  CP.[ID] = @ID";
 
@@ -227,16 +229,9 @@ namespace e_Locadora.Controladores.CondutorModule
             var numeroCnh = Convert.ToString(reader["NUMEROCNH"]);
             var dataValidade = Convert.ToDateTime(reader["VALIDADECNH"]);
 
- 
-            string nomecliente = Convert.ToString(reader["NOME"]);
-            string enderecocliente = Convert.ToString(reader["ENDERECO"]);
-            string telefonecliente = Convert.ToString(reader["TELEFONE"]);
-            string rg = Convert.ToString(reader["RG"]);
-            string cpf = Convert.ToString(reader["CPF"]);
-            string cnpj = Convert.ToString(reader["CNPJ"]);
 
-            Clientes clientes = new Clientes(nomecliente, enderecocliente, telefonecliente, rg, cpf, cnpj);
-            clientes.Id = Convert.ToInt32(reader["ID_CLIENTE"]);
+            var idCliente = Convert.ToInt32(reader["ID_CLIENTE"]);
+            Clientes clientes = controlador.SelecionarPorId(idCliente);
 
             Condutor condutor = new Condutor(nome, endereco, telefone, numeroRg, numeroCpf, numeroCnh, dataValidade, clientes);
 
