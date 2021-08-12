@@ -50,7 +50,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 comboBoxCombustivel.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
 
+                comboBoxGrupoVeiculo.SelectedIndex = 0;
+
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
+
                 pictureBoxVeiculo.Image = ConvertBinaryToImage(veiculo.Imagem);
                 
             }

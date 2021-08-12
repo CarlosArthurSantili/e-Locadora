@@ -75,7 +75,6 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
                 return false;
             }
         }
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string resultadoValidacao = ValidarCampos();
