@@ -50,10 +50,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 comboBoxCombustivel.SelectedItem = veiculo.Combustivel.ToString();
                 comboBoxPortaMalas.SelectedItem = veiculo.TamanhoPortaMalas.ToString();
 
-                comboBoxGrupoVeiculo.SelectedIndex = 0;
-
                 comboBoxGrupoVeiculo.SelectedItem = veiculo.GrupoVeiculo;
-
+                
                 pictureBoxVeiculo.Image = ConvertBinaryToImage(veiculo.Imagem);
                 
             }
@@ -116,6 +114,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 int capacidadePessoas = Convert.ToInt32(txtCapacidadePessoas.Text);
                 string tipoGasolina = comboBoxCombustivel.SelectedItem.ToString();
                 string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
+
+                //comboBoxGrupoVeiculo.SelectedItem = comboBoxGrupoVeiculo.SelectedItem;
+
                 GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
                 veiculo = new Veiculo(placa, modelo, fabricante, quilometragem, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
@@ -144,11 +145,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 img.Save(ms, pictureBoxVeiculo.Image.RawFormat);
                 return ms.ToArray();
             }
-        }
-
-        private void TelaVeiculoForm_Load(object sender, EventArgs e)
-        {
-            CarregarContatos();
         }
 
         private void CarregarContatos()
@@ -263,33 +259,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 return false;
             }
         }
-
-        #region Eventos não utilizados
-        private void comboBoxPortaMalas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelPortaMalas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelGasolina_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxGasolina_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelPlaca_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
 
     }
 }
