@@ -34,7 +34,6 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Cliente.Nome}] inserido com sucesso");
             }
         }
-   
         public void EditarRegistro()
         {
             int id = tabelaClientes.ObtemIdSelecionado();
@@ -61,7 +60,6 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Cliente.Nome}] editado com sucesso");
             }
         }
-
         public void ExcluirRegistro()
         {
             int id = tabelaClientes.ObtemIdSelecionado();
@@ -91,12 +89,10 @@ namespace e_Locadora.WindowsApp.ClientesModule
 
             return tabelaClientes;
         }
-
         public void FiltrarRegistros()
         {
            
         }
-
         public void AgruparRegistros()
         {
          
@@ -106,6 +102,5 @@ namespace e_Locadora.WindowsApp.ClientesModule
           
         }
 
- 
     }
 }
