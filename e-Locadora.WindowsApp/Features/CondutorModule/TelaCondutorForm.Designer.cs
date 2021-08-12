@@ -252,6 +252,8 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCondutorForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Cadastro de Condutores ";
             this.ResumeLayout(false);
             this.PerformLayout();

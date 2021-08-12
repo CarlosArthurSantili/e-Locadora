@@ -1,4 +1,5 @@
 ﻿using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Dominio.CondutoresModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -22,27 +23,102 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
 
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaCondutorForm tela = new TelaCondutorForm();
+
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.Condutor);
+
+                tabelaCondutor.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{tela.Condutor.Nome}] inserido com sucesso");
+            }
         }
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaCondutor.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Condutor para poder editar!", "Edição de Condutor",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Condutor condutorSelecionado = controlador.SelecionarPorId(id);
+
+            TelaCondutorForm tela = new TelaCondutorForm();
+
+            tela.Condutor = condutorSelecionado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Condutor);
+
+                tabelaCondutor.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{tela.Condutor.Nome}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaCondutor.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Condutor para poder excluir!", "Exlusão de Condutor",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Condutor condutorSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Condutor: [{condutorSelecionado.Nome}] ?",
+             "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                tabelaCondutor.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{condutorSelecionado.Nome}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
+            FiltroCondutoresForm telaFiltro = new FiltroCondutoresForm();
+
+            if (telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                List<Condutor> condutores = new List<Condutor>();
+                string condutorValidadeCnh = "";
+                switch (telaFiltro.TipoFiltro)
+                {
+                    case FlitroCondutoresEnum.TodosCondutores:
+                        condutores = controlador.SelecionarTodos();
+                        break;
+
+                    case FlitroCondutoresEnum.CondutoresCnhVencida:
+                        {
+                            condutores = controlador.SelecionarCondutoresComCnhVencida(DateTime.Now);
+                            condutorValidadeCnh = "Vencidas";
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+            }
         }
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            tabelaCondutor.AtualizarRegistros();
+
+            return tabelaCondutor;
         }
         public void AgruparRegistros()
         {

@@ -16,5 +16,17 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
         {
             InitializeComponent();
         }
+
+        public FlitroCondutoresEnum TipoFiltro
+        {
+            get
+            {
+                if (rbCnhVencida.Checked)
+                    return FlitroCondutoresEnum.CondutoresCnhVencida;
+
+                else
+                    return FlitroCondutoresEnum.TodosCondutores;
+            }
+        }
     }
 }

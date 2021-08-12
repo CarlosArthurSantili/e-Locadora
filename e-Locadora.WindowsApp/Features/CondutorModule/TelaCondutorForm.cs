@@ -19,7 +19,6 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
     {
         private Condutor condutor;
         private ControladorClientes controladorCliente = new ControladorClientes();
-        private ControladorCondutor controladorCondutores = new ControladorCondutor();
         public TelaCondutorForm()
         {
             InitializeComponent();
