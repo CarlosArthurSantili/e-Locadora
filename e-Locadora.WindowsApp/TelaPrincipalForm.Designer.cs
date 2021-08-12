@@ -71,7 +71,6 @@ namespace e_Locadora.WindowsApp
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemGrupoVeiculos,
             this.menuItemContato,
-            this.menuItemClientes,
             this.menuItemCondutor,
             this.menuItemClientes,
             this.MenuItemTaxasEServicos});
@@ -275,7 +274,7 @@ namespace e_Locadora.WindowsApp
             this.Controls.Add(this.menuStrip1);
             this.Name = "TelaPrincipalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela de Menu Principal";
+            this.Text = "Menu Principal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolboxAcoes.ResumeLayout(false);
