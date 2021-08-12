@@ -25,7 +25,13 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Descricao))
-                resultadoValidacao = "O campo descrição é obrigatório e não pode ser vazio.";
+                resultadoValidacao += "O campo descrição é obrigatório e não pode ser vazio.";
+
+            if (TaxaFixa < 0)
+                resultadoValidacao += "Taxa Fixa não pode ser menor que Zero.";
+
+            if (TaxaDiaria < 0)
+                resultadoValidacao += "Taxa Diaria não pode ser Menor que Zero.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

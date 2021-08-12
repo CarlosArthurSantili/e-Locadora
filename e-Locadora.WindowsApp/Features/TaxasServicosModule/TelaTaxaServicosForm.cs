@@ -35,24 +35,63 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             }
         }
 
+        public string ValidarCampos()
+        {
+            if (string.IsNullOrEmpty(txtDescricao.Text))
+                return "Descrição Invpalida, tente novamente";
+
+            if (!ValidarTipoDouble(textTaxaFixa.Text))
+                return "Esse valor Taxa Fixa está inválido, tente novamente";
+
+            if (!ValidarTipoDouble(textTaxaDiaria.Text))
+                return "Esse valor Taxa Diaria está inválido, tente novamente";
+
+            return "CAMPOS_VALIDOS";
+        }
+
+        private bool ValidarTipoDouble(string texto)
+        {
+            try
+            {
+                double numeroConvertido = Convert.ToDouble(texto);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string descricao = txtDescricao.Text;
-            double taxaFixa = Convert.ToDouble(textTaxaFixa.Text);
-            double taxaDiaria = Convert.ToDouble(textTaxaDiaria.Text);
-
-            taxasServicos = new TaxasServicos(descricao, taxaFixa, taxaDiaria);
-
-            string resultadoValidacao = taxasServicos.Validar();
-
-            if (resultadoValidacao != "ESTA_VALIDO")
+            string resultadoValidacao = ValidarCampos();
+            if (resultadoValidacao.Equals("CAMPOS_VALIDOS"))
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                DialogResult = DialogResult.OK;
+                string descricao = txtDescricao.Text;
+                double taxaFixa = Convert.ToDouble(textTaxaFixa.Text);
+                double taxaDiaria = Convert.ToDouble(textTaxaDiaria.Text);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                taxasServicos = new TaxasServicos(descricao, taxaFixa, taxaDiaria);
 
-                DialogResult = DialogResult.None;
+                resultadoValidacao = taxasServicos.Validar();
+
+                if (resultadoValidacao != "ESTA_VALIDO")
+                {
+                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                    DialogResult = DialogResult.None;
+
+                    MessageBox.Show(resultadoValidacao, "Erro Dominio: Taxas e Serviços inválido",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show(resultadoValidacao, "Erro Tela: Taxas e Serviços inválido",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
 
         private void taxaFixa_CheckedChanged(object sender, EventArgs e)
@@ -80,6 +119,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             taxaFixa.Checked = true;
             taxaDiaria.Checked = false;
         }
+
 
 
     }
