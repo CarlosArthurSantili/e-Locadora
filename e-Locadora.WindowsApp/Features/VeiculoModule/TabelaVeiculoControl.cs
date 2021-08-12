@@ -38,17 +38,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Quilometragem", HeaderText = "Fabricante"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "QtdLitrosTanque", HeaderText = "Quantida de Litros"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "NumeroChassi", HeaderText = "Numero do Chassi"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Cor", HeaderText = "cor"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "CapacidadeOcupantes", HeaderText = "Capacidade de Ocupantes"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "AnoFabricacao", HeaderText = "Ano de Fabricação" },
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "TamanhoPortaMalas", HeaderText = "Tamanho Porta Amalas" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "QtdLitrosTanque", HeaderText = "Capacidade Litros"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Combustivel", HeaderText = "Combustivel" },
 

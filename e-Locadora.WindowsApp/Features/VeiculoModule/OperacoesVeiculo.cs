@@ -50,15 +50,14 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             tela.Veiculo = VeiculoSelecionada;
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == true)
-                if (tela.DialogResult == DialogResult.OK)
-                {
-                    controladorVeiculo.Editar(id, tela.Veiculo);
+            if (tela.ValidarCampos() == "VALIDO" && tela.DialogResult == DialogResult.OK)
+            {
+                controladorVeiculo.Editar(id, tela.Veiculo);
 
-                    tabelaVeiculoControl.AtualizarRegistros();
+                tabelaVeiculoControl.AtualizarRegistros();
 
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] editado com sucesso");
-                }
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
@@ -93,15 +92,14 @@ namespace e_Locadora.WindowsApp.VeiculoModule
         {
             TelaVeiculoForm tela = new TelaVeiculoForm();
             tela.ShowDialog();
-            if (tela.ValidarCampos() == true)
-                if (tela.DialogResult == DialogResult.OK)
-                {
-                    controladorVeiculo.InserirNovo(tela.Veiculo);
+            if (tela.ValidarCampos() == "VALIDO" && tela.DialogResult == DialogResult.OK)
+            { 
+                controladorVeiculo.InserirNovo(tela.Veiculo);
 
-                    tabelaVeiculoControl.AtualizarRegistros();
+                tabelaVeiculoControl.AtualizarRegistros();
 
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] inserido com sucesso");
-                }
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.Placa}] inserido com sucesso");
+            }
         }
 
         public UserControl ObterTabela()
