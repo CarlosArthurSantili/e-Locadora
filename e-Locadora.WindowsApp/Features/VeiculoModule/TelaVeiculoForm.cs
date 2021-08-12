@@ -20,7 +20,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         private Veiculo veiculo;
         private bool imagemAlterada = false;
-        string imgLocation = "";
+        private string imgLocation = "";
 
         public TelaVeiculoForm()
         {
@@ -79,7 +79,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            string validacaoCampos = ValidarCampos();
+            if (validacaoCampos.Equals("VALIDO"))
             {
                 DialogResult = DialogResult.OK;
                 //Código para obter imagem
@@ -125,8 +126,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                     DialogResult = DialogResult.None;
                 }
             }
-            else { 
-            
+            else {
+                MessageBox.Show(validacaoCampos, "Erro: Veículo inválido",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -150,88 +152,61 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 comboBoxGrupoVeiculo.Items.Add(grupoVeiculo);
         }
 
-        public bool ValidarCampos() 
+        public string ValidarCampos() 
         {
             if(string.IsNullOrEmpty(txtPlaca.Text)) {
-                labelPlaca.ForeColor = Color.Red;
-                //labelPlaca.Text = "Placa é obrigatório";
-                return false;
+                return "Placa é obrigatório";;
             }
 
             if(string.IsNullOrEmpty(txtChassi.Text)) {
-                labelChassi.ForeColor = Color.Red;
-                //labelChassi.Text = "Chassi é obrigatório";
-                return false;
+                return "Chassi é obrigatório";
             }
 
             if(txtCor.Text.Equals("")) {
-                labelCor.ForeColor = Color.Red;
-                //labelCor.Text = "Cor é obrigatório";
-                return false;
+                return "Cor é obrigatório";
             }
 
             if(string.IsNullOrEmpty(txtFabricante.Text)) {
-                labelFabricante.ForeColor = Color.Red;
-                //labelFabricante.Text = "Fabricante é obrigatório";
-                return false;
+                return "Fabricante é obrigatório";
             }
 
             if(string.IsNullOrEmpty(txtCapacidadeTanque.Text)) {
-                labelCapacidadeTanque.ForeColor = Color.Red;
-                //labelCapacidadeTanque.Text = "Capacidade Tanque é obrigatório";
-                return false;
+                return "Capacidade Tanque é obrigatório";
             }
 
             if(string.IsNullOrEmpty(txtQtdPortas.Text)) {
-                labelQtdPortas.ForeColor = Color.Red;
-                //labelQtdPortas.Text = "Quantidade de Portas é obrigatório";
-                return false;
+                return "Quantidade de Portas é obrigatório";
             }
 
             if(string.IsNullOrEmpty(txtAno.Text)) {
-                labelAno.ForeColor = Color.Red;
-                //labelAno.Text = "Ano de Fabricação é obrigatório";
-                return false;
+                return "Ano de Fabricação é obrigatório";
             }
 
             if (string.IsNullOrEmpty(txtCapacidadePessoas.Text))
             {
-                labelCapacidadePessoas.ForeColor = Color.Red;
-                //labelCapacidadePessoas.Text = "Capacidade de Pessoas é obrigatório";
-                return false;
+                return "Capacidade de Pessoas é obrigatório";
             }
 
             if(comboBoxCombustivel.SelectedItem == null) 
             {
-                labelCombustivel.ForeColor = Color.Red;
-                //comboBoxCombustivel.ForeColor = Color.Red;
-                //labelCombustivel.Text = "Tipo de combustível é obrigatório";
-                return false;
+                return "Tipo de combustível é obrigatório";
             }
 
             if(comboBoxGrupoVeiculo.SelectedItem == null) 
             {
-                labelGrupoVeiculo.ForeColor = Color.Red;
-                //comboBoxGrupoVeiculo.ForeColor = Color.Red;
-                //labelGrupoVeiculo.Text = "Grupo do veículo é obrigatório";
-                return false;
+                return "Grupo do veículo é obrigatório";
             }
 
             if (comboBoxPortaMalas.SelectedItem == null) {
-                labelPortaMalas.ForeColor = Color.Red;
-                //comboBoxPortaMalas.ForeColor = Color.Red;
-                //labelPortaMalas.Text = "Tamanho do porta malas é obrigatório";
-                return false;
+                return "Tamanho do porta malas é obrigatório";
             }
 
             if (pictureBoxVeiculo.Image == null)
             {
-                groupBoxImagemVeiculo.ForeColor = Color.Red;
-                //labelPortaMalas.Text = "Imagem do veículo é obrigatório";
-                return false;
+                return "Imagem do veículo é obrigatório";
             }
 
-            return true;
+            return "VALIDO";
         }
 
         #region Eventos não utilizados

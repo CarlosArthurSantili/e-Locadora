@@ -400,6 +400,8 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.Controls.Add(this.groupBoxImagemVeiculo);
             this.Controls.Add(this.btnImagem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaVeiculoForm";
             this.Text = "TelaVeiculoForm";
             this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);

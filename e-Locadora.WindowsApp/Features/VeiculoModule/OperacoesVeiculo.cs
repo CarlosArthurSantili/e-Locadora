@@ -50,7 +50,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             tela.Veiculo = VeiculoSelecionada;
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == true)
+            if (tela.ValidarCampos() == "VALIDO")
                 if (tela.DialogResult == DialogResult.OK)
                 {
                     controladorVeiculo.Editar(id, tela.Veiculo);
@@ -93,7 +93,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
         {
             TelaVeiculoForm tela = new TelaVeiculoForm();
             tela.ShowDialog();
-            if (tela.ValidarCampos() == true)
+            if (tela.ValidarCampos() == "VALIDO" && tela.DialogResult == DialogResult.OK)
                 if (tela.DialogResult == DialogResult.OK)
                 {
                     controladorVeiculo.InserirNovo(tela.Veiculo);

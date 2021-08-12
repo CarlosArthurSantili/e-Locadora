@@ -204,7 +204,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             int idGrupoVeiculo = Convert.ToInt32(reader["IDGRUPOVEICULO"]);
             //if (reader["IMAGEM"] != null)
                 byte[] imagem = (byte[])reader["IMAGEM"];
-
+            
             ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
             GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
