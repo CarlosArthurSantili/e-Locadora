@@ -83,5 +83,10 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void TelaCondutorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
     }
 }

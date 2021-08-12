@@ -28,5 +28,10 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
                     return FlitroCondutoresEnum.TodosCondutores;
             }
         }
+
+        private void FiltroCondutoresForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
     }
 }

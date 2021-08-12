@@ -86,10 +86,13 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.rbCnhVencida);
             this.Controls.Add(this.rbTodos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FiltroCondutoresForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Visualização de Condutores ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FiltroCondutoresForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -60,13 +60,6 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             CarregarTabela(condutores);
 
         }
-        //public void AtualizarRegistros()
-        //{
-        //    var condutores = controladorCondutor.SelecionarTodos();
-
-        //    CarregarTabela(condutores);
-
-        //}
         public void CarregarTabela(List<Condutor> condutores)
         {
             gridCondutores.DataSource = condutores;

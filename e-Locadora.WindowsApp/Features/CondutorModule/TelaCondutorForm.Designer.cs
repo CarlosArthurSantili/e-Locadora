@@ -249,12 +249,13 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             this.Controls.Add(this.TxtTelefone);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCondutorForm";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Cadastro de Condutores ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaCondutorForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
