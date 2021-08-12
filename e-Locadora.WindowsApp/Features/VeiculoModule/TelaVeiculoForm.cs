@@ -78,10 +78,16 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 DialogResult = DialogResult.OK;
                 //Código para obter imagem
                 byte[] imagem = null;
-                FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader brs = new BinaryReader(stream);
-                imagem = brs.ReadBytes((int)stream.Length);
-
+                if (pictureBoxVeiculo.Image == null)
+                {
+                    FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader brs = new BinaryReader(stream);
+                    imagem = brs.ReadBytes((int)stream.Length);
+                }
+                else
+                {
+                    imagem = ConvertImageToBinary(pictureBoxVeiculo.Image);
+                }
                 string placa = txtPlaca.Text;
                 string chassi = txtChassi.Text;
                 string cor = txtCor.Text;
@@ -107,7 +113,20 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                     DialogResult = DialogResult.None;
                 }
             }
+            else { 
+            
+            }
         }
+
+        byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
 
         private void TelaVeiculoForm_Load(object sender, EventArgs e)
         {
