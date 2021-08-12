@@ -50,7 +50,6 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(228, 160);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
@@ -185,6 +184,8 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaGrupoVeiculoForm";
             this.Text = "Cadastro Grupo de Veículos";
             this.groupBoxPlanoDiario.ResumeLayout(false);

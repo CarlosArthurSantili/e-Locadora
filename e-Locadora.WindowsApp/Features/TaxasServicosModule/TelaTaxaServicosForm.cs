@@ -78,19 +78,15 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
                 if (resultadoValidacao != "ESTA_VALIDO")
                 {
                     string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
 
                     DialogResult = DialogResult.None;
-
-                    MessageBox.Show(resultadoValidacao, "Erro Dominio: Taxas e Serviços inválido",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show(resultadoValidacao, "Erro Tela: Taxas e Serviços inválido",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
             }  
         }
 

@@ -39,27 +39,75 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             }
         }
 
+
+        public string ValidarCampos() 
+        {
+            if (string.IsNullOrEmpty(txtCategoria.Text))
+                return "Categoria Invalido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoDiarioValorDiario.Text))
+                return "Valor Plano Diario inválido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoDiarioValorKm.Text))
+                return "Valor Plano Diario Valor KM inválido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoControladoValorDiario.Text))
+                return "Valor Plano Controlado Valor Diario inválido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
+                return "Valor Plano Controlado Valor Km inválido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
+                return "Valor Plano Livre Valor Diario inválido, tente novamente";
+
+            return "CAMPOS_VALIDIS";
+        }
+
+        private bool ValidarTipoDouble(string texto)
+        {
+            try
+            {
+                double numeroConvertido = Convert.ToDouble(texto);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string categoria = txtCategoria.Text;
-            double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
-            double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
-            double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
-            double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
-            double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
-            
+            string resultadoValidacao = ValidarCampos();
+            if (resultadoValidacao.Equals("CAMPOS_VALIDOS"))
+            {
+                DialogResult = DialogResult.OK;
+                string categoria = txtCategoria.Text;
+                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
+                double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
+                double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
+                double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
+                double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
 
-            grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoValorKm, planoLivreValorDiario);
+                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoValorKm, planoLivreValorDiario);
 
-            string resultadoValidacao = grupoVeiculo.Validar();
+                resultadoValidacao = grupoVeiculo.Validar();
 
-            if (resultadoValidacao != "ESTA_VALIDO")
+                if (resultadoValidacao != "ESTA_VALIDO")
+                {
+                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                    DialogResult = DialogResult.None;
+                }
+                
+            }
+            else
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
-
-                DialogResult = DialogResult.None;
             }
         }
     }
