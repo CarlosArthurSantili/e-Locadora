@@ -32,7 +32,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Detalhes", HeaderText = "Detalhes"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Descricao", HeaderText = "Descricão"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "TaxaFixa", HeaderText = "Taxa Fixa"},
 

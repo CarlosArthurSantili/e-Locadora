@@ -60,6 +60,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             if(taxaFixa.Checked == true )
             {
                 textTaxaDiaria.Enabled = false;
+                textTaxaFixa.Enabled = true;
                 textTaxaDiaria.Text = "0";
             }
         }
@@ -69,6 +70,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             if(taxaDiaria.Checked == true)
             {
                 textTaxaFixa.Enabled = false;
+                textTaxaDiaria.Enabled = true;
                 textTaxaFixa.Text = "0";
             }
         }

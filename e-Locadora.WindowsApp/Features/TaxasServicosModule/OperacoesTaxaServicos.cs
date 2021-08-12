@@ -1,4 +1,5 @@
 ﻿using e_Locadora.Controladores.TaxasServicoModule;
+using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -32,12 +33,53 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaTaxaServicos.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma Taxa ou Serviço para poder editar!", "Edição de Taxa ou Serviço",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TaxasServicos taxasServicosSelecionado = controlador.SelecionarPorId(id);
+
+            TelaTaxaServicosForm tela = new TelaTaxaServicosForm();
+
+            tela.TaxasServicos = taxasServicosSelecionado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.TaxasServicos);
+
+                tabelaTaxaServicos.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa ou Serviço: [{tela.TaxasServicos.Descricao}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaTaxaServicos.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma Taxa ou Serviço para poder excluir!", "Exclusão de Taxa ou Serviço",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TaxasServicos taxasServicosSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir a Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] ?",
+                "Exclusão de Taxa ou Serviço", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                tabelaTaxaServicos.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
@@ -61,7 +103,9 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            tabelaTaxaServicos.AtualizarRegistros();
+
+            return tabelaTaxaServicos;
         }
     }
 }
