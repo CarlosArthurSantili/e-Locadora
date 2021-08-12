@@ -24,7 +24,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = true
+                Filtrar = false
             };
         }
 
