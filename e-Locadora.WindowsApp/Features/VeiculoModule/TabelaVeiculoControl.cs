@@ -32,7 +32,11 @@ namespace e_Locadora.WindowsApp.VeiculoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Placa", HeaderText = "Placa"},
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Modelo"},
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "Fabricante", HeaderText = "Fabricante"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Quilometragem", HeaderText = "Fabricante"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "QtdLitrosTanque", HeaderText = "Quantida de Litros"},
 

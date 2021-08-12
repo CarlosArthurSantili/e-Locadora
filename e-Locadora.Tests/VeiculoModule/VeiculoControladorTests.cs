@@ -43,7 +43,7 @@ namespace e_Locadora.Tests.VeiculoModule
                 //arrange
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
-                var novoVeiculo = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var novoVeiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 //action
                 controladorVeiculo.InserirNovo(novoVeiculo);
 
@@ -58,10 +58,10 @@ namespace e_Locadora.Tests.VeiculoModule
                 //arrange
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
-                var veiculo = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo);
 
-                var novoVeiculo = new Veiculo("5678", "Fabricante2", 5, 5, "5", "verde", 4, 1994, "grande", "flex", grupoVeiculo);
+                var novoVeiculo = new Veiculo("5678", "Modelo2", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
 
                 //action
                 controladorVeiculo.Editar(veiculo.Id, novoVeiculo);
@@ -74,10 +74,10 @@ namespace e_Locadora.Tests.VeiculoModule
             [TestMethod]
             public void DeveExcluir_Veiculo()
             {
-                //arrange            
+                //arrange
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
-                var veiculo = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo);
 
                 //action            
@@ -94,7 +94,7 @@ namespace e_Locadora.Tests.VeiculoModule
                 //arrange
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
-                var veiculo = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo);
 
                 //action
@@ -111,13 +111,13 @@ namespace e_Locadora.Tests.VeiculoModule
                 var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
                 controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
 
-                var veiculo1 = new Veiculo("1234", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo1 = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo1);
 
-                var veiculo2 = new Veiculo("5678", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo2 = new Veiculo("5678", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo2);
 
-                var veiculo3 = new Veiculo("9345", "Fabricante", 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo);
+                var veiculo3 = new Veiculo("9345", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
                 controladorVeiculo.InserirNovo(veiculo3);
 
                 //action

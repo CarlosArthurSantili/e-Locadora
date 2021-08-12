@@ -50,14 +50,18 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.txtAno = new System.Windows.Forms.TextBox();
             this.labelCapacidadePessoas = new System.Windows.Forms.Label();
             this.txtCapacidadePessoas = new System.Windows.Forms.TextBox();
-            this.comboBoxGasolina = new System.Windows.Forms.ComboBox();
-            this.labelGasolina = new System.Windows.Forms.Label();
+            this.comboBoxCombustivel = new System.Windows.Forms.ComboBox();
+            this.labelCombustivel = new System.Windows.Forms.Label();
             this.labelPortaMalas = new System.Windows.Forms.Label();
             this.comboBoxPortaMalas = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.labelGrupoVeiculo = new System.Windows.Forms.Label();
             this.comboBoxGrupoVeiculo = new System.Windows.Forms.ComboBox();
+            this.labelQuilometragem = new System.Windows.Forms.Label();
+            this.labelModelo = new System.Windows.Forms.Label();
+            this.txtQuilometragem = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeiculo)).BeginInit();
             this.groupBoxImagemVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -67,18 +71,18 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.pictureBoxVeiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxVeiculo.Location = new System.Drawing.Point(3, 16);
             this.pictureBoxVeiculo.Name = "pictureBoxVeiculo";
-            this.pictureBoxVeiculo.Size = new System.Drawing.Size(258, 146);
+            this.pictureBoxVeiculo.Size = new System.Drawing.Size(217, 127);
             this.pictureBoxVeiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVeiculo.TabIndex = 0;
             this.pictureBoxVeiculo.TabStop = false;
             // 
             // btnImagem
             // 
-            this.btnImagem.Location = new System.Drawing.Point(340, 183);
+            this.btnImagem.Location = new System.Drawing.Point(308, 161);
             this.btnImagem.Name = "btnImagem";
-            this.btnImagem.Size = new System.Drawing.Size(75, 23);
-            this.btnImagem.TabIndex = 1;
-            this.btnImagem.Text = "Upload";
+            this.btnImagem.Size = new System.Drawing.Size(98, 23);
+            this.btnImagem.TabIndex = 14;
+            this.btnImagem.Text = "Procurar Imagem";
             this.btnImagem.UseVisualStyleBackColor = true;
             this.btnImagem.Click += new System.EventHandler(this.btnImagem_Click);
             // 
@@ -87,28 +91,27 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.groupBoxImagemVeiculo.Controls.Add(this.pictureBoxVeiculo);
             this.groupBoxImagemVeiculo.Location = new System.Drawing.Point(241, 12);
             this.groupBoxImagemVeiculo.Name = "groupBoxImagemVeiculo";
-            this.groupBoxImagemVeiculo.Size = new System.Drawing.Size(264, 165);
-            this.groupBoxImagemVeiculo.TabIndex = 2;
+            this.groupBoxImagemVeiculo.Size = new System.Drawing.Size(223, 146);
+            this.groupBoxImagemVeiculo.TabIndex = 28;
             this.groupBoxImagemVeiculo.TabStop = false;
             this.groupBoxImagemVeiculo.Text = "Imagem do Veículo";
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(430, 277);
+            this.btnCancelar.Location = new System.Drawing.Point(389, 273);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGravar
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(349, 277);
+            this.btnGravar.Location = new System.Drawing.Point(308, 274);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 4;
+            this.btnGravar.TabIndex = 15;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -116,44 +119,45 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(121, 42);
+            this.txtPlaca.MaxLength = 7;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(100, 20);
-            this.txtPlaca.TabIndex = 5;
+            this.txtPlaca.TabIndex = 1;
             // 
             // txtChassi
             // 
-            this.txtChassi.Location = new System.Drawing.Point(121, 68);
+            this.txtChassi.Location = new System.Drawing.Point(121, 146);
             this.txtChassi.Name = "txtChassi";
             this.txtChassi.Size = new System.Drawing.Size(100, 20);
-            this.txtChassi.TabIndex = 6;
+            this.txtChassi.TabIndex = 5;
             // 
             // txtCor
             // 
-            this.txtCor.Location = new System.Drawing.Point(121, 94);
+            this.txtCor.Location = new System.Drawing.Point(121, 172);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(100, 20);
-            this.txtCor.TabIndex = 7;
+            this.txtCor.TabIndex = 6;
             // 
             // txtQtdPortas
             // 
-            this.txtQtdPortas.Location = new System.Drawing.Point(121, 172);
+            this.txtQtdPortas.Location = new System.Drawing.Point(121, 224);
             this.txtQtdPortas.Name = "txtQtdPortas";
             this.txtQtdPortas.Size = new System.Drawing.Size(100, 20);
-            this.txtQtdPortas.TabIndex = 10;
+            this.txtQtdPortas.TabIndex = 8;
             // 
             // txtCapacidadeTanque
             // 
-            this.txtCapacidadeTanque.Location = new System.Drawing.Point(121, 146);
+            this.txtCapacidadeTanque.Location = new System.Drawing.Point(121, 198);
             this.txtCapacidadeTanque.Name = "txtCapacidadeTanque";
             this.txtCapacidadeTanque.Size = new System.Drawing.Size(100, 20);
-            this.txtCapacidadeTanque.TabIndex = 9;
+            this.txtCapacidadeTanque.TabIndex = 7;
             // 
             // txtFabricante
             // 
-            this.txtFabricante.Location = new System.Drawing.Point(121, 120);
+            this.txtFabricante.Location = new System.Drawing.Point(121, 94);
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(100, 20);
-            this.txtFabricante.TabIndex = 8;
+            this.txtFabricante.TabIndex = 3;
             // 
             // labelPlaca
             // 
@@ -161,118 +165,118 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.labelPlaca.Location = new System.Drawing.Point(7, 45);
             this.labelPlaca.Name = "labelPlaca";
             this.labelPlaca.Size = new System.Drawing.Size(34, 13);
-            this.labelPlaca.TabIndex = 11;
+            this.labelPlaca.TabIndex = 18;
             this.labelPlaca.Text = "Placa";
             this.labelPlaca.Click += new System.EventHandler(this.labelPlaca_Click);
             // 
             // labelChassi
             // 
             this.labelChassi.AutoSize = true;
-            this.labelChassi.Location = new System.Drawing.Point(7, 71);
+            this.labelChassi.Location = new System.Drawing.Point(7, 149);
             this.labelChassi.Name = "labelChassi";
             this.labelChassi.Size = new System.Drawing.Size(38, 13);
-            this.labelChassi.TabIndex = 12;
+            this.labelChassi.TabIndex = 22;
             this.labelChassi.Text = "Chassi";
             // 
             // labelCor
             // 
             this.labelCor.AutoSize = true;
-            this.labelCor.Location = new System.Drawing.Point(7, 97);
+            this.labelCor.Location = new System.Drawing.Point(7, 175);
             this.labelCor.Name = "labelCor";
             this.labelCor.Size = new System.Drawing.Size(23, 13);
-            this.labelCor.TabIndex = 13;
+            this.labelCor.TabIndex = 23;
             this.labelCor.Text = "Cor";
             // 
             // labelFabricante
             // 
             this.labelFabricante.AutoSize = true;
-            this.labelFabricante.Location = new System.Drawing.Point(7, 123);
+            this.labelFabricante.Location = new System.Drawing.Point(7, 97);
             this.labelFabricante.Name = "labelFabricante";
             this.labelFabricante.Size = new System.Drawing.Size(57, 13);
-            this.labelFabricante.TabIndex = 14;
+            this.labelFabricante.TabIndex = 20;
             this.labelFabricante.Text = "Fabricante";
             // 
             // labelCapacidadeTanque
             // 
             this.labelCapacidadeTanque.AutoSize = true;
-            this.labelCapacidadeTanque.Location = new System.Drawing.Point(8, 149);
+            this.labelCapacidadeTanque.Location = new System.Drawing.Point(7, 201);
             this.labelCapacidadeTanque.Name = "labelCapacidadeTanque";
             this.labelCapacidadeTanque.Size = new System.Drawing.Size(104, 13);
-            this.labelCapacidadeTanque.TabIndex = 15;
+            this.labelCapacidadeTanque.TabIndex = 24;
             this.labelCapacidadeTanque.Text = "Capacidade Tanque";
             // 
             // labelQtdPortas
             // 
             this.labelQtdPortas.AutoSize = true;
-            this.labelQtdPortas.Location = new System.Drawing.Point(8, 178);
+            this.labelQtdPortas.Location = new System.Drawing.Point(7, 227);
             this.labelQtdPortas.Name = "labelQtdPortas";
             this.labelQtdPortas.Size = new System.Drawing.Size(110, 13);
-            this.labelQtdPortas.TabIndex = 16;
+            this.labelQtdPortas.TabIndex = 25;
             this.labelQtdPortas.Text = "Quantidade de Portas";
             // 
             // labelAno
             // 
             this.labelAno.AutoSize = true;
-            this.labelAno.Location = new System.Drawing.Point(8, 201);
+            this.labelAno.Location = new System.Drawing.Point(7, 253);
             this.labelAno.Name = "labelAno";
             this.labelAno.Size = new System.Drawing.Size(26, 13);
-            this.labelAno.TabIndex = 18;
+            this.labelAno.TabIndex = 26;
             this.labelAno.Text = "Ano";
             // 
             // txtAno
             // 
-            this.txtAno.Location = new System.Drawing.Point(121, 198);
+            this.txtAno.Location = new System.Drawing.Point(121, 250);
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(100, 20);
-            this.txtAno.TabIndex = 17;
+            this.txtAno.TabIndex = 9;
             // 
             // labelCapacidadePessoas
             // 
             this.labelCapacidadePessoas.AutoSize = true;
-            this.labelCapacidadePessoas.Location = new System.Drawing.Point(8, 227);
+            this.labelCapacidadePessoas.Location = new System.Drawing.Point(7, 279);
             this.labelCapacidadePessoas.Name = "labelCapacidadePessoas";
             this.labelCapacidadePessoas.Size = new System.Drawing.Size(107, 13);
-            this.labelCapacidadePessoas.TabIndex = 20;
+            this.labelCapacidadePessoas.TabIndex = 27;
             this.labelCapacidadePessoas.Text = "Capacidade Pessoas";
             // 
             // txtCapacidadePessoas
             // 
-            this.txtCapacidadePessoas.Location = new System.Drawing.Point(121, 224);
+            this.txtCapacidadePessoas.Location = new System.Drawing.Point(121, 276);
             this.txtCapacidadePessoas.Name = "txtCapacidadePessoas";
             this.txtCapacidadePessoas.Size = new System.Drawing.Size(100, 20);
-            this.txtCapacidadePessoas.TabIndex = 19;
+            this.txtCapacidadePessoas.TabIndex = 10;
             // 
-            // comboBoxGasolina
+            // comboBoxCombustivel
             // 
-            this.comboBoxGasolina.FormattingEnabled = true;
-            this.comboBoxGasolina.Items.AddRange(new object[] {
+            this.comboBoxCombustivel.FormattingEnabled = true;
+            this.comboBoxCombustivel.Items.AddRange(new object[] {
             "Gasolina",
             "Etanol",
             "Diesel",
             "Flex"});
-            this.comboBoxGasolina.Location = new System.Drawing.Point(121, 250);
-            this.comboBoxGasolina.Name = "comboBoxGasolina";
-            this.comboBoxGasolina.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxGasolina.TabIndex = 21;
-            this.comboBoxGasolina.SelectedIndexChanged += new System.EventHandler(this.comboBoxGasolina_SelectedIndexChanged);
+            this.comboBoxCombustivel.Location = new System.Drawing.Point(361, 220);
+            this.comboBoxCombustivel.Name = "comboBoxCombustivel";
+            this.comboBoxCombustivel.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxCombustivel.TabIndex = 12;
+            this.comboBoxCombustivel.SelectedIndexChanged += new System.EventHandler(this.comboBoxGasolina_SelectedIndexChanged);
             // 
-            // labelGasolina
+            // labelCombustivel
             // 
-            this.labelGasolina.AutoSize = true;
-            this.labelGasolina.Location = new System.Drawing.Point(8, 253);
-            this.labelGasolina.Name = "labelGasolina";
-            this.labelGasolina.Size = new System.Drawing.Size(87, 13);
-            this.labelGasolina.TabIndex = 22;
-            this.labelGasolina.Text = "Tipo de Gasolina";
-            this.labelGasolina.Click += new System.EventHandler(this.labelGasolina_Click);
+            this.labelCombustivel.AutoSize = true;
+            this.labelCombustivel.Location = new System.Drawing.Point(247, 223);
+            this.labelCombustivel.Name = "labelCombustivel";
+            this.labelCombustivel.Size = new System.Drawing.Size(87, 13);
+            this.labelCombustivel.TabIndex = 30;
+            this.labelCombustivel.Text = "Tipo de Gasolina";
+            this.labelCombustivel.Click += new System.EventHandler(this.labelGasolina_Click);
             // 
             // labelPortaMalas
             // 
             this.labelPortaMalas.AutoSize = true;
-            this.labelPortaMalas.Location = new System.Drawing.Point(8, 280);
+            this.labelPortaMalas.Location = new System.Drawing.Point(247, 250);
             this.labelPortaMalas.Name = "labelPortaMalas";
             this.labelPortaMalas.Size = new System.Drawing.Size(111, 13);
-            this.labelPortaMalas.TabIndex = 24;
+            this.labelPortaMalas.TabIndex = 31;
             this.labelPortaMalas.Text = "Tamanho Porta Malas";
             this.labelPortaMalas.Click += new System.EventHandler(this.labelPortaMalas_Click);
             // 
@@ -283,10 +287,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             "Pequeno",
             "Médio",
             "Grande"});
-            this.comboBoxPortaMalas.Location = new System.Drawing.Point(121, 279);
+            this.comboBoxPortaMalas.Location = new System.Drawing.Point(361, 247);
             this.comboBoxPortaMalas.Name = "comboBoxPortaMalas";
-            this.comboBoxPortaMalas.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxPortaMalas.TabIndex = 23;
+            this.comboBoxPortaMalas.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxPortaMalas.TabIndex = 13;
             this.comboBoxPortaMalas.SelectedIndexChanged += new System.EventHandler(this.comboBoxPortaMalas_SelectedIndexChanged);
             // 
             // id
@@ -295,7 +299,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.id.Location = new System.Drawing.Point(7, 19);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(16, 13);
-            this.id.TabIndex = 25;
+            this.id.TabIndex = 17;
             this.id.Text = "Id";
             this.id.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -311,33 +315,70 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelGrupoVeiculo
             // 
             this.labelGrupoVeiculo.AutoSize = true;
-            this.labelGrupoVeiculo.Location = new System.Drawing.Point(257, 228);
+            this.labelGrupoVeiculo.Location = new System.Drawing.Point(247, 196);
             this.labelGrupoVeiculo.Name = "labelGrupoVeiculo";
             this.labelGrupoVeiculo.Size = new System.Drawing.Size(90, 13);
-            this.labelGrupoVeiculo.TabIndex = 28;
+            this.labelGrupoVeiculo.TabIndex = 29;
             this.labelGrupoVeiculo.Text = "Categoria Veiculo";
             // 
             // comboBoxGrupoVeiculo
             // 
             this.comboBoxGrupoVeiculo.FormattingEnabled = true;
-            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(370, 227);
+            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(361, 193);
             this.comboBoxGrupoVeiculo.Name = "comboBoxGrupoVeiculo";
-            this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxGrupoVeiculo.TabIndex = 27;
+            this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxGrupoVeiculo.TabIndex = 11;
+            // 
+            // labelQuilometragem
+            // 
+            this.labelQuilometragem.AutoSize = true;
+            this.labelQuilometragem.Location = new System.Drawing.Point(7, 123);
+            this.labelQuilometragem.Name = "labelQuilometragem";
+            this.labelQuilometragem.Size = new System.Drawing.Size(77, 13);
+            this.labelQuilometragem.TabIndex = 21;
+            this.labelQuilometragem.Text = "Quilometragem";
+            // 
+            // labelModelo
+            // 
+            this.labelModelo.AutoSize = true;
+            this.labelModelo.Location = new System.Drawing.Point(7, 71);
+            this.labelModelo.Name = "labelModelo";
+            this.labelModelo.Size = new System.Drawing.Size(42, 13);
+            this.labelModelo.TabIndex = 19;
+            this.labelModelo.Text = "Modelo";
+            // 
+            // txtQuilometragem
+            // 
+            this.txtQuilometragem.Location = new System.Drawing.Point(121, 120);
+            this.txtQuilometragem.Name = "txtQuilometragem";
+            this.txtQuilometragem.Size = new System.Drawing.Size(100, 20);
+            this.txtQuilometragem.TabIndex = 4;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Location = new System.Drawing.Point(121, 68);
+            this.txtModelo.MaxLength = 7;
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(100, 20);
+            this.txtModelo.TabIndex = 2;
             // 
             // TelaVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 307);
+            this.ClientSize = new System.Drawing.Size(476, 309);
+            this.Controls.Add(this.labelQuilometragem);
+            this.Controls.Add(this.labelModelo);
+            this.Controls.Add(this.txtQuilometragem);
+            this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.labelGrupoVeiculo);
             this.Controls.Add(this.comboBoxGrupoVeiculo);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.id);
             this.Controls.Add(this.labelPortaMalas);
             this.Controls.Add(this.comboBoxPortaMalas);
-            this.Controls.Add(this.labelGasolina);
-            this.Controls.Add(this.comboBoxGasolina);
+            this.Controls.Add(this.labelCombustivel);
+            this.Controls.Add(this.comboBoxCombustivel);
             this.Controls.Add(this.labelCapacidadePessoas);
             this.Controls.Add(this.txtCapacidadePessoas);
             this.Controls.Add(this.labelAno);
@@ -358,6 +399,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBoxImagemVeiculo);
             this.Controls.Add(this.btnImagem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TelaVeiculoForm";
             this.Text = "TelaVeiculoForm";
             this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);
@@ -391,13 +433,17 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private System.Windows.Forms.TextBox txtAno;
         private System.Windows.Forms.Label labelCapacidadePessoas;
         private System.Windows.Forms.TextBox txtCapacidadePessoas;
-        private System.Windows.Forms.ComboBox comboBoxGasolina;
-        private System.Windows.Forms.Label labelGasolina;
+        private System.Windows.Forms.ComboBox comboBoxCombustivel;
+        private System.Windows.Forms.Label labelCombustivel;
         private System.Windows.Forms.Label labelPortaMalas;
         private System.Windows.Forms.ComboBox comboBoxPortaMalas;
         private System.Windows.Forms.Label id;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label labelGrupoVeiculo;
         private System.Windows.Forms.ComboBox comboBoxGrupoVeiculo;
+        private System.Windows.Forms.Label labelQuilometragem;
+        private System.Windows.Forms.Label labelModelo;
+        private System.Windows.Forms.TextBox txtQuilometragem;
+        private System.Windows.Forms.TextBox txtModelo;
     }
 }

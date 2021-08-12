@@ -4,6 +4,8 @@ using e_Locadora.Dominio.VeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +18,10 @@ namespace e_Locadora.Controladores.VeiculoModule
         private const string sqlInserirVeiculo =
          @"INSERT INTO TBVEICULOS
 	                (
-		                [PLACA], 
-		                [FABRICANTE], 
+		                [PLACA],
+                        [MODELO],
+		                [FABRICANTE],
+                        [QUILOMETRAGEM],
 		                [QTDLITROSTANQUE],
                         [QTDPORTAS],
                         [NUMEROCHASSI], 
@@ -26,12 +30,15 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANOFABRICACAO],
                         [TAMANHOPORTAMALAS],
                         [TIPOCOMBUSTIVEL],
-                        [IDGRUPOVEICULO]
+                        [IDGRUPOVEICULO],
+                        [IMAGEM]
 	                ) 
 	                VALUES
 	                (
-                        @PLACA, 
-		                @FABRICANTE, 
+                        @PLACA,
+                        @MODELO,
+		                @FABRICANTE,
+                        @QUILOMETRAGEM,
 		                @QTDLITROSTANQUE,
                         @QTDPORTAS,
                         @NUMEROCHASSI,
@@ -40,16 +47,17 @@ namespace e_Locadora.Controladores.VeiculoModule
                         @ANOFABRICACAO,
                         @TAMANHOPORTAMALAS,
                         @TIPOCOMBUSTIVEL,
-                        @IDGRUPOVEICULO
+                        @IDGRUPOVEICULO,
+                        @IMAGEM
 	                )";
-
-
 
         private const string sqlEditarVeiculo =
          @"UPDATE TBVEICULOS
                     SET
                         [PLACA] = @PLACA,
-		                [FABRICANTE] = @FABRICANTE, 
+                        [MODELO] = @MODELO,
+		                [FABRICANTE] = @FABRICANTE,
+                        [QUILOMETRAGEM] = @QUILOMETRAGEM,
 		                [QTDLITROSTANQUE] = @QTDLITROSTANQUE,
                         [QTDPORTAS] = @QTDPORTAS,
                         [NUMEROCHASSI] = @NUMEROCHASSI, 
@@ -58,7 +66,8 @@ namespace e_Locadora.Controladores.VeiculoModule
                         [ANOFABRICACAO] = @ANOFABRICACAO,
                         [TAMANHOPORTAMALAS] = @TAMANHOPORTAMALAS,
                         [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
-                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO
+                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO,
+                        [IMAGEM] = @IMAGEM
                     WHERE 
                         ID = @ID";
 
@@ -80,8 +89,10 @@ namespace e_Locadora.Controladores.VeiculoModule
         private const string sqlSelecionarVeiculoPorId =
         @"SELECT
                         [ID],
-                        [PLACA], 
-		                [FABRICANTE], 
+                        [PLACA],
+                        [MODELO],
+		                [FABRICANTE],
+                        [QUILOMETRAGEM],
 		                [QTDLITROSTANQUE],
                         [QTDPORTAS],
                         [NUMEROCHASSI], 
@@ -100,8 +111,10 @@ namespace e_Locadora.Controladores.VeiculoModule
         private const string sqlSelecionarTodosVeiculos =
         @"SELECT
                         [ID],
-                        [PLACA], 
-		                [FABRICANTE], 
+                        [PLACA],
+                        [MODELO],
+		                [FABRICANTE],
+                        [QUILOMETRAGEM],
 		                [QTDLITROSTANQUE],
                         [QTDPORTAS],
                         [NUMEROCHASSI], 
@@ -177,7 +190,9 @@ namespace e_Locadora.Controladores.VeiculoModule
         {
             int id = Convert.ToInt32(reader["ID"]);
             string placa = Convert.ToString(reader["PLACA"]);
+            string modelo = Convert.ToString(reader["MODELO"]);
             string fabricante = Convert.ToString(reader["FABRICANTE"]);
+            double quilometragem = Convert.ToDouble(reader["QUILOMETRAGEM"]);
             int qtdLitrosTanque = Convert.ToInt32(reader["QTDLITROSTANQUE"]);
             int qtdPortas = Convert.ToInt32(reader["QTDPORTAS"]);
             string numeroChassi = Convert.ToString(reader["NUMEROCHASSI"]);
@@ -187,23 +202,28 @@ namespace e_Locadora.Controladores.VeiculoModule
             string tamanhoPortaMalas = Convert.ToString(reader["TAMANHOPORTAMALAS"]);
             string combustivel  = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
             int idGrupoVeiculo = Convert.ToInt32(reader["IDGRUPOVEICULO"]);
+            //if (reader["IMAGEM"] != null)
+                byte[] imagem = (byte[])reader["IMAGEM"];
 
             ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
             GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
-            Veiculo veiculo = new Veiculo(placa, fabricante, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo);
+            Veiculo veiculo = new Veiculo(placa, modelo, fabricante, quilometragem, qtdLitrosTanque, qtdPortas, numeroChassi, cor, capacidadeDeOcupantes, anoFabricacao, tamanhoPortaMalas, combustivel, grupoVeiculo, imagem);
 
             veiculo.Id = id;
 
             return veiculo;
         }
+
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", veiculo.Id);
             parametros.Add("PLACA", veiculo.Placa);
+            parametros.Add("MODELO", veiculo.Modelo);
             parametros.Add("FABRICANTE", veiculo.Fabricante);
+            parametros.Add("QUILOMETRAGEM", veiculo.Quilometragem);
             parametros.Add("QTDLITROSTANQUE", veiculo.QtdLitrosTanque);
             parametros.Add("QTDPORTAS", veiculo.QtdPortas);
             parametros.Add("NUMEROCHASSI", veiculo.NumeroChassi);
@@ -213,6 +233,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             parametros.Add("TAMANHOPORTAMALAS", veiculo.TamanhoPortaMalas);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.Combustivel);
             parametros.Add("IDGRUPOVEICULO", veiculo.GrupoVeiculo.Id);
+            parametros.Add("IMAGEM", veiculo.Imagem);
 
 
             return parametros;
