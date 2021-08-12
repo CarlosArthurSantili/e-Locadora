@@ -13,11 +13,13 @@ namespace e_Locadora.Dominio.VeiculosModule
 {
     public class Veiculo : EntidadeBase
     {
-        public Veiculo(string placa,string fabricante,int qtdlitros,int qtdPortas, string chassi,string cor,
+        public Veiculo(string placa,string modelo, string fabricante, double quilometragem, int qtdlitros,int qtdPortas, string chassi,string cor,
             int passageiros,int ano,string portamalas, string combustivel,GrupoVeiculo grupo, byte[] imagem)
         {
             Placa = placa;
+            Modelo = modelo;
             Fabricante = fabricante;
+            Quilometragem = quilometragem;
             QtdLitrosTanque = qtdlitros;
             QtdPortas = qtdPortas;
             NumeroChassi = chassi;
@@ -29,24 +31,11 @@ namespace e_Locadora.Dominio.VeiculosModule
             GrupoVeiculo = grupo;
             Imagem = imagem;
         }
-        public Veiculo(string placa, string fabricante, int qtdlitros, int qtdPortas, string chassi, string cor,
-            int passageiros, int ano, string portamalas, string combustivel, GrupoVeiculo grupo)
-        {
-            Placa = placa;
-            Fabricante = fabricante;
-            QtdLitrosTanque = qtdlitros;
-            QtdPortas = qtdPortas;
-            NumeroChassi = chassi;
-            Cor = cor;
-            CapacidadeOcupantes = passageiros;
-            AnoFabricacao = ano;
-            TamanhoPortaMalas = portamalas;
-            Combustivel = combustivel;
-            GrupoVeiculo = grupo;
-        }
 
         public string Placa { get; }
+        public string Modelo { get; }
         public string Fabricante { get; }
+        public double Quilometragem { get; }
         public int QtdLitrosTanque { get; }
         public int QtdPortas { get; }
         public string NumeroChassi { get; }
@@ -66,8 +55,14 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (string.IsNullOrEmpty(Placa))
                 resultadoValidacao = "O campo Placa é obrigatório";
 
+            if (string.IsNullOrEmpty(Modelo))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Modelo é obrigatório";
+
             if (string.IsNullOrEmpty(Fabricante))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Fabricante é obrigatório";
+
+            if (Quilometragem < 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quilometragem é obrigatório";
 
             if (QtdLitrosTanque <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade De Litros do Tanque de Combustivel é obrigatório";

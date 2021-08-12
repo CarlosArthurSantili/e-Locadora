@@ -36,9 +36,11 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
                 txtId.Text = veiculo.Id.ToString();
                 txtPlaca.Text = veiculo.Placa;
+                txtModelo.Text = veiculo.Modelo;
+                txtFabricante.Text = veiculo.Fabricante;
+                txtQuilometragem.Text = veiculo.Quilometragem.ToString();
                 txtChassi.Text = veiculo.NumeroChassi;
                 txtCor.Text = veiculo.Cor;
-                txtFabricante.Text = veiculo.Fabricante;
                 txtCapacidadeTanque.Text = veiculo.QtdLitrosTanque.ToString();
                 txtQtdPortas.Text = veiculo.QtdPortas.ToString();
                 txtAno.Text = veiculo.AnoFabricacao.ToString();
@@ -89,7 +91,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                     imagem = ConvertImageToBinary(pictureBoxVeiculo.Image);
                 }
                 string placa = txtPlaca.Text;
+                string modelo = txtModelo.Text;
                 string chassi = txtChassi.Text;
+                double quilometragem = Convert.ToDouble(txtQuilometragem.Text);
                 string cor = txtCor.Text;
                 string fabricante = txtFabricante.Text;
                 int capacidadeTanque = Convert.ToInt32(txtCapacidadeTanque.Text);
@@ -100,7 +104,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
                 GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
-                veiculo = new Veiculo(placa, fabricante, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
+                veiculo = new Veiculo(placa, modelo, fabricante, quilometragem, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
 
                 string resultadoValidacao = veiculo.Validar();
 
@@ -122,7 +126,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                img.Save(ms, pictureBoxVeiculo.Image.RawFormat);
                 return ms.ToArray();
             }
         }
@@ -249,5 +253,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         }
         #endregion
+
     }
 }
