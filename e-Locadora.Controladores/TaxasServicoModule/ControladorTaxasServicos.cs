@@ -125,7 +125,7 @@ namespace e_Locadora.Controladores.TaxasServicoModule
             parametros.Add("ID", taxasServicos.Id);
             parametros.Add("DESCRICAO", taxasServicos.Descricao);
             parametros.Add("TAXA_FIXA", taxasServicos.TaxaFixa);
-            parametros.Add("TAXA_VARIAVEL", taxasServicos.TaxaVariavel);
+            parametros.Add("TAXA_VARIAVEL", taxasServicos.TaxaDiaria);
 
             return parametros;
         }

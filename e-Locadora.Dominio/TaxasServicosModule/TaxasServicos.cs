@@ -11,15 +11,14 @@ namespace e_Locadora.Dominio.TaxasServicosModule
     public class TaxasServicos : EntidadeBase
     {
         public string Descricao { get; }
-        public double Valor { get; }
         public double TaxaFixa { get; }
-        public double TaxaVariavel { get; }
+        public double TaxaDiaria { get; }
 
-        public TaxasServicos(string descricao, double taxaFixa, double taxaVariavel)
+        public TaxasServicos(string descricao, double taxaFixa, double taxaDiaria)
         {
             Descricao = descricao;
             TaxaFixa = taxaFixa;
-            TaxaVariavel = taxaVariavel;    
+            TaxaDiaria = taxaDiaria;    
         }
         public override string Validar()
         {
@@ -39,7 +38,7 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             return obj is TaxasServicos servicos &&
                    Descricao == servicos.Descricao &&
                    TaxaFixa == servicos.TaxaFixa &&
-                   TaxaVariavel == servicos.TaxaVariavel;
+                   TaxaDiaria == servicos.TaxaDiaria;
         }
 
         public override int GetHashCode()
@@ -47,7 +46,7 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             int hashCode = -44572661;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Descricao);
             hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(TaxaFixa);
-            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(TaxaVariavel);
+            hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(TaxaDiaria);
             return hashCode;
         }
     }
