@@ -43,6 +43,11 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.labelCategoria = new System.Windows.Forms.Label();
             this.labeld = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.labelPlanoLivreDiario = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelPlanoControladoFixo = new System.Windows.Forms.Label();
+            this.labelPlanoDiarioFixo = new System.Windows.Forms.Label();
             this.groupBoxPlanoDiario.SuspendLayout();
             this.groupBoxPlanoControlado.SuspendLayout();
             this.groupBoxPlanoLivre.SuspendLayout();
@@ -50,7 +55,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(228, 160);
+            this.btnGravar.Location = new System.Drawing.Point(250, 191);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 0;
@@ -61,7 +66,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(309, 160);
+            this.btnCancelar.Location = new System.Drawing.Point(331, 191);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -77,67 +82,72 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // txtPlanoDiarioValorDiario
             // 
-            this.txtPlanoDiarioValorDiario.Location = new System.Drawing.Point(6, 19);
+            this.txtPlanoDiarioValorDiario.Location = new System.Drawing.Point(3, 39);
             this.txtPlanoDiarioValorDiario.Name = "txtPlanoDiarioValorDiario";
             this.txtPlanoDiarioValorDiario.Size = new System.Drawing.Size(109, 20);
             this.txtPlanoDiarioValorDiario.TabIndex = 3;
             // 
             // txtPlanoDiarioValorKm
             // 
-            this.txtPlanoDiarioValorKm.Location = new System.Drawing.Point(6, 56);
+            this.txtPlanoDiarioValorKm.Location = new System.Drawing.Point(3, 92);
             this.txtPlanoDiarioValorKm.Name = "txtPlanoDiarioValorKm";
             this.txtPlanoDiarioValorKm.Size = new System.Drawing.Size(109, 20);
             this.txtPlanoDiarioValorKm.TabIndex = 4;
             // 
             // groupBoxPlanoDiario
             // 
+            this.groupBoxPlanoDiario.Controls.Add(this.labelPlanoDiarioFixo);
+            this.groupBoxPlanoDiario.Controls.Add(this.label1);
             this.groupBoxPlanoDiario.Controls.Add(this.txtPlanoDiarioValorDiario);
             this.groupBoxPlanoDiario.Controls.Add(this.txtPlanoDiarioValorKm);
             this.groupBoxPlanoDiario.Location = new System.Drawing.Point(9, 59);
             this.groupBoxPlanoDiario.Name = "groupBoxPlanoDiario";
-            this.groupBoxPlanoDiario.Size = new System.Drawing.Size(121, 90);
+            this.groupBoxPlanoDiario.Size = new System.Drawing.Size(121, 125);
             this.groupBoxPlanoDiario.TabIndex = 8;
             this.groupBoxPlanoDiario.TabStop = false;
             this.groupBoxPlanoDiario.Text = "Plano Diário";
             // 
             // groupBoxPlanoControlado
             // 
+            this.groupBoxPlanoControlado.Controls.Add(this.labelPlanoControladoFixo);
+            this.groupBoxPlanoControlado.Controls.Add(this.label2);
             this.groupBoxPlanoControlado.Controls.Add(this.txtPlanoControladoValorDiario);
             this.groupBoxPlanoControlado.Controls.Add(this.txtPlanoControladoValorKm);
             this.groupBoxPlanoControlado.Location = new System.Drawing.Point(136, 59);
             this.groupBoxPlanoControlado.Name = "groupBoxPlanoControlado";
-            this.groupBoxPlanoControlado.Size = new System.Drawing.Size(121, 90);
+            this.groupBoxPlanoControlado.Size = new System.Drawing.Size(121, 125);
             this.groupBoxPlanoControlado.TabIndex = 9;
             this.groupBoxPlanoControlado.TabStop = false;
             this.groupBoxPlanoControlado.Text = "Plano Controlado";
             // 
             // txtPlanoControladoValorDiario
             // 
-            this.txtPlanoControladoValorDiario.Location = new System.Drawing.Point(6, 19);
+            this.txtPlanoControladoValorDiario.Location = new System.Drawing.Point(6, 39);
             this.txtPlanoControladoValorDiario.Name = "txtPlanoControladoValorDiario";
             this.txtPlanoControladoValorDiario.Size = new System.Drawing.Size(109, 20);
             this.txtPlanoControladoValorDiario.TabIndex = 3;
             // 
             // txtPlanoControladoValorKm
             // 
-            this.txtPlanoControladoValorKm.Location = new System.Drawing.Point(6, 56);
+            this.txtPlanoControladoValorKm.Location = new System.Drawing.Point(6, 92);
             this.txtPlanoControladoValorKm.Name = "txtPlanoControladoValorKm";
             this.txtPlanoControladoValorKm.Size = new System.Drawing.Size(109, 20);
             this.txtPlanoControladoValorKm.TabIndex = 4;
             // 
             // groupBoxPlanoLivre
             // 
+            this.groupBoxPlanoLivre.Controls.Add(this.labelPlanoLivreDiario);
             this.groupBoxPlanoLivre.Controls.Add(this.txtPlanoLivreValorDiario);
             this.groupBoxPlanoLivre.Location = new System.Drawing.Point(263, 59);
             this.groupBoxPlanoLivre.Name = "groupBoxPlanoLivre";
-            this.groupBoxPlanoLivre.Size = new System.Drawing.Size(121, 51);
+            this.groupBoxPlanoLivre.Size = new System.Drawing.Size(121, 76);
             this.groupBoxPlanoLivre.TabIndex = 10;
             this.groupBoxPlanoLivre.TabStop = false;
             this.groupBoxPlanoLivre.Text = "Plano Livre";
             // 
             // txtPlanoLivreValorDiario
             // 
-            this.txtPlanoLivreValorDiario.Location = new System.Drawing.Point(6, 19);
+            this.txtPlanoLivreValorDiario.Location = new System.Drawing.Point(6, 39);
             this.txtPlanoLivreValorDiario.Name = "txtPlanoLivreValorDiario";
             this.txtPlanoLivreValorDiario.Size = new System.Drawing.Size(109, 20);
             this.txtPlanoLivreValorDiario.TabIndex = 3;
@@ -169,11 +179,56 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 12;
             // 
+            // labelPlanoLivreDiario
+            // 
+            this.labelPlanoLivreDiario.AutoSize = true;
+            this.labelPlanoLivreDiario.Location = new System.Drawing.Point(6, 19);
+            this.labelPlanoLivreDiario.Name = "labelPlanoLivreDiario";
+            this.labelPlanoLivreDiario.Size = new System.Drawing.Size(61, 13);
+            this.labelPlanoLivreDiario.TabIndex = 4;
+            this.labelPlanoLivreDiario.Text = "Valor Diário";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(2, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Valor Diário";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Valor Diário";
+            // 
+            // labelPlanoControladoFixo
+            // 
+            this.labelPlanoControladoFixo.AutoSize = true;
+            this.labelPlanoControladoFixo.Location = new System.Drawing.Point(6, 76);
+            this.labelPlanoControladoFixo.Name = "labelPlanoControladoFixo";
+            this.labelPlanoControladoFixo.Size = new System.Drawing.Size(53, 13);
+            this.labelPlanoControladoFixo.TabIndex = 7;
+            this.labelPlanoControladoFixo.Text = "Valor Fixo";
+            // 
+            // labelPlanoDiarioFixo
+            // 
+            this.labelPlanoDiarioFixo.AutoSize = true;
+            this.labelPlanoDiarioFixo.Location = new System.Drawing.Point(3, 76);
+            this.labelPlanoDiarioFixo.Name = "labelPlanoDiarioFixo";
+            this.labelPlanoDiarioFixo.Size = new System.Drawing.Size(53, 13);
+            this.labelPlanoDiarioFixo.TabIndex = 8;
+            this.labelPlanoDiarioFixo.Text = "Valor Fixo";
+            // 
             // TelaGrupoVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 194);
+            this.ClientSize = new System.Drawing.Size(418, 226);
             this.Controls.Add(this.labeld);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.labelCategoria);
@@ -215,5 +270,10 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
         private System.Windows.Forms.Label labelCategoria;
         private System.Windows.Forms.Label labeld;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label labelPlanoDiarioFixo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPlanoControladoFixo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelPlanoLivreDiario;
     }
 }
