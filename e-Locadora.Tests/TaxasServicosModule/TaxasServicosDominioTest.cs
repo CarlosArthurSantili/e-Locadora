@@ -20,5 +20,19 @@ namespace e_Locadora.Tests.TaxasServicosModule
             TaxasServicos taxasServicos = new TaxasServicos("",1,1);
             Assert.AreEqual("O campo descrição é obrigatório e não pode ser vazio.", taxasServicos.Validar());
         }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Taxa_Fixa()
+        {
+            TaxasServicos taxasServicos = new TaxasServicos("Taxa de Lavação", -1, 0);
+            Assert.AreEqual("Taxa Fixa não pode ser menor que Zero.", taxasServicos.Validar());
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Taxa_Diaria()
+        {
+            TaxasServicos taxasServicos = new TaxasServicos("Taxa de Lavação", 300, -1);
+            Assert.AreEqual("Taxa Diaria não pode ser Menor que Zero.", taxasServicos.Validar());
+        }
     }
 }

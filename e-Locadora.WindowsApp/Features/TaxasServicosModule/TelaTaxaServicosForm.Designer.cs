@@ -143,7 +143,6 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // 
             // btnGravar
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(202, 233);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
@@ -169,8 +168,11 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.Controls.Add(this.taxaFixa);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaTaxaServicosForm";
-            this.Text = "Form1";
+            this.Text = "Cadastro de Servico";
             this.Load += new System.EventHandler(this.TelaTaxaServicosForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
