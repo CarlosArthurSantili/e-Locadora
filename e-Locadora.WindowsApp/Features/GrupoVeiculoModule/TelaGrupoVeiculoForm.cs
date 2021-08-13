@@ -31,10 +31,11 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
                 txtId.Text = grupoVeiculo.Id.ToString();
                 txtCategoria.Text = grupoVeiculo.categoria;
-                txtPlanoDiarioValorDiario.Text = grupoVeiculo.planoDiarioValorDiario.ToString();
+                txtPlanoLivreValorDiario.Text = grupoVeiculo.planoDiarioValorDiario.ToString();
                 txtPlanoDiarioValorKm.Text = grupoVeiculo.planoDiarioValorKm.ToString();
                 txtPlanoControladoValorDiario.Text = grupoVeiculo.planoKmControladoValorDiario.ToString();
                 txtPlanoControladoValorKm.Text = grupoVeiculo.planoKmControladoValorKm.ToString();
+                txtPlanoControladoQtdKm.Text = grupoVeiculo.planoKmControladoValorKm.ToString();
                 txtPlanoLivreValorDiario.Text = grupoVeiculo.planoKmLivreValorDiario.ToString();
             }
         }
@@ -45,7 +46,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             if (string.IsNullOrEmpty(txtCategoria.Text))
                 return "Categoria inválida, tente novamente";
 
-            if (!ValidarTipoDouble(txtPlanoDiarioValorDiario.Text))
+            if (!ValidarTipoDouble(txtPlanoLivreValorDiario.Text))
                 return "Plano Diário: Valor Diário inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoDiarioValorKm.Text))
@@ -55,7 +56,10 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
                 return "Plano KM Controlado: Valor Diário inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoControladoValorKm.Text))
-                return "Plano KM Controlado: Valor KM inválido, tente novamente";
+                return "Plano KM Controlado: Valor por KM inválido, tente novamente";
+
+            if (!ValidarTipoDouble(txtPlanoControladoQtdKm.Text))
+                return "Plano KM Controlado: Quantidade de KM inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoLivreValorDiario.Text))
                 return "Plano KM Livre: Valor Diário inválido, tente novamente";
@@ -82,13 +86,14 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             {
                 DialogResult = DialogResult.OK;
                 string categoria = txtCategoria.Text;
-                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
+                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
                 double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
                 double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
                 double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
+                double planoControladoQuantidadeKm = Convert.ToDouble(txtPlanoControladoQtdKm.Text);
                 double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
 
-                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoValorKm, planoLivreValorDiario);
+                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorDiario, planoControladoQuantidadeKm, planoControladoValorKm, planoLivreValorDiario);
 
                 resultadoValidacao = grupoVeiculo.Validar();
 
@@ -108,6 +113,16 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
             }
+        }
+
+        private void txtPlanoDiarioValorDiario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
