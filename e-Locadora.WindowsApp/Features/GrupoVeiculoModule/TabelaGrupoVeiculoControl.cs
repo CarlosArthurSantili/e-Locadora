@@ -37,9 +37,9 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "planoDiarioValorDiario", HeaderText = "PD: Valor Km"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "planoKmControladoValorDiario", HeaderText = "PC: Valor Km"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "planoKmControladoValorDiario", HeaderText = "PC: Valor Diário"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "planoKmControladoValorKm", HeaderText = "PC: Valor Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "planoKmControladoValorKm", HeaderText = "PC: Valor Km"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "planoKmControladoQuantidadeKm", HeaderText = "PC: Quantidade de Km"},
 
