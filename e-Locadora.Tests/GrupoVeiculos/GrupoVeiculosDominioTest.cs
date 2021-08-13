@@ -14,10 +14,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 2000;
             double planoDiarioValorDiario = 3000;
             double planoKmControladoValorKm = 4000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 6000;
             double planoKmLivreValorDiario = 2000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("ESTA_VALIDO", grupoVeiculo.Validar());
         }
 
@@ -28,10 +29,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 1000;
             double planoDiarioValorDiario = 2000;
             double planoKmControladoValorKm = 3000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 5000;
             double planoKmLivreValorDiario = 6000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo categoria é obrigatório e não pode ser vazio.", grupoVeiculo.Validar());
         }
 
@@ -42,10 +44,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 0;
             double planoDiarioValorDiario = 2000;
             double planoKmControladoValorKm = 3000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 5000;
             double planoKmLivreValorDiario = 6000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo planoDiarioValorKm deve ser maior que zero.", grupoVeiculo.Validar());
         }
 
@@ -56,10 +59,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 2000;
             double planoDiarioValorDiario = 0;
             double planoKmControladoValorKm = 3000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 5000;
             double planoKmLivreValorDiario = 6000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo planoDiarioValorDiario deve ser maior que zero.", grupoVeiculo.Validar());
         }
 
@@ -70,11 +74,27 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 2000;
             double planoDiarioValorDiario = 3000;
             double planoKmControladoValorKm = 0;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 5000;
             double planoKmLivreValorDiario = 6000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo planoKmControladoValorKm deve ser maior que zero.", grupoVeiculo.Validar());
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Plano_Controlado_Qtd_Km()
+        {
+            string categoria = "SUV";
+            double planoDiarioValorKm = 2000;
+            double planoDiarioValorDiario = 3000;
+            double planoKmControladoValorKm = 4000;
+            double planoKmControladoQtdKm = 0;
+            double planoKmControladoValorDiario = 6000;
+            double planoKmLivreValorDiario = 6000;
+
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            Assert.AreEqual("O atributo planoKmControladoQuantidadeKm deve ser maior que zero.", grupoVeiculo.Validar());
         }
 
         [TestMethod]
@@ -84,10 +104,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 2000;
             double planoDiarioValorDiario = 3000;
             double planoKmControladoValorKm = 4000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 0;
             double planoKmLivreValorDiario = 6000;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo planoKmControladoValorDiario deve ser maior que zero.", grupoVeiculo.Validar());
         }
 
@@ -98,10 +119,11 @@ namespace e_Locadora.Tests.GrupoVeiculos
             double planoDiarioValorKm = 2000;
             double planoDiarioValorDiario = 3000;
             double planoKmControladoValorKm = 4000;
+            double planoKmControladoQtdKm = 6000;
             double planoKmControladoValorDiario = 6000;
             double planoKmLivreValorDiario = 0;
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQtdKm,planoKmControladoValorDiario, planoKmLivreValorDiario);
             Assert.AreEqual("O atributo planoKmLivreValorDiario deve ser maior que zero.", grupoVeiculo.Validar());
         }
     }

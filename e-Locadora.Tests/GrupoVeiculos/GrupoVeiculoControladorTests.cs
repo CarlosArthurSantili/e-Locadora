@@ -36,7 +36,7 @@ namespace e_Locadora.Tests.GrupoVeiculos
             public void DeveInserir_GrupoVeiculo()
             {
                 //arrange
-                var novoGrupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
+                var novoGrupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
 
                 //action
                 controlador.InserirNovo(novoGrupoVeiculo);
@@ -50,10 +50,10 @@ namespace e_Locadora.Tests.GrupoVeiculos
             public void DeveAtualizar_GrupoVeiculo()
             {
                 //arrange
-                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
+                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
                 controlador.InserirNovo(grupoVeiculo);
 
-                var novoGrupoVeiculo = new GrupoVeiculo("Luxo", 2, 4, 6, 8, 10);
+                var novoGrupoVeiculo = new GrupoVeiculo("Luxo", 2, 4, 6, 8, 10, 12);
 
                 //action
                 controlador.Editar(grupoVeiculo.Id, novoGrupoVeiculo);
@@ -67,7 +67,7 @@ namespace e_Locadora.Tests.GrupoVeiculos
             public void DeveExcluir_GrupoVeiculo()
             {
                 //arrange            
-                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
+                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
                 controlador.InserirNovo(grupoVeiculo);
 
                 //action            
@@ -82,7 +82,7 @@ namespace e_Locadora.Tests.GrupoVeiculos
             public void DeveSelecionar_GrupoVeiculo_PorId()
             {
                 //arrange
-                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
+                var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
                 controlador.InserirNovo(grupoVeiculo);
 
                 //action
@@ -96,13 +96,13 @@ namespace e_Locadora.Tests.GrupoVeiculos
             public void DeveSelecionar_TodosGrupoVeiculos()
             {
                 //arrange
-                var c1 = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5);
+                var c1 = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
                 controlador.InserirNovo(c1);
 
-                var c2 = new GrupoVeiculo("Luxo", 10, 20, 25, 24, 35);
+                var c2 = new GrupoVeiculo("Luxo", 10, 20, 25, 24, 35, 50);
                 controlador.InserirNovo(c2);
 
-                var c3 = new GrupoVeiculo("Esportivo", 20, 20, 30, 40, 50);
+                var c3 = new GrupoVeiculo("Esportivo", 20, 20, 30, 40, 50, 60);
                 controlador.InserirNovo(c3);
 
                 //action
