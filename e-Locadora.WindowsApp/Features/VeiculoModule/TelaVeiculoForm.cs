@@ -21,6 +21,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private Veiculo veiculo;
         private bool imagemAlterada = false;
         private string imgLocation = "";
+        private string operacao = "";
 
         public TelaVeiculoForm()
         {
@@ -119,8 +120,10 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
                 veiculo = new Veiculo(placa, modelo, fabricante, quilometragem, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
 
+                int id = Convert.ToInt32(txtId.Text);
                 string resultadoValidacaoDominio = veiculo.Validar();
-                string resultadoValidacaoControlador = controladorVeiculo.ValidarVeiculo(veiculo);
+
+                string resultadoValidacaoControlador = controladorVeiculo.ValidarVeiculo(veiculo, id);
 
                 if (resultadoValidacaoDominio != "ESTA_VALIDO")
                 {
@@ -265,6 +268,14 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             {
                 return false;
             }
+        }
+
+        private void TelaVeiculoForm_Load(object sender, EventArgs e)
+        {
+            if (veiculo == null)
+                operacao = "inserir";
+            else
+                operacao = "editar";
         }
     }
 }

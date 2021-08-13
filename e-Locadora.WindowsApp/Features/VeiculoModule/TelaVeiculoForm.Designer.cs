@@ -306,6 +306,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 26;
+            this.txtId.Text = "0";
             // 
             // labelGrupoVeiculo
             // 
@@ -400,6 +401,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.Name = "TelaVeiculoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Veículos";
+            this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeiculo)).EndInit();
             this.groupBoxImagemVeiculo.ResumeLayout(false);
             this.ResumeLayout(false);

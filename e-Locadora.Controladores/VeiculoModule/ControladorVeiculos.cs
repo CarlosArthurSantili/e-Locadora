@@ -144,8 +144,8 @@ namespace e_Locadora.Controladores.VeiculoModule
         public override string Editar(int id, Veiculo registro)
         {
             string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "ESTA_VALIDO")
+            string resultadoValidacaoControlador = ValidarVeiculo(registro, id);
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
@@ -183,21 +183,37 @@ namespace e_Locadora.Controladores.VeiculoModule
             return Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
         }
 
-        public string ValidarVeiculo(Veiculo novoVeiculo)
+        public string ValidarVeiculo(Veiculo novoVeiculo, int id = 0)
         {
             //validar placas iguais
-            if (novoVeiculo != null) {
-                List<Veiculo> todosVeiculos = SelecionarTodos();
-                foreach (Veiculo veiculo in todosVeiculos)
-                {
-                    if (novoVeiculo.Placa.Equals(veiculo.Placa))
+            if (novoVeiculo != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countPlacasIguais = 0;
+                    List<Veiculo> todosVeiculos = SelecionarTodos();
+                    foreach (Veiculo veiculo in todosVeiculos)
+                    {
+                        if (novoVeiculo.Placa.Equals(veiculo.Placa) && veiculo.Id != id)
+                            countPlacasIguais++;
+                    }
+                    if (countPlacasIguais > 0)
+                        return "Placa já cadastrada, tente novamente.";
+                }
+                else 
+                {//situação de inserir
+                    int countPlacasIguais = 0;
+                    List<Veiculo> todosVeiculos = SelecionarTodos();
+                    foreach (Veiculo veiculo in todosVeiculos)
+                    {
+                        if (novoVeiculo.Placa.Equals(veiculo.Placa))
+                            countPlacasIguais++;
+                    }
+                    if (countPlacasIguais > 0)
                         return "Placa já cadastrada, tente novamente.";
                 }
             }
-            
-
-
-            return "ESTA_VALIDO";
+                return "ESTA_VALIDO";
         }
 
         #region Metodos Privados
