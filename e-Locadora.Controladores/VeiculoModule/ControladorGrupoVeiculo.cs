@@ -19,6 +19,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
 		                [VALORCONTROLADODIARIO],
+                        [VALORCONTROLADOQTDKM],
                         [VALORLIVRE]
 	                ) 
 	                VALUES
@@ -28,6 +29,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                @VALORDIARIO,
                         @VALORCONTROLADODIARIOKM, 
 		                @VALORCONTROLADODIARIO,
+                        @VALORCONTROLADOQTDKM,
                         @VALORLIVRE
 	                )";
 
@@ -39,6 +41,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIO] = @VALORDIARIO,
                         [VALORCONTROLADODIARIOKM] = @VALORCONTROLADODIARIOKM, 
 		                [VALORCONTROLADODIARIO] = @VALORCONTROLADODIARIO,
+                        [VALORCONTROLADOQTDKM] = @VALORCONTROLADOQTDKM,
                         [VALORLIVRE] = @VALORLIVRE
                     WHERE 
                         ID = @ID";
@@ -58,6 +61,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
 		                [VALORCONTROLADODIARIO],
+                        [VALORCONTROLADOQTDKM],
                         [VALORLIVRE]
 	                FROM
                         CATEGORIAS
@@ -72,6 +76,7 @@ namespace e_Locadora.Controladores.VeiculoModule
 		                [VALORDIARIO],
                         [VALORCONTROLADODIARIOKM], 
 		                [VALORCONTROLADODIARIO],
+                        [VALORCONTROLADOQTDKM],
                         [VALORLIVRE] FROM CATEGORIAS";
 
         private const string sqlExisteGrupoVeiculo =
@@ -144,9 +149,10 @@ namespace e_Locadora.Controladores.VeiculoModule
             double planoDiarioValorDiario = Convert.ToDouble(reader["VALORDIARIO"]);
             double planoKmControladoValorKm = Convert.ToDouble(reader["VALORCONTROLADODIARIOKM"]);
             double planoKmControladoValorDiario = Convert.ToDouble(reader["VALORCONTROLADODIARIO"]);
+            double planoKmControladoQuantidadeKm = Convert.ToDouble(reader["VALORCONTROLADOQTDKM"]);
             double planoKmLivreValorDiario = Convert.ToDouble(reader["VALORLIVRE"]);
 
-            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
+            GrupoVeiculo grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoKmControladoValorKm, planoKmControladoQuantidadeKm, planoKmControladoValorDiario, planoKmLivreValorDiario);
 
             grupoVeiculo.Id = id;
 
@@ -162,6 +168,7 @@ namespace e_Locadora.Controladores.VeiculoModule
             parametros.Add("VALORDIARIOKM", grupoVeiculo.planoDiarioValorKm);
             parametros.Add("VALORDIARIO", grupoVeiculo.planoDiarioValorDiario);
             parametros.Add("VALORCONTROLADODIARIOKM", grupoVeiculo.planoKmControladoValorKm);
+            parametros.Add("VALORCONTROLADOQTDKM", grupoVeiculo.planoKmControladoQuantidadeKm);
             parametros.Add("VALORCONTROLADODIARIO", grupoVeiculo.planoKmControladoValorDiario);
             parametros.Add("VALORLIVRE", grupoVeiculo.planoKmLivreValorDiario);
 
