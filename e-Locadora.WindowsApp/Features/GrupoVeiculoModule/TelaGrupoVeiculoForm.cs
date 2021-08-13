@@ -31,7 +31,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
 
                 txtId.Text = grupoVeiculo.Id.ToString();
                 txtCategoria.Text = grupoVeiculo.categoria;
-                txtPlanoLivreValorDiario.Text = grupoVeiculo.planoDiarioValorDiario.ToString();
+                txtPlanoDiarioValorDiario.Text = grupoVeiculo.planoDiarioValorDiario.ToString();
                 txtPlanoDiarioValorKm.Text = grupoVeiculo.planoDiarioValorKm.ToString();
                 txtPlanoControladoValorDiario.Text = grupoVeiculo.planoKmControladoValorDiario.ToString();
                 txtPlanoControladoValorKm.Text = grupoVeiculo.planoKmControladoValorKm.ToString();
@@ -86,7 +86,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             {
                 DialogResult = DialogResult.OK;
                 string categoria = txtCategoria.Text;
-                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
+                double planoDiarioValorDiario = Convert.ToDouble(txtPlanoDiarioValorDiario.Text);
                 double planoDiarioValorKm = Convert.ToDouble(txtPlanoDiarioValorKm.Text);
                 double planoControladoValorDiario = Convert.ToDouble(txtPlanoControladoValorDiario.Text);
                 double planoControladoValorKm = Convert.ToDouble(txtPlanoControladoValorKm.Text);
