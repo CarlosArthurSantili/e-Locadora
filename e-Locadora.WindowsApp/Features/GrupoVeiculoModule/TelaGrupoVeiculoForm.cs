@@ -93,7 +93,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
                 double planoControladoQuantidadeKm = Convert.ToDouble(txtPlanoControladoQtdKm.Text);
                 double planoLivreValorDiario = Convert.ToDouble(txtPlanoLivreValorDiario.Text);
 
-                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorDiario, planoDiarioValorKm, planoControladoValorKm, planoControladoQuantidadeKm, planoControladoValorDiario, planoLivreValorDiario);
+                grupoVeiculo = new GrupoVeiculo(categoria, planoDiarioValorKm, planoDiarioValorDiario, planoControladoValorKm, planoControladoQuantidadeKm, planoControladoValorDiario, planoLivreValorDiario);
 
                 resultadoValidacao = grupoVeiculo.Validar();
 
