@@ -11,13 +11,10 @@ namespace e_Locadora.Dominio
     {
 
         public string categoria { get; set; }
-
         public double planoDiarioValorKm { get; set; }
         public double planoDiarioValorDiario { get; set; }
-
         public double planoKmControladoValorKm { get; set; }
         public double planoKmControladoValorDiario { get; set; }
-
         public double planoKmLivreValorDiario { get; set; }
 
         public GrupoVeiculo(string categoria, double planoDiarioValorKm, double planoDiarioValorDiario, double planoKmControladoValorKm, double planoKmControladoValorDiario, double planoKmLivreValorDiario)
