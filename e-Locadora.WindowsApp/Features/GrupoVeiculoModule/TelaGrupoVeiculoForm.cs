@@ -46,7 +46,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             if (string.IsNullOrEmpty(txtCategoria.Text))
                 return "Categoria inválida, tente novamente";
 
-            if (!ValidarTipoDouble(txtPlanoLivreValorDiario.Text))
+            if (!ValidarTipoDouble(txtPlanoDiarioValorDiario.Text))
                 return "Plano Diário: Valor Diário inválido, tente novamente";
 
             if (!ValidarTipoDouble(txtPlanoDiarioValorKm.Text))

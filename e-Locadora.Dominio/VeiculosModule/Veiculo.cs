@@ -65,7 +65,7 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quilometragem não pode ser menor que zero";
 
             if (QtdLitrosTanque <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade De Litros do Tanque de Combustivel é obrigatório";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo do Tanque de Combustivel não pode ser menor que zero";
 
             if (QtdPortas <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade de portas do Veiculo não pode ser menor ou igual a zero";

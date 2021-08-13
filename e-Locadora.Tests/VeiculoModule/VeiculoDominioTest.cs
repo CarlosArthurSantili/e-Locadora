@@ -40,8 +40,8 @@ namespace e_Locadora.Tests.VeiculoModule
         {
             var grupoVeiculo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 500, 4000, 500);
 
-            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", -200, 10, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
-            Assert.AreEqual("O campo Quilometragem do Tanque de Combustivel não pode ser menor que zero", veiculo.Validar());
+            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 200, -10, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
+            Assert.AreEqual("O campo do Tanque de Combustivel não pode ser menor que zero", veiculo.Validar());
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace e_Locadora.Tests.VeiculoModule
             var grupoVeiculo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 500, 4000, 500);
 
             var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 4, 5, -4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
-            Assert.AreEqual("O campo Quantidade De Litros do Tanque de Combustivel é obrigatório", veiculo.Validar());
+            Assert.AreEqual("O campo Quantidade de portas do Veiculo não pode ser menor ou igual a zero", veiculo.Validar());
         }
 
         [TestMethod]
