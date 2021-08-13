@@ -15,8 +15,10 @@
     [Modelo]              VARCHAR (50) NOT NULL,
     [Quilometragem]       FLOAT (53)   NOT NULL,
     CONSTRAINT [PK_TBVeiculos] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_TBVeiculos_Categorias1] FOREIGN KEY ([idGrupoVeiculo]) REFERENCES [dbo].[Categorias] ([Id])
+    CONSTRAINT [FK_TBVeiculos_Categorias] FOREIGN KEY ([idGrupoVeiculo]) REFERENCES [dbo].[Categorias] ([Id])
 );
+
+
 
 
 
