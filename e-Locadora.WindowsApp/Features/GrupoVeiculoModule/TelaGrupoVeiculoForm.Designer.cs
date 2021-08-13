@@ -59,7 +59,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(145, 204);
+            this.btnGravar.Location = new System.Drawing.Point(145, 203);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 70;
@@ -70,7 +70,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(226, 204);
+            this.btnCancelar.Location = new System.Drawing.Point(226, 203);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 80;
@@ -148,7 +148,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.TbControl.Controls.Add(this.tabPage1);
             this.TbControl.Controls.Add(this.tabPage2);
             this.TbControl.Controls.Add(this.tabPage3);
-            this.TbControl.Location = new System.Drawing.Point(22, 66);
+            this.TbControl.Location = new System.Drawing.Point(39, 65);
             this.TbControl.Name = "TbControl";
             this.TbControl.SelectedIndex = 0;
             this.TbControl.Size = new System.Drawing.Size(235, 132);
