@@ -14,10 +14,11 @@ namespace e_Locadora.Dominio
         public double planoDiarioValorKm { get; set; }
         public double planoDiarioValorDiario { get; set; }
         public double planoKmControladoValorKm { get; set; }
+        public double planoKmControladoQuantidadeKm { get; set; }
         public double planoKmControladoValorDiario { get; set; }
         public double planoKmLivreValorDiario { get; set; }
 
-        public GrupoVeiculo(string categoria, double planoDiarioValorKm, double planoDiarioValorDiario, double planoKmControladoValorKm, double planoKmControladoValorDiario, double planoKmLivreValorDiario)
+        public GrupoVeiculo(string categoria, double planoDiarioValorKm, double planoDiarioValorDiario, double planoKmControladoValorKm, double planoKmControladoQuantidadeKm, double planoKmControladoValorDiario, double planoKmLivreValorDiario)
         {
             this.categoria = categoria;
             this.planoDiarioValorKm = planoDiarioValorKm;
@@ -25,6 +26,7 @@ namespace e_Locadora.Dominio
             this.planoKmControladoValorKm = planoKmControladoValorKm;
             this.planoKmControladoValorDiario = planoKmControladoValorDiario;
             this.planoKmLivreValorDiario = planoKmLivreValorDiario;
+            this.planoKmControladoQuantidadeKm = planoKmControladoQuantidadeKm;
         }
 
         public override string Validar() {
@@ -41,7 +43,8 @@ namespace e_Locadora.Dominio
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmControladoValorDiario deve ser maior que zero.";
             if (planoKmLivreValorDiario <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmLivreValorDiario deve ser maior que zero.";
-
+            if (planoKmControladoQuantidadeKm <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo planoKmControladoQuantidadeKm deve ser maior que zero.";
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
@@ -62,6 +65,7 @@ namespace e_Locadora.Dominio
                 && planoDiarioValorKm == other.planoDiarioValorKm
                 && planoKmControladoValorDiario == other.planoKmControladoValorDiario
                 && planoKmControladoValorKm == other.planoKmControladoValorKm
+                && planoKmControladoQuantidadeKm == other.planoKmControladoQuantidadeKm
                 && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
         }
 
