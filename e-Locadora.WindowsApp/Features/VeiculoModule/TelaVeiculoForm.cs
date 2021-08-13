@@ -266,6 +266,5 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 return false;
             }
         }
-
     }
 }
