@@ -71,14 +71,14 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.pictureBoxVeiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxVeiculo.Location = new System.Drawing.Point(3, 16);
             this.pictureBoxVeiculo.Name = "pictureBoxVeiculo";
-            this.pictureBoxVeiculo.Size = new System.Drawing.Size(217, 127);
+            this.pictureBoxVeiculo.Size = new System.Drawing.Size(394, 281);
             this.pictureBoxVeiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVeiculo.TabIndex = 0;
             this.pictureBoxVeiculo.TabStop = false;
             // 
             // btnImagem
             // 
-            this.btnImagem.Location = new System.Drawing.Point(308, 161);
+            this.btnImagem.Location = new System.Drawing.Point(248, 318);
             this.btnImagem.Name = "btnImagem";
             this.btnImagem.Size = new System.Drawing.Size(98, 23);
             this.btnImagem.TabIndex = 14;
@@ -89,9 +89,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // groupBoxImagemVeiculo
             // 
             this.groupBoxImagemVeiculo.Controls.Add(this.pictureBoxVeiculo);
-            this.groupBoxImagemVeiculo.Location = new System.Drawing.Point(241, 12);
+            this.groupBoxImagemVeiculo.Location = new System.Drawing.Point(245, 12);
             this.groupBoxImagemVeiculo.Name = "groupBoxImagemVeiculo";
-            this.groupBoxImagemVeiculo.Size = new System.Drawing.Size(223, 146);
+            this.groupBoxImagemVeiculo.Size = new System.Drawing.Size(400, 300);
             this.groupBoxImagemVeiculo.TabIndex = 28;
             this.groupBoxImagemVeiculo.TabStop = false;
             this.groupBoxImagemVeiculo.Text = "Imagem do Veículo";
@@ -99,7 +99,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(389, 273);
+            this.btnCancelar.Location = new System.Drawing.Point(567, 352);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 16;
@@ -108,7 +108,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(308, 274);
+            this.btnGravar.Location = new System.Drawing.Point(486, 352);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 15;
@@ -133,21 +133,21 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // txtCor
             // 
-            this.txtCor.Location = new System.Drawing.Point(125, 172);
+            this.txtCor.Location = new System.Drawing.Point(125, 173);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(100, 20);
             this.txtCor.TabIndex = 6;
             // 
             // txtQtdPortas
             // 
-            this.txtQtdPortas.Location = new System.Drawing.Point(125, 224);
+            this.txtQtdPortas.Location = new System.Drawing.Point(125, 225);
             this.txtQtdPortas.Name = "txtQtdPortas";
             this.txtQtdPortas.Size = new System.Drawing.Size(100, 20);
             this.txtQtdPortas.TabIndex = 8;
             // 
             // txtCapacidadeTanque
             // 
-            this.txtCapacidadeTanque.Location = new System.Drawing.Point(125, 198);
+            this.txtCapacidadeTanque.Location = new System.Drawing.Point(125, 199);
             this.txtCapacidadeTanque.Name = "txtCapacidadeTanque";
             this.txtCapacidadeTanque.Size = new System.Drawing.Size(100, 20);
             this.txtCapacidadeTanque.TabIndex = 7;
@@ -180,7 +180,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCor
             // 
             this.labelCor.AutoSize = true;
-            this.labelCor.Location = new System.Drawing.Point(7, 175);
+            this.labelCor.Location = new System.Drawing.Point(7, 176);
             this.labelCor.Name = "labelCor";
             this.labelCor.Size = new System.Drawing.Size(23, 13);
             this.labelCor.TabIndex = 23;
@@ -198,7 +198,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCapacidadeTanque
             // 
             this.labelCapacidadeTanque.AutoSize = true;
-            this.labelCapacidadeTanque.Location = new System.Drawing.Point(7, 201);
+            this.labelCapacidadeTanque.Location = new System.Drawing.Point(7, 202);
             this.labelCapacidadeTanque.Name = "labelCapacidadeTanque";
             this.labelCapacidadeTanque.Size = new System.Drawing.Size(116, 13);
             this.labelCapacidadeTanque.TabIndex = 24;
@@ -207,7 +207,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelQtdPortas
             // 
             this.labelQtdPortas.AutoSize = true;
-            this.labelQtdPortas.Location = new System.Drawing.Point(7, 227);
+            this.labelQtdPortas.Location = new System.Drawing.Point(7, 228);
             this.labelQtdPortas.Name = "labelQtdPortas";
             this.labelQtdPortas.Size = new System.Drawing.Size(110, 13);
             this.labelQtdPortas.TabIndex = 25;
@@ -216,7 +216,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelAno
             // 
             this.labelAno.AutoSize = true;
-            this.labelAno.Location = new System.Drawing.Point(7, 253);
+            this.labelAno.Location = new System.Drawing.Point(7, 254);
             this.labelAno.Name = "labelAno";
             this.labelAno.Size = new System.Drawing.Size(97, 13);
             this.labelAno.TabIndex = 26;
@@ -224,7 +224,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // txtAno
             // 
-            this.txtAno.Location = new System.Drawing.Point(125, 250);
+            this.txtAno.Location = new System.Drawing.Point(125, 251);
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(100, 20);
             this.txtAno.TabIndex = 9;
@@ -232,7 +232,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCapacidadePessoas
             // 
             this.labelCapacidadePessoas.AutoSize = true;
-            this.labelCapacidadePessoas.Location = new System.Drawing.Point(7, 279);
+            this.labelCapacidadePessoas.Location = new System.Drawing.Point(7, 280);
             this.labelCapacidadePessoas.Name = "labelCapacidadePessoas";
             this.labelCapacidadePessoas.Size = new System.Drawing.Size(107, 13);
             this.labelCapacidadePessoas.TabIndex = 27;
@@ -240,7 +240,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             // txtCapacidadePessoas
             // 
-            this.txtCapacidadePessoas.Location = new System.Drawing.Point(125, 276);
+            this.txtCapacidadePessoas.Location = new System.Drawing.Point(125, 277);
             this.txtCapacidadePessoas.Name = "txtCapacidadePessoas";
             this.txtCapacidadePessoas.Size = new System.Drawing.Size(100, 20);
             this.txtCapacidadePessoas.TabIndex = 10;
@@ -253,7 +253,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             "Etanol",
             "Diesel",
             "Flex"});
-            this.comboBoxCombustivel.Location = new System.Drawing.Point(361, 220);
+            this.comboBoxCombustivel.Location = new System.Drawing.Point(125, 330);
             this.comboBoxCombustivel.Name = "comboBoxCombustivel";
             this.comboBoxCombustivel.Size = new System.Drawing.Size(100, 21);
             this.comboBoxCombustivel.TabIndex = 12;
@@ -261,7 +261,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelCombustivel
             // 
             this.labelCombustivel.AutoSize = true;
-            this.labelCombustivel.Location = new System.Drawing.Point(247, 223);
+            this.labelCombustivel.Location = new System.Drawing.Point(7, 333);
             this.labelCombustivel.Name = "labelCombustivel";
             this.labelCombustivel.Size = new System.Drawing.Size(66, 13);
             this.labelCombustivel.TabIndex = 30;
@@ -270,7 +270,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelPortaMalas
             // 
             this.labelPortaMalas.AutoSize = true;
-            this.labelPortaMalas.Location = new System.Drawing.Point(244, 250);
+            this.labelPortaMalas.Location = new System.Drawing.Point(7, 362);
             this.labelPortaMalas.Name = "labelPortaMalas";
             this.labelPortaMalas.Size = new System.Drawing.Size(111, 13);
             this.labelPortaMalas.TabIndex = 31;
@@ -283,7 +283,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             "Pequeno",
             "Médio",
             "Grande"});
-            this.comboBoxPortaMalas.Location = new System.Drawing.Point(361, 247);
+            this.comboBoxPortaMalas.Location = new System.Drawing.Point(125, 359);
             this.comboBoxPortaMalas.Name = "comboBoxPortaMalas";
             this.comboBoxPortaMalas.Size = new System.Drawing.Size(100, 21);
             this.comboBoxPortaMalas.TabIndex = 13;
@@ -310,7 +310,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // labelGrupoVeiculo
             // 
             this.labelGrupoVeiculo.AutoSize = true;
-            this.labelGrupoVeiculo.Location = new System.Drawing.Point(247, 196);
+            this.labelGrupoVeiculo.Location = new System.Drawing.Point(7, 306);
             this.labelGrupoVeiculo.Name = "labelGrupoVeiculo";
             this.labelGrupoVeiculo.Size = new System.Drawing.Size(52, 13);
             this.labelGrupoVeiculo.TabIndex = 29;
@@ -319,7 +319,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // comboBoxGrupoVeiculo
             // 
             this.comboBoxGrupoVeiculo.FormattingEnabled = true;
-            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(361, 193);
+            this.comboBoxGrupoVeiculo.Location = new System.Drawing.Point(125, 303);
             this.comboBoxGrupoVeiculo.Name = "comboBoxGrupoVeiculo";
             this.comboBoxGrupoVeiculo.Size = new System.Drawing.Size(100, 21);
             this.comboBoxGrupoVeiculo.TabIndex = 11;
@@ -361,7 +361,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 309);
+            this.ClientSize = new System.Drawing.Size(658, 387);
             this.Controls.Add(this.labelQuilometragem);
             this.Controls.Add(this.labelModelo);
             this.Controls.Add(this.txtQuilometragem);
