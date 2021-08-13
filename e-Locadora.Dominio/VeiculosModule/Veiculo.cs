@@ -62,10 +62,13 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Fabricante é obrigatório";
 
             if (Quilometragem < 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quilometragem é obrigatório";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quilometragem não pode ser menor que zero";
 
             if (QtdLitrosTanque <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade De Litros do Tanque de Combustivel é obrigatório";
+
+            if (QtdPortas <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade de portas do Veiculo não pode ser menor ou igual a zero";
 
             if (string.IsNullOrEmpty(NumeroChassi))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Numero do Chassi é obrigatório";
