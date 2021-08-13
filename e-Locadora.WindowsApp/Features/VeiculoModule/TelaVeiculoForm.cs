@@ -115,19 +115,26 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
                 string tipoGasolina = comboBoxCombustivel.SelectedItem.ToString();
                 string tamanhoPortaMalas = comboBoxPortaMalas.SelectedItem.ToString();
 
-                //comboBoxGrupoVeiculo.SelectedItem = comboBoxGrupoVeiculo.SelectedItem;
-
                 GrupoVeiculo grupoVeiculo = (GrupoVeiculo)comboBoxGrupoVeiculo.SelectedItem;
 
                 veiculo = new Veiculo(placa, modelo, fabricante, quilometragem, capacidadeTanque, qtdPortas, chassi, cor, capacidadePessoas, ano, tamanhoPortaMalas, tipoGasolina, grupoVeiculo, imagem);
 
-                string resultadoValidacao = veiculo.Validar();
+                string resultadoValidacaoDominio = veiculo.Validar();
+                string resultadoValidacaoControlador = controladorVeiculo.ValidarVeiculo(veiculo);
 
-                if (resultadoValidacao != "ESTA_VALIDO")
+                if (resultadoValidacaoDominio != "ESTA_VALIDO")
                 {
-                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                    string primeiroErroDominio = new StringReader(resultadoValidacaoDominio).ReadLine();
+                    
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroDominio);
 
-                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                    DialogResult = DialogResult.None;
+                }
+                else if (resultadoValidacaoControlador != "ESTA_VALIDO")
+                {
+                    string primeiroErroControlador = new StringReader(resultadoValidacaoControlador).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
 
                     DialogResult = DialogResult.None;
                 }

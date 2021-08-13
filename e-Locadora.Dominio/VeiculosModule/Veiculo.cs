@@ -77,7 +77,10 @@ namespace e_Locadora.Dominio.VeiculosModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Capacidade de Ocupantes do Veiculo é obrigatório(Com Minimo 2 Lugares e Maximo 7)";
 
             if (AnoFabricacao <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo nao pode Ser Nullo";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo não pode ser menor que zero";
+
+            if (AnoFabricacao > DateTime.Now.Year)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Ano de Fabricação do Veiculo não pode ser maior que o ano atual";
 
             if (string.IsNullOrEmpty(TamanhoPortaMalas.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Tamanho do Porta Malas é obrigatório";
@@ -88,8 +91,7 @@ namespace e_Locadora.Dominio.VeiculosModule
             if (string.IsNullOrEmpty(GrupoVeiculo.ToString()))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Grupo de Veiculo é obrigatório";
 
-            //if (Imagem!=null || Imagem.Length == 0)
-                //resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Imagem é obrigatório";
+
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

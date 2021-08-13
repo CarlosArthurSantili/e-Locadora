@@ -4,6 +4,7 @@ using e_Locadora.WindowsApp.Features.VeiculoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,7 +94,7 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             TelaVeiculoForm tela = new TelaVeiculoForm();
             tela.ShowDialog();
             if (tela.ValidarCampos() == "VALIDO" && tela.DialogResult == DialogResult.OK)
-            { 
+            {
                 controladorVeiculo.InserirNovo(tela.Veiculo);
 
                 tabelaVeiculoControl.AtualizarRegistros();
