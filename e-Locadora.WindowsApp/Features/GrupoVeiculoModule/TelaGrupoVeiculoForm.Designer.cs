@@ -112,9 +112,9 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.labelPlanoDiarioFixo.AutoSize = true;
             this.labelPlanoDiarioFixo.Location = new System.Drawing.Point(3, 76);
             this.labelPlanoDiarioFixo.Name = "labelPlanoDiarioFixo";
-            this.labelPlanoDiarioFixo.Size = new System.Drawing.Size(53, 13);
+            this.labelPlanoDiarioFixo.Size = new System.Drawing.Size(68, 13);
             this.labelPlanoDiarioFixo.TabIndex = 8;
-            this.labelPlanoDiarioFixo.Text = "Valor Fixo";
+            this.labelPlanoDiarioFixo.Text = "Valor Por Km";
             // 
             // label1
             // 
@@ -143,9 +143,9 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.labelPlanoControladoFixo.AutoSize = true;
             this.labelPlanoControladoFixo.Location = new System.Drawing.Point(6, 76);
             this.labelPlanoControladoFixo.Name = "labelPlanoControladoFixo";
-            this.labelPlanoControladoFixo.Size = new System.Drawing.Size(53, 13);
+            this.labelPlanoControladoFixo.Size = new System.Drawing.Size(68, 13);
             this.labelPlanoControladoFixo.TabIndex = 7;
-            this.labelPlanoControladoFixo.Text = "Valor Fixo";
+            this.labelPlanoControladoFixo.Text = "Valor Por Km";
             // 
             // label2
             // 
