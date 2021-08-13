@@ -131,14 +131,14 @@ namespace e_Locadora.Controladores.VeiculoModule
         #endregion
         public override string InserirNovo(Veiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "ESTA_VALIDO")
+            string resultadoValidacaoDominio = registro.Validar();
+            string resultadoValidacaoControlador = ValidarVeiculo(registro);
+            if (resultadoValidacaoDominio == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
             }
-
-            return resultadoValidacao;
+            
+            return resultadoValidacaoDominio + resultadoValidacaoControlador;
         }
 
         public override string Editar(int id, Veiculo registro)
@@ -183,6 +183,22 @@ namespace e_Locadora.Controladores.VeiculoModule
             return Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
         }
 
+        public string ValidarVeiculo(Veiculo novoVeiculo)
+        {
+            //validar placas iguais
+            if (novoVeiculo != null) {
+                List<Veiculo> todosVeiculos = SelecionarTodos();
+                foreach (Veiculo veiculo in todosVeiculos)
+                {
+                    if (novoVeiculo.Placa.Equals(veiculo.Placa))
+                        return "Placa já cadastrada, tente novamente.";
+                }
+            }
+            
+
+
+            return "ESTA_VALIDO";
+        }
 
         #region Metodos Privados
 
@@ -238,6 +254,8 @@ namespace e_Locadora.Controladores.VeiculoModule
 
             return parametros;
         }
+
+        
 
         #endregion
     }

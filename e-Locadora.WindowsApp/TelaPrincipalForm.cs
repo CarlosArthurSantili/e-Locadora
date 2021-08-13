@@ -46,6 +46,8 @@ namespace e_Locadora.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
+            //tabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
         }
 
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)

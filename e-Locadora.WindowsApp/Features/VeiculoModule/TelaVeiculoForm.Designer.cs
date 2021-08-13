@@ -218,9 +218,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.labelAno.AutoSize = true;
             this.labelAno.Location = new System.Drawing.Point(7, 253);
             this.labelAno.Name = "labelAno";
-            this.labelAno.Size = new System.Drawing.Size(26, 13);
+            this.labelAno.Size = new System.Drawing.Size(97, 13);
             this.labelAno.TabIndex = 26;
-            this.labelAno.Text = "Ano";
+            this.labelAno.Text = "Ano de Fabricação";
             // 
             // txtAno
             // 
