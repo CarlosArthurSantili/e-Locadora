@@ -47,12 +47,16 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtCnpj = new System.Windows.Forms.MaskedTextBox();
             this.rbCPF = new System.Windows.Forms.RadioButton();
             this.rbCNPJ = new System.Windows.Forms.RadioButton();
+            this.groupBoxTipoPessoa = new System.Windows.Forms.GroupBox();
+            this.groupBoxDadosPessoa = new System.Windows.Forms.GroupBox();
+            this.groupBoxTipoPessoa.SuspendLayout();
+            this.groupBoxDadosPessoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(318, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(446, 219);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -62,7 +66,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(237, 265);
+            this.btnGravar.Location = new System.Drawing.Point(365, 219);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 7;
@@ -73,7 +77,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 201);
+            this.label6.Location = new System.Drawing.Point(298, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 25;
@@ -82,7 +86,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 176);
+            this.label5.Location = new System.Drawing.Point(298, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 24;
@@ -91,7 +95,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(66, 151);
+            this.label4.Location = new System.Drawing.Point(7, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 23;
@@ -100,7 +104,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 126);
+            this.label3.Location = new System.Drawing.Point(7, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 13);
             this.label3.TabIndex = 22;
@@ -109,7 +113,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 101);
+            this.label2.Location = new System.Drawing.Point(7, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 21;
@@ -118,7 +122,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 76);
+            this.label1.Location = new System.Drawing.Point(7, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 20;
@@ -126,14 +130,14 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(121, 121);
+            this.txtEndereco.Location = new System.Drawing.Point(113, 76);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(165, 20);
             this.txtEndereco.TabIndex = 2;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(121, 95);
+            this.txtNome.Location = new System.Drawing.Point(113, 50);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(165, 20);
             this.txtNome.TabIndex = 1;
@@ -142,7 +146,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(121, 69);
+            this.txtId.Location = new System.Drawing.Point(113, 24);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 15;
@@ -150,7 +154,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // TxtTelefone
             // 
-            this.TxtTelefone.Location = new System.Drawing.Point(121, 147);
+            this.TxtTelefone.Location = new System.Drawing.Point(113, 102);
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(100, 20);
@@ -159,7 +163,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 226);
+            this.label7.Location = new System.Drawing.Point(298, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 28;
@@ -167,7 +171,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(121, 173);
+            this.txtRG.Location = new System.Drawing.Point(393, 46);
             this.txtRG.Mask = "000000000";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 20);
@@ -175,7 +179,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(121, 199);
+            this.txtCPF.Location = new System.Drawing.Point(393, 72);
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
@@ -183,7 +187,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtCnpj
             // 
-            this.txtCnpj.Location = new System.Drawing.Point(121, 225);
+            this.txtCnpj.Location = new System.Drawing.Point(393, 99);
             this.txtCnpj.Mask = "00000000/0000-00";
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(100, 20);
@@ -192,7 +196,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // rbCPF
             // 
             this.rbCPF.AutoSize = true;
-            this.rbCPF.Location = new System.Drawing.Point(18, 24);
+            this.rbCPF.Location = new System.Drawing.Point(6, 19);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(152, 17);
             this.rbCPF.TabIndex = 9;
@@ -203,7 +207,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // rbCNPJ
             // 
             this.rbCNPJ.AutoSize = true;
-            this.rbCNPJ.Location = new System.Drawing.Point(234, 24);
+            this.rbCNPJ.Location = new System.Drawing.Point(164, 19);
             this.rbCNPJ.Name = "rbCNPJ";
             this.rbCNPJ.Size = new System.Drawing.Size(159, 17);
             this.rbCNPJ.TabIndex = 10;
@@ -211,29 +215,49 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.rbCNPJ.UseVisualStyleBackColor = true;
             this.rbCNPJ.CheckedChanged += new System.EventHandler(this.rbCNPJ_CheckedChanged);
             // 
+            // groupBoxTipoPessoa
+            // 
+            this.groupBoxTipoPessoa.Controls.Add(this.rbCPF);
+            this.groupBoxTipoPessoa.Controls.Add(this.rbCNPJ);
+            this.groupBoxTipoPessoa.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxTipoPessoa.Name = "groupBoxTipoPessoa";
+            this.groupBoxTipoPessoa.Size = new System.Drawing.Size(331, 52);
+            this.groupBoxTipoPessoa.TabIndex = 29;
+            this.groupBoxTipoPessoa.TabStop = false;
+            this.groupBoxTipoPessoa.Text = "Tipo de Pessoa";
+            // 
+            // groupBoxDadosPessoa
+            // 
+            this.groupBoxDadosPessoa.Controls.Add(this.txtId);
+            this.groupBoxDadosPessoa.Controls.Add(this.TxtTelefone);
+            this.groupBoxDadosPessoa.Controls.Add(this.txtCnpj);
+            this.groupBoxDadosPessoa.Controls.Add(this.txtNome);
+            this.groupBoxDadosPessoa.Controls.Add(this.txtCPF);
+            this.groupBoxDadosPessoa.Controls.Add(this.txtEndereco);
+            this.groupBoxDadosPessoa.Controls.Add(this.txtRG);
+            this.groupBoxDadosPessoa.Controls.Add(this.label1);
+            this.groupBoxDadosPessoa.Controls.Add(this.label7);
+            this.groupBoxDadosPessoa.Controls.Add(this.label2);
+            this.groupBoxDadosPessoa.Controls.Add(this.label3);
+            this.groupBoxDadosPessoa.Controls.Add(this.label4);
+            this.groupBoxDadosPessoa.Controls.Add(this.label6);
+            this.groupBoxDadosPessoa.Controls.Add(this.label5);
+            this.groupBoxDadosPessoa.Location = new System.Drawing.Point(12, 70);
+            this.groupBoxDadosPessoa.Name = "groupBoxDadosPessoa";
+            this.groupBoxDadosPessoa.Size = new System.Drawing.Size(509, 143);
+            this.groupBoxDadosPessoa.TabIndex = 30;
+            this.groupBoxDadosPessoa.TabStop = false;
+            this.groupBoxDadosPessoa.Text = "Dados da Pessoa";
+            // 
             // TelaClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 300);
-            this.Controls.Add(this.rbCNPJ);
-            this.Controls.Add(this.rbCPF);
-            this.Controls.Add(this.txtCnpj);
-            this.Controls.Add(this.txtCPF);
-            this.Controls.Add(this.txtRG);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(531, 251);
+            this.Controls.Add(this.groupBoxDadosPessoa);
+            this.Controls.Add(this.groupBoxTipoPessoa);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtEndereco);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.TxtTelefone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -242,8 +266,11 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.Text = "Tela de Cadastro de Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaClientesForm_FormClosing);
             this.Load += new System.EventHandler(this.TelaClientesForm_Load);
+            this.groupBoxTipoPessoa.ResumeLayout(false);
+            this.groupBoxTipoPessoa.PerformLayout();
+            this.groupBoxDadosPessoa.ResumeLayout(false);
+            this.groupBoxDadosPessoa.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -267,5 +294,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
         private System.Windows.Forms.MaskedTextBox txtCnpj;
         private System.Windows.Forms.RadioButton rbCPF;
         private System.Windows.Forms.RadioButton rbCNPJ;
+        private System.Windows.Forms.GroupBox groupBoxTipoPessoa;
+        private System.Windows.Forms.GroupBox groupBoxDadosPessoa;
     }
 }
