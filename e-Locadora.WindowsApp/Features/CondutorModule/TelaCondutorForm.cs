@@ -19,6 +19,8 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
     {
         private Condutor condutor;
         private ControladorClientes controladorCliente = new ControladorClientes();
+        private ControladorCondutor controladorCondutor = new ControladorCondutor();
+
         public TelaCondutorForm()
         {
             InitializeComponent();
@@ -61,32 +63,77 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string nome = txtNome.Text;
-            string endereco = txtEndereco.Text;
-            string telefone = TxtTelefone.Text;
-            string rg = txtRG.Text;
-            string cpf = txtCPF.Text;
-            string cnh = txtCnh.Text;
-            DateTime validade = dateValidade.Value;
-            Clientes cliente = (Clientes)cbCliente.SelectedItem;
-
-            condutor = new Condutor(nome, endereco, telefone, rg, cpf, cnh, validade, cliente);
-
-            string resultadoValidacao = condutor.Validar();
-
-            if (resultadoValidacao != "ESTA_VALIDO")
+            if (ValidarCampos() == "ESTA_VALIDO")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                DialogResult = DialogResult.OK;
+                string nome = txtNome.Text;
+                string endereco = txtEndereco.Text;
+                string telefone = TxtTelefone.Text;
+                string rg = txtRG.Text;
+                string cpf = txtCPF.Text;
+                string cnh = txtCnh.Text;
+                DateTime validade = dateValidade.Value;
+                int id = Convert.ToInt32(txtId.Text);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                cpf = RemoverPontosETracos(cpf);
+                cnh = RemoverPontosETracos(cnh);
 
-                DialogResult = DialogResult.None;
+                Clientes cliente = (Clientes)cbCliente.SelectedItem;
+
+                condutor = new Condutor(nome, endereco, telefone, rg, cpf, cnh, validade, cliente);
+
+                string resultadoValidacao = condutor.Validar();
+                string resultadoValidacaoControlador = controladorCondutor.ValidarCondutor(condutor, id);
+
+                if (resultadoValidacao != "ESTA_VALIDO")
+                {
+                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                    DialogResult = DialogResult.None;
+                }
+                else if (resultadoValidacaoControlador != "ESTA_VALIDO")
+                {
+                    string primeiroErroControlador = new StringReader(resultadoValidacaoControlador).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
+
+                    DialogResult = DialogResult.None;
+                }
+            }
+            else
+            {
+                string primeiroErroControlador = new StringReader(ValidarCampos()).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
             }
         }
 
         private void TelaCondutorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
+
+        private string RemoverPontosETracos(string palavra)
+        {
+            palavra = palavra.Replace(".", "");
+            palavra = palavra.Replace(",", "");
+            palavra = palavra.Replace("-", "");
+            palavra = palavra.Replace("/", "");
+            palavra = palavra.Trim();
+            return palavra;
+        }
+
+        public string ValidarCampos()
+        {
+
+            if (cbCliente.SelectedItem == null)
+            {
+                return "Cliente é obrigatório";
+            }
+
+            return "ESTA_VALIDO";
         }
     }
 }

@@ -87,8 +87,8 @@ namespace e_Locadora.Controladores.ClientesModule
         public override string InserirNovo(Clientes registro)
         {
             string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "ESTA_VALIDO")
+            string validarRepeticoes = ValidarClientes(registro);
+            if (resultadoValidacao == "ESTA_VALIDO" && validarRepeticoes == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirCliente, ObtemParametrosClientes(registro));
             }
@@ -101,7 +101,8 @@ namespace e_Locadora.Controladores.ClientesModule
         {
             string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            string validarRepeticoes = ValidarClientes(registro, id);
+            if (resultadoValidacao == "ESTA_VALIDO" && validarRepeticoes == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarCliente, ObtemParametrosClientes(registro));
@@ -138,6 +139,60 @@ namespace e_Locadora.Controladores.ClientesModule
         {
             return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmCliente);
         }
+
+        public string ValidarClientes(Clientes novoClientes, int id = 0)
+        {
+            //validar placas iguais
+            if (novoClientes != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countCPFsIguais = 0;
+                    int countRGsIguais = 0;
+                    int countCNPJsIguais = 0;
+                    List<Clientes> todosClientes = SelecionarTodos();
+                    foreach (Clientes cliente in todosClientes)
+                    {
+                        if (novoClientes.CPF.Equals(cliente.CPF) && cliente.Id != id && novoClientes.CPF!="")
+                            countCPFsIguais++;
+                        if (novoClientes.RG.Equals(cliente.RG) && cliente.Id != id && novoClientes.RG != "")
+                            countRGsIguais++;
+                        if (novoClientes.CNPJ.Equals(cliente.CNPJ) && cliente.Id != id && novoClientes.CNPJ != "")
+                            countCNPJsIguais++;
+                    }
+                    if (countCPFsIguais > 0)
+                        return "CPF já cadastrado, tente novamente.";
+                    if (countRGsIguais > 0)
+                        return "RG já cadastrado, tente novamente.";
+                    if (countCNPJsIguais > 0)
+                        return "CNPJ já cadastrado, tente novamente.";
+                }
+                else
+                {//situação de inserir
+                    int countCPFsIguais = 0;
+                    int countRGsIguais = 0;
+                    int countCNPJsIguais = 0;
+                    List<Clientes> todosClientess = SelecionarTodos();
+                    foreach (Clientes cliente in todosClientess)
+                    {
+                        if (novoClientes.CPF.Equals(cliente.CPF) && novoClientes.CPF != "")
+                            countCPFsIguais++;
+                        if (novoClientes.RG.Equals(cliente.RG) && novoClientes.RG != "")
+                            countRGsIguais++;
+                        if (novoClientes.CNPJ.Equals(cliente.CNPJ) && novoClientes.CNPJ != "")
+                            countCNPJsIguais++;
+                    }
+                    if (countCPFsIguais > 0)
+                        return "CPF já cadastrado, tente novamente.";
+                    if (countRGsIguais > 0)
+                        return "RG já cadastrado, tente novamente.";
+                    if (countCNPJsIguais > 0)
+                        return "CNPJ já cadastrado, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
+        }
+
         private Dictionary<string, object> ObtemParametrosClientes(Clientes clientes)
         {
             var parametros = new Dictionary<string, object>();
@@ -152,6 +207,7 @@ namespace e_Locadora.Controladores.ClientesModule
 
             return parametros;
         }
+
         private Clientes ConverterEmCliente(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);

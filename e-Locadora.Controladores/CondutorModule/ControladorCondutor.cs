@@ -145,8 +145,9 @@ namespace e_Locadora.Controladores.CondutorModule
         public override string InserirNovo(Condutor registro)
         {
             string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoRepeticoes = ValidarCondutor(registro);
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoRepeticoes == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirCondutor, ObtemParametrosCondutor(registro));
             }
@@ -154,12 +155,12 @@ namespace e_Locadora.Controladores.CondutorModule
             return resultadoValidacao;
         }
 
-
         public override string Editar(int id, Condutor registro)
         {
             string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoRepeticoes = ValidarCondutor(registro, id);
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoRepeticoes == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarCondutor, ObtemParametrosCondutor(registro));
@@ -188,12 +189,10 @@ namespace e_Locadora.Controladores.CondutorModule
             return Db.Exists(sqlExisteCondutor, AdicionarParametro("ID", id));
         }
 
-
         public override Condutor SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarCondutorPorId, ConverterEmCondutor, AdicionarParametro("ID", id));
         }
-
   
         public override List<Condutor> SelecionarTodos()
         {
@@ -203,6 +202,60 @@ namespace e_Locadora.Controladores.CondutorModule
         {
             return Db.GetAll(sqlSelecionarCondutoresComCNHVencida, ConverterEmCondutor, AdicionarParametro("VALIDADECNH", data));
         }
+
+        public string ValidarCondutor(Condutor novoCondutores, int id = 0)
+        {
+            //validar placas iguais
+            if (novoCondutores != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countCPFsIguais = 0;
+                    int countRGsIguais = 0;
+                    int countCNPJsIguais = 0;
+                    List<Condutor> todosCondutores = SelecionarTodos();
+                    foreach (Condutor cliente in todosCondutores)
+                    {
+                        if (novoCondutores.Cpf.Equals(cliente.Cpf) && cliente.Id != id && novoCondutores.Cpf != "")
+                            countCPFsIguais++;
+                        if (novoCondutores.Rg.Equals(cliente.Rg) && cliente.Id != id && novoCondutores.Rg != "")
+                            countRGsIguais++;
+                        if (novoCondutores.NumeroCNH.Equals(cliente.NumeroCNH) && cliente.Id != id && novoCondutores.NumeroCNH != "")
+                            countCNPJsIguais++;
+                    }
+                    if (countCPFsIguais > 0)
+                        return "CPF já cadastrado, tente novamente.";
+                    if (countRGsIguais > 0)
+                        return "RG já cadastrado, tente novamente.";
+                    if (countCNPJsIguais > 0)
+                        return "CNPJ já cadastrado, tente novamente.";
+                }
+                else
+                {//situação de inserir
+                    int countCPFsIguais = 0;
+                    int countRGsIguais = 0;
+                    int countCNHsIguais = 0;
+                    List<Condutor> todosCondutores = SelecionarTodos();
+                    foreach (Condutor cliente in todosCondutores)
+                    {
+                        if (novoCondutores.Cpf.Equals(cliente.Cpf) && novoCondutores.Cpf != "")
+                            countCPFsIguais++;
+                        if (novoCondutores.Rg.Equals(cliente.Rg) && novoCondutores.Rg != "")
+                            countRGsIguais++;
+                        if (novoCondutores.NumeroCNH.Equals(cliente.NumeroCNH) && novoCondutores.NumeroCNH != "")
+                            countCNHsIguais++;
+                    }
+                    if (countCPFsIguais > 0)
+                        return "CPF já cadastrado, tente novamente.";
+                    if (countRGsIguais > 0)
+                        return "RG já cadastrado, tente novamente.";
+                    if (countCNHsIguais > 0)
+                        return "CNH já cadastrado, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
+        }
+
         private Dictionary<string, object> ObtemParametrosCondutor(Condutor condutor)
         {
             var parametros = new Dictionary<string, object>();
@@ -239,6 +292,8 @@ namespace e_Locadora.Controladores.CondutorModule
 
             return condutor;
         }
+
+
 
     }
 }

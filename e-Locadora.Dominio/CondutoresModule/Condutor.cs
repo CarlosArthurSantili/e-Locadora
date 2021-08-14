@@ -55,10 +55,13 @@ namespace e_Locadora.Dominio.CondutoresModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Numero da CNH é obrigatório e não pode ser vazio.";
 
             if (ValidadeCNH == DateTime.MinValue)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Data é obrigatório";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Validade da CNH é obrigatório";
 
-            if(string.IsNullOrEmpty(Cliente.ToString()))
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Cliente  é obrigatório e não pode ser Vazio";
+            if (ValidadeCNH < DateTime.Now)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A validade da cnh inserida está expirada, tente novamente";
+
+            if (string.IsNullOrEmpty(Cliente.ToString()))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Cliente é obrigatório e não pode ser Vazio";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

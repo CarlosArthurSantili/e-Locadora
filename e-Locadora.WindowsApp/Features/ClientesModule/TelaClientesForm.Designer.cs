@@ -55,7 +55,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.btnCancelar.Location = new System.Drawing.Point(318, 265);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 27;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -65,7 +65,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.btnGravar.Location = new System.Drawing.Point(237, 265);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 26;
+            this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -129,14 +129,14 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtEndereco.Location = new System.Drawing.Point(121, 121);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(165, 20);
-            this.txtEndereco.TabIndex = 17;
+            this.txtEndereco.TabIndex = 2;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(121, 95);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(165, 20);
-            this.txtNome.TabIndex = 16;
+            this.txtNome.TabIndex = 1;
             // 
             // txtId
             // 
@@ -146,6 +146,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 15;
+            this.txtId.Text = "0";
             // 
             // TxtTelefone
             // 
@@ -153,7 +154,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.TxtTelefone.TabIndex = 14;
+            this.TxtTelefone.TabIndex = 3;
             // 
             // label7
             // 
@@ -170,7 +171,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtRG.Mask = "000000000";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 20);
-            this.txtRG.TabIndex = 29;
+            this.txtRG.TabIndex = 4;
             // 
             // txtCPF
             // 
@@ -178,7 +179,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
-            this.txtCPF.TabIndex = 30;
+            this.txtCPF.TabIndex = 5;
             // 
             // txtCnpj
             // 
@@ -186,7 +187,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtCnpj.Mask = "00000000/0000-00";
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(100, 20);
-            this.txtCnpj.TabIndex = 31;
+            this.txtCnpj.TabIndex = 6;
             // 
             // rbCPF
             // 
@@ -194,7 +195,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.rbCPF.Location = new System.Drawing.Point(18, 24);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(152, 17);
-            this.rbCPF.TabIndex = 32;
+            this.rbCPF.TabIndex = 9;
             this.rbCPF.Text = "Cadastro de Pessoa Física";
             this.rbCPF.UseVisualStyleBackColor = true;
             this.rbCPF.CheckedChanged += new System.EventHandler(this.rbCPF_CheckedChanged);
@@ -205,7 +206,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.rbCNPJ.Location = new System.Drawing.Point(234, 24);
             this.rbCNPJ.Name = "rbCNPJ";
             this.rbCNPJ.Size = new System.Drawing.Size(159, 17);
-            this.rbCNPJ.TabIndex = 33;
+            this.rbCNPJ.TabIndex = 10;
             this.rbCNPJ.Text = "Cadastro de Pessoa Juridica";
             this.rbCNPJ.UseVisualStyleBackColor = true;
             this.rbCNPJ.CheckedChanged += new System.EventHandler(this.rbCNPJ_CheckedChanged);

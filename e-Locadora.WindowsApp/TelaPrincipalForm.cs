@@ -40,13 +40,12 @@ namespace e_Locadora.WindowsApp
         private void ConfigurarPainelRegistros()
         {
             UserControl tabela = operacoes.ObterTabela();
-
             tabela.Dock = DockStyle.Fill;
+            
 
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
-            //tabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 
         }
 

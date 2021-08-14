@@ -21,7 +21,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
         private Veiculo veiculo;
         private bool imagemAlterada = false;
         private string imgLocation = "";
-        private string operacao = "";
 
         public TelaVeiculoForm()
         {
@@ -272,10 +271,6 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
 
         private void TelaVeiculoForm_Load(object sender, EventArgs e)
         {
-            if (veiculo == null)
-                operacao = "inserir";
-            else
-                operacao = "editar";
         }
     }
 }

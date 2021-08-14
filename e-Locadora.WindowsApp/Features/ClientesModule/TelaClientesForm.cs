@@ -1,4 +1,5 @@
-﻿using e_Locadora.Dominio.ClientesModule;
+﻿using e_Locadora.Controladores.ClientesModule;
+using e_Locadora.Dominio.ClientesModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
     public partial class TelaClientesForm : Form
     {
         private Clientes cliente;
+        ControladorClientes controladorCliente = new ControladorClientes();
         public TelaClientesForm()
         {
             InitializeComponent();
@@ -46,15 +48,30 @@ namespace e_Locadora.WindowsApp.ClientesModule
             string cpf = txtCPF.Text;
             string cnpj = txtCnpj.Text;
 
+            cpf = RemoverPontosETracos(cpf);
+            cnpj = RemoverPontosETracos(cnpj);
+
+
             cliente = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
 
-            string resultadoValidacao = cliente.Validar();
+            int id = Convert.ToInt32(txtId.Text);
 
-            if (resultadoValidacao != "ESTA_VALIDO")
+            string resultadoValidacaoDominio = cliente.Validar();
+            string resultadoValidacaoControlador = controladorCliente.ValidarClientes(cliente, id);
+
+            if (resultadoValidacaoDominio != "ESTA_VALIDO")
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                string primeiroErro = new StringReader(resultadoValidacaoDominio).ReadLine();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
+            }
+            else if (resultadoValidacaoControlador != "ESTA_VALIDO")
+            {
+                string primeiroErroControlador = new StringReader(resultadoValidacaoControlador).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
 
                 DialogResult = DialogResult.None;
             }
@@ -88,6 +105,15 @@ namespace e_Locadora.WindowsApp.ClientesModule
         {
             rbCPF.Checked = true;
             txtCnpj.Enabled = false;
+        }
+
+        private string RemoverPontosETracos(string palavra) {
+            palavra = palavra.Replace(".", "");
+            palavra = palavra.Replace(",", "");
+            palavra = palavra.Replace("-", "");
+            palavra = palavra.Replace("/", "");
+            palavra = palavra.Trim();
+            return palavra;
         }
     }
 }

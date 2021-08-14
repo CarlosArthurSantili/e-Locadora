@@ -24,8 +24,8 @@ namespace e_Locadora.WindowsApp.ClientesModule
         public void InserirNovoRegistro()
         {
             TelaClientesForm tela = new TelaClientesForm();
-
-            if (tela.ShowDialog() == DialogResult.OK)
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controlador.ValidarClientes(tela.Cliente) == "ESTA_VALIDO")
             {
                 controlador.InserirNovo(tela.Cliente);
 
@@ -50,8 +50,8 @@ namespace e_Locadora.WindowsApp.ClientesModule
             TelaClientesForm tela = new TelaClientesForm();
 
             tela.Cliente = clienteSelecionado;
-
-            if (tela.ShowDialog() == DialogResult.OK)
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controlador.ValidarClientes(tela.Cliente, id) == "ESTA_VALIDO")
             {
                 controlador.Editar(id, tela.Cliente);
 
