@@ -56,7 +56,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(446, 219);
+            this.btnCancelar.Location = new System.Drawing.Point(394, 219);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -66,7 +66,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(365, 219);
+            this.btnGravar.Location = new System.Drawing.Point(313, 219);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 7;
@@ -77,7 +77,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(298, 75);
+            this.label6.Location = new System.Drawing.Point(253, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 25;
@@ -86,7 +86,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(298, 49);
+            this.label5.Location = new System.Drawing.Point(253, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 24;
@@ -106,9 +106,9 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Endereço Completo";
+            this.label3.Text = "Endereço";
             // 
             // label2
             // 
@@ -130,14 +130,14 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(113, 76);
+            this.txtEndereco.Location = new System.Drawing.Point(66, 76);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(165, 20);
             this.txtEndereco.TabIndex = 2;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(113, 50);
+            this.txtNome.Location = new System.Drawing.Point(66, 50);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(165, 20);
             this.txtNome.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(113, 24);
+            this.txtId.Location = new System.Drawing.Point(66, 24);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 15;
@@ -154,7 +154,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // TxtTelefone
             // 
-            this.TxtTelefone.Location = new System.Drawing.Point(113, 102);
+            this.TxtTelefone.Location = new System.Drawing.Point(66, 102);
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(100, 20);
@@ -163,7 +163,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(298, 102);
+            this.label7.Location = new System.Drawing.Point(253, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 28;
@@ -171,7 +171,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(393, 46);
+            this.txtRG.Location = new System.Drawing.Point(346, 46);
             this.txtRG.Mask = "000000000";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 20);
@@ -179,7 +179,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(393, 72);
+            this.txtCPF.Location = new System.Drawing.Point(346, 72);
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
@@ -187,7 +187,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             // txtCnpj
             // 
-            this.txtCnpj.Location = new System.Drawing.Point(393, 99);
+            this.txtCnpj.Location = new System.Drawing.Point(346, 99);
             this.txtCnpj.Mask = "00000000/0000-00";
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(100, 20);
@@ -209,9 +209,9 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.rbCNPJ.AutoSize = true;
             this.rbCNPJ.Location = new System.Drawing.Point(164, 19);
             this.rbCNPJ.Name = "rbCNPJ";
-            this.rbCNPJ.Size = new System.Drawing.Size(159, 17);
+            this.rbCNPJ.Size = new System.Drawing.Size(161, 17);
             this.rbCNPJ.TabIndex = 10;
-            this.rbCNPJ.Text = "Cadastro de Pessoa Juridica";
+            this.rbCNPJ.Text = "Cadastro de Pessoa Jurídica";
             this.rbCNPJ.UseVisualStyleBackColor = true;
             this.rbCNPJ.CheckedChanged += new System.EventHandler(this.rbCNPJ_CheckedChanged);
             // 
@@ -244,7 +244,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.groupBoxDadosPessoa.Controls.Add(this.label5);
             this.groupBoxDadosPessoa.Location = new System.Drawing.Point(12, 70);
             this.groupBoxDadosPessoa.Name = "groupBoxDadosPessoa";
-            this.groupBoxDadosPessoa.Size = new System.Drawing.Size(509, 143);
+            this.groupBoxDadosPessoa.Size = new System.Drawing.Size(458, 143);
             this.groupBoxDadosPessoa.TabIndex = 30;
             this.groupBoxDadosPessoa.TabStop = false;
             this.groupBoxDadosPessoa.Text = "Informações do Cliente";
@@ -253,7 +253,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 253);
+            this.ClientSize = new System.Drawing.Size(481, 253);
             this.Controls.Add(this.groupBoxDadosPessoa);
             this.Controls.Add(this.groupBoxTipoPessoa);
             this.Controls.Add(this.btnCancelar);
