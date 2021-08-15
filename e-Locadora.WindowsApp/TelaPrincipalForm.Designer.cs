@@ -33,8 +33,8 @@ namespace e_Locadora.WindowsApp
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGrupoVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemContato = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCondutor = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
@@ -71,8 +71,8 @@ namespace e_Locadora.WindowsApp
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemGrupoVeiculos,
             this.menuItemContato,
-            this.menuItemCondutor,
             this.menuItemClientes,
+            this.menuItemCondutor,
             this.MenuItemTaxasEServicos});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -94,6 +94,14 @@ namespace e_Locadora.WindowsApp
             this.menuItemContato.Text = "Veiculos";
             this.menuItemContato.Click += new System.EventHandler(this.menuItemContato_Click);
             // 
+            // menuItemCondutor
+            // 
+            this.menuItemCondutor.Name = "menuItemCondutor";
+            this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuItemCondutor.Size = new System.Drawing.Size(188, 22);
+            this.menuItemCondutor.Text = "Condutores";
+            this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
+            // 
             // menuItemClientes
             // 
             this.menuItemClientes.Name = "menuItemClientes";
@@ -102,18 +110,10 @@ namespace e_Locadora.WindowsApp
             this.menuItemClientes.Text = "Clientes";
             this.menuItemClientes.Click += new System.EventHandler(this.menuItemClientes_Click);
             // 
-            // menuItemCondutor
-            // 
-            this.menuItemCondutor.Name = "menuItemCondutor";
-            this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.menuItemCondutor.Size = new System.Drawing.Size(188, 22);
-            this.menuItemCondutor.Text = "Condutor";
-            this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
-            // 
             // MenuItemTaxasEServicos
             // 
             this.MenuItemTaxasEServicos.Name = "MenuItemTaxasEServicos";
-            this.MenuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.MenuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(188, 22);
             this.MenuItemTaxasEServicos.Text = "Taxas e Servicos";
             this.MenuItemTaxasEServicos.Click += new System.EventHandler(this.MenuItemTaxasEServicos_Click);

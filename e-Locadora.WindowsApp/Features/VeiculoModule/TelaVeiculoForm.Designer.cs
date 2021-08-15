@@ -202,9 +202,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.labelCapacidadeTanque.AutoSize = true;
             this.labelCapacidadeTanque.Location = new System.Drawing.Point(9, 205);
             this.labelCapacidadeTanque.Name = "labelCapacidadeTanque";
-            this.labelCapacidadeTanque.Size = new System.Drawing.Size(116, 13);
+            this.labelCapacidadeTanque.Size = new System.Drawing.Size(119, 13);
             this.labelCapacidadeTanque.TabIndex = 24;
-            this.labelCapacidadeTanque.Text = "Capacidade Tanque(L)";
+            this.labelCapacidadeTanque.Text = "Capacidade Tanque (L)";
             // 
             // labelQtdPortas
             // 
@@ -403,7 +403,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 449);
+            this.ClientSize = new System.Drawing.Size(685, 444);
             this.Controls.Add(this.groupBoxDadosVeiculo);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.btnCancelar);
@@ -412,7 +412,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.MinimizeBox = false;
             this.Name = "TelaVeiculoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Veículos";
+            this.Text = "Cadastro de Veículo";
             this.Load += new System.EventHandler(this.TelaVeiculoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeiculo)).EndInit();
             this.groupBoxImagemVeiculo.ResumeLayout(false);
