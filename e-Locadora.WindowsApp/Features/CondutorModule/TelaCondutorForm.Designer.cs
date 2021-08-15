@@ -49,12 +49,14 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBoxDadosCondutor = new System.Windows.Forms.GroupBox();
+            this.groupBoxDadosCondutor.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(458, 156);
+            this.btnCancelar.Location = new System.Drawing.Point(490, 175);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 29;
@@ -63,7 +65,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(377, 156);
+            this.btnGravar.Location = new System.Drawing.Point(409, 175);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 28;
@@ -73,7 +75,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(433, 64);
+            this.txtCPF.Location = new System.Drawing.Point(437, 45);
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
@@ -81,7 +83,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(433, 38);
+            this.txtRG.Location = new System.Drawing.Point(437, 19);
             this.txtRG.Mask = "000000000";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 20);
@@ -90,7 +92,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(321, 67);
+            this.label6.Location = new System.Drawing.Point(325, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 40;
@@ -99,7 +101,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(321, 41);
+            this.label5.Location = new System.Drawing.Point(325, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 39;
@@ -108,7 +110,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 93);
+            this.label4.Location = new System.Drawing.Point(9, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 38;
@@ -117,7 +119,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // labelEndereco
             // 
             this.labelEndereco.AutoSize = true;
-            this.labelEndereco.Location = new System.Drawing.Point(3, 67);
+            this.labelEndereco.Location = new System.Drawing.Point(9, 74);
             this.labelEndereco.Name = "labelEndereco";
             this.labelEndereco.Size = new System.Drawing.Size(53, 13);
             this.labelEndereco.TabIndex = 37;
@@ -126,7 +128,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 41);
+            this.label2.Location = new System.Drawing.Point(9, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 36;
@@ -135,7 +137,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(9, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 35;
@@ -143,14 +145,14 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(115, 64);
+            this.txtEndereco.Location = new System.Drawing.Point(121, 71);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(165, 20);
             this.txtEndereco.TabIndex = 34;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(115, 38);
+            this.txtNome.Location = new System.Drawing.Point(121, 45);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(165, 20);
             this.txtNome.TabIndex = 33;
@@ -159,7 +161,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(115, 12);
+            this.txtId.Location = new System.Drawing.Point(121, 19);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 32;
@@ -167,7 +169,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // TxtTelefone
             // 
-            this.TxtTelefone.Location = new System.Drawing.Point(115, 90);
+            this.TxtTelefone.Location = new System.Drawing.Point(121, 97);
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(100, 20);
@@ -175,7 +177,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // 
             // txtCnh
             // 
-            this.txtCnh.Location = new System.Drawing.Point(433, 90);
+            this.txtCnh.Location = new System.Drawing.Point(437, 71);
             this.txtCnh.Mask = "00000000000";
             this.txtCnh.Name = "txtCnh";
             this.txtCnh.Size = new System.Drawing.Size(100, 20);
@@ -184,7 +186,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // dateValidade
             // 
             this.dateValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateValidade.Location = new System.Drawing.Point(433, 116);
+            this.dateValidade.Location = new System.Drawing.Point(437, 97);
             this.dateValidade.Name = "dateValidade";
             this.dateValidade.Size = new System.Drawing.Size(100, 20);
             this.dateValidade.TabIndex = 44;
@@ -192,7 +194,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // cbCliente
             // 
             this.cbCliente.FormattingEnabled = true;
-            this.cbCliente.Location = new System.Drawing.Point(115, 116);
+            this.cbCliente.Location = new System.Drawing.Point(121, 123);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(100, 21);
             this.cbCliente.TabIndex = 45;
@@ -200,7 +202,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(321, 93);
+            this.label7.Location = new System.Drawing.Point(325, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 13);
             this.label7.TabIndex = 46;
@@ -209,7 +211,7 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(321, 119);
+            this.label8.Location = new System.Drawing.Point(325, 100);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 13);
             this.label8.TabIndex = 47;
@@ -218,35 +220,45 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 119);
+            this.label9.Location = new System.Drawing.Point(9, 126);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 13);
             this.label9.TabIndex = 48;
             this.label9.Text = "Selecione um Cliente";
             // 
+            // groupBoxDadosCondutor
+            // 
+            this.groupBoxDadosCondutor.Controls.Add(this.txtId);
+            this.groupBoxDadosCondutor.Controls.Add(this.label9);
+            this.groupBoxDadosCondutor.Controls.Add(this.TxtTelefone);
+            this.groupBoxDadosCondutor.Controls.Add(this.label8);
+            this.groupBoxDadosCondutor.Controls.Add(this.txtNome);
+            this.groupBoxDadosCondutor.Controls.Add(this.label7);
+            this.groupBoxDadosCondutor.Controls.Add(this.txtEndereco);
+            this.groupBoxDadosCondutor.Controls.Add(this.cbCliente);
+            this.groupBoxDadosCondutor.Controls.Add(this.label1);
+            this.groupBoxDadosCondutor.Controls.Add(this.dateValidade);
+            this.groupBoxDadosCondutor.Controls.Add(this.label2);
+            this.groupBoxDadosCondutor.Controls.Add(this.txtCnh);
+            this.groupBoxDadosCondutor.Controls.Add(this.labelEndereco);
+            this.groupBoxDadosCondutor.Controls.Add(this.txtCPF);
+            this.groupBoxDadosCondutor.Controls.Add(this.label4);
+            this.groupBoxDadosCondutor.Controls.Add(this.txtRG);
+            this.groupBoxDadosCondutor.Controls.Add(this.label5);
+            this.groupBoxDadosCondutor.Controls.Add(this.label6);
+            this.groupBoxDadosCondutor.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxDadosCondutor.Name = "groupBoxDadosCondutor";
+            this.groupBoxDadosCondutor.Size = new System.Drawing.Size(553, 157);
+            this.groupBoxDadosCondutor.TabIndex = 49;
+            this.groupBoxDadosCondutor.TabStop = false;
+            this.groupBoxDadosCondutor.Text = "Informações do Condutor";
+            // 
             // TelaCondutorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 193);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbCliente);
-            this.Controls.Add(this.dateValidade);
-            this.Controls.Add(this.txtCnh);
-            this.Controls.Add(this.txtCPF);
-            this.Controls.Add(this.txtRG);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.labelEndereco);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtEndereco);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.TxtTelefone);
+            this.ClientSize = new System.Drawing.Size(575, 208);
+            this.Controls.Add(this.groupBoxDadosCondutor);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -254,10 +266,11 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             this.MinimizeBox = false;
             this.Name = "TelaCondutorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Condutores ";
+            this.Text = "Cadastro de Condutor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaCondutorForm_FormClosing);
+            this.groupBoxDadosCondutor.ResumeLayout(false);
+            this.groupBoxDadosCondutor.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -283,5 +296,6 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBoxDadosCondutor;
     }
 }

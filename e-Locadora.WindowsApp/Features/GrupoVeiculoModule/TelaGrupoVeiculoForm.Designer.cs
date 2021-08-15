@@ -51,15 +51,17 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPlanoLivreValorDiario = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TbControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(145, 187);
+            this.btnGravar.Location = new System.Drawing.Point(135, 219);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 70;
@@ -70,7 +72,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(226, 187);
+            this.btnCancelar.Location = new System.Drawing.Point(216, 219);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 80;
@@ -79,7 +81,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(186, 28);
+            this.txtCategoria.Location = new System.Drawing.Point(167, 40);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(100, 20);
             this.txtCategoria.TabIndex = 2;
@@ -106,20 +108,20 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             this.txtPlanoControladoValorDiario.Location = new System.Drawing.Point(104, 6);
             this.txtPlanoControladoValorDiario.Name = "txtPlanoControladoValorDiario";
-            this.txtPlanoControladoValorDiario.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoControladoValorDiario.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoControladoValorDiario.TabIndex = 5;
             // 
             // txtPlanoControladoValorKm
             // 
             this.txtPlanoControladoValorKm.Location = new System.Drawing.Point(104, 32);
             this.txtPlanoControladoValorKm.Name = "txtPlanoControladoValorKm";
-            this.txtPlanoControladoValorKm.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoControladoValorKm.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoControladoValorKm.TabIndex = 6;
             // 
             // labelCategoria
             // 
             this.labelCategoria.AutoSize = true;
-            this.labelCategoria.Location = new System.Drawing.Point(183, 12);
+            this.labelCategoria.Location = new System.Drawing.Point(164, 24);
             this.labelCategoria.Name = "labelCategoria";
             this.labelCategoria.Size = new System.Drawing.Size(52, 13);
             this.labelCategoria.TabIndex = 11;
@@ -128,7 +130,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // labeld
             // 
             this.labeld.AutoSize = true;
-            this.labeld.Location = new System.Drawing.Point(19, 9);
+            this.labeld.Location = new System.Drawing.Point(12, 21);
             this.labeld.Name = "labeld";
             this.labeld.Size = new System.Drawing.Size(18, 13);
             this.labeld.TabIndex = 13;
@@ -138,7 +140,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(22, 28);
+            this.txtId.Location = new System.Drawing.Point(15, 40);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(104, 20);
             this.txtId.TabIndex = 1;
@@ -148,10 +150,10 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.TbControl.Controls.Add(this.tabPage1);
             this.TbControl.Controls.Add(this.tabPage2);
             this.TbControl.Controls.Add(this.tabPage3);
-            this.TbControl.Location = new System.Drawing.Point(39, 65);
+            this.TbControl.Location = new System.Drawing.Point(15, 82);
             this.TbControl.Name = "TbControl";
             this.TbControl.SelectedIndex = 0;
-            this.TbControl.Size = new System.Drawing.Size(235, 113);
+            this.TbControl.Size = new System.Drawing.Size(252, 113);
             this.TbControl.TabIndex = 81;
             // 
             // tabPage1
@@ -163,7 +165,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(227, 88);
+            this.tabPage1.Size = new System.Drawing.Size(244, 87);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Plano Diário";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -190,14 +192,14 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             this.txtPlanoDiarioValorKm.Location = new System.Drawing.Point(104, 32);
             this.txtPlanoDiarioValorKm.Name = "txtPlanoDiarioValorKm";
-            this.txtPlanoDiarioValorKm.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoDiarioValorKm.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoDiarioValorKm.TabIndex = 12;
             // 
             // txtPlanoDiarioValorDiario
             // 
             this.txtPlanoDiarioValorDiario.Location = new System.Drawing.Point(104, 6);
             this.txtPlanoDiarioValorDiario.Name = "txtPlanoDiarioValorDiario";
-            this.txtPlanoDiarioValorDiario.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoDiarioValorDiario.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoDiarioValorDiario.TabIndex = 10;
             // 
             // tabPage2
@@ -211,7 +213,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(227, 87);
+            this.tabPage2.Size = new System.Drawing.Size(244, 87);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plano Controlado";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -221,7 +223,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             this.txtPlanoControladoQtdKm.Location = new System.Drawing.Point(104, 58);
             this.txtPlanoControladoQtdKm.Name = "txtPlanoControladoQtdKm";
-            this.txtPlanoControladoQtdKm.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoControladoQtdKm.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoControladoQtdKm.TabIndex = 9;
             // 
             // labelQuantidadeKm
@@ -240,7 +242,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(227, 106);
+            this.tabPage3.Size = new System.Drawing.Size(244, 87);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Plano Livre";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -258,19 +260,29 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             // 
             this.txtPlanoLivreValorDiario.Location = new System.Drawing.Point(104, 6);
             this.txtPlanoLivreValorDiario.Name = "txtPlanoLivreValorDiario";
-            this.txtPlanoLivreValorDiario.Size = new System.Drawing.Size(117, 20);
+            this.txtPlanoLivreValorDiario.Size = new System.Drawing.Size(134, 20);
             this.txtPlanoLivreValorDiario.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.TbControl);
+            this.groupBox1.Controls.Add(this.txtCategoria);
+            this.groupBox1.Controls.Add(this.labeld);
+            this.groupBox1.Controls.Add(this.labelCategoria);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(279, 201);
+            this.groupBox1.TabIndex = 82;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informações do Grupo de Veículo";
             // 
             // TelaGrupoVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 222);
-            this.Controls.Add(this.TbControl);
-            this.Controls.Add(this.labeld);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.labelCategoria);
-            this.Controls.Add(this.txtCategoria);
+            this.ClientSize = new System.Drawing.Size(303, 249);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -278,7 +290,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.MinimizeBox = false;
             this.Name = "TelaGrupoVeiculoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Grupo de Veículos";
+            this.Text = "Cadastro de Grupo de Veículo";
             this.TbControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -286,8 +298,9 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -315,5 +328,6 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
         private System.Windows.Forms.TextBox txtPlanoDiarioValorDiario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPlanoLivreValorDiario;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

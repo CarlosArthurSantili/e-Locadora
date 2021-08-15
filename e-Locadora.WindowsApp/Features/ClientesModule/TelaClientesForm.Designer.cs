@@ -247,13 +247,13 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.groupBoxDadosPessoa.Size = new System.Drawing.Size(509, 143);
             this.groupBoxDadosPessoa.TabIndex = 30;
             this.groupBoxDadosPessoa.TabStop = false;
-            this.groupBoxDadosPessoa.Text = "Dados da Pessoa";
+            this.groupBoxDadosPessoa.Text = "Informações do Cliente";
             // 
             // TelaClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 251);
+            this.ClientSize = new System.Drawing.Size(534, 253);
             this.Controls.Add(this.groupBoxDadosPessoa);
             this.Controls.Add(this.groupBoxTipoPessoa);
             this.Controls.Add(this.btnCancelar);
