@@ -144,6 +144,7 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(104, 20);
             this.txtId.TabIndex = 1;
+            this.txtId.Text = "0";
             // 
             // TbControl
             // 
