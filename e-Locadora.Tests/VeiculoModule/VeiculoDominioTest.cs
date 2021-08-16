@@ -49,8 +49,8 @@ namespace e_Locadora.Tests.VeiculoModule
         {
             var grupoVeiculo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 500, 4000, 500);
 
-            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, -1, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
-            Assert.AreEqual("O campo Quantidade De Litros do Tanque de Combustivel é obrigatório", veiculo.Validar());
+            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", -30, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, null);
+            Assert.AreEqual("O campo Quilometragem não pode ser menor que zero", veiculo.Validar());
         }
 
         [TestMethod]

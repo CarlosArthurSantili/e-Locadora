@@ -109,15 +109,22 @@ namespace e_Locadora.Dominio.VeiculosModule
 
         public bool Equals(Veiculo other)
         {
-            return other != null
-                && Id == other.Id
-                && Placa == other.Placa
-                && Modelo == other.Modelo
-                && planoDiarioValorKm == other.planoDiarioValorKm
-                && planoKmControladoValorDiario == other.planoKmControladoValorDiario
-                && planoKmControladoValorKm == other.planoKmControladoValorKm
-                && planoKmControladoQuantidadeKm == other.planoKmControladoQuantidadeKm
-                && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
+            return other != null &&
+                   Id == other.Id &&
+                   Placa == other.Placa &&
+                   Modelo == other.Modelo &&
+                   Fabricante == other.Fabricante &&
+                   Quilometragem == other.Quilometragem &&
+                   QtdLitrosTanque == other.QtdLitrosTanque &&
+                   QtdPortas == other.QtdPortas &&
+                   NumeroChassi == other.NumeroChassi &&
+                   Cor == other.Cor &&
+                   CapacidadeOcupantes == other.CapacidadeOcupantes &&
+                   AnoFabricacao == other.AnoFabricacao &&
+                   TamanhoPortaMalas == other.TamanhoPortaMalas &&
+                   Combustivel == other.Combustivel &&
+                   EqualityComparer<GrupoVeiculo>.Default.Equals(GrupoVeiculo, other.GrupoVeiculo);
+                    //Imagem == other.Imagem;
         }
     }
 }
