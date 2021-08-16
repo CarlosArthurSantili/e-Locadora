@@ -82,11 +82,14 @@ namespace e_Locadora.WindowsApp.GrupoVeiculoModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o grupoVeiculo: [{grupoVeiculoSelecionada.categoria}] ?",
                 "Exclusão de GrupoVeiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                if(controlador.Excluir(id))
+                {
+                    tabelaGrupoVeiculos.AtualizarRegistros();
 
-                tabelaGrupoVeiculos.AtualizarRegistros();
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"GrupoVeiculo: [{grupoVeiculoSelecionada.categoria}] removido com sucesso");
+                }else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"GrupoVeiculo: Não foi possível excluir [{grupoVeiculoSelecionada.categoria}], pois ele está vinculado a um veículo");
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"GrupoVeiculo: [{grupoVeiculoSelecionada.categoria}] removido com sucesso");
             }
         }
 
