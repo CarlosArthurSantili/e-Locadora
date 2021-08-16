@@ -315,9 +315,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.labelGrupoVeiculo.AutoSize = true;
             this.labelGrupoVeiculo.Location = new System.Drawing.Point(9, 309);
             this.labelGrupoVeiculo.Name = "labelGrupoVeiculo";
-            this.labelGrupoVeiculo.Size = new System.Drawing.Size(52, 13);
+            this.labelGrupoVeiculo.Size = new System.Drawing.Size(91, 13);
             this.labelGrupoVeiculo.TabIndex = 29;
-            this.labelGrupoVeiculo.Text = "Categoria";
+            this.labelGrupoVeiculo.Text = "Grupo do Veículo";
             // 
             // comboBoxGrupoVeiculo
             // 
