@@ -34,9 +34,17 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 txtEndereco.Text = cliente.Endereco;
 
                 TxtTelefone.Text = cliente.Telefone;
-                txtRG.Text = cliente.RG;
-                txtCPF.Text = cliente.CPF;
-                txtCnpj.Text = cliente.CNPJ;
+                if (!cliente.CNPJ.Equals(""))
+                {
+                    rbCNPJ.Checked = true;
+                    txtCnpj.Text = cliente.CNPJ;
+                }
+                else
+                {
+                    rbCPF.Checked = true;
+                    txtRG.Text = cliente.RG;
+                    txtCPF.Text = cliente.CPF;
+                }
             }
         }
         private void btnGravar_Click(object sender, EventArgs e)
@@ -81,6 +89,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             if (rbCPF.Checked)
             {
                 txtCnpj.Enabled = false;
+                txtCnpj.Text = "";
                 txtCPF.Enabled = true;
                 txtRG.Enabled = true;
             }
@@ -92,7 +101,9 @@ namespace e_Locadora.WindowsApp.ClientesModule
             {
                 txtCnpj.Enabled = true;
                 txtCPF.Enabled = false;
+                txtCPF.Text = "";
                 txtRG.Enabled = false;
+                txtRG.Text = "";
             }
         }
 
@@ -103,8 +114,12 @@ namespace e_Locadora.WindowsApp.ClientesModule
 
         private void TelaClientesForm_Load(object sender, EventArgs e)
         {
-            rbCPF.Checked = true;
-            txtCnpj.Enabled = false;
+            if (cliente == null)
+            {
+                rbCPF.Checked = true;
+                //.Enabled = false;
+            }
+            
         }
 
         private string RemoverPontosETracos(string palavra) {
