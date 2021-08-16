@@ -22,6 +22,7 @@ namespace e_Locadora.Tests.ClientesModule
         [TestCleanup()]
         public void LimparTabelas()
         {
+            Db.Update("DELETE FROM TBCONDUTOR");
             Db.Update("DELETE FROM TBCLIENTES");
         }
 
@@ -98,10 +99,10 @@ namespace e_Locadora.Tests.ClientesModule
             var c1 = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
             controlador.InserirNovo(c1);
 
-            var c2 = new Clientes("NDD", "rua souza", "9524282242", "", "", "02914460029615");
+            var c2 = new Clientes("NDD", "rua souza", "9524282242", "", "", "02914460029614");
             controlador.InserirNovo(c2);
 
-            var c3 = new Clientes("JBS", "rua souza", "9524282242", "", "", "02914460029615");
+            var c3 = new Clientes("JBS", "rua souza", "9524282242", "", "", "02914460029616");
             controlador.InserirNovo(c3);
 
             //action

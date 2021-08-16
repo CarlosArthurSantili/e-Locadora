@@ -45,7 +45,9 @@ namespace e_Locadora.Tests.CondutoresModule
                + Environment.NewLine
                + "O atributo Numero da CNH é obrigatório e não pode ser vazio."
                + Environment.NewLine
-               + "O campo Data é obrigatório" ;
+               + "O campo Validade da CNH é obrigatório"
+               + Environment.NewLine
+               + "A validade da cnh inserida está expirada, tente novamente";
 
             validar.Should().Be(resultadoEsperado);
         }

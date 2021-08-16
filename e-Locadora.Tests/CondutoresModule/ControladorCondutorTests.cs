@@ -105,11 +105,11 @@ namespace e_Locadora.Tests.CondutoresModule
             controladorCliente.InserirNovo(cliente);
             var condutores = new List<Condutor>
             {
-                new Condutor("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("marcelo", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("carlos", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("ze", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("Bastiao", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente)
+                new Condutor("Joao", "Rua dos joao", "9522185224", "5222525", "20202020221", "522541",new DateTime(2022, 05, 26), cliente),
+                new Condutor("marcelo", "Rua dos joao", "9522185224", "5222526", "20202020252", "522542",new DateTime(2022, 05, 26), cliente),
+                new Condutor("carlos", "Rua dos joao", "9522185224", "5222527", "20202020282", "522543",new DateTime(2022, 05, 26), cliente),
+                new Condutor("ze", "Rua dos joao", "9522185224", "5222528", "20202020292", "522544",new DateTime(2022, 05, 26), cliente),
+                new Condutor("Bastiao", "Rua dos joao", "9522185224", "5222529", "20202020242", "522545",new DateTime(2022, 05, 26), cliente)
 
             };
             foreach (var c in condutores)
@@ -123,22 +123,22 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveSelecionar_Condutores_Com_CNH_Vencida()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220221", "");
 
             controladorCliente.InserirNovo(cliente);
             var condutores = new List<Condutor>
             {
-                new Condutor("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("marcelo", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("carlos", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2021, 08, 10), cliente),
-                new Condutor("ze", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente),
-                new Condutor("Bastiao", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",new DateTime(2022, 05, 26), cliente)
+               new Condutor("Joao", "Rua dos joao", "9522185224", "5222525", "20202020221", "522541",new DateTime(2022, 05, 26), cliente),
+                new Condutor("marcelo", "Rua dos joao", "9522185224", "5222526", "20202020252", "522542",new DateTime(2022, 05, 26), cliente),
+                new Condutor("carlos", "Rua dos joao", "9522185224", "5222527", "20202020282", "522543",new DateTime(2021, 08, 30), cliente),
+                new Condutor("ze", "Rua dos joao", "9522185224", "5222528", "20202020292", "522544",new DateTime(2022, 05, 26), cliente),
+                new Condutor("Bastiao", "Rua dos joao", "9522185224", "5222529", "20202020242", "522545",new DateTime(2022, 05, 26), cliente)
 
             };
             foreach (var c in condutores)
                 controladorCondutor.InserirNovo(c);
 
-            DateTime hoje = new DateTime(2021, 8, 12);
+            DateTime hoje = new DateTime(2021, 8, 31);
             var CnhVencida = controladorCondutor.SelecionarCondutoresComCnhVencida(hoje);
 
             CnhVencida.Should().HaveCount(1);
