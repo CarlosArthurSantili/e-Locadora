@@ -101,5 +101,23 @@ namespace e_Locadora.Dominio.VeiculosModule
 
             return resultadoValidacao;
         }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Veiculo);
+        }
+
+        public bool Equals(Veiculo other)
+        {
+            return other != null
+                && Id == other.Id
+                && Placa == other.Placa
+                && Modelo == other.Modelo
+                && planoDiarioValorKm == other.planoDiarioValorKm
+                && planoKmControladoValorDiario == other.planoKmControladoValorDiario
+                && planoKmControladoValorKm == other.planoKmControladoValorKm
+                && planoKmControladoQuantidadeKm == other.planoKmControladoQuantidadeKm
+                && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
+        }
     }
 }
