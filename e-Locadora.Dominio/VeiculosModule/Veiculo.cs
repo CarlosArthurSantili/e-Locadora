@@ -123,8 +123,8 @@ namespace e_Locadora.Dominio.VeiculosModule
                    AnoFabricacao == other.AnoFabricacao &&
                    TamanhoPortaMalas == other.TamanhoPortaMalas &&
                    Combustivel == other.Combustivel &&
-                   EqualityComparer<GrupoVeiculo>.Default.Equals(GrupoVeiculo, other.GrupoVeiculo);
-                    //Imagem == other.Imagem;
+                   EqualityComparer<GrupoVeiculo>.Default.Equals(GrupoVeiculo, other.GrupoVeiculo) &&
+                   Imagem.SequenceEqual(other.Imagem);
         }
     }
 }
