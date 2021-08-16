@@ -228,7 +228,7 @@ namespace e_Locadora.Controladores.CondutorModule
                     if (countRGsIguais > 0)
                         return "RG já cadastrado, tente novamente.";
                     if (countCNPJsIguais > 0)
-                        return "CNPJ já cadastrado, tente novamente.";
+                        return "CNH já cadastrada, tente novamente.";
                 }
                 else
                 {//situação de inserir
@@ -250,7 +250,7 @@ namespace e_Locadora.Controladores.CondutorModule
                     if (countRGsIguais > 0)
                         return "RG já cadastrado, tente novamente.";
                     if (countCNHsIguais > 0)
-                        return "CNH já cadastrado, tente novamente.";
+                        return "CNH já cadastrada, tente novamente.";
                 }
             }
             return "ESTA_VALIDO";
