@@ -99,6 +99,8 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
             }  
         }
 
