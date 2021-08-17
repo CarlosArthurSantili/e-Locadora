@@ -10,14 +10,16 @@ namespace e_Locadora.Dominio.FuncionarioModule
     public class Funcionario : EntidadeBase
     {
         public string Nome { get; }
+        public string NumeroCpf { get; }
         public string Usuario { get; }
         public string Senha { get; }
         public DateTime DataAdmissao { get; }
         public double Salario { get; }
 
-        public Funcionario(string nome, string usuario, string senha, DateTime dataAdmissao, double salario)
+        public Funcionario(string nome,string numeroCpf, string usuario, string senha, DateTime dataAdmissao, double salario)
         {
             Nome = nome;
+            NumeroCpf = numeroCpf;
             Usuario = usuario;
             Senha = senha;
             DataAdmissao = dataAdmissao;
@@ -30,6 +32,9 @@ namespace e_Locadora.Dominio.FuncionarioModule
 
             if (string.IsNullOrEmpty(Nome))
                 resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
+
+            if (NumeroCpf.Length < 11 || NumeroCpf.Length > 11)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O CPF digitado está inválido. Tente Novamente.";
 
             if (string.IsNullOrEmpty(Usuario))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo usuário é obrigatório e não pode ser vazio.";
@@ -49,11 +54,12 @@ namespace e_Locadora.Dominio.FuncionarioModule
             return resultadoValidacao;
         }
 
-        public bool Equals(Funcionario obj)
+        public override bool Equals(object obj)
         {
             return obj is Funcionario funcionario &&
                    Id == funcionario.Id &&
                    Nome == funcionario.Nome &&
+                   NumeroCpf == funcionario.NumeroCpf &&
                    Usuario == funcionario.Usuario &&
                    Senha == funcionario.Senha &&
                    DataAdmissao == funcionario.DataAdmissao &&
@@ -62,18 +68,15 @@ namespace e_Locadora.Dominio.FuncionarioModule
 
         public override int GetHashCode()
         {
-            int hashCode = -1653155459;
+            int hashCode = 1656116949;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(NumeroCpf);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Usuario);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Senha);
             hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();
             hashCode = hashCode * -1521134295 + Salario.GetHashCode();
             return hashCode;
-        }
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Funcionario);
         }
     }
 }

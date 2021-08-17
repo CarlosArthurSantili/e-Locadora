@@ -12,7 +12,7 @@ namespace e_Locadora.Tests.FuncionarioModule
         [TestMethod]
         public void Deve_Validar_Funcionario()
         {
-            Funcionario funcionario = new Funcionario("Rodrigo Constantino", "rodconsta", "consta123", new DateTime(2021, 08, 17), 1752.48);
+            Funcionario funcionario = new Funcionario("Rodrigo Constantino","10140440499", "rodconsta", "consta123", new DateTime(2021, 08, 17), 1752.48);
 
             var validar = funcionario.Validar();
 
@@ -22,12 +22,14 @@ namespace e_Locadora.Tests.FuncionarioModule
         [TestMethod]
         public void Deve_Validar_Informacoes()
         {
-            Funcionario funcionario = new Funcionario("", "", "", new DateTime(2022,08,17), 0);
+            Funcionario funcionario = new Funcionario("", "","", "", new DateTime(2022,08,17), 0);
 
             var validar = funcionario.Validar();
 
             var resultadoEsperado =
                 "O atributo nome é obrigatório e não pode ser vazio."
+                + Environment.NewLine
+               + "O CPF digitado está inválido. Tente Novamente."
                + Environment.NewLine
                + "O atributo usuário é obrigatório e não pode ser vazio."
                + Environment.NewLine
