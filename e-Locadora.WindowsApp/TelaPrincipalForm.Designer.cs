@@ -33,8 +33,8 @@ namespace e_Locadora.WindowsApp
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGrupoVeiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemContato = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemCondutor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCondutor = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
@@ -51,6 +51,10 @@ namespace e_Locadora.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.locaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.combustivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -73,7 +77,11 @@ namespace e_Locadora.WindowsApp
             this.menuItemContato,
             this.menuItemClientes,
             this.menuItemCondutor,
-            this.MenuItemTaxasEServicos});
+            this.MenuItemTaxasEServicos,
+            this.locaçãoToolStripMenuItem,
+            this.devoluçãoToolStripMenuItem,
+            this.funcionariosToolStripMenuItem,
+            this.combustivelToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -94,14 +102,6 @@ namespace e_Locadora.WindowsApp
             this.menuItemContato.Text = "Veiculos";
             this.menuItemContato.Click += new System.EventHandler(this.menuItemContato_Click);
             // 
-            // menuItemCondutor
-            // 
-            this.menuItemCondutor.Name = "menuItemCondutor";
-            this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuItemCondutor.Size = new System.Drawing.Size(188, 22);
-            this.menuItemCondutor.Text = "Condutores";
-            this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
-            // 
             // menuItemClientes
             // 
             this.menuItemClientes.Name = "menuItemClientes";
@@ -109,6 +109,14 @@ namespace e_Locadora.WindowsApp
             this.menuItemClientes.Size = new System.Drawing.Size(188, 22);
             this.menuItemClientes.Text = "Clientes";
             this.menuItemClientes.Click += new System.EventHandler(this.menuItemClientes_Click);
+            // 
+            // menuItemCondutor
+            // 
+            this.menuItemCondutor.Name = "menuItemCondutor";
+            this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuItemCondutor.Size = new System.Drawing.Size(188, 22);
+            this.menuItemCondutor.Text = "Condutores";
+            this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
             // 
             // MenuItemTaxasEServicos
             // 
@@ -263,6 +271,38 @@ namespace e_Locadora.WindowsApp
             this.labelRodape.Size = new System.Drawing.Size(67, 17);
             this.labelRodape.Text = "Tudo Ok ;-)";
             // 
+            // locaçãoToolStripMenuItem
+            // 
+            this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
+            this.locaçãoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.locaçãoToolStripMenuItem.Text = "Locação";
+            this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
+            // 
+            // devoluçãoToolStripMenuItem
+            // 
+            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
+            this.devoluçãoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.devoluçãoToolStripMenuItem.Text = "Devolução";
+            this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
+            // 
+            // funcionariosToolStripMenuItem
+            // 
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.funcionariosToolStripMenuItem.Text = "Funcionário";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
+            // 
+            // combustivelToolStripMenuItem
+            // 
+            this.combustivelToolStripMenuItem.Name = "combustivelToolStripMenuItem";
+            this.combustivelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.combustivelToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.combustivelToolStripMenuItem.Text = "Combustível";
+            this.combustivelToolStripMenuItem.Click += new System.EventHandler(this.combustivelToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +350,10 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.ToolStripStatusLabel labelRodape;
         private System.Windows.Forms.ToolStripMenuItem menuItemCondutor;
         private System.Windows.Forms.ToolStripMenuItem MenuItemTaxasEServicos;
+        private System.Windows.Forms.ToolStripMenuItem locaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem combustivelToolStripMenuItem;
     }
 }
 

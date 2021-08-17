@@ -119,6 +119,25 @@ namespace e_Locadora.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        private void locaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combustivelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
@@ -162,6 +181,6 @@ namespace e_Locadora.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-
+        
     }
 }
