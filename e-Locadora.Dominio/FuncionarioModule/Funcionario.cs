@@ -12,21 +12,41 @@ namespace e_Locadora.Dominio.FuncionarioModule
         public string Nome { get; }
         public string Usuario { get; }
         public string Senha { get; }
-        public DateTime DataAdimicao { get; }
+        public DateTime DataAdmissao { get; }
         public double Salario { get; }
 
-        public Funcionario(string nome, string usuario, string senha, DateTime dataAdimicao, double salario)
+        public Funcionario(string nome, string usuario, string senha, DateTime dataAdmissao, double salario)
         {
             Nome = nome;
             Usuario = usuario;
             Senha = senha;
-            DataAdimicao = dataAdimicao;
+            DataAdmissao = dataAdmissao;
             Salario = salario;
         }
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
+
+            if (string.IsNullOrEmpty(Usuario))
+                resultadoValidacao = "O atributo usuário é obrigatório e não pode ser vazio.";
+
+            if (string.IsNullOrEmpty(Senha))
+                resultadoValidacao = "O atributo senha é obrigatório e não pode ser vazio.";
+
+            if(DataAdmissao < DateTime.Now)
+                resultadoValidacao = "A data de admissão do funcionário não pode ser menor que a Data atual.";
+
+            if(Salario <= 0)
+                resultadoValidacao = "O atributo salário é obrigatório e não pode ser vazio.";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
