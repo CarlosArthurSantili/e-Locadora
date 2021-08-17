@@ -73,7 +73,6 @@ namespace e_Locadora.Controladores.TaxasServicoModule
                 [ID] = @ID";
         #endregion
 
-
         public override string Editar(int id, TaxasServicos registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -152,6 +151,39 @@ namespace e_Locadora.Controladores.TaxasServicoModule
         public override List<TaxasServicos> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosTaxasServicos, ConverterEmTaxasServicos);
+        }
+
+        public string ValidarTaxasServicos(TaxasServicos novoTaxasServicos, int id = 0)
+        {
+            //validar placas iguais
+            if (novoTaxasServicos != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countTaxasIguais = 0;
+                    List<TaxasServicos> todosTaxasServicos = SelecionarTodos();
+                    foreach (TaxasServicos taxasServicos in todosTaxasServicos)
+                    {
+                        if (novoTaxasServicos.Descricao.Equals(taxasServicos.Descricao) && taxasServicos.Id != id)
+                            countTaxasIguais++;
+                    }
+                    if (countTaxasIguais > 0)
+                        return "Taxa ou serviço já cadastrada, tente novamente.";
+                }
+                else
+                {//situação de inserir
+                    int countTaxasIguais = 0;
+                    List<TaxasServicos> todosTaxasServicos = SelecionarTodos();
+                    foreach (TaxasServicos taxasServicos in todosTaxasServicos)
+                    {
+                        if (novoTaxasServicos.Descricao.Equals(taxasServicos.Descricao))
+                            countTaxasIguais++;
+                    }
+                    if (countTaxasIguais > 0)
+                        return "Taxa ou serviço já cadastrada, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
         }
     }
 }
