@@ -181,28 +181,38 @@ namespace e_Locadora.Controladores.FuncionarioModule
                 if (id != 0)
                 {//situação de editar
                     int countCPFsIguais = 0;
+                    int countUsuariosIguais = 0;
                     List<Funcionario> todosFuncionarios = SelecionarTodos();
                     foreach (Funcionario funcionario in todosFuncionarios)
                     {
                         if (novoFuncionario.NumeroCpf.Equals(funcionario.NumeroCpf) && funcionario.Id != id && novoFuncionario.NumeroCpf != "")
                             countCPFsIguais++;
+                        if (novoFuncionario.Usuario.Equals(funcionario.Usuario) && funcionario.Id != id && novoFuncionario.Usuario != "")
+                            countCPFsIguais++;
                     }
                     if (countCPFsIguais > 0)
                         return "Funcionário com CPF já cadastrado, tente novamente.";
+                    if (countUsuariosIguais > 0)
+                        return "Este nome de usuário já está sendo usado, tente novamente.";
                 }
                 else
                 {//situação de inserir
                     int countCPFsIguais = 0;
+                    int countUsuariosIguais = 0;
 
                     List<Funcionario> todosFuncionarios = SelecionarTodos();
                     foreach (Funcionario funcionario in todosFuncionarios)
                     {
                         if (novoFuncionario.NumeroCpf.Equals(funcionario.NumeroCpf) && novoFuncionario.NumeroCpf != "")
                             countCPFsIguais++;
+                        if (novoFuncionario.Usuario.Equals(funcionario.Usuario) && novoFuncionario.Usuario != "")
+                            countCPFsIguais++;
 
                     }
                     if (countCPFsIguais > 0)
                         return "Funcionário com CPF já cadastrado, tente novamente.";
+                    if (countUsuariosIguais > 0)
+                        return "Este nome de usuário já está sendo usado, tente novamente.";
 
                 }
             }
