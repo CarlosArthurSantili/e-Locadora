@@ -1,4 +1,5 @@
-﻿using e_Locadora.Dominio.TaxasServicosModule;
+﻿using e_Locadora.Controladores.TaxasServicoModule;
+using e_Locadora.Dominio.TaxasServicosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
     public partial class TelaTaxaServicosForm : Form
     {
         private TaxasServicos taxasServicos;
+        ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
         public TelaTaxaServicosForm()
         {
             InitializeComponent();
@@ -38,13 +40,13 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
         public string ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtDescricao.Text))
-                return "Descrição Invpalida, tente novamente";
+                return "Descrição Inválida, tente novamente";
 
             if (!ValidarTipoDouble(textTaxaFixa.Text))
-                return "Esse valor Taxa Fixa está inválido, tente novamente";
+                return "Valor Taxa Fixa está inválido, tente novamente";
 
             if (!ValidarTipoDouble(textTaxaDiaria.Text))
-                return "Esse valor Taxa Diaria está inválido, tente novamente";
+                return "Valor Taxa Diária está inválido, tente novamente";
 
             return "CAMPOS_VALIDOS";
         }
@@ -73,12 +75,22 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
 
                 taxasServicos = new TaxasServicos(descricao, taxaFixa, taxaDiaria);
 
+                int id = Convert.ToInt32(txtId.Text);
                 resultadoValidacao = taxasServicos.Validar();
+                string resultadoValidacaoControlador = controladorTaxasServicos.ValidarTaxasServicos(TaxasServicos, id);
 
                 if (resultadoValidacao != "ESTA_VALIDO")
                 {
                     string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                    DialogResult = DialogResult.None;
+                }
+                else if(resultadoValidacaoControlador != "ESTA_VALIDO")
+                {
+                    string primeiroErroControlador = new StringReader(resultadoValidacaoControlador).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
 
                     DialogResult = DialogResult.None;
                 }

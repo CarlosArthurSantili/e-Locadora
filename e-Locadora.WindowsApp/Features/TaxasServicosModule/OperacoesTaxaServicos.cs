@@ -49,7 +49,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             tela.TaxasServicos = taxasServicosSelecionado;
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == "CAMPOS_VALIDO" && tela.DialogResult == DialogResult.OK)
+            if (tela.ValidarCampos() == "CAMPOS_VALIDOS" && tela.DialogResult == DialogResult.OK)
             {
                 controlador.Editar(id, tela.TaxasServicos);
 
@@ -93,7 +93,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             TelaTaxaServicosForm tela = new TelaTaxaServicosForm();
 
             tela.ShowDialog();
-            if (tela.ValidarCampos() == "CAMPOS_VALIDO" && tela.DialogResult == DialogResult.OK)
+            if (tela.ValidarCampos() == "CAMPOS_VALIDOS" && tela.DialogResult == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.TaxasServicos);
 
