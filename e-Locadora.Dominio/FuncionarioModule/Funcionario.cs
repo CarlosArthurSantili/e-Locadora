@@ -32,21 +32,48 @@ namespace e_Locadora.Dominio.FuncionarioModule
                 resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
 
             if (string.IsNullOrEmpty(Usuario))
-                resultadoValidacao = "O atributo usuário é obrigatório e não pode ser vazio.";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo usuário é obrigatório e não pode ser vazio.";
 
             if (string.IsNullOrEmpty(Senha))
-                resultadoValidacao = "O atributo senha é obrigatório e não pode ser vazio.";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo senha é obrigatório e não pode ser vazio.";
 
-            if(DataAdmissao < DateTime.Now)
-                resultadoValidacao = "A data de admissão do funcionário não pode ser menor que a Data atual.";
+            if(DataAdmissao > DateTime.Now)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de admissão do funcionário não pode ser maior que a Data atual.";
 
             if(Salario <= 0)
-                resultadoValidacao = "O atributo salário é obrigatório e não pode ser vazio.";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo salário é obrigatório e não pode ser vazio.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
             return resultadoValidacao;
+        }
+
+        public bool Equals(Funcionario obj)
+        {
+            return obj is Funcionario funcionario &&
+                   Id == funcionario.Id &&
+                   Nome == funcionario.Nome &&
+                   Usuario == funcionario.Usuario &&
+                   Senha == funcionario.Senha &&
+                   DataAdmissao == funcionario.DataAdmissao &&
+                   Salario == funcionario.Salario;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -1653155459;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Usuario);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Senha);
+            hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();
+            hashCode = hashCode * -1521134295 + Salario.GetHashCode();
+            return hashCode;
+        }
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Funcionario);
         }
     }
 }
