@@ -33,7 +33,7 @@ namespace e_Locadora.Dominio.FuncionarioModule
             if (string.IsNullOrEmpty(Nome))
                 resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
 
-            if (NumeroCpf.Length < 11 || NumeroCpf.Length > 11)
+            if (string.IsNullOrEmpty(NumeroCpf))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O CPF digitado está inválido. Tente Novamente.";
 
             if (string.IsNullOrEmpty(Usuario))

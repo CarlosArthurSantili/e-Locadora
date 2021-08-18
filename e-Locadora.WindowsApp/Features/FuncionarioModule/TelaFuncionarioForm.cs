@@ -32,6 +32,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
 
                 txtId.Text = funcionario.Id.ToString();
                 txtNome.Text = funcionario.Nome;
+                txtCPF.Text = funcionario.NumeroCpf;
                 txtUsuario.Text = funcionario.Usuario;
                 txtSenha.Text = funcionario.Senha;
                 dateAdmissao.Value = funcionario.DataAdmissao;
@@ -44,9 +45,8 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             if (string.IsNullOrEmpty(txtNome.Text))
                 return "Nome inválido, tente novamente";
 
-            if (string.IsNullOrEmpty(txtCPF.Text))
+            if (RemoverPontosETracos(txtCPF.Text) == "")
                 return "CPF é obrigatório, tente novamente";
-
 
             if (string.IsNullOrEmpty(txtUsuario.Text))
                 return "Nome de usuário inválido, tente novamente";
@@ -54,7 +54,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             if (string.IsNullOrEmpty(txtSenha.Text))
                 return "Senha inválida, tente novamente";
 
-            if ((txtSenha.Text.Where(c => char.IsLetter(c)).Count() > 0) && (txtSenha.Text.Where(c => char.IsNumber(c)).Count() > 0))
+            if ((txtSenha.Text.Where(c => char.IsLetter(c)).Count() <= 0) && (txtSenha.Text.Where(c => char.IsNumber(c)).Count() <= 0))
                 return "Senha precisa conter ao menos uma letra e um numero, tente novamente";
 
             if (!ValidarTipoDouble(txtSalario.Text))
@@ -74,10 +74,19 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
                 return false;
             }
         }
+        private string RemoverPontosETracos(string palavra)
+        {
+            palavra = palavra.Replace(".", "");
+            palavra = palavra.Replace(",", "");
+            palavra = palavra.Replace("-", "");
+            palavra = palavra.Replace("/", "");
+            palavra = palavra.Trim();
+            return palavra;
+        }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == "ESTA_VALIDO")
+            if (ValidarCampos() == "CAMPOS_VALIDOS")
             {
                 string nome = txtNome.Text;
                 string numerocpf = txtCPF.Text;
@@ -87,7 +96,6 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
                 double SALARIO = Convert.ToDouble(txtSalario.Text);
 
              
-
                 funcionario = new Funcionario(nome, numerocpf, usuario, senha, admissao, SALARIO);
 
                 int id = Convert.ToInt32(txtId.Text);
