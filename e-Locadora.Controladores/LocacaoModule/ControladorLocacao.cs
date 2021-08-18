@@ -27,12 +27,12 @@ namespace e_Locadora.Controladores.LocacaoModule
         ControladorCondutor controladorCondutor = new ControladorCondutor();
         ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
         ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
-        ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
 
         #region Queries
         private const string sqlInserirLocacao =
          @"INSERT INTO TBLOCACAO
 	                (
+                        [ID],
 		                [ID_FUNCIONARIO], 
 		                [ID_CLIENTE], 
 		                [ID_CONDUTOR],
@@ -41,31 +41,47 @@ namespace e_Locadora.Controladores.LocacaoModule
 		                [EMABERTO],
                         [DATALOCACAO],
                         [DATADEVOLUCAO],
-                        [DATADEVOLUCAO],
+                        [QUILOMETRAGEMDEVOLUCAO],
+                        [PLANO],
+                        [SEGUROCLIENTE],
+                        [SEGUROTERCEIRO],
                         [VALORTOTAL]
 	                ) 
 	                VALUES
 	                (
-                        @ID_FUNCIONARIO, 
+                        @ID,
+		                @ID_FUNCIONARIO, 
 		                @ID_CLIENTE, 
 		                @ID_CONDUTOR,
-                        @ID_GRUPOVEICULO,
-                        @ID_VEICULO,
-                        @EMABERTO, 
-		                @DATALOCACAO,
-                        @DATADEVOLUCAO
+                        @ID_GRUPOVEICULO, 
+                        @ID_VEICULO, 
+		                @EMABERTO,
+                        @DATALOCACAO,
+                        @DATADEVOLUCAO,
+                        @QUILOMETRAGEMDEVOLUCAO,
+                        @PLANO,
+                        @SEGUROCLIENTE,
+                        @SEGUROTERCEIRO,
+                        @VALORTOTAL
 	                )";
 
         private const string sqlEditarLocacao =
                     @"UPDATE TBLOCACAO
                     SET
-                        [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
+                        [ID] = @ID,
+		                [ID_FUNCIONARIO] = @ID_FUNCIONARIO, 
 		                [ID_CLIENTE] = @ID_CLIENTE, 
 		                [ID_CONDUTOR] = @ID_CONDUTOR,
+                        [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO, 
                         [ID_VEICULO] = @ID_VEICULO, 
 		                [EMABERTO] = @EMABERTO,
                         [DATALOCACAO] = @DATALOCACAO,
-                        [DATADEVOLUCAO] = @DATADEVOLUCAO
+                        [DATADEVOLUCAO] = @DATADEVOLUCAO,
+                        [QUILOMETRAGEMDEVOLUCAO] = @QUILOMETRAGEMDEVOLUCAO,
+                        [PLANO] = @PLANO,
+                        [SEGUROCLIENTE] = @SEGUROCLIENTE,
+                        [SEGUROTERCEIRO] = @SEGUROTERCEIRO,
+                        [VALORTOTAL] = @VALORTOTAL
                     WHERE 
                         ID = @ID";
 
@@ -98,30 +114,42 @@ namespace e_Locadora.Controladores.LocacaoModule
             FROM
                 [TBLOCACAO]
             WHERE
-                 CP.[ID] = @ID";
+                [ID] = @ID";
 
         private const string sqlSelecionarTodasLocacoes =
             @"SELECT 
-                [ID],       
-                [ID_FUNCIONARIO],
-                [ID_CLIENTE],
-                [ID_CONDUTOR],             
-                [ID_VEICULO],                    
-                [EMABERTO],                                
+                [ID],
+		        [ID_FUNCIONARIO], 
+		        [ID_CLIENTE], 
+		        [ID_CONDUTOR],
+                [ID_GRUPOVEICULO], 
+                [ID_VEICULO], 
+		        [EMABERTO],
                 [DATALOCACAO],
-                [DATADEVOLUCAO]
+                [DATADEVOLUCAO],
+                [QUILOMETRAGEMDEVOLUCAO],
+                [PLANO],
+                [SEGUROCLIENTE],
+                [SEGUROTERCEIRO],
+                [VALORTOTAL]
             FROM
                 [TBLOCACAO]";
         private const string sqlSelecionarLocacaoesEmAberto =
             @"SELECT 
-                [ID],       
-                [ID_FUNCIONARIO],
-                [ID_CLIENTE],
-                [ID_CONDUTOR],             
-                [ID_VEICULO],                    
-                [EMABERTO],                                
+                [ID],
+		        [ID_FUNCIONARIO], 
+		        [ID_CLIENTE], 
+		        [ID_CONDUTOR],
+                [ID_GRUPOVEICULO], 
+                [ID_VEICULO], 
+		        [EMABERTO],
                 [DATALOCACAO],
-                [DATADEVOLUCAO]
+                [DATADEVOLUCAO],
+                [QUILOMETRAGEMDEVOLUCAO],
+                [PLANO],
+                [SEGUROCLIENTE],
+                [SEGUROTERCEIRO],
+                [VALORTOTAL]
             FROM
                 [TBLOCACAO]
            WHERE 
@@ -131,28 +159,35 @@ namespace e_Locadora.Controladores.LocacaoModule
         #endregion
         public override string InserirNovo(Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoDominio = registro.Validar();
+            string resultadoValidacaoControlador = ValidarLocacao(registro);
 
-
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacaoDominio == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
             }
 
-            return resultadoValidacao;
+            if (resultadoValidacaoDominio != "ESTA_VALIDO")
+                return resultadoValidacaoDominio;
+            else
+                return resultadoValidacaoControlador;
         }
 
         public override string Editar(int id, Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoDominio = registro.Validar();
+            string resultadoValidacaoControlador = ValidarLocacao(registro, id);
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacaoDominio == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));
             }
 
-            return resultadoValidacao;
+            if(resultadoValidacaoDominio != "ESTA_VALIDO")
+                return resultadoValidacaoDominio;
+            else
+                return resultadoValidacaoControlador;
         }
 
         public override bool Excluir(int id)
@@ -186,7 +221,7 @@ namespace e_Locadora.Controladores.LocacaoModule
         }
         public List<Locacao> SelecionarLocacaoesEmAberto(DateTime data)
         {
-            return Db.GetAll(sqlSelecionarLocacaoesEmAberto, ConverterEmLocacao, AdicionarParametro("EMABERTO", data));
+            return Db.GetAll(sqlSelecionarLocacaoesEmAberto, ConverterEmLocacao);
         }
 
         
@@ -202,9 +237,13 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("ID_CONDUTOR", locacao.condutor.Id);
             parametros.Add("ID_GRUPOVEICULO", locacao.grupoVeiculo);
             parametros.Add("ID_VEICULO", locacao.veiculo.Id);
-            //parametros.Add("EMABERTO", locacao.emAberto);
+            parametros.Add("EMABERTO", locacao.emAberto);
             parametros.Add("DATALOCACAO", locacao.dataLocacao);
             parametros.Add("DATADEVOLUCAO", locacao.dataDevolucao);
+            parametros.Add("QUILOMETRAGEMDEVOLUCAO", locacao.quilometragemDevolucao);
+            parametros.Add("PLANO", locacao.plano);
+            parametros.Add("SEGUROCLIENTE", locacao.seguroCliente);
+            parametros.Add("SEGUROTERCEIRO", locacao.seguroTerceiro);
 
             return parametros;
         }
