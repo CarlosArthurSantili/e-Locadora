@@ -54,9 +54,6 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             if (string.IsNullOrEmpty(txtSenha.Text))
                 return "Senha inválida, tente novamente";
 
-            if ((txtSenha.Text.Where(c => char.IsLetter(c)).Count() <= 0) && (txtSenha.Text.Where(c => char.IsNumber(c)).Count() <= 0))
-                return "Senha precisa conter ao menos uma letra e um numero, tente novamente";
-
             if (!ValidarTipoDouble(txtSalario.Text))
                 return "Sálario inválido, tente novamente";
 

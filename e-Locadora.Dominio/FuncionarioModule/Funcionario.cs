@@ -42,7 +42,7 @@ namespace e_Locadora.Dominio.FuncionarioModule
             if (string.IsNullOrEmpty(Senha))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo senha é obrigatório e não pode ser vazio.";
 
-            if(DataAdmissao > DateTime.Now)
+            if (DataAdmissao > DateTime.Now)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de admissão do funcionário não pode ser maior que a Data atual.";
 
             if(Salario <= 0)

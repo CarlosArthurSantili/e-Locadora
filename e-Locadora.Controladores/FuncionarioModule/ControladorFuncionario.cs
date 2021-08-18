@@ -156,7 +156,7 @@ namespace e_Locadora.Controladores.FuncionarioModule
                         if (novoFuncionario.NumeroCpf.Equals(funcionario.NumeroCpf) && funcionario.Id != id && novoFuncionario.NumeroCpf != "")
                             countCPFsIguais++;
                         if (novoFuncionario.Usuario.Equals(funcionario.Usuario) && funcionario.Id != id && novoFuncionario.Usuario != "")
-                            countCPFsIguais++;
+                            countUsuariosIguais++;
                     }
                     if (countCPFsIguais > 0)
                         return "Funcionário com CPF já cadastrado, tente novamente.";
@@ -174,7 +174,7 @@ namespace e_Locadora.Controladores.FuncionarioModule
                         if (novoFuncionario.NumeroCpf.Equals(funcionario.NumeroCpf) && novoFuncionario.NumeroCpf != "")
                             countCPFsIguais++;
                         if (novoFuncionario.Usuario.Equals(funcionario.Usuario) && novoFuncionario.Usuario != "")
-                            countCPFsIguais++;
+                            countUsuariosIguais++;
 
                     }
                     if (countCPFsIguais > 0)
