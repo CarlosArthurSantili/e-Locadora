@@ -99,6 +99,20 @@
     <Compile Include="Features\CondutorModule\TelaCondutorForm.Designer.cs">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\FuncionarioModule\ConfiguracaoFuncionarioToolBox.cs" />
+    <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioControl.Designer.cs">
+      <DependentUpon>TelaFuncionarioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioForm.Designer.cs">
+      <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GrupoVeiculoModule\ConfiguracaoGrupoVeiculoToolBox.cs" />
     <Compile Include="Features\GrupoVeiculoModule\OperacoesGrupoVeiculo.cs" />
     <Compile Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.cs">
@@ -182,6 +196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\CondutorModule\TelaCondutorForm.resx">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioControl.resx">
+      <DependentUpon>TelaFuncionarioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioForm.resx">
+      <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TabelaGrupoVeiculoControl.resx">
       <DependentUpon>TabelaGrupoVeiculoControl.cs</DependentUpon>
