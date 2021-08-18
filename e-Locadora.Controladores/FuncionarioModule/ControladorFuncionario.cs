@@ -141,39 +141,7 @@ namespace e_Locadora.Controladores.FuncionarioModule
         {
             return Db.GetAll(sqlSelecionarTodosFuncionarios, ConverterEmFuncionario);
         }
-
-        #region Metodos Privados
-        private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
-        {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", funcionario.Id);
-            parametros.Add("NOME", funcionario.Nome);
-            parametros.Add("NUMEROCPF", funcionario.NumeroCpf);
-            parametros.Add("USUARIO", funcionario.Usuario);
-            parametros.Add("SENHA", funcionario.Senha);
-            parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
-            parametros.Add("SALARIO", funcionario.Salario);
-
-            return parametros; ;
-        }
-        private Funcionario ConverterEmFuncionario(IDataReader reader)
-        {
-            int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOME"]);
-            string numeroCpf = Convert.ToString(reader["NUMEROCPF"]);
-            string usuario = Convert.ToString(reader["USUARIO"]);
-            string senha = Convert.ToString(reader["SENHA"]);
-            DateTime admissao = Convert.ToDateTime(reader["DATAADMISSAO"]);
-            double salario = Convert.ToDouble(reader["SALARIO"]);
-
-            Funcionario funcionarios = new Funcionario(nome,numeroCpf,usuario,senha,admissao,salario);
-
-            funcionarios.Id = id;
-
-            return funcionarios;
-        }
-        private string ValidarFuncionarios(Funcionario novoFuncionario, int id = 0)
+        public string ValidarFuncionarios(Funcionario novoFuncionario, int id = 0)
         {
             //validar CPF IGUAIS iguais
             if (novoFuncionario != null)
@@ -218,6 +186,39 @@ namespace e_Locadora.Controladores.FuncionarioModule
             }
             return "ESTA_VALIDO";
         }
+
+        #region Metodos Privados
+        private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", funcionario.Id);
+            parametros.Add("NOME", funcionario.Nome);
+            parametros.Add("NUMEROCPF", funcionario.NumeroCpf);
+            parametros.Add("USUARIO", funcionario.Usuario);
+            parametros.Add("SENHA", funcionario.Senha);
+            parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
+            parametros.Add("SALARIO", funcionario.Salario);
+
+            return parametros; ;
+        }
+        private Funcionario ConverterEmFuncionario(IDataReader reader)
+        {
+            int id = Convert.ToInt32(reader["ID"]);
+            string nome = Convert.ToString(reader["NOME"]);
+            string numeroCpf = Convert.ToString(reader["NUMEROCPF"]);
+            string usuario = Convert.ToString(reader["USUARIO"]);
+            string senha = Convert.ToString(reader["SENHA"]);
+            DateTime admissao = Convert.ToDateTime(reader["DATAADMISSAO"]);
+            double salario = Convert.ToDouble(reader["SALARIO"]);
+
+            Funcionario funcionarios = new Funcionario(nome,numeroCpf,usuario,senha,admissao,salario);
+
+            funcionarios.Id = id;
+
+            return funcionarios;
+        }
+       
         #endregion
     }
 }

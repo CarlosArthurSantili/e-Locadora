@@ -183,6 +183,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.btnGravar.TabIndex = 37;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // TelaFuncionarioForm
             // 
