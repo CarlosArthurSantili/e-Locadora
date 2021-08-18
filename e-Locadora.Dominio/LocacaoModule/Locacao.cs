@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.Shared;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
@@ -21,7 +22,7 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public double seguroCliente { get; set; }
         public double seguroTerceiro { get; set; }
-        public string funcionario { get; set; }
+        public Funcionario funcionario { get; set; }
         public GrupoVeiculo grupoVeiculo { get; set; }
         public Veiculo veiculo { get; set; }
         public Clientes cliente { get; set; }
@@ -32,7 +33,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         public bool emAberto { get; set; }
 
 
-        public Locacao(string funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
+        public Locacao(Funcionario funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
         {
             this.funcionario = funcionario;
             this.dataLocacao = dataLocacao;

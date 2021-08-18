@@ -1,11 +1,13 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.Shared;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
@@ -20,6 +22,7 @@ namespace e_Locadora.Controladores.LocacaoModule
 {
     public class ControladorLocacao : Controlador<Locacao>
     {
+        ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorClientes controladorCliente = new ControladorClientes();
         ControladorCondutor controladorCondutor = new ControladorCondutor();
         ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
@@ -207,9 +210,8 @@ namespace e_Locadora.Controladores.LocacaoModule
         }
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
-            //var idFuncionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
-            //Funcionario funcionario = controladorFuncionario.SelecionarPorId(idFuncionario);
-            string funcionario = "Rech";
+            var idFuncionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
+            Funcionario funcionario = controladorFuncionario.SelecionarPorId(idFuncionario);
 
             var idCliente = Convert.ToInt32(reader["ID_CLIENTE"]);
             Clientes cliente = controladorCliente.SelecionarPorId(idCliente);
@@ -228,11 +230,12 @@ namespace e_Locadora.Controladores.LocacaoModule
             var dataDevolucao = Convert.ToDateTime(reader["DATADEVOLUCAO"]);
             var quilometragemDevolucao = Convert.ToDouble(reader["QUILOMETRAGEMDEVOLUCAO"]);
             var plano = Convert.ToString(reader["PLANO"]);
+            var seguroCliente = Convert.ToDouble(reader["SEGUROCLIENTE"]);
+            var seguroTerceiro = Convert.ToDouble(reader["SEGUROTERCEIRO"]);
 
 
 
-
-            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao,plano, grupoVeiculo, veiculo, cliente, condutor, emAberto);
+            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao,plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
             locacao.Id = Convert.ToInt32(reader["ID"]);
 
@@ -274,22 +277,6 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         //Clube da Leitura
         /*
-        public string RegistrarEmprestimo(Amigo amigo, Revista revista, DateTime data)
-        {
-            Emprestimo emprestimo = new Emprestimo(amigo, revista, data);
-
-            string resultadoValidacao = emprestimo.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                string dasdsadsaa = Adicionar(emprestimo);
-                amigo.RegistrarEmprestimo(emprestimo);
-                revista.RegistrarEmprestimo(emprestimo);
-            }
-
-            return resultadoValidacao;
-        }
-
         public bool RegistrarDevolucao(int idEmprestimo, DateTime data)
         {
             Emprestimo emprestimo = SelecionarRegistroPorId(idEmprestimo);
