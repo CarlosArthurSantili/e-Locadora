@@ -38,15 +38,15 @@ namespace e_Locadora.Tests.Veiculos
             //arrange
             var imagem = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
             var grupoVeiculo = new GrupoVeiculo("SUV", 1000, 2000, 3000, 500, 4000, 500);
-            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, -4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, imagem);
+            var veiculo = new Veiculo("1234", "Modelo", "Fabricante", 0, 4, 4, "4", "azul", 4, 1994, "grande", "etanol", grupoVeiculo, imagem);
 
             //action
             controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
             controladorVeiculo.InserirNovo(veiculo);
 
             //assert
-            var grupoVeiculoEncontrado = controladorVeiculo.SelecionarPorId(veiculo.Id);
-            grupoVeiculoEncontrado.Should().Be(veiculo);
+            var veiculoEncontrado = controladorVeiculo.SelecionarPorId(veiculo.Id);
+            veiculoEncontrado.Should().Be(veiculo);
         }
 
         [TestMethod]
