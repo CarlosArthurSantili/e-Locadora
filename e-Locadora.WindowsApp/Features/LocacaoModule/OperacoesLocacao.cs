@@ -13,11 +13,12 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
     public class OperacoesLocacao : ICadastravel
     {
         private ControladorLocacao controladorLocacao = null;
+        private TabelaLocacaoControl tabelaLocacao = null;
 
         public OperacoesLocacao(ControladorLocacao controladorLocacao)
         {
             this.controladorLocacao = controladorLocacao;
-            tabelaLocacao = new TabelaLocacaoControl(controladorLocacao);
+            tabelaLocacao = new TabelaLocacaoControl();
         }
         public void InserirNovoRegistro()
         {

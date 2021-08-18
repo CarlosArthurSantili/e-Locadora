@@ -17,12 +17,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             InitializeComponent();
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
 
         }
