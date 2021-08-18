@@ -111,9 +111,7 @@ namespace e_Locadora.Controladores.FuncionarioModule
             }
 
             return resultadoValidacao;
-        }
-
-       
+        }    
 
         public override bool Excluir(int id)
         {
@@ -143,6 +141,8 @@ namespace e_Locadora.Controladores.FuncionarioModule
         {
             return Db.GetAll(sqlSelecionarTodosFuncionarios, ConverterEmFuncionario);
         }
+
+        #region Metodos Privados
         private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
         {
             var parametros = new Dictionary<string, object>();
@@ -218,5 +218,6 @@ namespace e_Locadora.Controladores.FuncionarioModule
             }
             return "ESTA_VALIDO";
         }
+        #endregion
     }
 }
