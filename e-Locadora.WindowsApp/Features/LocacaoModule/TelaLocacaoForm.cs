@@ -29,11 +29,24 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             set
             {
                 locacao = value;
+
                 //LOCAÇÃO
                 txtIdLocacao.Text = locacao.Id.ToString();
                 cboxPlano.SelectedItem = locacao.plano;
-                checkBoxCliente.Checked = Convert.ToBoolean(locacao.seguroCliente);
-                checkBoxSeguroTerceiro.Checked = Convert.ToBoolean(locacao.seguroTerceiro);
+
+
+                if(locacao.seguroCliente != 0) 
+                { 
+                    checkBoxCliente.Enabled = true;
+                    txtSeguroCliente.Text = locacao.seguroCliente.ToString();
+                }
+
+                if(locacao.seguroTerceiro != 0)
+                {
+                    checkBoxSeguroTerceiro.Enabled = true;
+                    txtSeguroTerceiro.Text = locacao.seguroTerceiro.ToString();
+                }
+
                 dateLocacao.Value = Convert.ToDateTime(locacao.dataLocacao);
                 dataDevolucao.Value = Convert.ToDateTime(locacao.dataDevolucao);
 
@@ -52,14 +65,19 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 //TAXAS E SERVICOS
                 txtIdTaxasServicos.Text = locacao.Id.ToString();
-                cListBoxTaxasServicos.CheckOnClick = Convert.ToBoolean(locacao.taxasServicos);
+                //cListBoxTaxasServicos.Items = Convert.ToBoolean(locacao.taxasServicos);
 
             }
         }
 
+        public string ValidarCampos()
+        {
+            return "CAMPOS_VALIDOS";
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

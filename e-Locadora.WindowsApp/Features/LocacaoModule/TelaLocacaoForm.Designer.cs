@@ -66,6 +66,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.checkBoxCliente = new System.Windows.Forms.CheckBox();
             this.checkBoxSeguroTerceiro = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtSeguroCliente = new System.Windows.Forms.TextBox();
+            this.txtSeguroTerceiro = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -228,11 +230,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtSeguroTerceiro);
+            this.groupBox1.Controls.Add(this.txtSeguroCliente);
             this.groupBox1.Controls.Add(this.checkBoxSeguroTerceiro);
             this.groupBox1.Controls.Add(this.checkBoxCliente);
             this.groupBox1.Location = new System.Drawing.Point(6, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(190, 91);
+            this.groupBox1.Size = new System.Drawing.Size(267, 91);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seguros";
@@ -443,6 +447,22 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.label1.TabIndex = 24;
             this.label1.Text = "Veiculo";
             // 
+            // txtSeguroCliente
+            // 
+            this.txtSeguroCliente.Location = new System.Drawing.Point(132, 17);
+            this.txtSeguroCliente.Name = "txtSeguroCliente";
+            this.txtSeguroCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtSeguroCliente.TabIndex = 2;
+            this.txtSeguroCliente.Text = "0";
+            // 
+            // txtSeguroTerceiro
+            // 
+            this.txtSeguroTerceiro.Location = new System.Drawing.Point(132, 40);
+            this.txtSeguroTerceiro.Name = "txtSeguroTerceiro";
+            this.txtSeguroTerceiro.Size = new System.Drawing.Size(100, 20);
+            this.txtSeguroTerceiro.TabIndex = 3;
+            this.txtSeguroTerceiro.Text = "0";
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,5 +529,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.CheckBox checkBoxSeguroTerceiro;
         private System.Windows.Forms.CheckBox checkBoxCliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSeguroTerceiro;
+        private System.Windows.Forms.TextBox txtSeguroCliente;
     }
 }
