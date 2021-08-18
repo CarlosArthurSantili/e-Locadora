@@ -4,6 +4,7 @@ using e_Locadora.Dominio.TaxasServicosModule;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace e_Locadora.Tests.TaxasServicosModule
 {
@@ -124,13 +125,51 @@ namespace e_Locadora.Tests.TaxasServicosModule
 
 
             //action
-            var clientes = controlador.SelecionarTodos();
+            var taxasServicos = controlador.SelecionarTodos();
 
             //assert
-            clientes.Should().HaveCount(3);
-            clientes[0].Descricao.Should().Be("Taxa de Lavação");
-            clientes[1].Descricao.Should().Be("Taxa de Manutenção");
-            clientes[2].Descricao.Should().Be("Taxa de GPS");
+            taxasServicos.Should().HaveCount(3);
+            taxasServicos[0].Descricao.Should().Be("Taxa de Lavação");
+            taxasServicos[1].Descricao.Should().Be("Taxa de Manutenção");
+            taxasServicos[2].Descricao.Should().Be("Taxa de GPS");
         }
+
+        [TestMethod]
+
+        public void Nao_Deve_Cadastrar_Descricap_Iguais()
+        {
+            var taxasServico1 = new TaxasServicos("Taxa de Lavação", 0, 50);
+            controlador.InserirNovo(taxasServico1);
+
+            var taxasServico2 = new TaxasServicos("Taxa de Lavação", 0, 50);
+            controlador.InserirNovo(taxasServico2);
+ 
+            string resultado = controlador.InserirNovo(taxasServico2);
+
+            resultado.Should().Be("Taxa ou serviço já cadastrada, tente novamente.");
+            List<TaxasServicos> taxasServicos = controlador.SelecionarTodos();
+
+            taxasServicos.Should().HaveCount(1);
+
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Editar_Descricao_Iguais()
+        {
+            var taxasServico1 = new TaxasServicos("Taxa de Lavação", 0, 50);
+            controlador.InserirNovo(taxasServico1);
+
+
+            var taxasServicoAtualiza = new TaxasServicos("Taxa de Lavação", 0, 50);
+           
+            string resultado = controlador.Editar(taxasServicoAtualiza.Id, taxasServicoAtualiza);
+
+            resultado.Should().Be("Taxa ou serviço já cadastrada, tente novamente.");
+            List<TaxasServicos> taxasServicos = controlador.SelecionarTodos();
+
+            taxasServicos.Should().HaveCount(1);
+
+        }
+
     }
 }

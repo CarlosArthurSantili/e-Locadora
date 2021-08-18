@@ -76,14 +76,22 @@ namespace e_Locadora.Controladores.TaxasServicoModule
         public override string Editar(int id, TaxasServicos registro)
         {
             string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoControlador = ValidarTaxasServicos(registro, id);
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarTaxasServicos, ObtemParametrosTaxasServicos(registro));
             }
 
-            return resultadoValidacao;
+            if(resultadoValidacao != "ESTA_VALIDO")
+            {
+                return resultadoValidacao;
+            }
+            else
+            {
+                return resultadoValidacaoControlador;
+            }
         }
 
         public override bool Excluir(int id)
@@ -108,13 +116,21 @@ namespace e_Locadora.Controladores.TaxasServicoModule
         public override string InserirNovo(TaxasServicos registro)
         {
             string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoControlador = ValidarTaxasServicos(registro);
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirTaxasServicos, ObtemParametrosTaxasServicos(registro));
             }
 
-            return resultadoValidacao;
+            if (resultadoValidacao != "ESTA_VALIDO")
+            {
+                return resultadoValidacao;
+            }
+            else
+            {
+                return resultadoValidacaoControlador;
+            }
         }
 
         private Dictionary<string, object> ObtemParametrosTaxasServicos(TaxasServicos taxasServicos)
