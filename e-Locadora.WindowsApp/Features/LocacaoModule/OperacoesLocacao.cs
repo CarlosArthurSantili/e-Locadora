@@ -30,7 +30,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 tabelaLocacao.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.modelo}] para o Cliente: [{tela.Locacao.cliente.nome}] foi efetuada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.Nome}] foi efetuada com sucesso");
             }
         }
 
@@ -57,7 +57,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 tabelaLocacao.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.modelo}] para o Cliente: [{tela.Locacao.cliente.nome}] foi editada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.Nome}] foi editada com sucesso");
             }
         }
 
@@ -74,14 +74,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             Locacao locacaoSelecionado = controladorLocacao.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir a Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.nome}]?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir a Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}]?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controladorLocacao.Excluir(id);
 
                 tabelaLocacao.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.modelo}] para o Cliente: [{tela.Locacao.cliente.nome}] foi removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
             }
         }
 

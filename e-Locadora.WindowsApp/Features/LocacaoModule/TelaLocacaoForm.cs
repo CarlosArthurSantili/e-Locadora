@@ -13,6 +13,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 {
     public partial class TelaLocacaoForm : Form
     {
+        private Locacao locacao;
+
         public TelaLocacaoForm()
         {
             InitializeComponent();
