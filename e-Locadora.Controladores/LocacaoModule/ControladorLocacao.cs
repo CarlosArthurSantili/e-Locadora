@@ -36,8 +36,9 @@ namespace e_Locadora.Controladores.LocacaoModule
                         [ID_GRUPOVEICULO], 
                         [ID_VEICULO], 
 		                [EMABERTO],
-                        [DATAINICIAL],
-                        [DATAFINAL],
+                        [DATALOCACAO],
+                        [DATADEVOLUCAO],
+                        [DATADEVOLUCAO],
                         [VALORTOTAL]
 	                ) 
 	                VALUES
@@ -48,20 +49,20 @@ namespace e_Locadora.Controladores.LocacaoModule
                         @ID_GRUPOVEICULO,
                         @ID_VEICULO,
                         @EMABERTO, 
-		                @DATAINICIAL,
-                        @DATAFINAL
+		                @DATALOCACAO,
+                        @DATADEVOLUCAO
 	                )";
 
         private const string sqlEditarLocacao =
-         @"UPDATE TBLOCACAO
+                    @"UPDATE TBLOCACAO
                     SET
                         [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
 		                [ID_CLIENTE] = @ID_CLIENTE, 
 		                [ID_CONDUTOR] = @ID_CONDUTOR,
                         [ID_VEICULO] = @ID_VEICULO, 
 		                [EMABERTO] = @EMABERTO,
-                        [DATAINICIAL] = @DATAINICIAL,
-                        [DATAFINAL] = @DATAFINAL
+                        [DATALOCACAO] = @DATALOCACAO,
+                        [DATADEVOLUCAO] = @DATADEVOLUCAO
                     WHERE 
                         ID = @ID";
 
@@ -82,81 +83,53 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         private const string sqlSelecionarLocacaoPorId =
             @"SELECT 
-                CP.[ID],       
-                CP.[ID_FUNCIONARIO],
-                CP.[ID_CLIENTE],
-                CP.[ID_CONDUTOR],             
-                CP.[ID_VEICULO],                    
-                CP.[EMABERTO],                                
-                CP.[DATAINICIAL],
-                CP.[DATAFINAL],
-                CP.[ID_CLIENTE],
-                CT.[ID_FUNCIONARIO],       
-                CT.[ID_CLIENTE],             
-                CT.[ID_CONDUTOR],                    
-                CT.[RG], 
-                CT.[CPF],
-                CT.[CNPJ]
+                [ID],       
+                [ID_FUNCIONARIO],
+                [ID_CLIENTE],
+                [ID_CONDUTOR], 
+                [ID_GRUPOVEICULO],
+                [ID_VEICULO],                    
+                [EMABERTO],                                
+                [DATALOCACAO],
+                [DATADEVOLUCAO],
             FROM
-                [TBLOCACAO] AS CP LEFT JOIN 
-                [TBCLIENTES] AS CT
-            ON
-                CT.ID = CP.ID_CLIENTE
+                [TBLOCACAO]
             WHERE
                  CP.[ID] = @ID";
 
-        private const string sqlSelecionarTodosLocacaoes =
+        private const string sqlSelecionarTodasLocacoes =
             @"SELECT 
-                CP.[ID],       
-                CP.[ID_FUNCIONARIO],
-                CP.[ID_CLIENTE],
-                CP.[ID_CONDUTOR],             
-                CP.[ID_VEICULO],                    
-                CP.[EMABERTO],                                
-                CP.[DATAINICIAL],
-                CP.[DATAFINAL],
-                CP.[ID_CLIENTE],
-                CT.[ID_FUNCIONARIO],       
-                CT.[ID_CLIENTE],             
-                CT.[ID_CONDUTOR],                    
-                CT.[RG], 
-                CT.[CPF],
-                CT.[CNPJ]
+                [ID],       
+                [ID_FUNCIONARIO],
+                [ID_CLIENTE],
+                [ID_CONDUTOR],             
+                [ID_VEICULO],                    
+                [EMABERTO],                                
+                [DATALOCACAO],
+                [DATADEVOLUCAO]
             FROM
-                [TBLOCACAO] AS CP LEFT JOIN 
-                [TBCLIENTES] AS CT
-            ON
-                CT.ID = CP.ID_CLIENTE";
+                [TBLOCACAO]";
         private const string sqlSelecionarLocacaoesEmAberto =
             @"SELECT 
-                CP.[ID],       
-                CP.[ID_FUNCIONARIO],
-                CP.[ID_CLIENTE],
-                CP.[ID_CONDUTOR],             
-                CP.[ID_VEICULO],                    
-                CP.[EMABERTO],                                
-                CP.[DATAINICIAL],
-                CP.[DATAFINAL],
-                CP.[ID_CLIENTE],
-                CT.[ID_FUNCIONARIO],       
-                CT.[ID_CLIENTE],             
-                CT.[ID_CONDUTOR],                    
-                CT.[RG], 
-                CT.[CPF],
-                CT.[CNPJ]
+                [ID],       
+                [ID_FUNCIONARIO],
+                [ID_CLIENTE],
+                [ID_CONDUTOR],             
+                [ID_VEICULO],                    
+                [EMABERTO],                                
+                [DATALOCACAO],
+                [DATADEVOLUCAO]
             FROM
-                [TBLOCACAO] AS CP LEFT JOIN 
-                [TBCLIENTES] AS CT
-            ON
-                CT.ID = CP.ID_CLIENTE
+                [TBLOCACAO]
            WHERE 
-                CP.[DATAFINAL] <= @DATAFINAL";
+                [EMABERTO] == @EMABERTO";
 
 
         #endregion
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
+
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -206,11 +179,11 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         public override List<Locacao> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosLocacaoes, ConverterEmLocacao);
+            return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
         }
         public List<Locacao> SelecionarLocacaoesEmAberto(DateTime data)
         {
-            return Db.GetAll(sqlSelecionarLocacaoesEmAberto, ConverterEmLocacao, AdicionarParametro("DATAFINAL", data));
+            return Db.GetAll(sqlSelecionarLocacaoesEmAberto, ConverterEmLocacao, AdicionarParametro("EMABERTO", data));
         }
 
         
@@ -226,9 +199,9 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("ID_CONDUTOR", locacao.condutor.Id);
             parametros.Add("ID_GRUPOVEICULO", locacao.grupoVeiculo);
             parametros.Add("ID_VEICULO", locacao.veiculo.Id);
-            parametros.Add("EMABERTO", locacao.emAberto);
-            parametros.Add("DATAINICIAL", locacao.dataLocacao);
-            parametros.Add("DATAFINAL", locacao.dataDevolucao);
+            //parametros.Add("EMABERTO", locacao.emAberto);
+            parametros.Add("DATALOCACAO", locacao.dataLocacao);
+            parametros.Add("DATADEVOLUCAO", locacao.dataDevolucao);
 
             return parametros;
         }
@@ -250,28 +223,90 @@ namespace e_Locadora.Controladores.LocacaoModule
             var idVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(idVeiculo);
 
-            var idTaxasServicoes = Convert.ToString(reader["ID_VEICULO"]);
-            //transformar string em array de ints;
-            //foreach taxasServicos
-            //lista de taxasServicoes.add()
-            List<TaxasServicos> taxasServicos = new List<TaxasServicos>();
-
             var emAberto = Convert.ToBoolean(reader["EMABERTO"]);
-            var dataInicial = Convert.ToDateTime(reader["DATAINICIAL"]);
-            var dataFinal = Convert.ToDateTime(reader["DATAFINAL"]);
+            var dataLocacao = Convert.ToDateTime(reader["DATALOCACAO"]);
+            var dataDevolucao = Convert.ToDateTime(reader["DATADEVOLUCAO"]);
+            var quilometragemDevolucao = Convert.ToDouble(reader["QUILOMETRAGEMDEVOLUCAO"]);
             var plano = Convert.ToString(reader["PLANO"]);
 
 
 
 
-            Locacao locacao = new Locacao(funcionario, dataInicial, dataFinal, plano, grupoVeiculo, veiculo, cliente, condutor, taxasServicos, emAberto);
+            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao,plano, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
             locacao.Id = Convert.ToInt32(reader["ID"]);
 
             return locacao;
         }
 
+        public string ValidarLocacao(Locacao novoLocacao, int id = 0)
+        {
+            //validar carros alugados
+            if (novoLocacao != null)
+            { 
+                if (id != 0)
+                {//situação de editar
+                    int countVeiculoIndisponivel = 0;
+                    List<Locacao> todasLocacoes = SelecionarTodos();
+                    foreach (Locacao locacao in todasLocacoes)
+                    {
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.Id != id)
+                            countVeiculoIndisponivel++;
+                    }
+                    if (countVeiculoIndisponivel > 0)
+                        return "Veiculo já alugado, tente novamente.";
+                }
+                else
+                {//situação de inserir
+                    int countVeiculoIndisponivel = 0;
+                    List<Locacao> todosLocacaos = SelecionarTodos();
+                    foreach (Locacao locacao in todosLocacaos)
+                    {
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id)
+                            countVeiculoIndisponivel++;
+                    }
+                    if (countVeiculoIndisponivel > 0)
+                        return "Veiculo já alugado, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
+        }
 
+        //Clube da Leitura
+        /*
+        public string RegistrarEmprestimo(Amigo amigo, Revista revista, DateTime data)
+        {
+            Emprestimo emprestimo = new Emprestimo(amigo, revista, data);
+
+            string resultadoValidacao = emprestimo.Validar();
+
+            if (resultadoValidacao == "VALIDO")
+            {
+                string dasdsadsaa = Adicionar(emprestimo);
+                amigo.RegistrarEmprestimo(emprestimo);
+                revista.RegistrarEmprestimo(emprestimo);
+            }
+
+            return resultadoValidacao;
+        }
+
+        public bool RegistrarDevolucao(int idEmprestimo, DateTime data)
+        {
+            Emprestimo emprestimo = SelecionarRegistroPorId(idEmprestimo);
+            emprestimo.Fechar(data);
+            return true;
+        }
+
+        internal List<Emprestimo> SelecionarEmprestimosEmAberto()
+        {
+            return itens.FindAll(emprestimo => emprestimo.estaAberto);
+        }
+
+        internal List<Emprestimo> SelecionarEmprestimosFechados(int mes)
+        {
+            return itens.FindAll(emprestimo => emprestimo.EstaFechado() && emprestimo.Mes == mes);
+        }
+        */
 
     }
 }

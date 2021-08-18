@@ -18,6 +18,9 @@ namespace e_Locadora.Dominio.LocacaoModule
         public DateTime dataDevolucao { get; set; }
         public double quilometragemDevolucao { get; set; }
         public string plano { get; set; }
+
+        public double seguroCliente { get; set; }
+        public double seguroTerceiro { get; set; }
         public string funcionario { get; set; }
         public GrupoVeiculo grupoVeiculo { get; set; }
         public Veiculo veiculo { get; set; }
@@ -29,18 +32,19 @@ namespace e_Locadora.Dominio.LocacaoModule
         public bool emAberto { get; set; }
 
 
-        public Locacao(string funcionario, DateTime dataLocacao, DateTime dataDevolucao, string plano, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, List<TaxasServicos> taxasServicos, bool emAberto)
+        public Locacao(string funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
         {
             this.funcionario = funcionario;
             this.dataLocacao = dataLocacao;
             this.dataDevolucao = dataDevolucao;
             this.quilometragemDevolucao = quilometragemDevolucao;
             this.plano = plano;
+            this.seguroCliente = seguroCliente;
+            this.seguroTerceiro = seguroTerceiro;
             this.grupoVeiculo = grupoVeiculo;
             this.veiculo = veiculo;
             this.cliente = cliente;
             this.condutor = condutor;
-            this.taxasServicos = taxasServicos;
             this.emAberto = emAberto;
         }
 
@@ -108,17 +112,15 @@ namespace e_Locadora.Dominio.LocacaoModule
             return other != null
                 && Id == other.Id
                 && funcionario == other.funcionario
+                && dataLocacao == other.dataLocacao
+                && dataDevolucao == other.dataDevolucao
+                && quilometragemDevolucao == other.quilometragemDevolucao
                 && plano == other.plano
                 && grupoVeiculo == other.grupoVeiculo
                 && veiculo == other.veiculo
                 && cliente == other.cliente
                 && condutor == other.condutor
-                && taxasServicos == other.taxasServicos;
-        }
-
-        public override string ToString()
-        {
-            return "Funcionario: "+funcionario+"\nCliente: "+cliente+"\n Veículo: "+veiculo;
+                && emAberto == other.emAberto;
         }
 
         public override int GetHashCode()
