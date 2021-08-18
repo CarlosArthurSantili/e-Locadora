@@ -19,7 +19,6 @@ namespace e_Locadora.Dominio.LocacaoModule
         public DateTime dataDevolucao { get; set; }
         public double quilometragemDevolucao { get; set; }
         public string plano { get; set; }
-
         public double seguroCliente { get; set; }
         public double seguroTerceiro { get; set; }
         public Funcionario funcionario { get; set; }
