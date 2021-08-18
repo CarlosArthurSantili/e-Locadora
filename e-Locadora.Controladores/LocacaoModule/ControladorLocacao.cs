@@ -227,8 +227,8 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("ID_GRUPOVEICULO", locacao.grupoVeiculo);
             parametros.Add("ID_VEICULO", locacao.veiculo.Id);
             parametros.Add("EMABERTO", locacao.emAberto);
-            parametros.Add("DATAINICIAL", locacao.dataInicial);
-            parametros.Add("DATAFINAL", locacao.dataFinal);
+            parametros.Add("DATAINICIAL", locacao.dataLocacao);
+            parametros.Add("DATAFINAL", locacao.dataDevolucao);
 
             return parametros;
         }

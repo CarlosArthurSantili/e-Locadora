@@ -14,9 +14,9 @@ namespace e_Locadora.Dominio.LocacaoModule
     public class Locacao : EntidadeBase
     {
         
-        public DateTime dataInicial { get; set; }
-        public DateTime dataFinal { get; set; }
-        public double quilometragemFinal { get; set; }
+        public DateTime dataLocacao { get; set; }
+        public DateTime dataDevolucao { get; set; }
+        public double quilometragemDevolucao { get; set; }
         public string plano { get; set; }
         public string funcionario { get; set; }
         public GrupoVeiculo grupoVeiculo { get; set; }
@@ -26,17 +26,15 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public List<TaxasServicos> taxasServicos { get; set; }
 
-        public double valorTotal { get; set; }
-
         public bool emAberto { get; set; }
 
 
-        public Locacao(string funcionario, DateTime dataInicial, DateTime dataFinal, string plano, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, List<TaxasServicos> taxasServicos, bool emAberto)
+        public Locacao(string funcionario, DateTime dataLocacao, DateTime dataDevolucao, string plano, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, List<TaxasServicos> taxasServicos, bool emAberto)
         {
             this.funcionario = funcionario;
-            this.dataInicial = dataInicial;
-            this.dataFinal = dataFinal;
-            this.quilometragemFinal = quilometragemFinal;
+            this.dataLocacao = dataLocacao;
+            this.dataDevolucao = dataDevolucao;
+            this.quilometragemDevolucao = quilometragemDevolucao;
             this.plano = plano;
             this.grupoVeiculo = grupoVeiculo;
             this.veiculo = veiculo;
@@ -48,20 +46,21 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public double CalcularValorLocacao()
         {
+            double valorTotal = 0;
             switch (plano)
             {
                 case "Diário": 
                     {
-                        double qtdDias = (dataFinal - dataInicial).TotalDays;
-                        double kmUsados = quilometragemFinal - veiculo.Quilometragem;
+                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
+                        double kmUsados = quilometragemDevolucao - veiculo.Quilometragem;
                         valorTotal = (grupoVeiculo.planoDiarioValorDiario * qtdDias) + (grupoVeiculo.planoDiarioValorKm * kmUsados);
                         
                         break; 
                     }
                 case "Controlado": //Pedir detalhes sobre cálculo desse plano no caso "kmUsados > qtdKmEsperado"
                     { 
-                        double qtdDias = (dataFinal - dataInicial).TotalDays;
-                        double kmUsados = quilometragemFinal - veiculo.Quilometragem;
+                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
+                        double kmUsados = quilometragemDevolucao - veiculo.Quilometragem;
                         if (kmUsados > grupoVeiculo.planoKmControladoQuantidadeKm)
                         {
                             valorTotal = (grupoVeiculo.planoKmControladoValorDiario * qtdDias) + (grupoVeiculo.planoKmControladoValorKm * grupoVeiculo.planoKmControladoValorKm) + (grupoVeiculo.planoKmControladoValorKm * (kmUsados - grupoVeiculo.planoKmControladoQuantidadeKm) * 2);
@@ -74,7 +73,7 @@ namespace e_Locadora.Dominio.LocacaoModule
                     }
                 case "Livre": 
                     {
-                        double qtdDias = (dataFinal - dataInicial).TotalDays;
+                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
                         valorTotal = grupoVeiculo.planoKmLivreValorDiario * qtdDias;
 
                         break; 
