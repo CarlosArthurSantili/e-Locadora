@@ -1,9 +1,11 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.Features.CondutorModule;
+using e_Locadora.WindowsApp.Features.FuncionarioModule;
 using e_Locadora.WindowsApp.Features.TaxasServicosModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Shared;
@@ -131,7 +133,15 @@ namespace e_Locadora.WindowsApp
 
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesFuncionario(new ControladorFuncionario());
+
+            ConfigurarPainelRegistros();
         }
 
         private void combustivelToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,4 +1,6 @@
-﻿using e_Locadora.WindowsApp.Shared;
+﻿using e_Locadora.Controladores.FuncionarioModule;
+using e_Locadora.Dominio.FuncionarioModule;
+using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +12,87 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
 {
     public class OperacoesFuncionario : ICadastravel
     {
+        private ControladorFuncionario controladorFuncionario = null;
+        private TelaFuncionarioControl tabelaFuncionario = null;
+
+        public OperacoesFuncionario(ControladorFuncionario controladorFuncionario)
+        {
+            this.controladorFuncionario = controladorFuncionario;
+            tabelaFuncionario = new TelaFuncionarioControl(controladorFuncionario);
+        }
+
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaFuncionarioForm tela = new TelaFuncionarioForm();
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controladorFuncionario.ValidarFuncionarios(tela.Funcionario) == "ESTA_VALIDO")
+            {
+                controladorFuncionario.InserirNovo(tela.Funcionario);
+
+                tabelaFuncionario.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
+            }
         }
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaFuncionario.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Funcionário para poder editar!", "Edição de Funcionário",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            Funcionario funcionarioSelecionado = controladorFuncionario.SelecionarPorId(id);
+
+            TelaFuncionarioForm tela = new TelaFuncionarioForm();
+
+            tela.Funcionario = funcionarioSelecionado;
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controladorFuncionario.ValidarFuncionarios(tela.Funcionario, id) == "ESTA_VALIDO")
+            {
+                controladorFuncionario.Editar(id, tela.Funcionario);
+
+                tabelaFuncionario.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaFuncionario.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Funcionário para poder excluir!", "Exclusão de Funcionário",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            Funcionario funcionarioSelecionado = controladorFuncionario.SelecionarPorId(id);
+
+            TelaFuncionarioForm tela = new TelaFuncionarioForm();
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Funcionário: [{funcionarioSelecionado.Nome}] ?",
+                "Exclusão de Funcionário", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controladorFuncionario.Excluir(id);
+
+                tabelaFuncionario.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+            }
         }
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            tabelaFuncionario.AtualizarRegistros();
+
+            return tabelaFuncionario;
         }
+
         public void FiltrarRegistros()
         {
             throw new NotImplementedException();
