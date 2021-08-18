@@ -189,6 +189,9 @@
     <EmbeddedResource Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.resx">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TabelaLocacaoControl.resx">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\LocacaoModule\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
     </EmbeddedResource>
