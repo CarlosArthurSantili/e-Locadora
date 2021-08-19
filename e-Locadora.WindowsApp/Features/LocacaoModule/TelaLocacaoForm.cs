@@ -156,19 +156,19 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 return "Valor Quilometragem nao pode ser menos que ZERO!";
             }
 
-            return "CAMPOS_VALIDOS";
+            return "ESTA_VALIDO";
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string validacaoCampos = ValidarCampos();
 
-            if (ValidarCampos().Equals("VALIDO"))
+            if (ValidarCampos().Equals("ESTA_VALIDO"))
             {
                 Funcionario funcionario = (Funcionario)cboxFuncionario.SelectedItem;
-                DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao);
-                DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao);
-                double quilometragemDevolucao = Convert.ToDouble(txtQuilometragemDevolucao);
+                DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao.Text);
+                DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao.Text);
+                double quilometragemDevolucao = Convert.ToDouble(txtQuilometragemDevolucao.Text);
                 string plano = cboxPlano.SelectedItem.ToString();
                 double seguroCliente = Convert.ToDouble(txtSeguroCliente.Text);
                 double seguroTerceiro = Convert.ToDouble(txtSeguroTerceiro.Text);
