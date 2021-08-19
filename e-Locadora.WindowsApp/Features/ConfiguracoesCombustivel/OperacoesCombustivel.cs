@@ -8,11 +8,17 @@ using System.Windows.Forms;
 
 namespace e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel
 {
-    public class OperacoesCombustivel : ICadastravel
+     class OperacoesCombustivel : ICadastravel
     {
+        private readonly TabelaCombustivelControl combustivelControl = null;
+        public OperacoesCombustivel()
+        {
+            combustivelControl = new TabelaCombustivelControl();
+        }
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            combustivelControl.CarregarConfiguracoes();
+            return combustivelControl;
         }
         public void AgruparRegistros()
         {

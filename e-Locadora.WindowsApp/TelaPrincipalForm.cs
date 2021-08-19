@@ -5,6 +5,7 @@ using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.Features.CondutorModule;
+using e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel;
 using e_Locadora.WindowsApp.Features.FuncionarioModule;
 using e_Locadora.WindowsApp.Features.TaxasServicosModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
@@ -146,7 +147,15 @@ namespace e_Locadora.WindowsApp
 
         private void combustivelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoCombustivelToolBox configuracao = new ConfiguracaoCombustivelToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesCombustivel();
+
+            ConfigurarPainelRegistros();
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
