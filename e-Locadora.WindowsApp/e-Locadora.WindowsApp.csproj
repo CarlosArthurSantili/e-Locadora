@@ -99,8 +99,14 @@
     <Compile Include="Features\CondutorModule\TelaCondutorForm.Designer.cs">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\ConfiguracoesCombustivel\ConfiguracaoClientesToolBox.cs" />
+    <Compile Include="Features\ConfiguracoesCombustivel\ConfiguracaoCombustivelToolBox.cs" />
     <Compile Include="Features\ConfiguracoesCombustivel\OperacoesCombustivel.cs" />
+    <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.Designer.cs">
+      <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FuncionarioModule\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
     <Compile Include="Features\FuncionarioModule\TelaFuncionarioControl.cs">
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="Features\CondutorModule\TelaCondutorForm.resx">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.resx">
+      <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioControl.resx">
       <DependentUpon>TelaFuncionarioControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +295,10 @@
     <Content Include="Resources\Symbol Pencil.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\e-Locadora.Configuracoes\e-Locadora.Configuracoes.csproj">
+      <Project>{FAB29872-F287-4A65-97E0-E638502746D9}</Project>
+      <Name>e-Locadora.Configuracoes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
       <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
       <Name>e-Locadora.Controladores</Name>

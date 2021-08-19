@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel
 {
-    public class ConfiguracaoClientesToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoCombustivelToolBox : IConfiguracaoToolBox
     {
         public string TipoCadastro 
         {
@@ -27,8 +27,8 @@ namespace e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel
                 Desagrupar = false,
                 Filtrar = false,
                 Editar = false,
-                Excluir = false
-                
+                Excluir = false,
+                Adicionar = false
             };
         }
 
@@ -36,7 +36,7 @@ namespace e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel
         {
             return new ConfiguracaoToolTips()
             {
-                Adicionar = "Atualizar os Preços dos Combustíveis",              
+                            
             };
         }
     }
