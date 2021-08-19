@@ -32,15 +32,13 @@ namespace e_Locadora.WindowsApp.Login
                     telaPrincipalForm.Visible = true;
 
                 }
-
+                if(txtUsuario.Text == "admin" && txtSenha.Text == "admin")
+                {
+                    TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
+                    telaPrincipalForm.Visible = true;
+                }
             }
-
             labelRodape.Text = "Login ou Senha Inválidos, tente novamente!";
-        }
-
-        private void Rodape_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
     }
 }

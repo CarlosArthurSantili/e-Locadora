@@ -88,7 +88,7 @@ namespace e_Locadora.WindowsApp.Login
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 17;
-            this.btnGravar.Text = "Gravar";
+            this.btnGravar.Text = "Entrar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
