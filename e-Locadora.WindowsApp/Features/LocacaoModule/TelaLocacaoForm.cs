@@ -1,4 +1,8 @@
-﻿using e_Locadora.Dominio.LocacaoModule;
+﻿using e_Locadora.Controladores.ClientesModule;
+using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.Dominio.ClientesModule;
+using e_Locadora.Dominio.LocacaoModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +17,16 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 {
     public partial class TelaLocacaoForm : Form
     {
+        ControladorClientes controladorCliente = new ControladorClientes();
+        ControladorCondutor controladorCondutor = new ControladorCondutor();
+        ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
+        ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         private Locacao locacao;
 
         public TelaLocacaoForm()
         {
             InitializeComponent();
+            CarregarCliente();
         }
 
         public Locacao Locacao
@@ -80,5 +89,18 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             
         }
+
+        private void CarregarCliente()
+        {
+            cboxCliente.Items.Clear();
+
+            List<Clientes> contatos = controladorCliente.SelecionarTodos();
+
+            foreach (var contato in contatos)
+            {
+                cboxCliente.Items.Add(contato);
+            }
+        }
+
     }
 }
