@@ -101,6 +101,12 @@
     </Compile>
     <Compile Include="Features\ConfiguracoesCombustivel\ConfiguracaoClientesToolBox.cs" />
     <Compile Include="Features\ConfiguracoesCombustivel\OperacoesCombustivel.cs" />
+    <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.Designer.cs">
+      <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\FuncionarioModule\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
     <Compile Include="Features\FuncionarioModule\TelaFuncionarioControl.cs">
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\CondutorModule\TelaCondutorForm.resx">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.resx">
+      <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioControl.resx">
       <DependentUpon>TelaFuncionarioControl.cs</DependentUpon>
