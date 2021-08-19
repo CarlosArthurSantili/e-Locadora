@@ -76,11 +76,15 @@ namespace e_Locadora.WindowsApp.ClientesModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o Cliente: [{clienteSelecionado.Nome}] ?",
                 "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-
-                tabelaClientes.AtualizarRegistros();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
+                if (controlador.Excluir(id))
+                {
+                    tabelaClientes.AtualizarRegistros();
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
+                }
+                else
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: Não foi possível excluir [{clienteSelecionado.Nome}], pois ele está vinculado a um condutor");
+                }
             }
         }
         public UserControl ObterTabela()
