@@ -99,6 +99,8 @@
     <Compile Include="Features\CondutorModule\TelaCondutorForm.Designer.cs">
       <DependentUpon>TelaCondutorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\ConfiguracoesCombustivel\ConfiguracaoClientesToolBox.cs" />
+    <Compile Include="Features\ConfiguracoesCombustivel\OperacoesCombustivel.cs" />
     <Compile Include="Features\FuncionarioModule\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
     <Compile Include="Features\FuncionarioModule\TelaFuncionarioControl.cs">
