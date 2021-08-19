@@ -21,15 +21,6 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             tabelaTaxaServicos = new TabelaTaxaServico(controlador);
         }
 
-        public void AgruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DesagruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
 
         public void EditarRegistro()
         {
@@ -107,6 +98,15 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             tabelaTaxaServicos.AtualizarRegistros();
 
             return tabelaTaxaServicos;
+        }
+        public void AgruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DesagruparRegistros()
+        {
+            throw new NotImplementedException();
         }
     }
 }

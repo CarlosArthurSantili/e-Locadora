@@ -29,11 +29,19 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             set
             {
                 taxasServicos = value;
-
+                
                 txtId.Text = taxasServicos.Id.ToString();
                 txtDescricao.Text = taxasServicos.Descricao;
-                textTaxaFixa.Text = taxasServicos.TaxaFixa.ToString();
-                textTaxaDiaria.Text = taxasServicos.TaxaDiaria.ToString();
+                if (taxasServicos.TaxaFixa !=0)
+                {
+                    taxaFixa.Checked = true;
+                    textTaxaFixa.Text = taxasServicos.TaxaFixa.ToString();
+                }
+                else
+                {
+                    taxaDiaria.Checked = true;
+                    textTaxaDiaria.Text = taxasServicos.TaxaDiaria.ToString();
+                }
             }
         }
 
@@ -42,10 +50,10 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             if (string.IsNullOrEmpty(txtDescricao.Text))
                 return "Descrição Inválida, tente novamente";
 
-            if (!ValidarTipoDouble(textTaxaFixa.Text))
+            if (taxaFixa.Checked == true && !ValidarTipoDouble(textTaxaFixa.Text))
                 return "Valor Taxa Fixa está inválido, tente novamente";
 
-            if (!ValidarTipoDouble(textTaxaDiaria.Text))
+            if (taxaDiaria.Checked == true && !ValidarTipoDouble(textTaxaDiaria.Text))
                 return "Valor Taxa Diária está inválido, tente novamente";
 
             return "CAMPOS_VALIDOS";
@@ -126,8 +134,11 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
 
         private void TelaTaxaServicosForm_Load(object sender, EventArgs e)
         {
-            taxaFixa.Checked = true;
-            taxaDiaria.Checked = false;
+            if (taxasServicos == null)
+            {
+                taxaFixa.Checked = true;
+                taxaDiaria.Checked = false;
+            }
         }
 
 
