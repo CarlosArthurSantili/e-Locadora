@@ -253,37 +253,6 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
                 }
             }
             return "ESTA_VALIDO";
-        }
-
-        public override string InserirNovo(Locacao registro)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string Editar(int id, Locacao registro)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Clube da Leitura
-        /*
-        public bool RegistrarDevolucao(int idEmprestimo, DateTime data)
-        {
-            Emprestimo emprestimo = SelecionarRegistroPorId(idEmprestimo);
-            emprestimo.Fechar(data);
-            return true;
-        }
-
-        internal List<Emprestimo> SelecionarEmprestimosEmAberto()
-        {
-            return itens.FindAll(emprestimo => emprestimo.estaAberto);
-        }
-
-        internal List<Emprestimo> SelecionarEmprestimosFechados(int mes)
-        {
-            return itens.FindAll(emprestimo => emprestimo.EstaFechado() && emprestimo.Mes == mes);
-        }
-        */
-
+        }//
     }
 }
