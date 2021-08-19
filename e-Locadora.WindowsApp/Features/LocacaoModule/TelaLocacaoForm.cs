@@ -2,6 +2,7 @@
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.LocacaoTaxasServicosModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
@@ -90,7 +91,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 txtQuilometragemDevolucao.Text = locacao.quilometragemDevolucao.ToString();
 
                 //TAXAS E SERVICOS
-                foreach (TaxasServicos taxaServico in controladorLocacaoTaxasServicos.)
+                List<TaxasServicos> listaTaxasServicos = new List<TaxasServicos>();
+                foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                {
+                    //listaTaxasServicos.Add(taxaServicoLocacao);
+                }
+                //cListBoxTaxasServicos.SetItemChecked() = listaTaxasServicos;
+
                 //cListBoxTaxasServicos.Items = Convert.ToBoolean(locacao.taxasServicos);
 
             }
@@ -193,6 +200,17 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
 
                     DialogResult = DialogResult.None;
+                }
+                else
+                {
+                    int i;
+                    for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                    {
+                        if (cListBoxTaxasServicos.GetItemChecked(i))
+                        {
+                            //inserir itens selecionados como taxasServicos de uma locacao
+                        }
+                    }
                 }
             }
             else
