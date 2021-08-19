@@ -37,7 +37,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = new ControladorLocacaoTaxasServicos();
 
         private Locacao locacao;
-
+        private List<LocacaoTaxasServicos> locacaoTaxasServicos;
         public TelaLocacaoForm()
         {
             InitializeComponent();
@@ -45,6 +45,30 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarFuncionario();
             CarregarGrupoVeiculos();
             CarregarTaxasServicos();
+        }
+
+        public List<LocacaoTaxasServicos> LocacaoTaxasServicos 
+        {
+            get 
+            {
+                return locacaoTaxasServicos;
+            }
+            set 
+            {
+                locacaoTaxasServicos.Clear();
+                
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                {
+                    if (cListBoxTaxasServicos.GetItemChecked(i))
+                    {
+                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
+                        locacaoTaxasServicos.Add(locacao_TaxaServico);
+                        //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
+                    }
+                }
+            }
+
         }
 
         public Locacao Locacao
@@ -165,6 +189,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             if (ValidarCampos().Equals("ESTA_VALIDO"))
             {
+                DialogResult = DialogResult.OK;
                 Funcionario funcionario = (Funcionario)cboxFuncionario.SelectedItem;
                 DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao.Text);
                 DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao.Text);
@@ -203,6 +228,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 }
                 else
                 {
+
                     int i;
                     for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
                     {
@@ -211,10 +237,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                             TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
                             LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
                             //if (controladorLocacaoTaxasServicos.ValidarLocacaoTaxaServico() == "ESTA_VALIDO")
-                            controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
+                            //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
                         }
                     }
                 }
+                
             }
             else
             {

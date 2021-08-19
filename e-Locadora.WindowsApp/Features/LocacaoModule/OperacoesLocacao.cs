@@ -1,4 +1,5 @@
 ﻿using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.LocacaoTaxasServicosModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
@@ -13,6 +14,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
     public class OperacoesLocacao : ICadastravel
     {
         private ControladorLocacao controladorLocacao = null;
+        private ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = null;
         private TabelaLocacaoControl tabelaLocacao = null;
 
         public OperacoesLocacao(ControladorLocacao controladorLocacao)
@@ -28,6 +30,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 controladorLocacao.InserirNovo(tela.Locacao);
 
+                foreach (LocacaoTaxasServicos taxaServicoIndividual in tela.LocacaoTaxasServicos)
+                    controladorLocacaoTaxasServicos.InserirNovo(taxaServicoIndividual);
                 tabelaLocacao.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.Nome}] foi efetuada com sucesso");

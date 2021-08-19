@@ -157,17 +157,17 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", locacaoTaxasServicos.Id);
-            parametros.Add("ID_LOCACAO", locacaoTaxasServicos.locacao.Id);
-            parametros.Add("ID_TAXASSERVICOS", locacaoTaxasServicos.taxasServicos.Id);
+            parametros.Add("IDLOCACAO", locacaoTaxasServicos.locacao.Id);
+            parametros.Add("IDTAXASSERVICOS", locacaoTaxasServicos.taxasServicos.Id);
 
             return parametros;
         }
         private LocacaoTaxasServicos ConverterEmLocacaoTaxasServicos(IDataReader reader)
         {
-            var idLocacao = Convert.ToInt32(reader["ID_LOCACAO"]);
+            var idLocacao = Convert.ToInt32(reader["IDLOCACAO"]);
             Locacao locacao = controladorLocacao.SelecionarPorId(idLocacao);
 
-            var idTaxasServicos = Convert.ToInt32(reader["ID_TAXASSERVICOS"]);
+            var idTaxasServicos = Convert.ToInt32(reader["IDTAXASSERVICOS"]);
             TaxasServicos taxasServicos = controladorTaxasServicos.SelecionarPorId(idTaxasServicos);
 
             LocacaoTaxasServicos locacaoTaxasServicos = new LocacaoTaxasServicos(locacao, taxasServicos);

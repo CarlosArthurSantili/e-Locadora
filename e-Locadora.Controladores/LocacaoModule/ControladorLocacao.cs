@@ -237,11 +237,11 @@ namespace e_Locadora.Controladores.LocacaoModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_FUNCIONARIO", locacao.funcionario);
-            parametros.Add("ID_CLIENTE", locacao.cliente.Id);
-            parametros.Add("ID_CONDUTOR", locacao.condutor.Id);
-            parametros.Add("ID_GRUPOVEICULO", locacao.grupoVeiculo);
-            parametros.Add("ID_VEICULO", locacao.veiculo.Id);
+            parametros.Add("IDFUNCIONARIO", locacao.funcionario);
+            parametros.Add("IDCLIENTE", locacao.cliente.Id);
+            parametros.Add("IDCONDUTOR", locacao.condutor.Id);
+            parametros.Add("IDGRUPOVEICULO", locacao.grupoVeiculo);
+            parametros.Add("IDVEICULO", locacao.veiculo.Id);
             parametros.Add("EMABERTO", locacao.emAberto);
             parametros.Add("DATALOCACAO", locacao.dataLocacao);
             parametros.Add("DATADEVOLUCAO", locacao.dataDevolucao);
@@ -254,19 +254,19 @@ namespace e_Locadora.Controladores.LocacaoModule
         }
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
-            var idFuncionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
+            var idFuncionario = Convert.ToInt32(reader["IDFUNCIONARIO"]);
             Funcionario funcionario = controladorFuncionario.SelecionarPorId(idFuncionario);
 
-            var idCliente = Convert.ToInt32(reader["ID_CLIENTE"]);
+            var idCliente = Convert.ToInt32(reader["IDCLIENTE"]);
             Clientes cliente = controladorCliente.SelecionarPorId(idCliente);
 
-            var idCondutor = Convert.ToInt32(reader["ID_CONDUTOR"]);
+            var idCondutor = Convert.ToInt32(reader["IDCONDUTOR"]);
             Condutor condutor = controladorCondutor.SelecionarPorId(idCondutor);
 
-            var idGrupoVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
+            var idGrupoVeiculo = Convert.ToInt32(reader["IDVEICULO"]);
             GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
-            var idVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
+            var idVeiculo = Convert.ToInt32(reader["IDVEICULO"]);
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(idVeiculo);
 
             var emAberto = Convert.ToBoolean(reader["EMABERTO"]);
