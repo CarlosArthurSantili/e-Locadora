@@ -43,8 +43,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cboxCliente = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.dateLocacao = new System.Windows.Forms.DateTimePicker();
+            this.cboxFuncionario = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBoxDevolucao = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxLocacao = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSeguroTerceiro = new System.Windows.Forms.TextBox();
             this.txtSeguroCliente = new System.Windows.Forms.TextBox();
@@ -68,6 +70,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.label9 = new System.Windows.Forms.Label();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboxGrupoVeiculo = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,7 +110,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // cboxPlano
             // 
             this.cboxPlano.FormattingEnabled = true;
-            this.cboxPlano.Location = new System.Drawing.Point(65, 39);
+            this.cboxPlano.Items.AddRange(new object[] {
+            "Diário",
+            "Km Controlado",
+            "Km Livre"});
+            this.cboxPlano.Location = new System.Drawing.Point(74, 39);
             this.cboxPlano.Name = "cboxPlano";
             this.cboxPlano.Size = new System.Drawing.Size(77, 21);
             this.cboxPlano.TabIndex = 14;
@@ -124,7 +132,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             this.txtIdLocacao.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtIdLocacao.Enabled = false;
-            this.txtIdLocacao.Location = new System.Drawing.Point(65, 10);
+            this.txtIdLocacao.Location = new System.Drawing.Point(74, 9);
             this.txtIdLocacao.Name = "txtIdLocacao";
             this.txtIdLocacao.Size = new System.Drawing.Size(77, 20);
             this.txtIdLocacao.TabIndex = 1;
@@ -132,7 +140,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // txtQuilometragemDevolucao
             // 
-            this.txtQuilometragemDevolucao.Location = new System.Drawing.Point(144, 67);
+            this.txtQuilometragemDevolucao.Location = new System.Drawing.Point(144, 95);
             this.txtQuilometragemDevolucao.Name = "txtQuilometragemDevolucao";
             this.txtQuilometragemDevolucao.Size = new System.Drawing.Size(104, 20);
             this.txtQuilometragemDevolucao.TabIndex = 22;
@@ -140,7 +148,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 70);
+            this.label5.Location = new System.Drawing.Point(6, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 13);
             this.label5.TabIndex = 21;
@@ -149,7 +157,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // cboxVeiculo
             // 
             this.cboxVeiculo.FormattingEnabled = true;
-            this.cboxVeiculo.Location = new System.Drawing.Point(144, 40);
+            this.cboxVeiculo.Location = new System.Drawing.Point(144, 68);
             this.cboxVeiculo.Name = "cboxVeiculo";
             this.cboxVeiculo.Size = new System.Drawing.Size(104, 21);
             this.cboxVeiculo.TabIndex = 14;
@@ -190,13 +198,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(362, 188);
+            this.tabControl1.Size = new System.Drawing.Size(362, 239);
             this.tabControl1.TabIndex = 86;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataDevolucao);
-            this.tabPage1.Controls.Add(this.dateLocacao);
+            this.tabPage1.Controls.Add(this.cboxFuncionario);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.maskedTextBoxDevolucao);
+            this.tabPage1.Controls.Add(this.maskedTextBoxLocacao);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label2);
@@ -207,26 +217,45 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(354, 162);
+            this.tabPage1.Size = new System.Drawing.Size(354, 213);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalhes de Locação";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataDevolucao
+            // cboxFuncionario
             // 
-            this.dataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataDevolucao.Location = new System.Drawing.Point(255, 39);
-            this.dataDevolucao.Name = "dataDevolucao";
-            this.dataDevolucao.Size = new System.Drawing.Size(85, 20);
-            this.dataDevolucao.TabIndex = 24;
+            this.cboxFuncionario.FormattingEnabled = true;
+            this.cboxFuncionario.Location = new System.Drawing.Point(74, 72);
+            this.cboxFuncionario.Name = "cboxFuncionario";
+            this.cboxFuncionario.Size = new System.Drawing.Size(77, 21);
+            this.cboxFuncionario.TabIndex = 26;
             // 
-            // dateLocacao
+            // label8
             // 
-            this.dateLocacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateLocacao.Location = new System.Drawing.Point(255, 10);
-            this.dateLocacao.Name = "dateLocacao";
-            this.dateLocacao.Size = new System.Drawing.Size(85, 20);
-            this.dateLocacao.TabIndex = 23;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Funcionario";
+            // 
+            // maskedTextBoxDevolucao
+            // 
+            this.maskedTextBoxDevolucao.Location = new System.Drawing.Point(261, 39);
+            this.maskedTextBoxDevolucao.Mask = "00/00/0000";
+            this.maskedTextBoxDevolucao.Name = "maskedTextBoxDevolucao";
+            this.maskedTextBoxDevolucao.Size = new System.Drawing.Size(74, 20);
+            this.maskedTextBoxDevolucao.TabIndex = 24;
+            this.maskedTextBoxDevolucao.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBoxLocacao
+            // 
+            this.maskedTextBoxLocacao.Location = new System.Drawing.Point(261, 13);
+            this.maskedTextBoxLocacao.Mask = "00/00/0000";
+            this.maskedTextBoxLocacao.Name = "maskedTextBoxLocacao";
+            this.maskedTextBoxLocacao.Size = new System.Drawing.Size(74, 20);
+            this.maskedTextBoxLocacao.TabIndex = 23;
+            this.maskedTextBoxLocacao.ValidatingType = typeof(System.DateTime);
             // 
             // groupBox1
             // 
@@ -234,7 +263,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.groupBox1.Controls.Add(this.txtSeguroCliente);
             this.groupBox1.Controls.Add(this.checkBoxSeguroTerceiro);
             this.groupBox1.Controls.Add(this.checkBoxCliente);
-            this.groupBox1.Location = new System.Drawing.Point(6, 65);
+            this.groupBox1.Location = new System.Drawing.Point(9, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(267, 91);
             this.groupBox1.TabIndex = 22;
@@ -292,7 +321,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(354, 162);
+            this.tabPage2.Size = new System.Drawing.Size(354, 213);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cliente";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -363,6 +392,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cboxGrupoVeiculo);
+            this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.txtQuilometragemDevolucao);
@@ -373,7 +404,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(354, 162);
+            this.tabPage3.Size = new System.Drawing.Size(354, 213);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Veiculo";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -381,7 +412,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 43);
+            this.label1.Location = new System.Drawing.Point(6, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 24;
@@ -404,7 +435,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(354, 162);
+            this.tabPage5.Size = new System.Drawing.Size(354, 213);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Taxas e Serviços Adicionais";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -447,7 +478,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(205, 206);
+            this.btnGravar.Location = new System.Drawing.Point(205, 257);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 83;
@@ -458,18 +489,35 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(286, 206);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 257);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 84;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Categoria";
+            // 
+            // cboxGrupoVeiculo
+            // 
+            this.cboxGrupoVeiculo.FormattingEnabled = true;
+            this.cboxGrupoVeiculo.Location = new System.Drawing.Point(144, 40);
+            this.cboxGrupoVeiculo.Name = "cboxGrupoVeiculo";
+            this.cboxGrupoVeiculo.Size = new System.Drawing.Size(104, 21);
+            this.cboxGrupoVeiculo.TabIndex = 26;
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 241);
+            this.ClientSize = new System.Drawing.Size(381, 303);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
@@ -477,6 +525,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaLocacaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de Locações";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -526,12 +575,16 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dataDevolucao;
-        private System.Windows.Forms.DateTimePicker dateLocacao;
         private System.Windows.Forms.CheckBox checkBoxSeguroTerceiro;
         private System.Windows.Forms.CheckBox checkBoxCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSeguroTerceiro;
         private System.Windows.Forms.TextBox txtSeguroCliente;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxDevolucao;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxLocacao;
+        private System.Windows.Forms.ComboBox cboxFuncionario;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cboxGrupoVeiculo;
+        private System.Windows.Forms.Label label13;
     }
 }
