@@ -33,6 +33,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
+        ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = new ControladorLocacaoTaxasServicos();
 
         private Locacao locacao;
 
@@ -40,10 +41,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             InitializeComponent();
             CarregarCliente();
-            CarregarCondutor();
             CarregarFuncionario();
             CarregarGrupoVeiculos();
-            CarregarVeiculo();
             CarregarTaxasServicos();
         }
 
@@ -80,21 +79,18 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 maskedTextBoxDevolucao.Text = locacao.dataDevolucao.ToString();
 
                 //CLIENTE
-                txtIdCliente.Text = locacao.cliente.Id.ToString();
                 cboxCliente.SelectedItem = locacao.cliente.Nome;
 
                 //CONDUTOR
-                txtIdCondutor.Text = locacao.condutor.Id.ToString();
                 cboxCondutor.SelectedItem = locacao.condutor.Nome;
 
                 //VEIUCLO
-                txtIdVeiculo.Text = locacao.Id.ToString();
                 cboxGrupoVeiculo.SelectedItem = locacao.grupoVeiculo.categoria;
                 cboxVeiculo.SelectedItem = locacao.veiculo.Modelo;
                 txtQuilometragemDevolucao.Text = locacao.quilometragemDevolucao.ToString();
 
                 //TAXAS E SERVICOS
-                txtIdTaxasServicos.Text = locacao.Id.ToString();
+                foreach (TaxasServicos taxaServico in controladorLocacaoTaxasServicos.)
                 //cListBoxTaxasServicos.Items = Convert.ToBoolean(locacao.taxasServicos);
 
             }
@@ -225,7 +221,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             foreach (var veiculo in veiculos)
             {
-                cboxVeiculo.Items.Add(veiculo);
+                if (veiculo.GrupoVeiculo.Equals((GrupoVeiculo)cboxGrupoVeiculo.SelectedItem))
+                    cboxVeiculo.Items.Add(veiculo);
             }
         }
         private void CarregarGrupoVeiculos()
@@ -242,12 +239,12 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private void CarregarCondutor()
         {
             cboxCondutor.Items.Clear();
-
             List<Condutor> condutores = controladorCondutor.SelecionarTodos();
 
             foreach (var condutor in condutores)
             {
-                cboxCondutor.Items.Add(condutor);
+                if (condutor.Cliente.Equals((Clientes)cboxCliente.SelectedItem))
+                    cboxCondutor.Items.Add(condutor);
             }
         }
 
@@ -290,6 +287,43 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
         }
 
+        private void checkBoxCliente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxCliente.Checked == true)
+            {
+                txtSeguroCliente.Enabled = true;
+            }
+                
+            else
+            {
+                txtSeguroCliente.Enabled = false;
+                txtSeguroCliente.Text = "0";
+            }
+        }
+
+        private void checkBoxSeguroTerceiro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSeguroTerceiro.Checked == true)
+            {
+                txtSeguroTerceiro.Enabled = true;
+            }
+
+            else
+            {
+                txtSeguroTerceiro.Enabled = false;
+                txtSeguroTerceiro.Text = "0";
+            }
+        }
+
+        private void cboxCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarCondutor();
+        }
+
+        private void cboxGrupoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarVeiculo();
+        }
     }
 }
 
