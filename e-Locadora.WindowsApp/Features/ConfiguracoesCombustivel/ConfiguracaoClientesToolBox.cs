@@ -27,8 +27,7 @@ namespace e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel
                 Desagrupar = false,
                 Filtrar = false,
                 Editar = false,
-                Excluir = false
-                
+                Excluir = false    
             };
         }
 
