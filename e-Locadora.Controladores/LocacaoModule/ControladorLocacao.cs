@@ -297,7 +297,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                     List<Locacao> todasLocacoes = SelecionarTodos();
                     foreach (Locacao locacao in todasLocacoes)
                     {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.Id != id)
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto==true &&locacao.Id != id)
                             countVeiculoIndisponivel++;
                     }
                     if (countVeiculoIndisponivel > 0)
@@ -309,7 +309,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                     List<Locacao> todosLocacaos = SelecionarTodos();
                     foreach (Locacao locacao in todosLocacaos)
                     {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id)
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true)
                             countVeiculoIndisponivel++;
                     }
                     if (countVeiculoIndisponivel > 0)
