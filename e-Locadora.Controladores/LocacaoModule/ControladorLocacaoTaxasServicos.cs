@@ -140,7 +140,16 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
             return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacaoTaxasServicos);
         }
 
-
+        public List<TaxasServicos> SelecionarTaxasServicosPorLocacaoId(int idLocacao) 
+        {
+            List<TaxasServicos> taxasServicos = new List<TaxasServicos>();
+            foreach (LocacaoTaxasServicos Locacao_TaxaServico in SelecionarTodos())
+            {
+                if (idLocacao == Locacao_TaxaServico.locacao.Id)
+                    taxasServicos.Add(Locacao_TaxaServico.taxasServicos);
+            }
+            return taxasServicos;
+        }
 
 
         private Dictionary<string, object> ObtemParametrosLocacaoTaxasServicos(LocacaoTaxasServicos locacaoTaxasServicos)
