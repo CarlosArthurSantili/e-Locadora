@@ -91,15 +91,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 txtQuilometragemDevolucao.Text = locacao.quilometragemDevolucao.ToString();
 
                 //TAXAS E SERVICOS
-                List<TaxasServicos> listaTaxasServicos = new List<TaxasServicos>();
-                foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                int i;
+                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
                 {
-                    //listaTaxasServicos.Add(taxaServicoLocacao);
+                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                    {
+                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
+                            cListBoxTaxasServicos.SetItemChecked(i, true);
+                    }
                 }
-                //cListBoxTaxasServicos.SetItemChecked() = listaTaxasServicos;
-
-                //cListBoxTaxasServicos.Items = Convert.ToBoolean(locacao.taxasServicos);
-
             }
         }
 
@@ -208,7 +208,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     {
                         if (cListBoxTaxasServicos.GetItemChecked(i))
                         {
-                            //inserir itens selecionados como taxasServicos de uma locacao
+                            TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                            LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
+                            //if (controladorLocacaoTaxasServicos.ValidarLocacaoTaxaServico() == "ESTA_VALIDO")
+                            controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
                         }
                     }
                 }
@@ -231,6 +234,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxCliente.Items.Add(contato);
             }
         }
+
         private void CarregarVeiculo()
         {
             cboxVeiculo.Items.Clear();
@@ -243,6 +247,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     cboxVeiculo.Items.Add(veiculo);
             }
         }
+
         private void CarregarGrupoVeiculos()
         {
             cboxGrupoVeiculo.Items.Clear();
@@ -254,6 +259,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxGrupoVeiculo.Items.Add(grupoVeiculo);
             }
         }
+
         private void CarregarCondutor()
         {
             cboxCondutor.Items.Clear();
