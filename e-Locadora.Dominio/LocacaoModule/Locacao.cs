@@ -93,6 +93,16 @@ namespace e_Locadora.Dominio.LocacaoModule
             emAberto = false;
         }
 
+        public void AdicionarTaxasServicos(TaxasServicos taxaServico)
+        {
+            taxasServicos.Add(taxaServico);
+        }
+
+        public void RemoverTaxasServicos(TaxasServicos taxaServico)
+        {
+            taxasServicos.Remove(taxaServico);
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";
