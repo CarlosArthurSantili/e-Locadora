@@ -1,4 +1,5 @@
 ﻿using e_Locadora.WindowsApp.Features.VeiculoModule;
+using e_Locadora.WindowsApp.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,9 @@ namespace e_Locadora.WindowsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new TelaVeiculoForm());
-            Application.Run(new TelaPrincipalForm());
+            //Application.Run(new TelaPrincipalForm());
+            Application.Run(new TelaLogin());
+
         }
     }
 }
