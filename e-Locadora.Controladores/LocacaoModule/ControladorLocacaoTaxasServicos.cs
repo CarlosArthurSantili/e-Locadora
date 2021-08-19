@@ -21,14 +21,14 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
 {
-    public class ControladorLocacaoTaxasServicos : Controlador<Locacao>
+    public class ControladorLocacaoTaxasServicos : Controlador<LocacaoTaxasServicos>
     {
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
 
         #region Queries
         private const string sqlInserirLocacaoTaxasServicos =
-         @"INSERT INTO TBLOCACAO
+         @"INSERT INTO TBLOCACAO_TBTAXASSERVICOS
 	                (
                         [ID],
 		                [IDLOCACAO], 
@@ -42,7 +42,7 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
 	                )";
 
         private const string sqlEditarLocacaoTaxasServicos =
-                    @"UPDATE TBLOCACAO
+                    @"UPDATE TBLOCACAO_TBTAXASSERVICOS
                     SET
                         [ID] = @ID,
 		                [IDLOCACAO] = @IDLOCACAO, 
@@ -53,7 +53,7 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
         private const string sqlExcluirLocacaoTaxasServicos =
          @"DELETE 
 	              FROM
-                        TBLOCACAO
+                        TBLOCACAO_TBTAXASSERVICOS
                     WHERE 
                         ID = @ID";
 
@@ -61,103 +61,53 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
         @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBLOCACAO]
+                [TBLOCACAO_TBTAXASSERVICOS]
             WHERE 
                 [ID] = @ID";
 
         private const string sqlSelecionarLocacaoTaxasServicosPorId =
             @"SELECT 
                 [ID],
-		        [IDFUNCIONARIO], 
-		        [IDCLIENTE], 
-		        [IDCONDUTOR],
-                [IDGRUPOVEICULO], 
-                [IDVEICULO], 
-		        [EMABERTO],
-                [DATALOCACAO],
-                [DATADEVOLUCAO],
-                [QUILOMETRAGEMDEVOLUCAO],
-                [PLANO],
-                [SEGUROCLIENTE],
-                [SEGUROTERCEIRO],
-                [VALORTOTAL]
+		        [IDLOCACAO], 
+		        [IDTAXASSERVICOS]
             FROM
-                [TBLOCACAO]
+                [TBLOCACAO_TBTAXASSERVICOS]
             WHERE
                 [ID] = @ID";
 
         private const string sqlSelecionarTodasLocacoes =
             @"SELECT 
                 [ID],
-		        [IDFUNCIONARIO], 
-		        [IDCLIENTE], 
-		        [IDCONDUTOR],
-                [IDGRUPOVEICULO], 
-                [IDVEICULO], 
-		        [EMABERTO],
-                [DATALOCACAO],
-                [DATADEVOLUCAO],
-                [QUILOMETRAGEMDEVOLUCAO],
-                [PLANO],
-                [SEGUROCLIENTE],
-                [SEGUROTERCEIRO],
-                [VALORTOTAL]
+		        [IDLOCACAO], 
+		        [IDTAXASSERVICOS]
             FROM
-                [TBLOCACAO]";
-        private const string sqlSelecionarLocacaoTaxasServicosesEmAberto =
-            @"SELECT 
-                [ID],
-		        [IDFUNCIONARIO], 
-		        [IDCLIENTE], 
-		        [IDCONDUTOR],
-                [IDGRUPOVEICULO], 
-                [IDVEICULO], 
-		        [EMABERTO],
-                [DATALOCACAO],
-                [DATADEVOLUCAO],
-                [QUILOMETRAGEMDEVOLUCAO],
-                [PLANO],
-                [SEGUROCLIENTE],
-                [SEGUROTERCEIRO],
-                [VALORTOTAL]
-            FROM
-                [TBLOCACAO]
-           WHERE 
-                [EMABERTO] == @EMABERTO";
+                [TBLOCACAO_TBTAXASSERVICOS]";
 
 
         #endregion
-        public override string InserirNovo(Locacao registro)
+        public override string InserirNovo(LocacaoTaxasServicos registro)
         {
             string resultadoValidacaoDominio = registro.Validar();
-            string resultadoValidacaoControlador = ValidarLocacaoTaxasServicos(registro);
 
-            if (resultadoValidacaoDominio == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
+            if (resultadoValidacaoDominio == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(registro));
             }
 
-            if (resultadoValidacaoDominio != "ESTA_VALIDO")
-                return resultadoValidacaoDominio;
-            else
-                return resultadoValidacaoControlador;
+            return resultadoValidacaoDominio;
         }
 
-        public override string Editar(int id, Locacao registro)
+        public override string Editar(int id, LocacaoTaxasServicos registro)
         {
             string resultadoValidacaoDominio = registro.Validar();
-            string resultadoValidacaoControlador = ValidarLocacaoTaxasServicos(registro, id);
 
             if (resultadoValidacaoDominio == "ESTA_VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(registro));
             }
-
-            if (resultadoValidacaoDominio != "ESTA_VALIDO")
-                return resultadoValidacaoDominio;
-            else
-                return resultadoValidacaoControlador;
+            
+            return resultadoValidacaoDominio;
         }
 
         public override bool Excluir(int id)
@@ -180,30 +130,26 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
             return Db.Exists(sqlExisteLocacaoTaxasServicos, AdicionarParametro("ID", id));
         }
 
-        public override Locacao SelecionarPorId(int id)
+        public override LocacaoTaxasServicos SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarLocacaoTaxasServicosPorId, ConverterEmLocacaoTaxasServicos, AdicionarParametro("ID", id));
         }
 
-        public override List<Locacao> SelecionarTodos()
+        public override List<LocacaoTaxasServicos> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacaoTaxasServicos);
         }
-        public List<Locacao> SelecionarLocacaoTaxasServicosesEmAberto(DateTime data)
-        {
-            return Db.GetAll(sqlSelecionarLocacaoTaxasServicosesEmAberto, ConverterEmLocacaoTaxasServicos);
-        }
 
 
 
 
-        private Dictionary<string, object> ObtemParametrosLocacaoTaxasServicos(LocacaoTaxasServicos locacao)
+        private Dictionary<string, object> ObtemParametrosLocacaoTaxasServicos(LocacaoTaxasServicos locacaoTaxasServicos)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_LOCACAO", locacao.funcionario);
-            parametros.Add("ID_TAXASSERVICOS", locacao.cliente.Id);
+            parametros.Add("ID", locacaoTaxasServicos.Id);
+            parametros.Add("ID_LOCACAO", locacaoTaxasServicos.locacao.Id);
+            parametros.Add("ID_TAXASSERVICOS", locacaoTaxasServicos.taxasServicos.Id);
 
             return parametros;
         }
@@ -217,42 +163,10 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
 
             LocacaoTaxasServicos locacaoTaxasServicos = new LocacaoTaxasServicos(locacao, taxasServicos);
 
-            locacao.Id = Convert.ToInt32(reader["ID"]);
+            locacaoTaxasServicos.Id = Convert.ToInt32(reader["ID"]);
 
-            return locacao;
+            return locacaoTaxasServicos;
         }
 
-        public string ValidarLocacaoTaxasServicos(LocacaoTaxasServicos novoLocacaoTaxasServicos, int id = 0)
-        {
-            //validar carros alugados
-            if (novoLocacaoTaxasServicos != null)
-            {
-                if (id != 0)
-                {//situação de editar
-                    int countVeiculoIndisponivel = 0;
-                    List<LocacaoTaxasServicos> todasLocacoes = SelecionarTodos();
-                    foreach (LocacaoTaxasServicos locacao in todasLocacoes)
-                    {
-                        if (novoLocacaoTaxasServicos.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true && locacao.Id != id)
-                            countVeiculoIndisponivel++;
-                    }
-                    if (countVeiculoIndisponivel > 0)
-                        return "Veiculo já alugado, tente novamente.";
-                }
-                else
-                {//situação de inserir
-                    int countVeiculoIndisponivel = 0;
-                    List<LocacaoTaxasServicos> todosLocacaoTaxasServicoss = SelecionarTodos();
-                    foreach (LocacaoTaxasServicos locacao in todosLocacaoTaxasServicoss)
-                    {
-                        if (novoLocacaoTaxasServicos.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true)
-                            countVeiculoIndisponivel++;
-                    }
-                    if (countVeiculoIndisponivel > 0)
-                        return "Veiculo já alugado, tente novamente.";
-                }
-            }
-            return "ESTA_VALIDO";
-        }//
     }
 }

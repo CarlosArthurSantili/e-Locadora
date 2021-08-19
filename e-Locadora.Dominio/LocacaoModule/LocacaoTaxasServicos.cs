@@ -1,4 +1,5 @@
-﻿using e_Locadora.Dominio.TaxasServicosModule;
+﻿using e_Locadora.Dominio.Shared;
+using e_Locadora.Dominio.TaxasServicosModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.Dominio.LocacaoModule
 {
-    public class LocacaoTaxasServicos
+    public class LocacaoTaxasServicos : EntidadeBase
     {
         public Locacao locacao { get; set; }
         public TaxasServicos taxasServicos { get; set; }
@@ -16,6 +17,11 @@ namespace e_Locadora.Dominio.LocacaoModule
         {
             this.locacao = locacao;
             this.taxasServicos = taxasServicos;
+        }
+
+        public override string Validar()
+        {
+            return "ESTA_VALIDO";
         }
     }
 }
