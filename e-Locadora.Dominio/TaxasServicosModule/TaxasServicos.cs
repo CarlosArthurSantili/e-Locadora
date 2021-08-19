@@ -39,6 +39,11 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             return resultadoValidacao;
         }
 
+        public override string ToString()
+        {
+            return Descricao;
+        }
+
         public override bool Equals(object obj)
         {
             return obj is TaxasServicos servicos &&

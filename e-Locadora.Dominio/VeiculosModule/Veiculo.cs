@@ -101,7 +101,10 @@ namespace e_Locadora.Dominio.VeiculosModule
 
             return resultadoValidacao;
         }
-
+        public override string ToString()
+        {
+            return Modelo;
+        }
         public override bool Equals(object obj)
         {
             return Equals(obj as Veiculo);

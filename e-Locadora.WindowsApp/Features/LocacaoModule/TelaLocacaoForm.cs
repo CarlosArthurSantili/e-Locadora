@@ -2,12 +2,14 @@
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
+using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
+        ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
 
         private Locacao locacao;
 
@@ -41,6 +44,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarFuncionario();
             CarregarGrupoVeiculos();
             CarregarVeiculo();
+            CarregarTaxasServicos();
         }
 
         public Locacao Locacao
@@ -232,7 +236,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             foreach (var grupoVeiculo in grupoVeiculos)
             {
-                cboxVeiculo.Items.Add(grupoVeiculo);
+                cboxGrupoVeiculo.Items.Add(grupoVeiculo);
             }
         }
         private void CarregarCondutor()
@@ -256,6 +260,18 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             foreach (var funcionario in funcionarios)
             {
                 cboxFuncionario.Items.Add(funcionario);
+            }
+        }
+
+        private void CarregarTaxasServicos()
+        {
+            cListBoxTaxasServicos.Items.Clear();
+
+            List<TaxasServicos> taxasServicos = controladorTaxasServicos.SelecionarTodos();
+
+            foreach (var taxaServico in taxasServicos)
+            {
+                cListBoxTaxasServicos.Items.Add(taxaServico);
             }
         }
 
