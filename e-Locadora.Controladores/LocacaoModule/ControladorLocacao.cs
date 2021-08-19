@@ -33,11 +33,11 @@ namespace e_Locadora.Controladores.LocacaoModule
          @"INSERT INTO TBLOCACAO
 	                (
                         [ID],
-		                [ID_FUNCIONARIO], 
-		                [ID_CLIENTE], 
-		                [ID_CONDUTOR],
-                        [ID_GRUPOVEICULO], 
-                        [ID_VEICULO], 
+		                [IDFUNCIONARIO], 
+		                [IDCLIENTE], 
+		                [IDCONDUTOR],
+                        [IDGRUPOVEICULO], 
+                        [IDVEICULO], 
 		                [EMABERTO],
                         [DATALOCACAO],
                         [DATADEVOLUCAO],
@@ -50,11 +50,11 @@ namespace e_Locadora.Controladores.LocacaoModule
 	                VALUES
 	                (
                         @ID,
-		                @ID_FUNCIONARIO, 
-		                @ID_CLIENTE, 
-		                @ID_CONDUTOR,
-                        @ID_GRUPOVEICULO, 
-                        @ID_VEICULO, 
+		                @IDFUNCIONARIO, 
+		                @IDCLIENTE, 
+		                @IDCONDUTOR,
+                        @IDGRUPOVEICULO, 
+                        @IDVEICULO, 
 		                @EMABERTO,
                         @DATALOCACAO,
                         @DATADEVOLUCAO,
@@ -69,11 +69,11 @@ namespace e_Locadora.Controladores.LocacaoModule
                     @"UPDATE TBLOCACAO
                     SET
                         [ID] = @ID,
-		                [ID_FUNCIONARIO] = @ID_FUNCIONARIO, 
-		                [ID_CLIENTE] = @ID_CLIENTE, 
-		                [ID_CONDUTOR] = @ID_CONDUTOR,
-                        [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO, 
-                        [ID_VEICULO] = @ID_VEICULO, 
+		                [IDFUNCIONARIO] = @IDFUNCIONARIO, 
+		                [IDCLIENTE] = @IDCLIENTE, 
+		                [IDCONDUTOR] = @IDCONDUTOR,
+                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO, 
+                        [IDVEICULO] = @IDVEICULO, 
 		                [EMABERTO] = @EMABERTO,
                         [DATALOCACAO] = @DATALOCACAO,
                         [DATADEVOLUCAO] = @DATADEVOLUCAO,
@@ -102,15 +102,20 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         private const string sqlSelecionarLocacaoPorId =
             @"SELECT 
-                [ID],       
-                [ID_FUNCIONARIO],
-                [ID_CLIENTE],
-                [ID_CONDUTOR], 
-                [ID_GRUPOVEICULO],
-                [ID_VEICULO],                    
-                [EMABERTO],                                
+                [ID],
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
+		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
+                [QUILOMETRAGEMDEVOLUCAO],
+                [PLANO],
+                [SEGUROCLIENTE],
+                [SEGUROTERCEIRO],
+                [VALORTOTAL]
             FROM
                 [TBLOCACAO]
             WHERE
@@ -119,11 +124,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlSelecionarTodasLocacoes =
             @"SELECT 
                 [ID],
-		        [ID_FUNCIONARIO], 
-		        [ID_CLIENTE], 
-		        [ID_CONDUTOR],
-                [ID_GRUPOVEICULO], 
-                [ID_VEICULO], 
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -137,11 +142,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlSelecionarLocacaoesEmAberto =
             @"SELECT 
                 [ID],
-		        [ID_FUNCIONARIO], 
-		        [ID_CLIENTE], 
-		        [ID_CONDUTOR],
-                [ID_GRUPOVEICULO], 
-                [ID_VEICULO], 
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],

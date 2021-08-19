@@ -127,7 +127,7 @@
     <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\LocacaoModule\ConfiguracaoLocacao.cs" />
+    <Compile Include="Features\LocacaoModule\ConfiguracaoLocacaoToolBox.cs" />
     <Compile Include="Features\LocacaoModule\OperacoesLocacao.cs" />
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.cs">
       <SubType>UserControl</SubType>
