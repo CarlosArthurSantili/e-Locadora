@@ -16,5 +16,22 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             InitializeComponent();
         }
+
+        public FlitroLocacoesEnum TipoFiltro
+        {
+            get
+            {
+                if (rbLocacoePendentes.Checked)
+                    return FlitroLocacoesEnum.LocacoesChegadaPendente;
+
+                else
+                    return FlitroLocacoesEnum.TodasLocacoes;
+            }
+        }
+
+        private void TelaFiltroLocacaoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
+        }
     }
 }

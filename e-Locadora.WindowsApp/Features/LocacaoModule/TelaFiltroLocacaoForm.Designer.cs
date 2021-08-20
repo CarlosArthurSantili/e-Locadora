@@ -31,7 +31,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.rbCnhVencida = new System.Windows.Forms.RadioButton();
+            this.rbLocacoePendentes = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
@@ -55,16 +55,16 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.btnGravar.Text = "Filtrar";
             this.btnGravar.UseVisualStyleBackColor = true;
             // 
-            // rbCnhVencida
+            // rbLocacoePendentes
             // 
-            this.rbCnhVencida.AutoSize = true;
-            this.rbCnhVencida.Location = new System.Drawing.Point(54, 70);
-            this.rbCnhVencida.Name = "rbCnhVencida";
-            this.rbCnhVencida.Size = new System.Drawing.Size(176, 17);
-            this.rbCnhVencida.TabIndex = 9;
-            this.rbCnhVencida.TabStop = true;
-            this.rbCnhVencida.Text = "Visualizar Locações Pendentes ";
-            this.rbCnhVencida.UseVisualStyleBackColor = true;
+            this.rbLocacoePendentes.AutoSize = true;
+            this.rbLocacoePendentes.Location = new System.Drawing.Point(54, 70);
+            this.rbLocacoePendentes.Name = "rbLocacoePendentes";
+            this.rbLocacoePendentes.Size = new System.Drawing.Size(176, 17);
+            this.rbLocacoePendentes.TabIndex = 9;
+            this.rbLocacoePendentes.TabStop = true;
+            this.rbLocacoePendentes.Text = "Visualizar Locações Pendentes ";
+            this.rbLocacoePendentes.UseVisualStyleBackColor = true;
             // 
             // rbTodos
             // 
@@ -84,7 +84,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.ClientSize = new System.Drawing.Size(298, 162);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.rbCnhVencida);
+            this.Controls.Add(this.rbLocacoePendentes);
             this.Controls.Add(this.rbTodos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -92,6 +92,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.Name = "TelaFiltroLocacaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filtro Locações Pendentes ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaFiltroLocacaoForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,7 +102,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
-        private System.Windows.Forms.RadioButton rbCnhVencida;
+        private System.Windows.Forms.RadioButton rbLocacoePendentes;
         private System.Windows.Forms.RadioButton rbTodos;
     }
 }

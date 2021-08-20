@@ -110,19 +110,36 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             return tabelaLocacao;
         }
 
-        public void AgruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DesagruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
+            TelaFiltroLocacaoForm tela = new TelaFiltroLocacaoForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                List<Locacao> locacoes = new List<Locacao>();
+
+                string chegadasPendentes = "";
+
+                switch (tela.TipoFiltro)
+                {
+                    case FlitroLocacoesEnum.TodasLocacoes:
+                        locacoes = controladorLocacao.SelecionarTodos();
+                        break;
+
+                    case FlitroLocacoesEnum.LocacoesChegadaPendente:
+                        {
+                            locacoes = controladorLocacao.SelecionarLocacoesPendentes(true, DateTime.Now);
+                            chegadasPendentes = "Pendentes";
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+                tabelaLocacao.CarregarTabela(locacoes);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} chegadas {chegadasPendentes}");
+            }
         }
 
         public void RegistrarDevolucao()
@@ -150,6 +167,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
         }
 
+        public void AgruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
 
+        public void DesagruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
