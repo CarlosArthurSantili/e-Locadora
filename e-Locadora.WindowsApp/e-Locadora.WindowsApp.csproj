@@ -49,10 +49,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -135,7 +137,7 @@
     <Compile Include="Features\GrupoVeiculoModule\TelaGrupoVeiculoForm.Designer.cs">
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\LocacaoModule\ConfiguracaoLocacao.cs" />
+    <Compile Include="Features\LocacaoModule\ConfiguracaoLocacaoToolBox.cs" />
     <Compile Include="Features\LocacaoModule\OperacoesLocacao.cs" />
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.cs">
       <SubType>UserControl</SubType>
@@ -176,6 +178,12 @@
     </Compile>
     <Compile Include="Features\VeiculoModule\TelaVeiculoForm.Designer.cs">
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\TelaLogin.Designer.cs">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
@@ -235,6 +243,9 @@
     <EmbeddedResource Include="Features\VeiculoModule\TelaVeiculoForm.resx">
       <DependentUpon>TelaVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login\TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -281,9 +292,11 @@
     <None Include="Resources\outline_compress_black_24dp1.png" />
     <None Include="Resources\outline_add_circle_outline_black_24dp1.png" />
     <None Include="Resources\Filter Configuration1.png" />
+    <None Include="Resources\logo.jpg" />
     <Content Include="Resources\outline_add_circle_outline_black_24dp.png" />
     <Content Include="Resources\outline_compress_black_24dp.png" />
     <Content Include="Resources\outline_delete_black_24dp.png" />
+    <None Include="Resources\outline_exit_to_app_black_24dp.png" />
     <Content Include="Resources\outline_expand_black_24dp.png" />
     <Content Include="Resources\outline_filter_alt_black_24dp.png" />
     <Content Include="Resources\outline_list_alt_black_24dp.png" />

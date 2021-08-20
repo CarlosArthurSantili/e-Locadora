@@ -82,5 +82,6 @@ namespace e_Locadora.Dominio.FuncionarioModule
         {
             return Equals(obj as Funcionario);
         }
+
     }
 }

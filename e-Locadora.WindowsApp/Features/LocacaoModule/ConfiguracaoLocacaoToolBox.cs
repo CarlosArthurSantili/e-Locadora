@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace e_Locadora.WindowsApp.Features.LocacaoModule
 {
-    public class ConfiguracaoLocacao: IConfiguracaoToolBox
+    public class ConfiguracaoLocacaoToolBox: IConfiguracaoToolBox
     {
         public string TipoCadastro
         {

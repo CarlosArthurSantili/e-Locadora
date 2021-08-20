@@ -68,10 +68,6 @@ namespace e_Locadora.Dominio.ClientesModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CNPJ);
             return hashCode;
         }
-        public override string ToString()
-        {
-            return Nome;
-        }
         public override bool Equals(object obj)
         {
             return Equals(obj as Clientes);

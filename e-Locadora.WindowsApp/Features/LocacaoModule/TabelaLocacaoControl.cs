@@ -33,7 +33,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "funcionatio", HeaderText = "Funcionario"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "funcionario", HeaderText = "Funcionario"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "cliente", HeaderText = "Cliente"},
 
