@@ -375,6 +375,112 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             CarregarVeiculo();
         }
+
+        private void maskedTextBoxDevolucao_TextChanged(object sender, EventArgs e)
+        {
+            MostrarDiasPrevistos();
+        }
+
+        private void maskedTextBoxLocacao_TextChanged(object sender, EventArgs e)
+        {
+            MostrarDiasPrevistos();
+        }
+
+        private void MostrarDiasPrevistos() {
+            try
+            {
+                if (maskedTextBoxLocacao.Text.Length == 10 && maskedTextBoxDevolucao.Text.Length == 10)
+                {
+                    DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao.Text);
+                    DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao.Text);
+                    double numeroDias = (dataDevolucao - dataLocacao).TotalDays;
+                    if (numeroDias > 0)
+                        labelVariavelDiasPrevistos.Text = numeroDias.ToString();
+                    else
+                        labelVariavelDiasPrevistos.Text = "Data de Devolução inválida";
+                }
+            }
+            catch { }
+        }
+
+        private void cboxGrupoVeiculo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            MostrarValorPlano();
+            MostrarValorTotal();
+        }
+
+        private void cboxPlano_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarValorPlano();
+        }
+
+        private void cListBoxTaxasServicos_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //atualizar valor taxasServicos
+            MostrarValorTotal();
+        }
+
+        private void MostrarValorTotal() {
+            try
+            {
+                double valorTotal = Convert.ToDouble(labelVariavelCustosPlano) + Convert.ToDouble(labelVariavelCustosTaxasServicos.Text);
+                labelVariavelValorTotal.Text = valorTotal.ToString();
+            }
+            catch { }
+            
+        }
+
+        private void MostrarValorPlano() {
+            try
+            {
+
+                GrupoVeiculo grupoVeiculoSelecionado = (GrupoVeiculo)cboxGrupoVeiculo.SelectedItem;
+                string planoSelecionado = cboxPlano.Text;
+
+                if (grupoVeiculoSelecionado != null && planoSelecionado != "")
+                {
+                    if (planoSelecionado == "Diário")
+                    {
+                        double valorDiario = grupoVeiculoSelecionado.planoDiarioValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
+                        labelVariavelCustosPlano.Text = valorDiario.ToString() + " + " + grupoVeiculoSelecionado.planoDiarioValorKm + " por Km";
+                    }
+                    else if (planoSelecionado == "Km Controlado")
+                    {
+                        double valorDiario = grupoVeiculoSelecionado.planoKmControladoValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
+                        double valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * grupoVeiculoSelecionado.planoKmControladoQuantidadeKm;
+                        labelVariavelCustosPlano.Text = (valorKm + valorDiario).ToString() + " + " + grupoVeiculoSelecionado.planoKmControladoValorKm * 2 + " por Km extra";
+                    }
+                    else if (planoSelecionado == "Km Livre")
+                    {
+                        double valorDiario = grupoVeiculoSelecionado.planoKmLivreValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
+                        labelVariavelCustosPlano.Text = valorDiario.ToString();
+                    }
+                }
+            }
+            catch { }
+        }
+
+        private void MostrarValorTaxasServicos()
+        {
+            try
+            {
+                int i;
+                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                {
+                    if (cListBoxTaxasServicos.GetItemChecked(i))
+                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                }
+
+            }
+            catch { }
+        }
+
+        private void MostrarResumoFinanceiro() {
+            MostrarDiasPrevistos();
+            MostrarValorPlano();
+            MostrarValorTaxasServicos();
+            MostrarValorTotal();
+        }
     }
 }
 
