@@ -138,12 +138,19 @@
       <DependentUpon>TelaGrupoVeiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\LocacaoModule\ConfiguracaoLocacaoToolBox.cs" />
+    <Compile Include="Features\LocacaoModule\FlitroLocacoesEnum.cs" />
     <Compile Include="Features\LocacaoModule\OperacoesLocacao.cs" />
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.Designer.cs">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaFiltroLocacaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaFiltroLocacaoForm.Designer.cs">
+      <DependentUpon>TelaFiltroLocacaoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\LocacaoModule\TelaLocacaoForm.cs">
       <SubType>Form</SubType>
@@ -230,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\LocacaoModule\TabelaLocacaoControl.resx">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TelaFiltroLocacaoForm.resx">
+      <DependentUpon>TelaFiltroLocacaoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\LocacaoModule\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>

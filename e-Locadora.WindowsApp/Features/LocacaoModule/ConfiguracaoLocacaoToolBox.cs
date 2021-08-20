@@ -25,7 +25,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = false
+                Filtrar = true
             };
         }
 

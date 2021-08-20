@@ -155,7 +155,9 @@ namespace e_Locadora.Controladores.LocacaoModule
             FROM
                 [TBLOCACAO]
            WHERE 
-                [EMABERTO] == @EMABERTO";
+                [EMABERTO] = @EMABERTO
+            AND
+                [DATADEVOLUCAO] > @DATADEVOLUCAO";
 
 
         #endregion
@@ -221,14 +223,17 @@ namespace e_Locadora.Controladores.LocacaoModule
         {
             return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
         }
-        public List<Locacao> SelecionarLocacoesPendentes(bool emAberto)
+        public List<Locacao> SelecionarLocacoesPendentes(bool emAberto, DateTime dataDevolucao)
         {
-            return Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, AdicionarParametro("EMABERTO", emAberto));
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("EMABERTO", emAberto);
+            parametros.Add("DATADEVOLUCAO", dataDevolucao);
+
+            return Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, parametros);
         }
 
         
-        
-
         private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
         {
             var parametros = new Dictionary<string, object>();
