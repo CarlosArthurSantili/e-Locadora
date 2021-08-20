@@ -58,7 +58,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             tela.ShowDialog();
             if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
             {
-                List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(tela.Locacao.Id);
+                List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
 
                 foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
                     controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id,taxaServicoIndividual.Id);

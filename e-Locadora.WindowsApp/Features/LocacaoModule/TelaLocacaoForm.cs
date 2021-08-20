@@ -62,7 +62,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     if (cListBoxTaxasServicos.GetItemChecked(i))
                     {
                         TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
-                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
+                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacao, taxaServico);
                         locacaoTaxasServicos.Add(locacao_TaxaServico);
                         //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
                     }
@@ -236,8 +236,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                         {
                             TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
                             LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
-                            //if (controladorLocacaoTaxasServicos.ValidarLocacaoTaxaServico() == "ESTA_VALIDO")
-                            //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
+                            LocacaoTaxasServicos.Add(locacao_TaxaServico);
                         }
                     }
                 }
@@ -483,6 +482,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             MostrarValorTaxasServicos();
             MostrarValorTotal();
         }
+
     }
 }
 

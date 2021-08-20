@@ -260,6 +260,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.checkBoxSeguroTerceiro.TabIndex = 1;
             this.checkBoxSeguroTerceiro.Text = "Seguro Terceiro";
             this.checkBoxSeguroTerceiro.UseVisualStyleBackColor = true;
+            this.checkBoxSeguroTerceiro.CheckedChanged += new System.EventHandler(this.checkBoxSeguroTerceiro_CheckedChanged);
             // 
             // checkBoxCliente
             // 
@@ -270,6 +271,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.checkBoxCliente.TabIndex = 0;
             this.checkBoxCliente.Text = "Seguro Cliente";
             this.checkBoxCliente.UseVisualStyleBackColor = true;
+            this.checkBoxCliente.CheckedChanged += new System.EventHandler(this.checkBoxCliente_CheckedChanged);
             // 
             // tabPageClienteVeiculo
             // 
@@ -298,6 +300,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cboxGrupoVeiculo.Name = "cboxGrupoVeiculo";
             this.cboxGrupoVeiculo.Size = new System.Drawing.Size(104, 21);
             this.cboxGrupoVeiculo.TabIndex = 32;
+            this.cboxGrupoVeiculo.SelectedIndexChanged += new System.EventHandler(this.cboxGrupoVeiculo_SelectedIndexChanged);
             this.cboxGrupoVeiculo.SelectedValueChanged += new System.EventHandler(this.cboxGrupoVeiculo_SelectedValueChanged);
             // 
             // label13
