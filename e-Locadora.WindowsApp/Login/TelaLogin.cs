@@ -19,8 +19,8 @@ namespace e_Locadora.WindowsApp.Login
         public TelaLogin()
         {
             InitializeComponent();
+            txtSenha.PasswordChar = '*';
         }
-
 
         private void btnGravar_Click(object sender, EventArgs e)
         {

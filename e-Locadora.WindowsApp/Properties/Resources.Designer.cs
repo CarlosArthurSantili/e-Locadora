@@ -73,6 +73,16 @@ namespace e_Locadora.WindowsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoLegal {
+            get {
+                object obj = ResourceManager.GetObject("LogoLegal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_add_circle_outline_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_add_circle_outline_black_24dp", resourceCulture);
@@ -106,6 +116,16 @@ namespace e_Locadora.WindowsApp.Properties {
         internal static System.Drawing.Bitmap outline_delete_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_delete_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_exit_to_app_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_exit_to_app_black_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
