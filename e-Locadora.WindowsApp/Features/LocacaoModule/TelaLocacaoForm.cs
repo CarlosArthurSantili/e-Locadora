@@ -322,8 +322,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
         }
 
-
-
         private bool ValidarTipoInt(string texto)
         {
             try
