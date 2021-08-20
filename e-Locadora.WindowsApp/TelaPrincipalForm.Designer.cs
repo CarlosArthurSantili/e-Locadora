@@ -41,22 +41,23 @@ namespace e_Locadora.WindowsApp
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.combustivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFiltrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAgrupar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDesagrupar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDevolucao = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.panelRegistros = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -85,14 +86,14 @@ namespace e_Locadora.WindowsApp
             this.funcionariosToolStripMenuItem,
             this.combustivelToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // menuItemGrupoVeiculos
             // 
             this.menuItemGrupoVeiculos.Name = "menuItemGrupoVeiculos";
             this.menuItemGrupoVeiculos.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.menuItemGrupoVeiculos.Size = new System.Drawing.Size(188, 22);
+            this.menuItemGrupoVeiculos.Size = new System.Drawing.Size(180, 22);
             this.menuItemGrupoVeiculos.Text = "Grupo de Veiculos";
             this.menuItemGrupoVeiculos.Click += new System.EventHandler(this.menuItemGrupoVeiculos_Click);
             // 
@@ -100,7 +101,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemContato.Name = "menuItemContato";
             this.menuItemContato.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.menuItemContato.Size = new System.Drawing.Size(188, 22);
+            this.menuItemContato.Size = new System.Drawing.Size(180, 22);
             this.menuItemContato.Text = "Veiculos";
             this.menuItemContato.Click += new System.EventHandler(this.menuItemContato_Click);
             // 
@@ -108,7 +109,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemClientes.Name = "menuItemClientes";
             this.menuItemClientes.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.menuItemClientes.Size = new System.Drawing.Size(188, 22);
+            this.menuItemClientes.Size = new System.Drawing.Size(180, 22);
             this.menuItemClientes.Text = "Clientes";
             this.menuItemClientes.Click += new System.EventHandler(this.menuItemClientes_Click);
             // 
@@ -116,7 +117,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemCondutor.Name = "menuItemCondutor";
             this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuItemCondutor.Size = new System.Drawing.Size(188, 22);
+            this.menuItemCondutor.Size = new System.Drawing.Size(180, 22);
             this.menuItemCondutor.Text = "Condutores";
             this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
             // 
@@ -124,7 +125,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.MenuItemTaxasEServicos.Name = "MenuItemTaxasEServicos";
             this.MenuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(188, 22);
+            this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(180, 22);
             this.MenuItemTaxasEServicos.Text = "Taxas e Servicos";
             this.MenuItemTaxasEServicos.Click += new System.EventHandler(this.MenuItemTaxasEServicos_Click);
             // 
@@ -132,7 +133,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
             this.locaçãoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locaçãoToolStripMenuItem.Text = "Locação";
             this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
@@ -140,7 +141,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
             this.devoluçãoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
             this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
@@ -148,7 +149,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
             this.funcionariosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem.Text = "Funcionário";
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
@@ -156,7 +157,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.combustivelToolStripMenuItem.Name = "combustivelToolStripMenuItem";
             this.combustivelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.combustivelToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.combustivelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.combustivelToolStripMenuItem.Text = "Combustível";
             this.combustivelToolStripMenuItem.Click += new System.EventHandler(this.combustivelToolStripMenuItem_Click);
             // 
@@ -174,71 +175,15 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator4,
             this.btnDesagrupar,
             this.toolStripSeparator2,
-            this.labelTipoCadastro,
+            this.btnDevolucao,
             this.toolStripSeparator5,
+            this.labelTipoCadastro,
             this.toolStripButton1});
             this.toolboxAcoes.Location = new System.Drawing.Point(0, 24);
             this.toolboxAcoes.Name = "toolboxAcoes";
             this.toolboxAcoes.Size = new System.Drawing.Size(696, 41);
             this.toolboxAcoes.TabIndex = 3;
             this.toolboxAcoes.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 41);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 41);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
-            // 
-            // labelTipoCadastro
-            // 
-            this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(174, 38);
-            this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
-            // 
-            // panelRegistros
-            // 
-            this.panelRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRegistros.Location = new System.Drawing.Point(12, 65);
-            this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(672, 360);
-            this.panelRegistros.TabIndex = 4;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelRodape});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 427);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(696, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // labelRodape
-            // 
-            this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(67, 17);
-            this.labelRodape.Text = "Tudo Ok ;-)";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
             // 
             // btnAdicionar
             // 
@@ -276,6 +221,11 @@ namespace e_Locadora.WindowsApp
             this.btnExcluir.Text = "toolStripButton1";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            // 
             // btnFiltrar
             // 
             this.btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -287,6 +237,11 @@ namespace e_Locadora.WindowsApp
             this.btnFiltrar.Size = new System.Drawing.Size(38, 38);
             this.btnFiltrar.Text = "toolStripButton1";
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 41);
             // 
             // btnAgrupar
             // 
@@ -300,6 +255,11 @@ namespace e_Locadora.WindowsApp
             this.btnAgrupar.Text = "toolStripButton1";
             this.btnAgrupar.Click += new System.EventHandler(this.btnAgrupar_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 41);
+            // 
             // btnDesagrupar
             // 
             this.btnDesagrupar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -311,6 +271,34 @@ namespace e_Locadora.WindowsApp
             this.btnDesagrupar.Size = new System.Drawing.Size(38, 38);
             this.btnDesagrupar.Text = "toolStripButton1";
             this.btnDesagrupar.Click += new System.EventHandler(this.btnDesagrupar_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
+            // 
+            // btnDevolucao
+            // 
+            this.btnDevolucao.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDevolucao.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_directions_car_black_24dp;
+            this.btnDevolucao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnDevolucao.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDevolucao.Name = "btnDevolucao";
+            this.btnDevolucao.Padding = new System.Windows.Forms.Padding(5);
+            this.btnDevolucao.Size = new System.Drawing.Size(38, 38);
+            this.btnDevolucao.Text = "Devolução de Veículos";
+            this.btnDevolucao.Click += new System.EventHandler(this.btnDevolucao_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
+            // 
+            // labelTipoCadastro
+            // 
+            this.labelTipoCadastro.Name = "labelTipoCadastro";
+            this.labelTipoCadastro.Size = new System.Drawing.Size(157, 38);
+            this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
             // 
             // toolStripButton1
             // 
@@ -324,6 +312,32 @@ namespace e_Locadora.WindowsApp
             this.toolStripButton1.Size = new System.Drawing.Size(38, 38);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // panelRegistros
+            // 
+            this.panelRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelRegistros.Location = new System.Drawing.Point(12, 65);
+            this.panelRegistros.Name = "panelRegistros";
+            this.panelRegistros.Size = new System.Drawing.Size(672, 360);
+            this.panelRegistros.TabIndex = 4;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 427);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(696, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // labelRodape
+            // 
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(62, 17);
+            this.labelRodape.Text = "Tudo Ok ;-)";
             // 
             // TelaPrincipalForm
             // 
@@ -378,6 +392,7 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem combustivelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnDevolucao;
     }
 }
 

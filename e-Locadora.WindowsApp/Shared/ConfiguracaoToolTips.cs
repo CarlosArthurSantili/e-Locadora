@@ -16,6 +16,7 @@ namespace e_Locadora.WindowsApp.Shared
             Agrupar = "Agrupar";
             Desagrupar = "Desagrupar";
             Filtrar = "Filtrar";
+            Devolucao = "Devolução";
         }
 
         public string Adicionar { get; internal set; }
@@ -24,5 +25,6 @@ namespace e_Locadora.WindowsApp.Shared
         public string Agrupar { get; internal set; }
         public string Desagrupar { get; internal set; }
         public string Filtrar { get; internal set; }
+        public string Devolucao { get; internal set; }
     }
 }

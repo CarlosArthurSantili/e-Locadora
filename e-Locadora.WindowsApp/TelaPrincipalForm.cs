@@ -66,6 +66,7 @@ namespace e_Locadora.WindowsApp
             btnAgrupar.ToolTipText = configuracao.ObterToolTips().Agrupar;
             btnDesagrupar.ToolTipText = configuracao.ObterToolTips().Desagrupar;
             btnFiltrar.ToolTipText = configuracao.ObterToolTips().Filtrar;
+            btnDevolucao.ToolTipText = configuracao.ObterToolTips().Devolucao;
 
             btnAdicionar.Enabled = configuracao.ObterEstadoBotoes().Adicionar;
             btnEditar.Enabled = configuracao.ObterEstadoBotoes().Editar;
@@ -74,6 +75,7 @@ namespace e_Locadora.WindowsApp
             btnAgrupar.Enabled = configuracao.ObterEstadoBotoes().Agrupar;
             btnDesagrupar.Enabled = configuracao.ObterEstadoBotoes().Desagrupar;
             btnFiltrar.Enabled = configuracao.ObterEstadoBotoes().Filtrar;
+            btnDevolucao.Enabled = configuracao.ObterEstadoBotoes().Devolucao;
         }
 
         private void menuItemGrupoVeiculos_Click(object sender, EventArgs e)
@@ -213,6 +215,12 @@ namespace e_Locadora.WindowsApp
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDevolucao_Click(object sender, EventArgs e)
+        {
+            OperacoesLocacao operacaoDevolucao = (OperacoesLocacao)operacoes;
+            operacaoDevolucao.RegistrarDevolucao();
         }
     }
 }
