@@ -378,12 +378,12 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void maskedTextBoxDevolucao_TextChanged(object sender, EventArgs e)
         {
-            MostrarDiasPrevistos();
+            MostrarResumoFinanceiro();
         }
 
         private void maskedTextBoxLocacao_TextChanged(object sender, EventArgs e)
         {
-            MostrarDiasPrevistos();
+            MostrarResumoFinanceiro();
         }
 
         private void MostrarDiasPrevistos() {
@@ -405,19 +405,17 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void cboxGrupoVeiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            MostrarValorPlano();
-            MostrarValorTotal();
+            MostrarResumoFinanceiro();
         }
 
         private void cboxPlano_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MostrarValorPlano();
+            MostrarResumoFinanceiro();
         }
 
         private void cListBoxTaxasServicos_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            //atualizar valor taxasServicos
-            MostrarValorTotal();
+            MostrarResumoFinanceiro();
         }
 
         private void MostrarValorTotal() {
@@ -464,13 +462,17 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             try
             {
-                int i;
-                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                List<TaxasServicos> taxasServicosSelecionadas = new List<TaxasServicos>();
+                double valorTaxasServicos = 0;
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
                 {
                     if (cListBoxTaxasServicos.GetItemChecked(i))
-                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                        taxasServicosSelecionadas.Add((TaxasServicos)cListBoxTaxasServicos.Items[i]);
                 }
-
+                foreach (TaxasServicos taxaServico in taxasServicosSelecionadas)
+                {
+                    valorTaxasServicos += taxaServico.TaxaDiaria * Convert.ToDouble(labelDiasPrevistos.Text) + taxaServico.TaxaFixa;
+                }
             }
             catch { }
         }

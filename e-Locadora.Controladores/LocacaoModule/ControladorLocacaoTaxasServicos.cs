@@ -125,6 +125,22 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
             return true;
         }
 
+        public bool ExcluirPorIdLocacaoEIdTaxa(int idLocacao, int idTaxaServico)
+        {
+            List<LocacaoTaxasServicos> todosLocacaoTaxasServicos = SelecionarTodos();
+            int quantidadeExclusoes = 0;
+            foreach (LocacaoTaxasServicos locacaoTaxa in todosLocacaoTaxasServicos)
+            {
+                if (locacaoTaxa.locacao.Equals(controladorLocacao.SelecionarPorId(idLocacao))
+                    && locacaoTaxa.taxasServicos.Equals(controladorTaxasServicos.SelecionarPorId(idTaxaServico)))
+                { 
+                    Excluir(locacaoTaxa.Id);
+                    quantidadeExclusoes++; 
+                }
+            }
+            return (quantidadeExclusoes > 0);
+        }
+
         public override bool Existe(int id)
         {
             return Db.Exists(sqlExisteLocacaoTaxasServicos, AdicionarParametro("ID", id));
