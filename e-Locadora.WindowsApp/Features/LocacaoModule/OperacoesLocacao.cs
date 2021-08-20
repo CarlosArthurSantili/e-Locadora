@@ -2,6 +2,7 @@
 using e_Locadora.Controladores.LocacaoTaxasServicosModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
+using e_Locadora.WindowsApp.Features.DevolucaoModule;
 using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -135,8 +136,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
+            TelaDevolucaoForm tela = new TelaDevolucaoForm();
             Locacao locacaoSelecionado = controladorLocacao.SelecionarPorId(id);
+
+            tela.Locacao = locacaoSelecionado;
 
             if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
                 "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
