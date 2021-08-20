@@ -30,6 +30,8 @@ namespace e_Locadora.Tests.Veiculos
         {
             Db.Update("DELETE FROM TBVEICULOS");
             Db.Update("DELETE FROM CATEGORIAS");
+            Db.Update("DELETE FROM TBLOCACAO_TBTAXASSERVICOS");
+            Db.Update("DELETE FROM TBLOCACAO");
         }
 
         [TestMethod]

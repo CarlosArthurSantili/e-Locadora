@@ -1,11 +1,13 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
+using e_Locadora.Controladores.LocacaoModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.Features.CondutorModule;
 using e_Locadora.WindowsApp.Features.FuncionarioModule;
+using e_Locadora.WindowsApp.Features.LocacaoModule;
 using e_Locadora.WindowsApp.Features.TaxasServicosModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Login;
@@ -123,7 +125,15 @@ namespace e_Locadora.WindowsApp
         }
         private void locaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesLocacao(new ControladorLocacao());
+
+            ConfigurarPainelRegistros();
         }
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)

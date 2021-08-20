@@ -32,12 +32,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlInserirLocacao =
          @"INSERT INTO TBLOCACAO
 	                (
-                        [ID],
-		                [ID_FUNCIONARIO], 
-		                [ID_CLIENTE], 
-		                [ID_CONDUTOR],
-                        [ID_GRUPOVEICULO], 
-                        [ID_VEICULO], 
+		                [IDFUNCIONARIO], 
+		                [IDCLIENTE], 
+		                [IDCONDUTOR],
+                        [IDGRUPOVEICULO], 
+                        [IDVEICULO], 
 		                [EMABERTO],
                         [DATALOCACAO],
                         [DATADEVOLUCAO],
@@ -49,12 +48,11 @@ namespace e_Locadora.Controladores.LocacaoModule
 	                ) 
 	                VALUES
 	                (
-                        @ID,
-		                @ID_FUNCIONARIO, 
-		                @ID_CLIENTE, 
-		                @ID_CONDUTOR,
-                        @ID_GRUPOVEICULO, 
-                        @ID_VEICULO, 
+		                @IDFUNCIONARIO, 
+		                @IDCLIENTE, 
+		                @IDCONDUTOR,
+                        @IDGRUPOVEICULO, 
+                        @IDVEICULO, 
 		                @EMABERTO,
                         @DATALOCACAO,
                         @DATADEVOLUCAO,
@@ -68,12 +66,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlEditarLocacao =
                     @"UPDATE TBLOCACAO
                     SET
-                        [ID] = @ID,
-		                [ID_FUNCIONARIO] = @ID_FUNCIONARIO, 
-		                [ID_CLIENTE] = @ID_CLIENTE, 
-		                [ID_CONDUTOR] = @ID_CONDUTOR,
-                        [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO, 
-                        [ID_VEICULO] = @ID_VEICULO, 
+		                [IDFUNCIONARIO] = @IDFUNCIONARIO, 
+		                [IDCLIENTE] = @IDCLIENTE, 
+		                [IDCONDUTOR] = @IDCONDUTOR,
+                        [IDGRUPOVEICULO] = @IDGRUPOVEICULO, 
+                        [IDVEICULO] = @IDVEICULO, 
 		                [EMABERTO] = @EMABERTO,
                         [DATALOCACAO] = @DATALOCACAO,
                         [DATADEVOLUCAO] = @DATADEVOLUCAO,
@@ -102,15 +99,20 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         private const string sqlSelecionarLocacaoPorId =
             @"SELECT 
-                [ID],       
-                [ID_FUNCIONARIO],
-                [ID_CLIENTE],
-                [ID_CONDUTOR], 
-                [ID_GRUPOVEICULO],
-                [ID_VEICULO],                    
-                [EMABERTO],                                
+                [ID],
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
+		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
+                [QUILOMETRAGEMDEVOLUCAO],
+                [PLANO],
+                [SEGUROCLIENTE],
+                [SEGUROTERCEIRO],
+                [VALORTOTAL]
             FROM
                 [TBLOCACAO]
             WHERE
@@ -119,11 +121,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlSelecionarTodasLocacoes =
             @"SELECT 
                 [ID],
-		        [ID_FUNCIONARIO], 
-		        [ID_CLIENTE], 
-		        [ID_CONDUTOR],
-                [ID_GRUPOVEICULO], 
-                [ID_VEICULO], 
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -137,11 +139,11 @@ namespace e_Locadora.Controladores.LocacaoModule
         private const string sqlSelecionarLocacaoesEmAberto =
             @"SELECT 
                 [ID],
-		        [ID_FUNCIONARIO], 
-		        [ID_CLIENTE], 
-		        [ID_CONDUTOR],
-                [ID_GRUPOVEICULO], 
-                [ID_VEICULO], 
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO], 
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -232,11 +234,11 @@ namespace e_Locadora.Controladores.LocacaoModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_FUNCIONARIO", locacao.funcionario);
-            parametros.Add("ID_CLIENTE", locacao.cliente.Id);
-            parametros.Add("ID_CONDUTOR", locacao.condutor.Id);
-            parametros.Add("ID_GRUPOVEICULO", locacao.grupoVeiculo);
-            parametros.Add("ID_VEICULO", locacao.veiculo.Id);
+            parametros.Add("IDFUNCIONARIO", locacao.funcionario.Id);
+            parametros.Add("IDCLIENTE", locacao.cliente.Id);
+            parametros.Add("IDCONDUTOR", locacao.condutor.Id);
+            parametros.Add("IDGRUPOVEICULO", locacao.grupoVeiculo.Id);
+            parametros.Add("IDVEICULO", locacao.veiculo.Id);
             parametros.Add("EMABERTO", locacao.emAberto);
             parametros.Add("DATALOCACAO", locacao.dataLocacao);
             parametros.Add("DATADEVOLUCAO", locacao.dataDevolucao);
@@ -244,24 +246,25 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("PLANO", locacao.plano);
             parametros.Add("SEGUROCLIENTE", locacao.seguroCliente);
             parametros.Add("SEGUROTERCEIRO", locacao.seguroTerceiro);
+            parametros.Add("VALORTOTAL", locacao.CalcularValorLocacao());
 
             return parametros;
         }
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
-            var idFuncionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
+            var idFuncionario = Convert.ToInt32(reader["IDFUNCIONARIO"]);
             Funcionario funcionario = controladorFuncionario.SelecionarPorId(idFuncionario);
 
-            var idCliente = Convert.ToInt32(reader["ID_CLIENTE"]);
+            var idCliente = Convert.ToInt32(reader["IDCLIENTE"]);
             Clientes cliente = controladorCliente.SelecionarPorId(idCliente);
 
-            var idCondutor = Convert.ToInt32(reader["ID_CONDUTOR"]);
+            var idCondutor = Convert.ToInt32(reader["IDCONDUTOR"]);
             Condutor condutor = controladorCondutor.SelecionarPorId(idCondutor);
 
-            var idGrupoVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
+            var idGrupoVeiculo = Convert.ToInt32(reader["IDGRUPOVEICULO"]);
             GrupoVeiculo grupoVeiculo = controladorGrupoVeiculo.SelecionarPorId(idGrupoVeiculo);
 
-            var idVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
+            var idVeiculo = Convert.ToInt32(reader["IDVEICULO"]);
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(idVeiculo);
 
             var emAberto = Convert.ToBoolean(reader["EMABERTO"]);
@@ -292,7 +295,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                     List<Locacao> todasLocacoes = SelecionarTodos();
                     foreach (Locacao locacao in todasLocacoes)
                     {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.Id != id)
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true &&locacao.Id != id)
                             countVeiculoIndisponivel++;
                     }
                     if (countVeiculoIndisponivel > 0)
@@ -304,7 +307,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                     List<Locacao> todosLocacaos = SelecionarTodos();
                     foreach (Locacao locacao in todosLocacaos)
                     {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id)
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true)
                             countVeiculoIndisponivel++;
                     }
                     if (countVeiculoIndisponivel > 0)
@@ -313,26 +316,5 @@ namespace e_Locadora.Controladores.LocacaoModule
             }
             return "ESTA_VALIDO";
         }
-
-        //Clube da Leitura
-        /*
-        public bool RegistrarDevolucao(int idEmprestimo, DateTime data)
-        {
-            Emprestimo emprestimo = SelecionarRegistroPorId(idEmprestimo);
-            emprestimo.Fechar(data);
-            return true;
-        }
-
-        internal List<Emprestimo> SelecionarEmprestimosEmAberto()
-        {
-            return itens.FindAll(emprestimo => emprestimo.estaAberto);
-        }
-
-        internal List<Emprestimo> SelecionarEmprestimosFechados(int mes)
-        {
-            return itens.FindAll(emprestimo => emprestimo.EstaFechado() && emprestimo.Mes == mes);
-        }
-        */
-
     }
 }

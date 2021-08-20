@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TBLocacao] (
-    [Id]                     INT          NOT NULL,
+    [Id]                     INT          IDENTITY (1, 1) NOT NULL,
     [idFuncionario]          INT          NOT NULL,
     [idGrupoVeiculo]         INT          NOT NULL,
     [idVeiculo]              INT          NOT NULL,
@@ -20,6 +20,8 @@
     CONSTRAINT [FK_TBLocacao_TBFuncionario] FOREIGN KEY ([idFuncionario]) REFERENCES [dbo].[TBFuncionario] ([Id]),
     CONSTRAINT [FK_TBLocacao_TBVeiculos] FOREIGN KEY ([idVeiculo]) REFERENCES [dbo].[TBVeiculos] ([Id])
 );
+
+
 
 
 

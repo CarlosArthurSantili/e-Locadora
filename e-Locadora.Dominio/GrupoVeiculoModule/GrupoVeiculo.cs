@@ -69,11 +69,6 @@ namespace e_Locadora.Dominio
                 && planoKmLivreValorDiario == other.planoKmLivreValorDiario;
         }
 
-        public override string ToString()
-        {
-            return categoria;
-        }
-
         public override int GetHashCode()
         {
             return base.GetHashCode();

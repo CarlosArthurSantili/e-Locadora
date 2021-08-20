@@ -101,5 +101,6 @@ namespace e_Locadora.Dominio.CondutoresModule
         {
             return Equals(obj as Condutor);
         }
+
     }
 }
