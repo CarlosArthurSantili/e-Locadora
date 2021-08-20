@@ -136,7 +136,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [VALORTOTAL]
             FROM
                 [TBLOCACAO]";
-        private const string sqlSelecionarLocacaoesEmAberto =
+        private const string sqlSelecionarLocacoesPendentes =
             @"SELECT 
                 [ID],
 		        [IDFUNCIONARIO], 
@@ -221,9 +221,9 @@ namespace e_Locadora.Controladores.LocacaoModule
         {
             return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
         }
-        public List<Locacao> SelecionarLocacaoesEmAberto(DateTime data)
+        public List<Locacao> SelecionarLocacoesPendentes(bool emAberto)
         {
-            return Db.GetAll(sqlSelecionarLocacaoesEmAberto, ConverterEmLocacao);
+            return Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, AdicionarParametro("EMABERTO", emAberto));
         }
 
         

@@ -125,8 +125,31 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             throw new NotImplementedException();
         }
 
-        
+        public void RegistrarDevolucao()
+        {
+            int id = tabelaLocacao.ObtemIdSelecionado();
 
-        
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma Locação para registrar sua devolução!", "Registro de Devolução",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Locacao locacaoSelecionado = controladorLocacao.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
+                "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                
+                controladorLocacao.Editar(id, locacaoSelecionado);
+
+                tabelaLocacao.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+            }
+        }
+
+
     }
 }

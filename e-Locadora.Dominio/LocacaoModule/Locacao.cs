@@ -27,8 +27,6 @@ namespace e_Locadora.Dominio.LocacaoModule
         public Clientes cliente { get; set; }
         public Condutor condutor { get; set; }
 
-        //public List<TaxasServicos> taxasServicos { get; set; }
-
         public bool emAberto { get; set; }
 
 
@@ -91,16 +89,6 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public void FinalizarLocacao() {
             emAberto = false;
-        }
-
-        public void AdicionarTaxasServicos(TaxasServicos taxaServico)
-        {
-            //taxasServicos.Add(taxaServico);
-        }
-
-        public void RemoverTaxasServicos(TaxasServicos taxaServico)
-        {
-            //taxasServicos.Remove(taxaServico);
         }
 
         public override string Validar()

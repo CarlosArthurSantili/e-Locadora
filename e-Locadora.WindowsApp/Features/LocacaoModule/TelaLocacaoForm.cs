@@ -204,7 +204,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 bool emAberto = true;
 
                 locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
-
+                
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = veiculo.Validar();
 
