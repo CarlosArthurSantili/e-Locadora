@@ -37,7 +37,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = new ControladorLocacaoTaxasServicos();
 
         private Locacao locacao;
-        private List<LocacaoTaxasServicos> locacaoTaxasServicos;
+
         public TelaLocacaoForm()
         {
             InitializeComponent();
@@ -45,30 +45,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarFuncionario();
             CarregarGrupoVeiculos();
             CarregarTaxasServicos();
-        }
-
-        public List<LocacaoTaxasServicos> LocacaoTaxasServicos 
-        {
-            get 
-            {
-                return locacaoTaxasServicos;
-            }
-            set 
-            {
-                locacaoTaxasServicos.Clear();
-                
-                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    if (cListBoxTaxasServicos.GetItemChecked(i))
-                    {
-                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
-                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacao, taxaServico);
-                        locacaoTaxasServicos.Add(locacao_TaxaServico);
-                        //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
-                    }
-                }
-            }
-
         }
 
         public Locacao Locacao
@@ -109,7 +85,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 //CONDUTOR
                 cboxCondutor.SelectedItem = locacao.condutor.Nome;
 
-                //VEIUCLO
+                //VEICULO
                 cboxGrupoVeiculo.SelectedItem = locacao.grupoVeiculo.categoria;
                 cboxVeiculo.SelectedItem = locacao.veiculo.Modelo;
                 txtQuilometragemDevolucao.Text = locacao.quilometragemDevolucao.ToString();
@@ -203,8 +179,21 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Condutor condutor = (Condutor)cboxCondutor.SelectedItem;
                 bool emAberto = true;
 
+
                 locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
-                
+
+
+                locacao.taxasServicos.Clear();
+
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                {
+                    if (cListBoxTaxasServicos.GetItemChecked(i))
+                    {
+                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                        locacao.taxasServicos.Add(taxaServico);
+                    }
+                }
+
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = veiculo.Validar();
 
@@ -225,20 +214,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
 
                     DialogResult = DialogResult.None;
-                }
-                else
-                {
-
-                    int i;
-                    for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                    {
-                        if (cListBoxTaxasServicos.GetItemChecked(i))
-                        {
-                            TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
-                            LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
-                            LocacaoTaxasServicos.Add(locacao_TaxaServico);
-                        }
-                    }
                 }
                 
             }

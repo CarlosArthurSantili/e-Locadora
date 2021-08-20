@@ -26,7 +26,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         public Veiculo veiculo { get; set; }
         public Clientes cliente { get; set; }
         public Condutor condutor { get; set; }
-
+        public List<TaxasServicos> taxasServicos { get; set; }
         public bool emAberto { get; set; }
 
 
@@ -44,6 +44,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.cliente = cliente;
             this.condutor = condutor;
             this.emAberto = emAberto;
+            this.taxasServicos = new List<TaxasServicos>();
         }
 
         public double CalcularValorLocacao()

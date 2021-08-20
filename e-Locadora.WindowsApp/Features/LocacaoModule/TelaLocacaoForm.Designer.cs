@@ -501,7 +501,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabControlLocacao.Controls.Add(this.tabPageLocacao);
             this.tabControlLocacao.Controls.Add(this.tabPageClienteVeiculo);
             this.tabControlLocacao.Controls.Add(this.tabPageTaxasServicos);
-            this.tabControlLocacao.Location = new System.Drawing.Point(3, 12);
+            this.tabControlLocacao.Location = new System.Drawing.Point(5, 12);
             this.tabControlLocacao.Name = "tabControlLocacao";
             this.tabControlLocacao.SelectedIndex = 0;
             this.tabControlLocacao.Size = new System.Drawing.Size(266, 207);

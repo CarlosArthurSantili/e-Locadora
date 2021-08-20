@@ -29,10 +29,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             tela.ShowDialog();
             if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao) == "ESTA_VALIDO")
             {
+                //foreach (LocacaoTaxasServicos taxaServicoIndividual in tela.LocacaoTaxasServicos)
+                //    controladorLocacaoTaxasServicos.InserirNovo(taxaServicoIndividual);
+                
                 controladorLocacao.InserirNovo(tela.Locacao);
 
-                foreach (LocacaoTaxasServicos taxaServicoIndividual in tela.LocacaoTaxasServicos)
-                    controladorLocacaoTaxasServicos.InserirNovo(taxaServicoIndividual);
                 tabelaLocacao.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.Nome}] foi efetuada com sucesso");
@@ -58,18 +59,17 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             tela.ShowDialog();
             if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
             {
-                List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
+                //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
 
-                foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
-                    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id,taxaServicoIndividual.Id);
+                //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
+                //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id,taxaServicoIndividual.Id);
 
+                //foreach (LocacaoTaxasServicos locacaoTaxaServicoIndividual in tela.LocacaoTaxasServicos)
+                //{
+                //   controladorLocacaoTaxasServicos.InserirNovo(locacaoTaxaServicoIndividual);
+                //}
                 controladorLocacao.Editar(id, tela.Locacao);
 
-                foreach (LocacaoTaxasServicos locacaoTaxaServicoIndividual in tela.LocacaoTaxasServicos)
-                {
-                    controladorLocacaoTaxasServicos.InserirNovo(locacaoTaxaServicoIndividual);
-                }
-                
                 tabelaLocacao.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.veiculo.Modelo}] para o Cliente: [{tela.Locacao.cliente.Nome}] foi editada com sucesso");
@@ -92,9 +92,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             if (MessageBox.Show($"Tem certeza que deseja excluir a Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}]?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
-                foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
-                    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id, taxaServicoIndividual.Id);
+                //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
+                //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
+                //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id, taxaServicoIndividual.Id);
                 controladorLocacao.Excluir(id);
 
                 tabelaLocacao.AtualizarRegistros();
