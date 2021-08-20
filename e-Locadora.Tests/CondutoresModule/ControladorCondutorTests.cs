@@ -22,8 +22,11 @@ namespace e_Locadora.Tests.CondutoresModule
             controladorCondutor = new ControladorCondutor();
             controladorCliente = new ControladorClientes();
 
+            Db.Update("DELETE FROM TBLOCACAO_TBTAXASSERVICOS");
+            Db.Update("DELETE FROM TBLOCACAO");
             Db.Update("DELETE FROM [TBCONDUTOR]");
             Db.Update("DELETE FROM [TBCLIENTES]");
+            
         }
 
         [TestMethod]

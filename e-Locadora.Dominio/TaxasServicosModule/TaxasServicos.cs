@@ -39,17 +39,16 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             return resultadoValidacao;
         }
 
-        public override string ToString()
-        {
-            return Descricao;
-        }
-
         public override bool Equals(object obj)
         {
-            return obj is TaxasServicos servicos &&
-                   Descricao == servicos.Descricao &&
-                   TaxaFixa == servicos.TaxaFixa &&
-                   TaxaDiaria == servicos.TaxaDiaria;
+            return Equals(obj as TaxasServicos);
+        }
+        public bool Equals(TaxasServicos other)
+        {
+                   return other != null &&
+                   Descricao == other.Descricao &&
+                   TaxaFixa == other.TaxaFixa &&
+                   TaxaDiaria == other.TaxaDiaria;
         }
 
         public override int GetHashCode()

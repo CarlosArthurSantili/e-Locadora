@@ -22,6 +22,8 @@ namespace e_Locadora.Tests.TaxasServicosModule
 
         private void LimparTelas()
         {
+            Db.Update("DELETE FROM TBLOCACAO_TBTAXASSERVICOS");
+            Db.Update("DELETE FROM TBLOCACAO");
             Db.Update("DELETE FROM TBTAXASSERVICOS");
         }
 

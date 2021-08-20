@@ -83,9 +83,5 @@ namespace e_Locadora.Dominio.FuncionarioModule
             return Equals(obj as Funcionario);
         }
 
-        public override string ToString()
-        {
-            return Nome;
-        }
     }
 }

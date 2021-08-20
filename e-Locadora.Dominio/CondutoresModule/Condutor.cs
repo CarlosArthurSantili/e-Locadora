@@ -102,9 +102,5 @@ namespace e_Locadora.Dominio.CondutoresModule
             return Equals(obj as Condutor);
         }
 
-        public override string ToString()
-        {
-            return Nome;
-        }
     }
 }

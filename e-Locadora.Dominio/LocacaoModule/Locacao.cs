@@ -27,7 +27,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         public Clientes cliente { get; set; }
         public Condutor condutor { get; set; }
 
-        public List<TaxasServicos> taxasServicos { get; set; }
+        //public List<TaxasServicos> taxasServicos { get; set; }
 
         public bool emAberto { get; set; }
 
@@ -95,12 +95,12 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public void AdicionarTaxasServicos(TaxasServicos taxaServico)
         {
-            taxasServicos.Add(taxaServico);
+            //taxasServicos.Add(taxaServico);
         }
 
         public void RemoverTaxasServicos(TaxasServicos taxaServico)
         {
-            taxasServicos.Remove(taxaServico);
+            //taxasServicos.Remove(taxaServico);
         }
 
         public override string Validar()
@@ -121,15 +121,15 @@ namespace e_Locadora.Dominio.LocacaoModule
         {
             return other != null
                 && Id == other.Id
-                && funcionario == other.funcionario
+                && funcionario.Equals(other.funcionario)
                 && dataLocacao == other.dataLocacao
                 && dataDevolucao == other.dataDevolucao
                 && quilometragemDevolucao == other.quilometragemDevolucao
                 && plano == other.plano
-                && grupoVeiculo == other.grupoVeiculo
-                && veiculo == other.veiculo
-                && cliente == other.cliente
-                && condutor == other.condutor
+                && grupoVeiculo.Equals(grupoVeiculo)
+                && veiculo.Equals(veiculo)
+                && cliente.Equals(other.cliente)
+                && condutor.Equals(other.condutor)
                 && emAberto == other.emAberto;
         }
 

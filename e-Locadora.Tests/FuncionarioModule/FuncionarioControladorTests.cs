@@ -17,7 +17,11 @@ namespace e_Locadora.Tests.FuncionarioModule
         public FuncionarioControladorTests()
         {
            controlador = new ControladorFuncionario();
+
+            
             Db.Update("DELETE FROM [TBFUNCIONARIO]");
+            Db.Update("DELETE FROM TBLOCACAO_TBTAXASSERVICOS");
+            Db.Update("DELETE FROM TBLOCACAO");
         }
 
         [TestMethod]
