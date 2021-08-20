@@ -65,16 +65,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 controladorLocacao.Editar(id, tela.Locacao);
 
-                foreach (LocacaoTaxasServicos taxaServicoIndividual in tela.LocacaoTaxasServicos)
+                foreach (LocacaoTaxasServicos locacaoTaxaServicoIndividual in tela.LocacaoTaxasServicos)
                 {
-                    Locacao locacaoIndividual = locacaoSelecionado;
-                    //Criar LocacaoTaxaServico e adicionar utilizando controlador
-                    //TaxasServicos = ;
-                    //LocacaoTaxasServicos locacaoTaxaServicoIndividual = new LocacaoTaxasServicos();
-                    controladorLocacaoTaxasServicos.InserirNovo(taxaServicoIndividual);
+                    controladorLocacaoTaxasServicos.InserirNovo(locacaoTaxaServicoIndividual);
                 }
-                    
-                
                 
                 tabelaLocacao.AtualizarRegistros();
 
@@ -98,6 +92,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             if (MessageBox.Show($"Tem certeza que deseja excluir a Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}]?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
+                List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
+                foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
+                    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id, taxaServicoIndividual.Id);
                 controladorLocacao.Excluir(id);
 
                 tabelaLocacao.AtualizarRegistros();

@@ -18,7 +18,18 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.locacao = locacao;
             this.taxasServicos = taxasServicos;
         }
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as LocacaoTaxasServicos);
+        }
 
+        public bool Equals(LocacaoTaxasServicos other)
+        {
+            return other != null
+                && Id == other.Id
+                && locacao.Equals(other.locacao)
+                && taxasServicos.Equals(other.taxasServicos);
+        }
         public override string Validar()
         {
             return "ESTA_VALIDO";

@@ -30,13 +30,11 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
         private const string sqlInserirLocacaoTaxasServicos =
          @"INSERT INTO TBLOCACAO_TBTAXASSERVICOS
 	                (
-                        [ID],
 		                [IDLOCACAO], 
 		                [IDTAXASSERVICOS]
 	                ) 
 	                VALUES
 	                (
-                        @ID,
 		                @IDLOCACAO, 
 		                @IDTAXASSERVICOS
 	                )";
@@ -44,7 +42,6 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
         private const string sqlEditarLocacaoTaxasServicos =
                     @"UPDATE TBLOCACAO_TBTAXASSERVICOS
                     SET
-                        [ID] = @ID,
 		                [IDLOCACAO] = @IDLOCACAO, 
 		                [IDTAXASSERVICOS] = @IDTAXASSERVICOS
                     WHERE 
