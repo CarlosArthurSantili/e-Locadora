@@ -24,21 +24,28 @@ namespace e_Locadora.WindowsApp.Login
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            bool loginValido = false;
             foreach (Funcionario funcionario in controladorFuncionario.SelecionarTodos())
             {
                 if (txtUsuario.Text == funcionario.Usuario && txtSenha.Text == funcionario.Senha)
                 {
                     TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
-                    telaPrincipalForm.Visible = true;
+                    loginValido = true;
+                    this.Visible = false;
+                    telaPrincipalForm.ShowDialog();
 
                 }
-                if(txtUsuario.Text == "admin" && txtSenha.Text == "admin")
-                {
-                    TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
-                    telaPrincipalForm.Visible = true;
-                }
             }
-            labelRodape.Text = "Login ou Senha Inválidos, tente novamente!";
+            if (txtUsuario.Text == "admin" && txtSenha.Text == "admin")
+            {
+                TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
+                loginValido = true;
+                this.Visible = false;
+                telaPrincipalForm.ShowDialog();
+
+            }
+            if (!loginValido)
+                labelRodape.Text = "Login ou Senha Inválidos, tente novamente!";
         }
     }
 }

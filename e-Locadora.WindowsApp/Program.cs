@@ -16,12 +16,15 @@ namespace e_Locadora.WindowsApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new TelaVeiculoForm());
             //Application.Run(new TelaPrincipalForm());
-            Application.Run(new TelaLogin());
 
+            //Application.Run(new TelaLogin());
+            
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.ShowDialog();
         }
     }
 }
