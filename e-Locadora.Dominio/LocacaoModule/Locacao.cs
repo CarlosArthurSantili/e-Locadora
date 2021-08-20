@@ -87,6 +87,11 @@ namespace e_Locadora.Dominio.LocacaoModule
             return valorTotal;
         }
 
+        public override string ToString()
+        {
+            return "Cliente: " + cliente + "Veiculo: " + veiculo;
+        }
+
         public void FinalizarLocacao() {
             emAberto = false;
         }

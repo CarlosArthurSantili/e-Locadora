@@ -18,6 +18,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.locacao = locacao;
             this.taxasServicos = taxasServicos;
         }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as LocacaoTaxasServicos);

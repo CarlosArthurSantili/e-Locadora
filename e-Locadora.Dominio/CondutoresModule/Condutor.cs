@@ -32,6 +32,12 @@ namespace e_Locadora.Dominio.CondutoresModule
             Cliente = cliente;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
+
         public override string Validar()
         {
             string resultadoValidacao = "";

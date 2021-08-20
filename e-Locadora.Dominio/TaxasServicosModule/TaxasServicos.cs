@@ -20,6 +20,11 @@ namespace e_Locadora.Dominio.TaxasServicosModule
             TaxaFixa = taxaFixa;
             TaxaDiaria = taxaDiaria;    
         }
+
+        public override string ToString()
+        {
+            return Descricao;
+        }
         public override string Validar()
         {
             string resultadoValidacao = "";

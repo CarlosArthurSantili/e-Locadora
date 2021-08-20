@@ -27,6 +27,11 @@ namespace e_Locadora.Dominio.ClientesModule
             CNPJ = cNPJ;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";

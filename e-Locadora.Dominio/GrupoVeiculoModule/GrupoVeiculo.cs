@@ -29,6 +29,11 @@ namespace e_Locadora.Dominio
             this.planoKmControladoQuantidadeKm = planoKmControladoQuantidadeKm;
         }
 
+        public override string ToString()
+        {
+            return categoria;
+        }
+
         public override string Validar() {
             string resultadoValidacao = "";
             if (string.IsNullOrEmpty(categoria))

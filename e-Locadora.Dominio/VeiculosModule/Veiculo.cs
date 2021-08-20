@@ -48,6 +48,12 @@ namespace e_Locadora.Dominio.VeiculosModule
 
         public byte[] Imagem { get; }
 
+
+        public override string ToString()
+        {
+            return "Modelo: " + Modelo;
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";
