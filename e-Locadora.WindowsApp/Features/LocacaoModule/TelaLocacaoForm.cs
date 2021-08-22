@@ -1,13 +1,20 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.LocacaoModule;
 using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
+using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
+using e_Locadora.Dominio.TaxasServicosModule;
+using e_Locadora.Dominio.VeiculosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +28,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorCondutor controladorCondutor = new ControladorCondutor();
         ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
         ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
+        ControladorLocacao controladorLocacao = new ControladorLocacao();
         private Locacao locacao;
 
         public TelaLocacaoForm()
