@@ -222,5 +222,6 @@ namespace e_Locadora.WindowsApp
             OperacoesLocacao operacaoDevolucao = (OperacoesLocacao)operacoes;
             operacaoDevolucao.RegistrarDevolucao();
         }
+
     }
 }
