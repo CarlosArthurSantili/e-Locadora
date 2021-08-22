@@ -15,47 +15,41 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 {
     public partial class TelaDevolucaoForm : Form
     {
-        ControladorVeiculos controladorVeiculo = null;
+        private Locacao locacao;
+        
+
         public TelaDevolucaoForm()
         {
             InitializeComponent();
         }
+
+
         public Locacao Locacao
         {
             get
             {
-                return Locacao;
+                return locacao;
             } 
             set
             {
-                txtVeiculo.Text = Locacao.veiculo.ToString();
-                txtCliente.Text = Locacao.cliente.ToString();
-                txtCondutor.Text = Locacao.condutor.ToString();
-                maskedTextBoxDataLocacao.Text = Locacao.dataLocacao.ToString();
-                maskedTextBoxDataRetornoPrevisto.Text = Locacao.dataDevolucao.ToString();
-                maskedTextBoxDataRetornoAtual.Text = Convert.ToDateTime(DateTime.Now).ToString();
-                txtQuilometragemInicial.Text = Locacao.veiculo.Quilometragem.ToString();
-                txtQuilometragemAtual.Text = Locacao.quilometragemDevolucao.ToString();
-                txtValorTotal.Text = Convert.ToDouble(Locacao.CalcularValorLocacao()).ToString();
+                locacao = value;
 
-     
-                /*int i;
-                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
-                    {
-                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
-                            cListBoxTaxasServicos.SetItemChecked(i, true);
-                    }
-                }
-                */
+                txtVeiculo.Text = locacao.veiculo.ToString();
+                txtCliente.Text = locacao.cliente.ToString();
+                txtCondutor.Text = locacao.condutor.ToString();
+                maskedTextBoxDataLocacao.Text = locacao.dataLocacao.ToString();
+                maskedTextBoxDataRetornoPrevisto.Text = locacao.dataDevolucao.ToString();
+                maskedTextBoxDataRetornoAtual.Text = Convert.ToDateTime(DateTime.Now).ToString();
+                txtQuilometragemInicial.Text = locacao.veiculo.Quilometragem.ToString();
+                txtQuilometragemAtual.Text = locacao.quilometragemDevolucao.ToString();
+                txtValorTotal.Text = Convert.ToDouble(locacao.CalcularValorLocacao()).ToString();
             }
         }
         public string ValidarCampos()
         {
             if(txtVeiculo.Text == "")
             {
-                return "Veiculo é obrigatório";
+                return "Veículo é obrigatório";
             }
             if(txtCliente.Text == "")
             {

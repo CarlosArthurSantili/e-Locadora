@@ -137,9 +137,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             Locacao locacaoSelecionado = controladorLocacao.SelecionarPorId(id);
 
             tela.Locacao = locacaoSelecionado;
-
-            if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
-                "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            tela.ShowDialog();
+            //inserir no botão gravar de devolução
+            //if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
+            //    "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if(tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
             {
                 
                 controladorLocacao.Editar(id, locacaoSelecionado);
