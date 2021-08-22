@@ -218,6 +218,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cListBoxTaxasServicos.Name = "cListBoxTaxasServicos";
             this.cListBoxTaxasServicos.Size = new System.Drawing.Size(220, 49);
             this.cListBoxTaxasServicos.TabIndex = 95;
+            this.cListBoxTaxasServicos.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cListBoxTaxasServicos_ItemCheck);
             // 
             // groupBox1
             // 
@@ -259,7 +260,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.checkBoxSeguroTerceiro.TabIndex = 1;
             this.checkBoxSeguroTerceiro.Text = "Seguro Terceiro";
             this.checkBoxSeguroTerceiro.UseVisualStyleBackColor = true;
-            
+            this.checkBoxSeguroTerceiro.CheckedChanged += new System.EventHandler(this.checkBoxSeguroTerceiro_CheckedChanged);
             // 
             // checkBoxCliente
             // 
@@ -270,7 +271,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.checkBoxCliente.TabIndex = 0;
             this.checkBoxCliente.Text = "Seguro Cliente";
             this.checkBoxCliente.UseVisualStyleBackColor = true;
-            
+            this.checkBoxCliente.CheckedChanged += new System.EventHandler(this.checkBoxCliente_CheckedChanged);
             // 
             // tabPageClienteVeiculo
             // 
@@ -299,7 +300,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cboxGrupoVeiculo.Name = "cboxGrupoVeiculo";
             this.cboxGrupoVeiculo.Size = new System.Drawing.Size(104, 21);
             this.cboxGrupoVeiculo.TabIndex = 32;
-            
+            this.cboxGrupoVeiculo.SelectedIndexChanged += new System.EventHandler(this.cboxGrupoVeiculo_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -376,7 +377,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(104, 21);
             this.cboxCliente.TabIndex = 15;
-           
+            this.cboxCliente.SelectedIndexChanged += new System.EventHandler(this.cboxCliente_SelectedIndexChanged);
             // 
             // tabPageLocacao
             // 
@@ -423,7 +424,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.maskedTextBoxDevolucao.Size = new System.Drawing.Size(77, 20);
             this.maskedTextBoxDevolucao.TabIndex = 24;
             this.maskedTextBoxDevolucao.ValidatingType = typeof(System.DateTime);
-            
+            this.maskedTextBoxDevolucao.TextChanged += new System.EventHandler(this.maskedTextBoxDevolucao_TextChanged);
+            // 
             // maskedTextBoxLocacao
             // 
             this.maskedTextBoxLocacao.Location = new System.Drawing.Point(110, 102);
@@ -432,6 +434,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.maskedTextBoxLocacao.Size = new System.Drawing.Size(77, 20);
             this.maskedTextBoxLocacao.TabIndex = 23;
             this.maskedTextBoxLocacao.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBoxLocacao.TextChanged += new System.EventHandler(this.maskedTextBoxLocacao_TextChanged);
             // 
             // label4
             // 
@@ -462,6 +465,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.cboxPlano.Name = "cboxPlano";
             this.cboxPlano.Size = new System.Drawing.Size(114, 21);
             this.cboxPlano.TabIndex = 14;
+            this.cboxPlano.SelectedIndexChanged += new System.EventHandler(this.cboxPlano_SelectedIndexChanged);
             // 
             // labelDataLocacao
             // 
