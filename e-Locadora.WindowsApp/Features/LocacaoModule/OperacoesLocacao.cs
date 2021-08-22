@@ -57,6 +57,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             tela.ShowDialog();
             if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
             {
+                //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
+
+                //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
+                //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id,taxaServicoIndividual.Id);
+
+                //foreach (LocacaoTaxasServicos locacaoTaxaServicoIndividual in tela.LocacaoTaxasServicos)
+                //{
+                //   controladorLocacaoTaxasServicos.InserirNovo(locacaoTaxaServicoIndividual);
+                //}
                 controladorLocacao.Editar(id, tela.Locacao);
 
                 tabelaLocacao.AtualizarRegistros();
@@ -81,6 +90,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             if (MessageBox.Show($"Tem certeza que deseja excluir a Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}]?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
+                //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
+                //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
+                //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id, taxaServicoIndividual.Id);
                 controladorLocacao.Excluir(id);
 
                 tabelaLocacao.AtualizarRegistros();
