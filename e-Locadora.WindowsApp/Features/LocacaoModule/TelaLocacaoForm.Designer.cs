@@ -49,7 +49,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.txtSeguroTerceiro = new System.Windows.Forms.MaskedTextBox();
             this.checkBoxSeguroTerceiro = new System.Windows.Forms.CheckBox();
             this.txtSeguroCliente = new System.Windows.Forms.MaskedTextBox();
-            this.checkBoxCliente = new System.Windows.Forms.CheckBox();
+            this.checkBoxSeguroCliente = new System.Windows.Forms.CheckBox();
             this.tabPageClienteVeiculo = new System.Windows.Forms.TabPage();
             this.cboxGrupoVeiculo = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -247,7 +247,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.groupBox1.Controls.Add(this.txtSeguroTerceiro);
             this.groupBox1.Controls.Add(this.checkBoxSeguroTerceiro);
             this.groupBox1.Controls.Add(this.txtSeguroCliente);
-            this.groupBox1.Controls.Add(this.checkBoxCliente);
+            this.groupBox1.Controls.Add(this.checkBoxSeguroCliente);
             this.groupBox1.Location = new System.Drawing.Point(6, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(244, 74);
@@ -257,10 +257,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // txtSeguroTerceiro
             // 
+            this.txtSeguroTerceiro.Enabled = false;
             this.txtSeguroTerceiro.Location = new System.Drawing.Point(121, 46);
+            this.txtSeguroTerceiro.Mask = "000000000000000";
             this.txtSeguroTerceiro.Name = "txtSeguroTerceiro";
             this.txtSeguroTerceiro.Size = new System.Drawing.Size(104, 20);
             this.txtSeguroTerceiro.TabIndex = 10;
+            this.txtSeguroTerceiro.Text = "0";
             this.txtSeguroTerceiro.TextChanged += new System.EventHandler(this.txtSeguroTerceiro_TextChanged);
             // 
             // checkBoxSeguroTerceiro
@@ -276,22 +279,26 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // txtSeguroCliente
             // 
+            this.txtSeguroCliente.Enabled = false;
             this.txtSeguroCliente.Location = new System.Drawing.Point(121, 20);
+            this.txtSeguroCliente.Mask = "000000000000000";
             this.txtSeguroCliente.Name = "txtSeguroCliente";
             this.txtSeguroCliente.Size = new System.Drawing.Size(104, 20);
             this.txtSeguroCliente.TabIndex = 4;
+            this.txtSeguroCliente.Text = "0";
+            this.txtSeguroCliente.ValidatingType = typeof(int);
             this.txtSeguroCliente.TextChanged += new System.EventHandler(this.txtSeguroCliente_TextChanged);
             // 
-            // checkBoxCliente
+            // checkBoxSeguroCliente
             // 
-            this.checkBoxCliente.AutoSize = true;
-            this.checkBoxCliente.Location = new System.Drawing.Point(13, 22);
-            this.checkBoxCliente.Name = "checkBoxCliente";
-            this.checkBoxCliente.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxCliente.TabIndex = 0;
-            this.checkBoxCliente.Text = "Seguro Cliente";
-            this.checkBoxCliente.UseVisualStyleBackColor = true;
-            this.checkBoxCliente.CheckedChanged += new System.EventHandler(this.checkBoxCliente_CheckedChanged);
+            this.checkBoxSeguroCliente.AutoSize = true;
+            this.checkBoxSeguroCliente.Location = new System.Drawing.Point(13, 22);
+            this.checkBoxSeguroCliente.Name = "checkBoxSeguroCliente";
+            this.checkBoxSeguroCliente.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxSeguroCliente.TabIndex = 0;
+            this.checkBoxSeguroCliente.Text = "Seguro Cliente";
+            this.checkBoxSeguroCliente.UseVisualStyleBackColor = true;
+            this.checkBoxSeguroCliente.CheckedChanged += new System.EventHandler(this.checkBoxCliente_CheckedChanged);
             // 
             // tabPageClienteVeiculo
             // 
@@ -543,6 +550,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.Name = "TelaLocacaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de Locações";
+            this.Load += new System.EventHandler(this.TelaLocacaoForm_Load);
             this.groupBoxResumoFinanceiro.ResumeLayout(false);
             this.groupBoxResumoFinanceiro.PerformLayout();
             this.tabPageTaxasServicos.ResumeLayout(false);
@@ -571,7 +579,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.CheckedListBox cListBoxTaxasServicos;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxSeguroTerceiro;
-        private System.Windows.Forms.CheckBox checkBoxCliente;
+        private System.Windows.Forms.CheckBox checkBoxSeguroCliente;
         private System.Windows.Forms.TabPage tabPageClienteVeiculo;
         private System.Windows.Forms.ComboBox cboxGrupoVeiculo;
         private System.Windows.Forms.Label label13;

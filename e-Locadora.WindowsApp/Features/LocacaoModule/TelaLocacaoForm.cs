@@ -34,8 +34,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
-        ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = new ControladorLocacaoTaxasServicos();
-
+        
         private double custoPlanoLocacao = 0;
         private Locacao locacao;
 
@@ -67,13 +66,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 if (locacao.seguroCliente != 0)
                 {
-                    checkBoxCliente.Enabled = true;
+                    checkBoxSeguroCliente.Checked = true;
                     txtSeguroCliente.Text = locacao.seguroCliente.ToString();
                 }
 
                 if (locacao.seguroTerceiro != 0)
                 {
-                    checkBoxSeguroTerceiro.Enabled = true;
+                    checkBoxSeguroTerceiro.Checked = true;
                     txtSeguroTerceiro.Text = locacao.seguroTerceiro.ToString();
                 }
 
@@ -91,16 +90,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxVeiculo.SelectedItem = locacao.veiculo;
                 txtQuilometragemLocacao.Text = locacao.quilometragemDevolucao.ToString();
 
-                //TAXAS E SERVICOS
-                int i;
-                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
-                    {
-                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
-                            cListBoxTaxasServicos.SetItemChecked(i, true);
-                    }
-                }
             }
         }
 
@@ -314,7 +303,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void checkBoxCliente_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxCliente.Checked == true)
+            if (checkBoxSeguroCliente.Checked == true)
             {
                 txtSeguroCliente.Enabled = true;
             }
@@ -427,7 +416,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 }
             }
             catch {
-                labelVariavelCustosPlano.Text = "Erro ao obter valor dos custos do plano";
+                labelVariavelCustosPlano.Text = "0";
             }
         }
 
@@ -447,7 +436,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 labelVariavelCustosTaxasServicos.Text = valorTaxasServicos.ToString();
             }
             catch {
-                labelVariavelCustosTaxasServicos.Text = "Erro ao obter valores de taxas e serviços";
+                labelVariavelCustosTaxasServicos.Text = "0";
             }
         }
 
@@ -460,7 +449,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 labelVariavelSeguros.Text = valorSeguros.ToString();
             }
             catch {
-                labelVariavelSeguros.Text = "Erro ao obter valores dos seguros";
+                labelVariavelSeguros.Text = "0";
             }
         }
 
@@ -485,15 +474,25 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void cListBoxTaxasServicos_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            this.BeginInvoke((MethodInvoker)(
-            () => MostrarResumoFinanceiro()));
-           
+            this.BeginInvoke((MethodInvoker)(() => MostrarResumoFinanceiro()));
         }
 
         private void cboxVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
             Veiculo veiculo = (Veiculo)cboxVeiculo.SelectedItem;
             txtQuilometragemLocacao.Text = veiculo.Quilometragem.ToString();
+        }
+
+        private void TelaLocacaoForm_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+            {
+                foreach (TaxasServicos taxaServicoLocacao in controladorLocacao.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                {
+                    if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
+                        cListBoxTaxasServicos.SetItemChecked(i, true);
+                }
+            }
         }
     }
 }
