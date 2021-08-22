@@ -24,7 +24,7 @@ namespace e_Locadora.Tests.TaxasServicosModule
         [TestMethod]
         public void Nao_Deve_Validar_Taxa_Fixa()
         {
-            TaxasServicos taxasServicos = new TaxasServicos("Taxa de Lavação", -1, 0);
+            TaxasServicos taxasServicos = new TaxasServicos("Taxa de Lavação", -1, 10);
             Assert.AreEqual("Taxa Fixa não pode ser menor que Zero.", taxasServicos.Validar());
         }
 

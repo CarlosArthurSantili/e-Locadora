@@ -234,7 +234,6 @@ namespace e_Locadora.Controladores.LocacaoModule
                         LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(registro, taxaServico);
                         Db.Insert(sqlInserirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
                     }
-                    
             }
 
             if (resultadoValidacaoDominio != "ESTA_VALIDO")
@@ -269,10 +268,10 @@ namespace e_Locadora.Controladores.LocacaoModule
                         Db.Insert(sqlInserirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
                     }
                 }
-                
+
             }
 
-            if(resultadoValidacaoDominio != "ESTA_VALIDO")
+            if (resultadoValidacaoDominio != "ESTA_VALIDO")
                 return resultadoValidacaoDominio;
             else
                 return resultadoValidacaoControlador;
@@ -311,22 +310,14 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         public override Locacao SelecionarPorId(int id)
         {
-            Locacao locacaoSelecionada = Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
-            
-            if (!locacaoSelecionada.IsNullOrEmpty())
-            {
-                List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoSelecionada.Id);
-                locacaoSelecionada.taxasServicos = taxasServicosIndividuais;
-            }
-            
-            return locacaoSelecionada;
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
         public override List<Locacao> SelecionarTodos()
         {
             List<Locacao> todasLocacoes = new List<Locacao>();
             todasLocacoes = Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
-            
+
             foreach (Locacao locacaoIndividual in todasLocacoes)
             {
                 List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoIndividual.Id);
@@ -455,6 +446,7 @@ namespace e_Locadora.Controladores.LocacaoModule
         {
             var idLocacao = Convert.ToInt32(reader["IDLOCACAO"]);
             Locacao locacao = SelecionarPorId(idLocacao);
+            //adicionar TaxasServicosSeparadamente
 
             var idTaxasServicos = Convert.ToInt32(reader["IDTAXASSERVICOS"]);
             TaxasServicos taxasServicos = controladorTaxasServicos.SelecionarPorId(idTaxasServicos);
@@ -473,13 +465,18 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         public List<TaxasServicos> SelecionarTaxasServicosPorLocacaoId(int idLocacao)
         {
-            List<TaxasServicos> taxasServicos = new List<TaxasServicos>();
-            foreach (LocacaoTaxasServicos Locacao_TaxaServico in SelecionarTodosLocacaoTaxasServicos())
+            if (Existe(idLocacao))
             {
-                if (idLocacao == Locacao_TaxaServico.locacao.Id)
-                    taxasServicos.Add(Locacao_TaxaServico.taxasServicos);
+                List<TaxasServicos> taxasServicos = new List<TaxasServicos>();
+                List<LocacaoTaxasServicos> todasLocacaoTaxaServico = SelecionarTodosLocacaoTaxasServicos();
+                foreach (LocacaoTaxasServicos Locacao_TaxaServico in todasLocacaoTaxaServico)
+                {
+                    if (idLocacao == Locacao_TaxaServico.locacao.Id)
+                        taxasServicos.Add(Locacao_TaxaServico.taxasServicos);
+                }
+                return taxasServicos;
             }
-            return taxasServicos;
+            return null;
         }
     }
 }
