@@ -40,6 +40,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 maskedTextBoxDataLocacao.Text = locacao.dataLocacao.ToString();
                 maskedTextBoxDataRetornoPrevisto.Text = locacao.dataDevolucao.ToString();
                 maskedTextBoxDataRetornoAtual.Text = Convert.ToDateTime(DateTime.Now).ToString();
+                txtTipoCombustivel.Text = locacao.veiculo.Combustivel.ToString();
                 txtQuilometragemInicial.Text = locacao.veiculo.Quilometragem.ToString();
                 txtQuilometragemAtual.Text = locacao.quilometragemDevolucao.ToString();
                 txtValorTotal.Text = Convert.ToDouble(locacao.CalcularValorLocacao()).ToString();
