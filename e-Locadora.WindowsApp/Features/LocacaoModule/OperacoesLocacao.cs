@@ -93,11 +93,16 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
                 //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
                 //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id, taxaServicoIndividual.Id);
-                controladorLocacao.Excluir(id);
+                if (controladorLocacao.Excluir(id))
+                {
+                    tabelaLocacao.AtualizarRegistros();
 
-                tabelaLocacao.AtualizarRegistros();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+                }
+                else
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: Não foi possível excluir [{locacaoSelecionado.veiculo.Modelo}], pois ele está vinculado a outros registros");
+                }
             }
         }
 
