@@ -25,7 +25,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = false,
+                Filtrar = true,
                 Devolucao = true
             };
         }
@@ -37,6 +37,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Adicionar = "Adicionar uma nova Locação",
                 Editar = "Atualizar uma Locação existente",
                 Excluir = "Excluir uma Locação existente",
+                Filtrar = "Filtrando uma Locação Pendente",
                 Devolucao = "Realizar uma Devolução"
             };
         }

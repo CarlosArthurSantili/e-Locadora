@@ -342,7 +342,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("DATADEVOLUCAO", dataDevolucao);
 
             return Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, parametros);
-        }
+        
 
         
             return locacoesPendentes;
