@@ -485,14 +485,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void TelaLocacaoForm_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-            {
-                foreach (TaxasServicos taxaServicoLocacao in controladorLocacao.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+            if (locacao != null)
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
                 {
-                    if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
-                        cListBoxTaxasServicos.SetItemChecked(i, true);
+                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacao.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                    {
+                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
+                            cListBoxTaxasServicos.SetItemChecked(i, true);
+                    }
                 }
-            }
         }
     }
 }
