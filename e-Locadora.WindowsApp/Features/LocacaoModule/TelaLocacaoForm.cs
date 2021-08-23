@@ -61,7 +61,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 //LOCAÇÃO
                 txtIdLocacao.Text = locacao.Id.ToString();
                 cboxPlano.SelectedItem = locacao.plano;
-                cboxFuncionario.SelectedItem = locacao.funcionario;
+                txtFuncionario.Text = TelaPrincipalForm.Instancia.funcionario.ToString();
 
 
                 if (locacao.seguroCliente != 0)
@@ -100,7 +100,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 return "Plano é obrigatorio";
             }
 
-            if (cboxFuncionario.SelectedItem == null)
+            if (string.IsNullOrEmpty(txtFuncionario.Text))
             {
                 return "Funcionario é obrigatório";
             }
@@ -157,7 +157,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             if (ValidarCampos().Equals("ESTA_VALIDO"))
             {
                 DialogResult = DialogResult.OK;
-                Funcionario funcionario = (Funcionario)cboxFuncionario.SelectedItem;
+                Funcionario funcionario = TelaPrincipalForm.Instancia.funcionario;
                 DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao.Text);
                 DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao.Text);
                 double quilometragemDevolucao = Convert.ToDouble(txtQuilometragemLocacao.Text);
@@ -266,14 +266,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void CarregarFuncionario()
         {
-            cboxFuncionario.Items.Clear();
-
-            List<Funcionario> funcionarios = controladorFuncionario.SelecionarTodos();
-
-            foreach (var funcionario in funcionarios)
-            {
-                cboxFuncionario.Items.Add(funcionario);
-            }
+            txtFuncionario.Text = TelaPrincipalForm.Instancia.funcionario.ToString();       
         }
 
         private void CarregarTaxasServicos()

@@ -48,6 +48,8 @@ namespace e_Locadora.WindowsApp.Login
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(150, 26);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.KeyPress += new
+            System.Windows.Forms.KeyPressEventHandler(CheckEnter);
             // 
             // txtSenha
             // 
@@ -56,6 +58,8 @@ namespace e_Locadora.WindowsApp.Login
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(150, 26);
             this.txtSenha.TabIndex = 3;
+            this.txtSenha.KeyPress += new
+            System.Windows.Forms.KeyPressEventHandler(CheckEnter);
             // 
             // btnGravar
             // 

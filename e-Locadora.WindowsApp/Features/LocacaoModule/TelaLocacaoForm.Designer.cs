@@ -62,7 +62,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.label6 = new System.Windows.Forms.Label();
             this.cboxCliente = new System.Windows.Forms.ComboBox();
             this.tabPageLocacao = new System.Windows.Forms.TabPage();
-            this.cboxFuncionario = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.maskedTextBoxDevolucao = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxLocacao = new System.Windows.Forms.MaskedTextBox();
@@ -73,6 +72,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.txtIdLocacao = new System.Windows.Forms.TextBox();
             this.labelPlano = new System.Windows.Forms.Label();
             this.tabControlLocacao = new System.Windows.Forms.TabControl();
+            this.txtFuncionario = new System.Windows.Forms.TextBox();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabPageTaxasServicos.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
@@ -410,7 +410,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // tabPageLocacao
             // 
-            this.tabPageLocacao.Controls.Add(this.cboxFuncionario);
+            this.tabPageLocacao.Controls.Add(this.txtFuncionario);
             this.tabPageLocacao.Controls.Add(this.label8);
             this.tabPageLocacao.Controls.Add(this.maskedTextBoxDevolucao);
             this.tabPageLocacao.Controls.Add(this.maskedTextBoxLocacao);
@@ -427,14 +427,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageLocacao.TabIndex = 0;
             this.tabPageLocacao.Text = "Locação";
             this.tabPageLocacao.UseVisualStyleBackColor = true;
-            // 
-            // cboxFuncionario
-            // 
-            this.cboxFuncionario.FormattingEnabled = true;
-            this.cboxFuncionario.Location = new System.Drawing.Point(110, 75);
-            this.cboxFuncionario.Name = "cboxFuncionario";
-            this.cboxFuncionario.Size = new System.Drawing.Size(114, 21);
-            this.cboxFuncionario.TabIndex = 26;
             // 
             // label8
             // 
@@ -535,6 +527,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabControlLocacao.Size = new System.Drawing.Size(266, 207);
             this.tabControlLocacao.TabIndex = 86;
             // 
+            // txtFuncionario
+            // 
+            this.txtFuncionario.Enabled = false;
+            this.txtFuncionario.Location = new System.Drawing.Point(111, 76);
+            this.txtFuncionario.Name = "txtFuncionario";
+            this.txtFuncionario.Size = new System.Drawing.Size(113, 20);
+            this.txtFuncionario.TabIndex = 26;
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,7 +592,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cboxCliente;
         private System.Windows.Forms.TabPage tabPageLocacao;
-        private System.Windows.Forms.ComboBox cboxFuncionario;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDevolucao;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxLocacao;
@@ -611,5 +610,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Label labelSeguros;
         private System.Windows.Forms.MaskedTextBox txtSeguroTerceiro;
         private System.Windows.Forms.MaskedTextBox txtSeguroCliente;
+        private System.Windows.Forms.TextBox txtFuncionario;
     }
 }

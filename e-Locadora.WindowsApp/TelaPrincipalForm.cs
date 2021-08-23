@@ -4,6 +4,7 @@ using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
+using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.Features.CondutorModule;
 using e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel;
@@ -31,6 +32,8 @@ namespace e_Locadora.WindowsApp
         private ICadastravel operacoes;
 
         public static TelaPrincipalForm Instancia;
+
+        public Funcionario funcionario;
 
         public TelaPrincipalForm()
         {
@@ -223,5 +226,9 @@ namespace e_Locadora.WindowsApp
             operacaoDevolucao.RegistrarDevolucao();
         }
 
+        private void TelaPrincipalForm_Load(object sender, EventArgs e)
+        {
+            labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
+        }
     }
 }
