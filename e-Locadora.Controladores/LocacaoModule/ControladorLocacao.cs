@@ -158,7 +158,7 @@ namespace e_Locadora.Controladores.LocacaoModule
            WHERE 
                 [EMABERTO] = @EMABERTO
             AND
-                [DATADEVOLUCAO] > @DATADEVOLUCAO";
+                [DATADEVOLUCAO] < @DATADEVOLUCAO";
 
 
         #endregion
