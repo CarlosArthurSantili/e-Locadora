@@ -15,13 +15,11 @@ namespace e_Locadora.WindowsApp.Login
     public partial class TelaLogin : Form
     {
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-
         public TelaLogin()
         {
             InitializeComponent();
             txtSenha.PasswordChar = '*';
         }
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             bool loginValido = false;
@@ -49,7 +47,6 @@ namespace e_Locadora.WindowsApp.Login
             if (!loginValido)
                 labelRodape.Text = "Login ou Senha Inválidos, tente novamente!";
         }
-
         private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -57,7 +54,6 @@ namespace e_Locadora.WindowsApp.Login
                 btnGravar_Click(sender, e);
             }
         }
-
         
     }
 }

@@ -233,8 +233,11 @@ namespace e_Locadora.WindowsApp
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            //terminar botão sair
             funcionario = null;
+
+            this.Hide();
+            TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
+            telaPrincipalForm.Close();
             TelaLogin telaLogin = new TelaLogin();
             telaLogin.ShowDialog();
         }
