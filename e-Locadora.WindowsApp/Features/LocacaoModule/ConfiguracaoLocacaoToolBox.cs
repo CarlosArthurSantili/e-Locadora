@@ -37,7 +37,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Adicionar = "Adicionar uma nova Locação",
                 Editar = "Atualizar uma Locação existente",
                 Excluir = "Excluir uma Locação existente",
-                Filtrar = "Filtrando uma Locação Pendente",
+                Filtrar = "Filtrar uma Locação existente",
                 Devolucao = "Realizar uma Devolução"
             };
         }
