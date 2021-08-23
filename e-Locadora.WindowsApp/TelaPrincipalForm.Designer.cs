@@ -54,7 +54,7 @@ namespace e_Locadora.WindowsApp
             this.btnDevolucao = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
@@ -178,7 +178,7 @@ namespace e_Locadora.WindowsApp
             this.btnDevolucao,
             this.toolStripSeparator5,
             this.labelTipoCadastro,
-            this.toolStripButton1});
+            this.btnSair});
             this.toolboxAcoes.Location = new System.Drawing.Point(0, 24);
             this.toolboxAcoes.Name = "toolboxAcoes";
             this.toolboxAcoes.Size = new System.Drawing.Size(696, 41);
@@ -300,18 +300,18 @@ namespace e_Locadora.WindowsApp
             this.labelTipoCadastro.Size = new System.Drawing.Size(174, 38);
             this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
             // 
-            // toolStripButton1
+            // btnSair
             // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_exit_to_app_black_24dp;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(38, 38);
-            this.toolStripButton1.Text = "btnSair";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.btnSair.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSair.AutoSize = false;
+            this.btnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSair.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_exit_to_app_black_24dp;
+            this.btnSair.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(38, 38);
+            this.btnSair.Text = "Sair";
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // panelRegistros
             // 
@@ -392,7 +392,7 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem combustivelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnSair;
         private System.Windows.Forms.ToolStripButton btnDevolucao;
     }
 }

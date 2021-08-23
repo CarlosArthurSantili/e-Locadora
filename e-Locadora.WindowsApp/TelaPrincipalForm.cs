@@ -230,5 +230,13 @@ namespace e_Locadora.WindowsApp
         {
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            //terminar botão sair
+            funcionario = null;
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.ShowDialog();
+        }
     }
 }
