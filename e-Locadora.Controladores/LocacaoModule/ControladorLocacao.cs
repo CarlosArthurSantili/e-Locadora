@@ -330,21 +330,19 @@ namespace e_Locadora.Controladores.LocacaoModule
         }
         public List<Locacao> SelecionarLocacoesPendentes(bool emAberto, DateTime dataDevolucao)
         {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("EMABERTO", emAberto);
+            parametros.Add("DATADEVOLUCAO", dataDevolucao);
+
             List<Locacao> locacoesPendentes = new List<Locacao>();
-            locacoesPendentes = Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, AdicionarParametro("EMABERTO", emAberto));
+            locacoesPendentes = Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao,parametros);
             foreach (Locacao locacaoIndividual in locacoesPendentes)
             {
                 List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoIndividual.Id);
                 locacaoIndividual.taxasServicos = taxasServicosIndividuais;
             }
-
-            parametros.Add("EMABERTO", emAberto);
-            parametros.Add("DATADEVOLUCAO", dataDevolucao);
-
-            return Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, parametros);
-        
-
-        
+                   
             return locacoesPendentes;
         }
 
