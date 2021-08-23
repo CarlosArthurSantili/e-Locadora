@@ -26,7 +26,7 @@ namespace e_Locadora.Controladores.LocacaoTaxasServicosModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
 
-        #region Queries
+        #region Queries LocacaoTaxaServico
         private const string sqlInserirLocacaoTaxasServicos =
          @"INSERT INTO TBLOCACAO_TBTAXASSERVICOS
 	                (

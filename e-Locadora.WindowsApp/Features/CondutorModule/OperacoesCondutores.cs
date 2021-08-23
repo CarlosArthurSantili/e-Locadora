@@ -83,13 +83,16 @@ namespace e_Locadora.WindowsApp.Features.CondutorModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o Condutor: [{condutorSelecionado.Nome}] ?",
              "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                if (controlador.Excluir(id))
+                {
+                    List<Condutor> condutores = controlador.SelecionarTodos();
 
-                List<Condutor> condutores = controlador.SelecionarTodos();
+                    tabelaCondutor.CarregarTabela(condutores);
 
-                tabelaCondutor.CarregarTabela(condutores);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{condutorSelecionado.Nome}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{condutorSelecionado.Nome}] removido com sucesso");
+                }
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Condutor: [{condutorSelecionado.Nome}] não pode ser removido, pois está vinculado a uma locação");
             }
         }
 

@@ -66,11 +66,14 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             if (MessageBox.Show($"Tem certeza que deseja excluir a Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] ?",
                 "Exclusão de Taxa ou Serviço", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                if (controlador.Excluir(id))
+                {
+                    tabelaTaxaServicos.AtualizarRegistros();
 
-                tabelaTaxaServicos.AtualizarRegistros();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] removido com sucesso");
+                }
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa ou Serviço: [{taxasServicosSelecionado.Descricao}] não pode ser removido, pois está vinculado a uma locação");
             }
         }
 

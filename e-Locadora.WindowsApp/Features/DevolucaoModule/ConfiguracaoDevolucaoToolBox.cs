@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_Locadora.WindowsApp.Features.LocacaoModule
+namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 {
-    public class ConfiguracaoLocacaoToolBox: IConfiguracaoToolBox
+    public class ConfiguracaoDevolucaoToolBox: IConfiguracaoToolBox
     {
         public string TipoCadastro
         {
-            get { return "Cadastro de Locação"; }
+            get { return "Cadastro de Devolução"; }
         }
 
         public string ObterDescricao()
@@ -25,8 +25,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = false,
-                Devolucao = true
+                Filtrar = false
             };
         }
 
@@ -34,10 +33,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             return new ConfiguracaoToolTips()
             {
-                Adicionar = "Adicionar uma nova Locação",
-                Editar = "Atualizar uma Locação existente",
-                Excluir = "Excluir uma Locação existente",
-                Devolucao = "Realizar uma Devolução"
+                Adicionar = "Adicionar uma nova Devolução",
+                Editar = "Atualizar uma Devolução existente",
+                Excluir = "Excluir uma Devolução existente"
             };
         }
     }

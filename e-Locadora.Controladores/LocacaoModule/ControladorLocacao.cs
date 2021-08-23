@@ -27,8 +27,9 @@ namespace e_Locadora.Controladores.LocacaoModule
         ControladorCondutor controladorCondutor = new ControladorCondutor();
         ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
         ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
+        ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
 
-        #region Queries
+        #region Queries Locacao
         private const string sqlInserirLocacao =
          @"INSERT INTO TBLOCACAO
 	                (
@@ -161,6 +162,66 @@ namespace e_Locadora.Controladores.LocacaoModule
 
 
         #endregion
+
+
+        #region Queries LocacaoTaxaServico
+        private const string sqlInserirLocacaoTaxasServicos =
+         @"INSERT INTO TBLOCACAO_TBTAXASSERVICOS
+	                (
+		                [IDLOCACAO], 
+		                [IDTAXASSERVICOS]
+	                ) 
+	                VALUES
+	                (
+		                @IDLOCACAO, 
+		                @IDTAXASSERVICOS
+	                )";
+
+        private const string sqlEditarLocacaoTaxasServicos =
+                    @"UPDATE TBLOCACAO_TBTAXASSERVICOS
+                    SET
+		                [IDLOCACAO] = @IDLOCACAO, 
+		                [IDTAXASSERVICOS] = @IDTAXASSERVICOS
+                    WHERE 
+                        ID = @ID";
+
+        private const string sqlExcluirLocacaoTaxasServicos =
+         @"DELETE 
+	              FROM
+                        TBLOCACAO_TBTAXASSERVICOS
+                    WHERE 
+                        IDLOCACAO = @IDLOCACAO AND IDTAXASSERVICOS = @IDTAXASSERVICOS";
+
+        private const string sqlExisteLocacaoTaxasServicos =
+        @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBLOCACAO_TBTAXASSERVICOS]
+            WHERE 
+                [ID] = @ID";
+
+        private const string sqlSelecionarLocacaoTaxasServicosPorId =
+            @"SELECT 
+                [ID],
+		        [IDLOCACAO], 
+		        [IDTAXASSERVICOS]
+            FROM
+                [TBLOCACAO_TBTAXASSERVICOS]
+            WHERE
+                [ID] = @ID";
+
+        private const string sqlSelecionarTodasLocacoesTaxasServicos =
+            @"SELECT 
+                [ID],
+		        [IDLOCACAO], 
+		        [IDTAXASSERVICOS]
+            FROM
+                [TBLOCACAO_TBTAXASSERVICOS]";
+
+
+        #endregion
+
+
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacaoDominio = registro.Validar();
@@ -169,6 +230,12 @@ namespace e_Locadora.Controladores.LocacaoModule
             if (resultadoValidacaoDominio == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
+                if (!registro.taxasServicos.IsNullOrEmpty())
+                    foreach (TaxasServicos taxaServico in registro.taxasServicos)
+                    {
+                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(registro, taxaServico);
+                        Db.Insert(sqlInserirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
+                    }
             }
 
             if (resultadoValidacaoDominio != "ESTA_VALIDO")
@@ -186,9 +253,27 @@ namespace e_Locadora.Controladores.LocacaoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));
+
+
+                //deletando todas taxas relacionadas
+                if (!registro.taxasServicos.IsNullOrEmpty()) {
+                    foreach (TaxasServicos taxaServico in registro.taxasServicos)
+                    {
+                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(registro, taxaServico);
+                        Db.Delete(sqlExcluirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
+                    }
+
+                    //inserindo novas taxas relacionadas
+                    foreach (TaxasServicos taxaServico in registro.taxasServicos)
+                    {
+                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(registro, taxaServico);
+                        Db.Insert(sqlInserirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
+                    }
+                }
+
             }
 
-            if(resultadoValidacaoDominio != "ESTA_VALIDO")
+            if (resultadoValidacaoDominio != "ESTA_VALIDO")
                 return resultadoValidacaoDominio;
             else
                 return resultadoValidacaoControlador;
@@ -196,10 +281,21 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         public override bool Excluir(int id)
         {
-
             try
             {
+                Locacao locacaoExcluida = SelecionarPorId(id);
                 Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
+                if (!locacaoExcluida.IsNullOrEmpty())
+                {
+                    if (!locacaoExcluida.taxasServicos.IsNullOrEmpty())
+                        foreach (TaxasServicos taxaServico in locacaoExcluida.taxasServicos)
+                        {
+                            LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacaoExcluida, taxaServico);
+                            Db.Delete(sqlExcluirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
+                        }
+                }
+                else
+                    return false;
             }
             catch (Exception)
             {
@@ -221,11 +317,26 @@ namespace e_Locadora.Controladores.LocacaoModule
 
         public override List<Locacao> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
+            List<Locacao> todasLocacoes = new List<Locacao>();
+            todasLocacoes = Db.GetAll(sqlSelecionarTodasLocacoes, ConverterEmLocacao);
+
+            foreach (Locacao locacaoIndividual in todasLocacoes)
+            {
+                List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoIndividual.Id);
+                locacaoIndividual.taxasServicos = taxasServicosIndividuais;
+            }
+
+            return todasLocacoes;
         }
         public List<Locacao> SelecionarLocacoesPendentes(bool emAberto, DateTime dataDevolucao)
         {
-            var parametros = new Dictionary<string, object>();
+            List<Locacao> locacoesPendentes = new List<Locacao>();
+            locacoesPendentes = Db.GetAll(sqlSelecionarLocacoesPendentes, ConverterEmLocacao, AdicionarParametro("EMABERTO", emAberto));
+            foreach (Locacao locacaoIndividual in locacoesPendentes)
+            {
+                List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoIndividual.Id);
+                locacaoIndividual.taxasServicos = taxasServicosIndividuais;
+            }
 
             parametros.Add("EMABERTO", emAberto);
             parametros.Add("DATADEVOLUCAO", dataDevolucao);
@@ -234,6 +345,42 @@ namespace e_Locadora.Controladores.LocacaoModule
         }
 
         
+            return locacoesPendentes;
+        }
+
+        public string ValidarLocacao(Locacao novoLocacao, int id = 0)
+        {
+            //validar carros alugados
+            if (novoLocacao != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countVeiculoIndisponivel = 0;
+                    List<Locacao> todasLocacoes = SelecionarTodos();
+                    foreach (Locacao locacao in todasLocacoes)
+                    {
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true && locacao.Id != id)
+                            countVeiculoIndisponivel++;
+                    }
+                    if (countVeiculoIndisponivel > 0)
+                        return "Veiculo já alugado, tente novamente.";
+                }
+                else
+                {//situação de inserir
+                    int countVeiculoIndisponivel = 0;
+                    List<Locacao> todosLocacaos = SelecionarTodos();
+                    foreach (Locacao locacao in todosLocacaos)
+                    {
+                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true)
+                            countVeiculoIndisponivel++;
+                    }
+                    if (countVeiculoIndisponivel > 0)
+                        return "Veiculo já alugado, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
+        }
+
         private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
         {
             var parametros = new Dictionary<string, object>();
@@ -255,6 +402,7 @@ namespace e_Locadora.Controladores.LocacaoModule
 
             return parametros;
         }
+
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
             var idFuncionario = Convert.ToInt32(reader["IDFUNCIONARIO"]);
@@ -282,44 +430,61 @@ namespace e_Locadora.Controladores.LocacaoModule
 
 
 
-            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao,plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
+            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
             locacao.Id = Convert.ToInt32(reader["ID"]);
 
             return locacao;
         }
 
-        public string ValidarLocacao(Locacao novoLocacao, int id = 0)
+        //LocacaoTaxaServico
+
+        private Dictionary<string, object> ObtemParametrosLocacaoTaxasServicos(LocacaoTaxasServicos locacaoTaxasServicos)
         {
-            //validar carros alugados
-            if (novoLocacao != null)
-            { 
-                if (id != 0)
-                {//situação de editar
-                    int countVeiculoIndisponivel = 0;
-                    List<Locacao> todasLocacoes = SelecionarTodos();
-                    foreach (Locacao locacao in todasLocacoes)
-                    {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true &&locacao.Id != id)
-                            countVeiculoIndisponivel++;
-                    }
-                    if (countVeiculoIndisponivel > 0)
-                        return "Veiculo já alugado, tente novamente.";
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", locacaoTaxasServicos.Id);
+            parametros.Add("IDLOCACAO", locacaoTaxasServicos.locacao.Id);
+            parametros.Add("IDTAXASSERVICOS", locacaoTaxasServicos.taxasServicos.Id);
+
+            return parametros;
+        }
+
+        private LocacaoTaxasServicos ConverterEmLocacaoTaxasServicos(IDataReader reader)
+        {
+            var idLocacao = Convert.ToInt32(reader["IDLOCACAO"]);
+            Locacao locacao = SelecionarPorId(idLocacao);
+            //adicionar TaxasServicosSeparadamente
+
+            var idTaxasServicos = Convert.ToInt32(reader["IDTAXASSERVICOS"]);
+            TaxasServicos taxasServicos = controladorTaxasServicos.SelecionarPorId(idTaxasServicos);
+
+            LocacaoTaxasServicos locacaoTaxasServicos = new LocacaoTaxasServicos(locacao, taxasServicos);
+
+            locacaoTaxasServicos.Id = Convert.ToInt32(reader["ID"]);
+
+            return locacaoTaxasServicos;
+        }
+
+        public List<LocacaoTaxasServicos> SelecionarTodosLocacaoTaxasServicos()
+        {
+            return Db.GetAll(sqlSelecionarTodasLocacoesTaxasServicos, ConverterEmLocacaoTaxasServicos);
+        }
+
+        public List<TaxasServicos> SelecionarTaxasServicosPorLocacaoId(int idLocacao)
+        {
+            if (Existe(idLocacao))
+            {
+                List<TaxasServicos> taxasServicos = new List<TaxasServicos>();
+                List<LocacaoTaxasServicos> todasLocacaoTaxaServico = SelecionarTodosLocacaoTaxasServicos();
+                foreach (LocacaoTaxasServicos Locacao_TaxaServico in todasLocacaoTaxaServico)
+                {
+                    if (idLocacao == Locacao_TaxaServico.locacao.Id)
+                        taxasServicos.Add(Locacao_TaxaServico.taxasServicos);
                 }
-                else
-                {//situação de inserir
-                    int countVeiculoIndisponivel = 0;
-                    List<Locacao> todosLocacaos = SelecionarTodos();
-                    foreach (Locacao locacao in todosLocacaos)
-                    {
-                        if (novoLocacao.veiculo.Id == locacao.veiculo.Id && locacao.emAberto == true)
-                            countVeiculoIndisponivel++;
-                    }
-                    if (countVeiculoIndisponivel > 0)
-                        return "Veiculo já alugado, tente novamente.";
-                }
+                return taxasServicos;
             }
-            return "ESTA_VALIDO";
+            return null;
         }
     }
 }

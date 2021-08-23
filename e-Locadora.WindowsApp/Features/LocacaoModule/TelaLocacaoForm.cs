@@ -34,10 +34,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
-        ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = new ControladorLocacaoTaxasServicos();
-
+        
+        private double custoPlanoLocacao = 0;
         private Locacao locacao;
-        private List<LocacaoTaxasServicos> locacaoTaxasServicos;
+
         public TelaLocacaoForm()
         {
             InitializeComponent();
@@ -45,30 +45,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarFuncionario();
             CarregarGrupoVeiculos();
             CarregarTaxasServicos();
-        }
-
-        public List<LocacaoTaxasServicos> LocacaoTaxasServicos 
-        {
-            get 
-            {
-                return locacaoTaxasServicos;
-            }
-            set 
-            {
-                locacaoTaxasServicos.Clear();
-                
-                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    if (cListBoxTaxasServicos.GetItemChecked(i))
-                    {
-                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
-                        LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacao, taxaServico);
-                        locacaoTaxasServicos.Add(locacao_TaxaServico);
-                        //controladorLocacaoTaxasServicos.InserirNovo(locacao_TaxaServico);
-                    }
-                }
-            }
-
         }
 
         public Locacao Locacao
@@ -88,15 +64,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxFuncionario.SelectedItem = locacao.funcionario;
 
 
-                if(locacao.seguroCliente != 0) 
-                { 
-                    checkBoxCliente.Enabled = true;
+                if (locacao.seguroCliente != 0)
+                {
+                    checkBoxSeguroCliente.Checked = true;
                     txtSeguroCliente.Text = locacao.seguroCliente.ToString();
                 }
 
-                if(locacao.seguroTerceiro != 0)
+                if (locacao.seguroTerceiro != 0)
                 {
-                    checkBoxSeguroTerceiro.Enabled = true;
+                    checkBoxSeguroTerceiro.Checked = true;
                     txtSeguroTerceiro.Text = locacao.seguroTerceiro.ToString();
                 }
 
@@ -104,78 +80,68 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 maskedTextBoxDevolucao.Text = locacao.dataDevolucao.ToString();
 
                 //CLIENTE
-                cboxCliente.SelectedItem = locacao.cliente.Nome;
+                cboxCliente.SelectedItem = locacao.cliente;
 
                 //CONDUTOR
-                cboxCondutor.SelectedItem = locacao.condutor.Nome;
+                cboxCondutor.SelectedItem = locacao.condutor;
 
-                //VEIUCLO
-                cboxGrupoVeiculo.SelectedItem = locacao.grupoVeiculo.categoria;
-                cboxVeiculo.SelectedItem = locacao.veiculo.Modelo;
-                txtQuilometragemDevolucao.Text = locacao.quilometragemDevolucao.ToString();
+                //VEICULO
+                cboxGrupoVeiculo.SelectedItem = locacao.grupoVeiculo;
+                cboxVeiculo.SelectedItem = locacao.veiculo;
+                txtQuilometragemLocacao.Text = locacao.quilometragemDevolucao.ToString();
 
-                //TAXAS E SERVICOS
-                int i;
-                for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
-                    {
-                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
-                            cListBoxTaxasServicos.SetItemChecked(i, true);
-                    }
-                }
             }
         }
 
         public string ValidarCampos()
         {
-            if(cboxPlano.SelectedItem == null)
+            if (cboxPlano.SelectedItem == null)
             {
                 return "Plano é obrigatorio";
             }
 
-            if(cboxFuncionario.SelectedItem == null)
+            if (cboxFuncionario.SelectedItem == null)
             {
                 return "Funcionario é obrigatório";
             }
 
-            if(!ValidarTipoInt(txtSeguroCliente.Text))
+            if (!ValidarTipoInt(txtSeguroCliente.Text))
             {
                 return "Digite um valor Valido para Seguro Cliente";
             }
-            if(!ValidarTipoInt(txtSeguroTerceiro.Text))
+            if (!ValidarTipoInt(txtSeguroTerceiro.Text))
             {
                 return "Digite um valor Valido para Seguro Terceiro";
             }
-            if(maskedTextBoxLocacao.Text == "")
+            if (maskedTextBoxLocacao.Text == "")
             {
                 return "Digite uma data valida para Data de Locação";
             }
-            if(maskedTextBoxDevolucao.Text == "")
+            if (maskedTextBoxDevolucao.Text == "")
             {
                 return "Digite uma data valida para Data de Devolução";
             }
-            if(cboxCliente.SelectedItem == null)
+            if (cboxCliente.SelectedItem == null)
             {
                 return "Cliente é obrigatótio";
             }
-            if(cboxCondutor.SelectedItem == null)
+            if (cboxCondutor.SelectedItem == null)
             {
                 return "Condutor é obrigatório";
             }
-            if(cboxGrupoVeiculo.SelectedItem == null)
+            if (cboxGrupoVeiculo.SelectedItem == null)
             {
                 return "Categoria de Veiculo é obrigatória";
             }
-            if(cboxVeiculo.SelectedItem == null)
+            if (cboxVeiculo.SelectedItem == null)
             {
                 return "Veiculo é obrigatoria";
             }
-            if(!ValidarTipoInt(txtQuilometragemDevolucao.Text))
+            if (!ValidarTipoInt(txtQuilometragemLocacao.Text))
             {
                 return "Valor Quilometragem Devolução inválido";
             }
-            if(Convert.ToDouble(txtQuilometragemDevolucao.Text) <0)
+            if (Convert.ToDouble(txtQuilometragemLocacao.Text) < 0)
             {
                 return "Valor Quilometragem nao pode ser menos que ZERO!";
             }
@@ -185,6 +151,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            MostrarResumoFinanceiro();
             string validacaoCampos = ValidarCampos();
 
             if (ValidarCampos().Equals("ESTA_VALIDO"))
@@ -193,7 +160,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Funcionario funcionario = (Funcionario)cboxFuncionario.SelectedItem;
                 DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxLocacao.Text);
                 DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDevolucao.Text);
-                double quilometragemDevolucao = Convert.ToDouble(txtQuilometragemDevolucao.Text);
+                double quilometragemDevolucao = Convert.ToDouble(txtQuilometragemLocacao.Text);
                 string plano = cboxPlano.SelectedItem.ToString();
                 double seguroCliente = Convert.ToDouble(txtSeguroCliente.Text);
                 double seguroTerceiro = Convert.ToDouble(txtSeguroTerceiro.Text);
@@ -203,8 +170,21 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Condutor condutor = (Condutor)cboxCondutor.SelectedItem;
                 bool emAberto = true;
 
+
                 locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
-                
+
+
+                locacao.taxasServicos.Clear();
+
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                {
+                    if (cListBoxTaxasServicos.GetItemChecked(i))
+                    {
+                        TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
+                        locacao.taxasServicos.Add(taxaServico);
+                    }
+                }
+
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = veiculo.Validar();
 
@@ -226,21 +206,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                     DialogResult = DialogResult.None;
                 }
-                else
-                {
 
-                    int i;
-                    for (i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                    {
-                        if (cListBoxTaxasServicos.GetItemChecked(i))
-                        {
-                            TaxasServicos taxaServico = (TaxasServicos)cListBoxTaxasServicos.Items[i];
-                            LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(Locacao, taxaServico);
-                            LocacaoTaxasServicos.Add(locacao_TaxaServico);
-                        }
-                    }
-                }
-                
             }
             else
             {
@@ -322,8 +288,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
         }
 
-
-
         private bool ValidarTipoInt(string texto)
         {
             try
@@ -339,11 +303,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void checkBoxCliente_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxCliente.Checked == true)
+            if (checkBoxSeguroCliente.Checked == true)
             {
                 txtSeguroCliente.Enabled = true;
             }
-                
+
             else
             {
                 txtSeguroCliente.Enabled = false;
@@ -373,6 +337,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private void cboxGrupoVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarVeiculo();
+            MostrarResumoFinanceiro();
         }
 
         private void maskedTextBoxDevolucao_TextChanged(object sender, EventArgs e)
@@ -385,7 +350,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             MostrarResumoFinanceiro();
         }
 
-        private void MostrarDiasPrevistos() {
+        private void MostrarDiasPrevistos()
+        {
             try
             {
                 if (maskedTextBoxLocacao.Text.Length == 10 && maskedTextBoxDevolucao.Text.Length == 10)
@@ -402,35 +368,27 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             catch { }
         }
 
-        private void cboxGrupoVeiculo_SelectedValueChanged(object sender, EventArgs e)
-        {
-            MostrarResumoFinanceiro();
-        }
-
         private void cboxPlano_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarResumoFinanceiro();
         }
 
-        private void cListBoxTaxasServicos_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void MostrarValorTotal()
         {
-            MostrarResumoFinanceiro();
-        }
-
-        private void MostrarValorTotal() {
             try
             {
-                double valorTotal = Convert.ToDouble(labelVariavelCustosPlano) + Convert.ToDouble(labelVariavelCustosTaxasServicos.Text);
+                double valorTotal = custoPlanoLocacao + Convert.ToDouble(labelVariavelSeguros.Text) + Convert.ToDouble(labelVariavelCustosTaxasServicos.Text);
                 labelVariavelValorTotal.Text = valorTotal.ToString();
             }
             catch { }
-            
+
         }
 
-        private void MostrarValorPlano() {
+        private void MostrarValorPlano()
+        {
             try
             {
-
+                custoPlanoLocacao = 0;
                 GrupoVeiculo grupoVeiculoSelecionado = (GrupoVeiculo)cboxGrupoVeiculo.SelectedItem;
                 string planoSelecionado = cboxPlano.Text;
 
@@ -440,21 +398,26 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoDiarioValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
                         labelVariavelCustosPlano.Text = valorDiario.ToString() + " + " + grupoVeiculoSelecionado.planoDiarioValorKm + " por Km";
+                        custoPlanoLocacao = valorDiario;
                     }
                     else if (planoSelecionado == "Km Controlado")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmControladoValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
                         double valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * grupoVeiculoSelecionado.planoKmControladoQuantidadeKm;
-                        labelVariavelCustosPlano.Text = (valorKm + valorDiario).ToString() + " + " + grupoVeiculoSelecionado.planoKmControladoValorKm * 2 + " por Km extra";
+                        labelVariavelCustosPlano.Text = valorDiario.ToString() + " + " + grupoVeiculoSelecionado.planoKmControladoValorKm + " por Km extra";
+                        custoPlanoLocacao = valorDiario;
                     }
                     else if (planoSelecionado == "Km Livre")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmLivreValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
                         labelVariavelCustosPlano.Text = valorDiario.ToString();
+                        custoPlanoLocacao = valorDiario;
                     }
                 }
             }
-            catch { }
+            catch {
+                labelVariavelCustosPlano.Text = "0";
+            }
         }
 
         private void MostrarValorTaxasServicos()
@@ -463,26 +426,74 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 List<TaxasServicos> taxasServicosSelecionadas = new List<TaxasServicos>();
                 double valorTaxasServicos = 0;
-                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
-                {
-                    if (cListBoxTaxasServicos.GetItemChecked(i))
-                        taxasServicosSelecionadas.Add((TaxasServicos)cListBoxTaxasServicos.Items[i]);
+
+                foreach (object itemChecked in cListBoxTaxasServicos.CheckedItems)
+                {  
+                    TaxasServicos taxaServico = (TaxasServicos)itemChecked;
+                    valorTaxasServicos += (taxaServico.TaxaDiaria * Convert.ToDouble(labelVariavelDiasPrevistos.Text)) + taxaServico.TaxaFixa;
                 }
-                foreach (TaxasServicos taxaServico in taxasServicosSelecionadas)
-                {
-                    valorTaxasServicos += taxaServico.TaxaDiaria * Convert.ToDouble(labelDiasPrevistos.Text) + taxaServico.TaxaFixa;
-                }
+                    
+                labelVariavelCustosTaxasServicos.Text = valorTaxasServicos.ToString();
             }
-            catch { }
+            catch {
+                labelVariavelCustosTaxasServicos.Text = "0";
+            }
         }
 
-        private void MostrarResumoFinanceiro() {
+        private void MostrarValorSeguros()
+        {
+            try
+            {
+                double valorSeguros = 0;
+                valorSeguros += Convert.ToDouble(txtSeguroCliente.Text) + Convert.ToDouble(txtSeguroTerceiro.Text);
+                labelVariavelSeguros.Text = valorSeguros.ToString();
+            }
+            catch {
+                labelVariavelSeguros.Text = "0";
+            }
+        }
+
+        private void txtSeguroCliente_TextChanged(object sender, EventArgs e)
+        {
+            MostrarResumoFinanceiro();
+        }
+
+        private void txtSeguroTerceiro_TextChanged(object sender, EventArgs e)
+        {
+            MostrarResumoFinanceiro();
+        }
+
+        private void MostrarResumoFinanceiro()
+        {
             MostrarDiasPrevistos();
             MostrarValorPlano();
             MostrarValorTaxasServicos();
+            MostrarValorSeguros();
             MostrarValorTotal();
         }
 
+        private void cListBoxTaxasServicos_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)(() => MostrarResumoFinanceiro()));
+        }
+
+        private void cboxVeiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Veiculo veiculo = (Veiculo)cboxVeiculo.SelectedItem;
+            txtQuilometragemLocacao.Text = veiculo.Quilometragem.ToString();
+        }
+
+        private void TelaLocacaoForm_Load(object sender, EventArgs e)
+        {
+            if (locacao != null)
+                for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
+                {
+                    foreach (TaxasServicos taxaServicoLocacao in controladorLocacao.SelecionarTaxasServicosPorLocacaoId(locacao.Id))
+                    {
+                        if (taxaServicoLocacao.Equals((TaxasServicos)cListBoxTaxasServicos.Items[i]))
+                            cListBoxTaxasServicos.SetItemChecked(i, true);
+                    }
+                }
+        }
     }
 }
-

@@ -78,11 +78,15 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o Funcionário: [{funcionarioSelecionado.Nome}] ?",
                 "Exclusão de Funcionário", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controladorFuncionario.Excluir(id);
+                if (controladorFuncionario.Excluir(id))
+                { 
 
-                tabelaFuncionario.AtualizarRegistros();
+                    tabelaFuncionario.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                }
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] não pode ser removido, pois está vinculado a uma locação");
             }
         }
 

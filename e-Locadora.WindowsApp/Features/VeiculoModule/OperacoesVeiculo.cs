@@ -77,11 +77,14 @@ namespace e_Locadora.WindowsApp.VeiculoModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o veiculo: [{VeiculoSelecionada.Placa}] ?",
                 "Exclusão de Veiculo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controladorVeiculo.Excluir(id);
+                if (controladorVeiculo.Excluir(id))
+                {
+                    tabelaVeiculoControl.AtualizarRegistros();
 
-                tabelaVeiculoControl.AtualizarRegistros();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{VeiculoSelecionada.Placa}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{VeiculoSelecionada.Placa}] removido com sucesso");
+                }
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{VeiculoSelecionada.Placa}] não pode ser removido, pois está vinculado a uma locação");
             }
         }
 

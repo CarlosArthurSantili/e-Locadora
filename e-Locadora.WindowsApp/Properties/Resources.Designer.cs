@@ -123,6 +123,16 @@ namespace e_Locadora.WindowsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outline_directions_car_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_directions_car_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_exit_to_app_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_exit_to_app_black_24dp", resourceCulture);
