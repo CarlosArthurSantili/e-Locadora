@@ -209,7 +209,7 @@ namespace e_Locadora.Tests.LocacaoModule
 
             //assert
             bool estaAberto = true;
-            DateTime date = new DateTime(2021, 08, 20);
+            DateTime date = new DateTime(2021, 08, 22);
             var locacaoEncontrado = controladorLocacao.SelecionarLocacoesPendentes(estaAberto,date);
             locacaoEncontrado.Should().HaveCount(1);
         }
