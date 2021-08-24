@@ -45,6 +45,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                         [PLANO],
                         [SEGUROCLIENTE],
                         [SEGUROTERCEIRO],
+                        [CAUCAO],
                         [VALORTOTAL]
 	                ) 
 	                VALUES
@@ -61,6 +62,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                         @PLANO,
                         @SEGUROCLIENTE,
                         @SEGUROTERCEIRO,
+                        @CAUCAO,
                         @VALORTOTAL
 	                )";
 
@@ -79,6 +81,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                         [PLANO] = @PLANO,
                         [SEGUROCLIENTE] = @SEGUROCLIENTE,
                         [SEGUROTERCEIRO] = @SEGUROTERCEIRO,
+                        [CAUCAO] = @CAUCAO,
                         [VALORTOTAL] = @VALORTOTAL
                     WHERE 
                         ID = @ID";
@@ -113,6 +116,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [PLANO],
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
+                [CAUCAO],
                 [VALORTOTAL]
             FROM
                 [TBLOCACAO]
@@ -134,6 +138,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [PLANO],
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
+                [CAUCAO],
                 [VALORTOTAL]
             FROM
                 [TBLOCACAO]";
@@ -152,6 +157,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [PLANO],
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
+                [CAUCAO],
                 [VALORTOTAL]
             FROM
                 [TBLOCACAO]
@@ -396,6 +402,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("PLANO", locacao.plano);
             parametros.Add("SEGUROCLIENTE", locacao.seguroCliente);
             parametros.Add("SEGUROTERCEIRO", locacao.seguroTerceiro);
+            parametros.Add("CAUCAO", locacao.caucao);
             parametros.Add("VALORTOTAL", locacao.valorTotal);
 
             return parametros;
@@ -425,10 +432,11 @@ namespace e_Locadora.Controladores.LocacaoModule
             var plano = Convert.ToString(reader["PLANO"]);
             var seguroCliente = Convert.ToDouble(reader["SEGUROCLIENTE"]);
             var seguroTerceiro = Convert.ToDouble(reader["SEGUROTERCEIRO"]);
+            var caucao = Convert.ToDouble(reader["CAUCAO"]);
 
 
 
-            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
+            Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, caucao, grupoVeiculo, veiculo, cliente, condutor, emAberto);
             locacao.valorTotal = Convert.ToDouble(reader["VALORTOTAL"]);
             locacao.Id = Convert.ToInt32(reader["ID"]);
 

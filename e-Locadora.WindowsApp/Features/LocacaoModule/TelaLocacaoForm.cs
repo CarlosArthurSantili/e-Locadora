@@ -107,11 +107,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             if (!ValidarTipoInt(txtSeguroCliente.Text))
             {
-                return "Digite um valor Valido para Seguro Cliente";
+                return "Digite um valor valido para Seguro Cliente";
             }
             if (!ValidarTipoInt(txtSeguroTerceiro.Text))
             {
-                return "Digite um valor Valido para Seguro Terceiro";
+                return "Digite um valor valido para Seguro Terceiro";
             }
             if (maskedTextBoxLocacao.Text.Length != 10)
             {
@@ -120,6 +120,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             if (maskedTextBoxDevolucao.Text.Length != 10)
             {
                 return "Digite uma data valida para Data de Devolução";
+            }
+            if (!ValidarTipoDouble(txtCaucao.Text))
+            {
+                return "Digite um valor valido para Caução";
+            }
+            if (Convert.ToDouble(txtCaucao.Text) < 0)
+            {
+                return "Digite um valor positivo para Caução";
             }
             if (cboxCliente.SelectedItem == null)
             {
@@ -164,6 +172,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 string plano = cboxPlano.SelectedItem.ToString();
                 double seguroCliente = Convert.ToDouble(txtSeguroCliente.Text);
                 double seguroTerceiro = Convert.ToDouble(txtSeguroTerceiro.Text);
+                double caucao = Convert.ToDouble(txtCaucao.Text);
                 GrupoVeiculo grupoVeiculo = (GrupoVeiculo)cboxGrupoVeiculo.SelectedItem;
                 Veiculo veiculo = (Veiculo)cboxVeiculo.SelectedItem;
                 Clientes cliente = (Clientes)cboxCliente.SelectedItem;
@@ -171,7 +180,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 bool emAberto = true;
 
 
-                locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
+                locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, caucao, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
 
                 locacao.taxasServicos.Clear();
@@ -286,6 +295,19 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             try
             {
                 double numeroConvertido = Convert.ToInt32(texto);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool ValidarTipoDouble(string texto)
+        {
+            try
+            {
+                double numeroConvertido = Convert.ToDouble(texto);
                 return true;
             }
             catch

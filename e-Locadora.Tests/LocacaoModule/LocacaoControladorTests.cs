@@ -72,7 +72,7 @@ namespace e_Locadora.Tests.LocacaoModule
             var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
-            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
 
             
             //action
@@ -103,8 +103,8 @@ namespace e_Locadora.Tests.LocacaoModule
             var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             var taxaServico = new TaxasServicos("descricao", 200, 0);
-            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo1, cliente, condutor, true);
-            var novoLocacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Diário", 200, 0, grupoVeiculo, veiculo2, cliente, condutor, true);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo1, cliente, condutor, true);
+            var novoLocacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Diário", 200, 0, 400, grupoVeiculo, veiculo2, cliente, condutor, true);
 
             //action
             controladorFuncionario.InserirNovo(funcionario);
@@ -134,7 +134,7 @@ namespace e_Locadora.Tests.LocacaoModule
             var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             var taxaServico = new TaxasServicos("descricao", 200, 0);
-            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
 
             //action
             controladorFuncionario.InserirNovo(funcionario);
@@ -163,7 +163,7 @@ namespace e_Locadora.Tests.LocacaoModule
             var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             var taxaServico = new TaxasServicos("descricao", 200, 0);
-            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 600, grupoVeiculo, veiculo, cliente, condutor, true);
 
 
             //action
@@ -194,7 +194,7 @@ namespace e_Locadora.Tests.LocacaoModule
             var taxaServico = new TaxasServicos("descricao", 200, 0);
             DateTime dataLocacao = new DateTime(2021,08,10);
             DateTime dataDevolucao = new DateTime(2021, 08, 21);
-            var locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
 
 
             //action
@@ -225,9 +225,9 @@ namespace e_Locadora.Tests.LocacaoModule
             var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
-            var locacao1 = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao1 = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
             locacao1.taxasServicos.Add(taxaServico);
-            var locacao2 = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, grupoVeiculo, veiculo, cliente, condutor, true);
+            var locacao2 = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
             locacao2.taxasServicos.Add(taxaServico);
 
 
