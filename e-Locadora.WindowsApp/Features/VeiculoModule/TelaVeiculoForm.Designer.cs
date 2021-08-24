@@ -252,9 +252,9 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             this.comboBoxCombustivel.FormattingEnabled = true;
             this.comboBoxCombustivel.Items.AddRange(new object[] {
             "Gasolina",
-            "Etanol",
+            "Alcool",
             "Diesel",
-            "Flex"});
+            "Gas"});
             this.comboBoxCombustivel.Location = new System.Drawing.Point(127, 333);
             this.comboBoxCombustivel.Name = "comboBoxCombustivel";
             this.comboBoxCombustivel.Size = new System.Drawing.Size(100, 21);
