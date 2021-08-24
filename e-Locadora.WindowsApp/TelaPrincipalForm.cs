@@ -228,6 +228,22 @@ namespace e_Locadora.WindowsApp
 
         private void TelaPrincipalForm_Load(object sender, EventArgs e)
         {
+            if(funcionario.Usuario != "admin")
+            {
+                funcionariosToolStripMenuItem.Enabled = false;
+                combustivelToolStripMenuItem.Enabled = false;
+            }
+            if(funcionario.Usuario == "admin")
+            {
+                menuItemClientes.Enabled = false;
+                menuItemCondutor.Enabled = false;
+                menuItemContato.Enabled = false;
+                menuItemGrupoVeiculos.Enabled = false;
+                MenuItemTaxasEServicos.Enabled = false;
+                locaçãoToolStripMenuItem.Enabled = false;
+                devoluçãoToolStripMenuItem.Enabled = false;
+            }
+
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
         }
 
