@@ -41,33 +41,35 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // taxaDiaria
             // 
             this.taxaDiaria.AutoSize = true;
-            this.taxaDiaria.Location = new System.Drawing.Point(201, 36);
+            this.taxaDiaria.Location = new System.Drawing.Point(73, 19);
             this.taxaDiaria.Name = "taxaDiaria";
-            this.taxaDiaria.Size = new System.Drawing.Size(79, 17);
+            this.taxaDiaria.Size = new System.Drawing.Size(52, 17);
             this.taxaDiaria.TabIndex = 38;
-            this.taxaDiaria.Text = "Taxa Diaria";
+            this.taxaDiaria.Text = "Diária";
             this.taxaDiaria.UseVisualStyleBackColor = true;
             this.taxaDiaria.CheckedChanged += new System.EventHandler(this.taxaDiaria_CheckedChanged);
             // 
             // taxaFixa
             // 
             this.taxaFixa.AutoSize = true;
-            this.taxaFixa.Location = new System.Drawing.Point(18, 36);
+            this.taxaFixa.Location = new System.Drawing.Point(6, 19);
             this.taxaFixa.Name = "taxaFixa";
-            this.taxaFixa.Size = new System.Drawing.Size(71, 17);
+            this.taxaFixa.Size = new System.Drawing.Size(44, 17);
             this.taxaFixa.TabIndex = 37;
-            this.taxaFixa.Text = "Taxa Fixa";
+            this.taxaFixa.Text = "Fixa";
             this.taxaFixa.UseVisualStyleBackColor = true;
             this.taxaFixa.CheckedChanged += new System.EventHandler(this.taxaFixa_CheckedChanged);
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(81, 103);
+            this.txtDescricao.Location = new System.Drawing.Point(74, 88);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(165, 20);
             this.txtDescricao.TabIndex = 35;
@@ -76,7 +78,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // 
             this.txtId.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(81, 77);
+            this.txtId.Location = new System.Drawing.Point(74, 62);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 34;
@@ -85,7 +87,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 132);
+            this.label3.Location = new System.Drawing.Point(15, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 41;
@@ -94,7 +96,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 106);
+            this.label2.Location = new System.Drawing.Point(13, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 40;
@@ -103,7 +105,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 81);
+            this.label1.Location = new System.Drawing.Point(52, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 39;
@@ -111,14 +113,14 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // 
             // textTaxaFixa
             // 
-            this.textTaxaFixa.Location = new System.Drawing.Point(81, 129);
+            this.textTaxaFixa.Location = new System.Drawing.Point(74, 114);
             this.textTaxaFixa.Name = "textTaxaFixa";
             this.textTaxaFixa.Size = new System.Drawing.Size(165, 20);
             this.textTaxaFixa.TabIndex = 42;
             // 
             // textTaxaDiaria
             // 
-            this.textTaxaDiaria.Location = new System.Drawing.Point(81, 155);
+            this.textTaxaDiaria.Location = new System.Drawing.Point(74, 140);
             this.textTaxaDiaria.Name = "textTaxaDiaria";
             this.textTaxaDiaria.Size = new System.Drawing.Size(165, 20);
             this.textTaxaDiaria.TabIndex = 44;
@@ -126,7 +128,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 158);
+            this.label4.Location = new System.Drawing.Point(7, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 43;
@@ -135,7 +137,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(207, 213);
+            this.btnCancelar.Location = new System.Drawing.Point(166, 166);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(73, 23);
             this.btnCancelar.TabIndex = 46;
@@ -145,7 +147,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(126, 213);
+            this.btnGravar.Location = new System.Drawing.Point(85, 166);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(73, 23);
             this.btnGravar.TabIndex = 45;
@@ -153,11 +155,23 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.taxaFixa);
+            this.groupBox1.Controls.Add(this.taxaDiaria);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(135, 44);
+            this.groupBox1.TabIndex = 47;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo de Taxa";
+            // 
             // TelaTaxaServicosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 278);
+            this.ClientSize = new System.Drawing.Size(255, 201);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.textTaxaDiaria);
@@ -166,8 +180,6 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.taxaDiaria);
-            this.Controls.Add(this.taxaFixa);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -177,6 +189,8 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de Taxas e Serviços";
             this.Load += new System.EventHandler(this.TelaTaxaServicosForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +210,6 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
