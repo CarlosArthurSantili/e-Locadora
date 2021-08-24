@@ -164,8 +164,8 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator3,
             this.btnAgrupar,
             this.toolStripSeparator4,
-            this.toolStripSeparator2,
             this.btnDesagrupar,
+            this.toolStripSeparator2,
             this.btnDevolucao,
             this.toolStripSeparator5,
             this.labelTipoCadastro});
