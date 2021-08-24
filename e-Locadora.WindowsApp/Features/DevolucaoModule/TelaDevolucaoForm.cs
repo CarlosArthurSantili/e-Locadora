@@ -347,13 +347,14 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         }
 
         private void ObterValorCombustivel() {
-            if (txtTipoCombustivel.Text == "Alcool")
+
+            if (devolucao.veiculo.Combustivel == "Alcool")
                 valorCombustivelSelecionado = Configuracao.PrecoAlcool;
-            else if (txtTipoCombustivel.Text == "Diesel")
+            if (devolucao.veiculo.Combustivel == "Diesel")
                 valorCombustivelSelecionado = Configuracao.PrecoDiesel;
-            else if (txtTipoCombustivel.Text == "Gasolina")
+            if (devolucao.veiculo.Combustivel == "Gasolina")
                 valorCombustivelSelecionado = Configuracao.PrecoGasolina;
-            else if (txtTipoCombustivel.Text == "Gas")
+            if (devolucao.veiculo.Combustivel == "Gas")
                 valorCombustivelSelecionado = Configuracao.PrecoGas;
         }
 
