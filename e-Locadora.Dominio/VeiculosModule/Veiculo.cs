@@ -32,19 +32,19 @@ namespace e_Locadora.Dominio.VeiculosModule
             Imagem = imagem;
         }
 
-        public string Placa { get; }
-        public string Modelo { get; }
-        public string Fabricante { get; }
-        public double Quilometragem { get; }
-        public int QtdLitrosTanque { get; }
-        public int QtdPortas { get; }
-        public string NumeroChassi { get; }
-        public string Cor { get; }
-        public int CapacidadeOcupantes { get; }
-        public int AnoFabricacao { get; }
-        public string TamanhoPortaMalas { get; }
-        public string Combustivel { get; }
-        public GrupoVeiculo GrupoVeiculo { get; }
+        public string Placa { get; set; }
+        public string Modelo { get; set; }
+        public string Fabricante { get; set; }
+        public double Quilometragem { get; set; }
+        public int QtdLitrosTanque { get; set; }
+        public int QtdPortas { get; set; }
+        public string NumeroChassi { get; set; }
+        public string Cor { get; set; }
+        public int CapacidadeOcupantes { get; set; }
+        public int AnoFabricacao { get; set; }
+        public string TamanhoPortaMalas { get; set; }
+        public string Combustivel { get; set; }
+        public GrupoVeiculo GrupoVeiculo { get; set; }
 
         public byte[] Imagem { get; }
 
