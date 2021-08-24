@@ -13,7 +13,7 @@ namespace e_Locadora.Configuracoes
             {
                 {"precoGasolina", "0" },
                 {"precoGas", "0" },
-                {"precoDieses", "0" },
+                {"precoDiesel", "0" },
                 {"precoAlcool", "0" },
 
             };
