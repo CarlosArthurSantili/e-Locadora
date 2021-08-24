@@ -84,53 +84,29 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         public string ValidarCampos()
         {
-            if(txtVeiculo.Text == "")
+            if(maskedTextBoxDataRetornoAtual.Text.Length != 10)
             {
-                return "Veículo é obrigatório";
+                return "Data de Retorno Atual inválido";
             }
-            if(txtCliente.Text == "")
+            if (Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text) <= Convert.ToDateTime(maskedTextBoxDataLocacao.Text))
             {
-                return "Cliente é obrigatório";
-            }
-            if(txtCondutor.Text == "")
-            {
-                return "Condutor é obrigatório";
-            }
-            if(maskedTextBoxDataLocacao.Text == "")
-            {
-                return "Data de Locação é obrigatório";
-            }
-            if(maskedTextBoxDataRetornoPrevisto.Text == "")
-            {
-                return "Data de Retorno Previsto é obrigatório";
-            }
-            if(maskedTextBoxDataRetornoAtual.Text == "")
-            {
-                return "Data de Retorno Atual é Obrigatório";
-            }
-            if(!ValidarTipoInt(txtQuilometragemInicial.Text))
-            {
-                return "Valor Quilometragem Inicial inválido";
-            }
-            if (Convert.ToDouble(txtQuilometragemInicial.Text) < 0)
-            {
-                return "Valor Inicial nao pode ser menos que ZERO!";
+                return "Data de Retorno Atual não pode ser menor ou igual a data da Locação!";
             }
             if (!ValidarTipoInt(txtQuilometragemAtual.Text))
             {
-                return "Valor Quilometragem Atual inválido";
+                return "Quilometragem Atual inválido";
             }
-            if (Convert.ToDouble(txtQuilometragemAtual.Text) < 0)
+            if (Convert.ToDouble(txtQuilometragemAtual.Text) < Convert.ToDouble(txtQuilometragemInicial.Text))
             {
-                return "Valor Atual nao pode ser menos que ZERO!";
+                return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
             }
             if(!ValidarTipoInt(txtQtdCombustivelRetorno.Text))
             {
-                return "Valor de Quantidade de Combustivel Inválida";
+                return "Quantidade de Combustível Inválida";
             }
             if (Convert.ToDouble(txtQtdCombustivelRetorno.Text) < 0)
             {
-                return "Valor da Quantidade de Combustivel nao pode ser menos que ZERO!";
+                return "Quantidade de Combustível não pode ser menor que ZERO!";
             }
 
             return "ESTA_VALIDO";
@@ -170,13 +146,13 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             if (ValidarCampos().Equals("ESTA_VALIDO"))
             {
                 DialogResult = DialogResult.OK;
-                //devolucao = Locacao;
+
                 devolucao.emAberto = false;
                 devolucao.funcionario = TelaPrincipalForm.Instancia.funcionario;
                 devolucao.dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
-                
                 devolucao.quilometragemDevolucao = Convert.ToDouble(txtQuilometragemAtual.Text);
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
+                devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
 
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = devolucao.Validar();
@@ -248,16 +224,14 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         {
             try
             {
-                if (maskedTextBoxDataLocacao.Text.Length == 10 && maskedTextBoxDataRetornoAtual.Text.Length == 10)
-                {
-                    DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxDataLocacao.Text);
-                    DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
-                    double numeroDias = (dataDevolucao - dataLocacao).TotalDays;
-                    if (numeroDias > 0)
-                        labelVariavelDiasPrevistos.Text = numeroDias.ToString();
-                    else
-                        labelVariavelDiasPrevistos.Text = "0";
-                }
+                DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxDataLocacao.Text);
+                DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
+                double numeroDias = (dataDevolucao - dataLocacao).TotalDays;
+                if (numeroDias > 0)
+                    labelVariavelDiasPrevistos.Text = numeroDias.ToString();
+                else
+                    labelVariavelDiasPrevistos.Text = "0";
+                
             }
             catch { }
         }
@@ -282,16 +256,22 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                     else if (planoSelecionado == "Km Controlado")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmControladoValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
-                        double valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * grupoVeiculoSelecionado.planoKmControladoQuantidadeKm;
-                        labelVariavelCustosPlano.Text = valorDiario.ToString() + " + " + grupoVeiculoSelecionado.planoKmControladoValorKm + " por Km extra";
+                        double valorKm = 0;
+                        if (Convert.ToDouble(txtQuilometragemAtual.Text) - Convert.ToDouble(txtQuilometragemInicial.Text) > grupoVeiculoSelecionado.planoKmControladoQuantidadeKm)
+                             valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * (Convert.ToDouble(txtQuilometragemAtual.Text) - Convert.ToDouble(txtQuilometragemInicial.Text) - grupoVeiculoSelecionado.planoKmControladoQuantidadeKm);
+                        
                         custoPlanoLocacao = valorDiario + valorKm;
+                        labelVariavelCustosPlano.Text = custoPlanoLocacao.ToString();
                     }
                     else if (planoSelecionado == "Km Livre")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmLivreValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
-                        labelVariavelCustosPlano.Text = valorDiario.ToString();
                         custoPlanoLocacao = valorDiario;
+                        labelVariavelCustosPlano.Text = custoPlanoLocacao.ToString();
                     }
+
+                    if (custoPlanoLocacao < 0)
+                        labelVariavelCustosPlano.Text = "0";
                 }
             }
             catch
@@ -314,6 +294,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 }
 
                 labelVariavelCustosTaxasServicos.Text = valorTaxasServicos.ToString();
+              
             }
             catch
             {

@@ -29,6 +29,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         public List<TaxasServicos> taxasServicos { get; set; }
         public bool emAberto { get; set; }
 
+        public double valorTotal { get; set; }
 
         public Locacao(Funcionario funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
         {
@@ -47,6 +48,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.taxasServicos = new List<TaxasServicos>();
         }
 
+        
         public double CalcularValorLocacao()
         {
             double valorTotal = 0;
@@ -87,7 +89,7 @@ namespace e_Locadora.Dominio.LocacaoModule
 
             return valorTotal;
         }
-
+        
         public override string ToString()
         {
             return "Cliente: " + cliente + "Veiculo: " + veiculo;
