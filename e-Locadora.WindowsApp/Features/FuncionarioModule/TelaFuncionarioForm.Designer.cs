@@ -62,14 +62,14 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.txtNome.Location = new System.Drawing.Point(113, 50);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(165, 20);
-            this.txtNome.TabIndex = 23;
+            this.txtNome.TabIndex = 1;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(113, 104);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(165, 20);
-            this.txtUsuario.TabIndex = 24;
+            this.txtUsuario.TabIndex = 3;
             // 
             // label1
             // 
@@ -104,7 +104,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
-            this.txtCPF.TabIndex = 29;
+            this.txtCPF.TabIndex = 2;
             // 
             // label6
             // 
@@ -120,7 +120,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.txtSenha.Location = new System.Drawing.Point(113, 131);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(165, 20);
-            this.txtSenha.TabIndex = 31;
+            this.txtSenha.TabIndex = 4;
             // 
             // label4
             // 
@@ -146,7 +146,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.dateAdmissao.Location = new System.Drawing.Point(113, 158);
             this.dateAdmissao.Name = "dateAdmissao";
             this.dateAdmissao.Size = new System.Drawing.Size(100, 20);
-            this.dateAdmissao.TabIndex = 34;
+            this.dateAdmissao.TabIndex = 5;
             // 
             // label7
             // 
@@ -162,7 +162,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.txtSalario.Location = new System.Drawing.Point(113, 185);
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(100, 20);
-            this.txtSalario.TabIndex = 36;
+            this.txtSalario.TabIndex = 6;
             // 
             // btnCancelar
             // 
