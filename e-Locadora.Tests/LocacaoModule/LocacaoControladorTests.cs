@@ -254,5 +254,68 @@ namespace e_Locadora.Tests.LocacaoModule
             taxaServicoSelecionados2.Count.Should().Be(1);
         }
 
+        public void DeveExcluir_LocacaoTaxaServico()
+        {
+            //arrange
+            var funcionario = new Funcionario("nome", "460162200", "usuario", "senha", DateTime.Now.Date, 600.0);
+            var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
+            var imagem = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            var veiculo = new Veiculo("placa", "modelo", "fabricante", 400.0, 50, 4, "123456", "azul", 4, 1996, "Grande", "Gasolina", grupoVeiculo, imagem);
+            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
+            var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
+            TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
+            locacao.taxasServicos.Add(taxaServico);
+
+
+            //action
+            controladorFuncionario.InserirNovo(funcionario);
+            controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
+            controladorVeiculo.InserirNovo(veiculo);
+            controladorCliente.InserirNovo(cliente);
+            controladorCondutor.InserirNovo(condutor);
+            controladorTaxasServicos.InserirNovo(taxaServico);
+            controladorLocacao.InserirNovo(locacao);
+
+
+
+            //assert
+            controladorLocacao.Excluir(locacao.Id);
+
+            //assert
+            var locacaoEncontrado = controladorLocacao.SelecionarPorId(locacao.Id);
+            locacaoEncontrado.Should().Be(null);
+        }
+
+        public void DeveEditar_LocacaoTaxaServico()
+        {
+            //arrange
+            var funcionario = new Funcionario("nome", "460162200", "usuario", "senha", DateTime.Now.Date, 600.0);
+            var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
+            var imagem = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            var veiculo = new Veiculo("placa", "modelo", "fabricante", 400.0, 50, 4, "123456", "azul", 4, 1996, "Grande", "Gasolina", grupoVeiculo, imagem);
+            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232");
+            var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
+            TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
+            locacao.taxasServicos.Add(taxaServico);
+            var novoLocacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Diário", 200, 0, 400, grupoVeiculo, veiculo, cliente, condutor, true);
+            novoLocacao.taxasServicos.Add(taxaServico);
+
+            //action
+            controladorFuncionario.InserirNovo(funcionario);
+            controladorGrupoVeiculo.InserirNovo(grupoVeiculo);
+            controladorVeiculo.InserirNovo(veiculo);
+            controladorCliente.InserirNovo(cliente);
+            controladorCondutor.InserirNovo(condutor);
+            controladorTaxasServicos.InserirNovo(taxaServico);
+            controladorLocacao.InserirNovo(locacao);
+            controladorLocacao.Editar(locacao.Id, novoLocacao);
+
+            //assert
+            var locacaoEncontrado = controladorLocacao.SelecionarPorId(locacao.Id);
+            locacaoEncontrado.Should().Be(novoLocacao);
+        }
+
     }
 }
