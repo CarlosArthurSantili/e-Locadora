@@ -32,7 +32,7 @@ namespace e_Locadora.WindowsApp
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGrupoVeiculos = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemContato = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemVeiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCondutor = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +77,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemGrupoVeiculos,
-            this.menuItemContato,
+            this.menuItemVeiculo,
             this.menuItemClientes,
             this.menuItemCondutor,
             this.MenuItemTaxasEServicos,
@@ -96,13 +96,13 @@ namespace e_Locadora.WindowsApp
             this.menuItemGrupoVeiculos.Text = "Grupo de Veiculos";
             this.menuItemGrupoVeiculos.Click += new System.EventHandler(this.menuItemGrupoVeiculos_Click);
             // 
-            // menuItemContato
+            // menuItemVeiculo
             // 
-            this.menuItemContato.Name = "menuItemContato";
-            this.menuItemContato.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.menuItemContato.Size = new System.Drawing.Size(188, 22);
-            this.menuItemContato.Text = "Veiculos";
-            this.menuItemContato.Click += new System.EventHandler(this.menuItemContato_Click);
+            this.menuItemVeiculo.Name = "menuItemVeiculo";
+            this.menuItemVeiculo.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.menuItemVeiculo.Size = new System.Drawing.Size(188, 22);
+            this.menuItemVeiculo.Text = "Veiculos";
+            this.menuItemVeiculo.Click += new System.EventHandler(this.menuItemVeiculo_Click);
             // 
             // menuItemClientes
             // 
@@ -359,7 +359,7 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemGrupoVeiculos;
-        private System.Windows.Forms.ToolStripMenuItem menuItemContato;
+        private System.Windows.Forms.ToolStripMenuItem menuItemVeiculo;
         private System.Windows.Forms.ToolStripMenuItem menuItemClientes;
         private System.Windows.Forms.ToolStrip toolboxAcoes;
         private System.Windows.Forms.ToolStripButton btnAdicionar;

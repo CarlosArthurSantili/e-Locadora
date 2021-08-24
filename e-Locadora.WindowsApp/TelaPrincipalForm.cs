@@ -35,10 +35,27 @@ namespace e_Locadora.WindowsApp
 
         public Funcionario funcionario;
 
+        private OperacoesClientes operacoesClientes;
+        private OperacoesCondutores operacoesCondutores;
+        private OperacoesFuncionario operacoesFuncionario;
+        private OperacoesGrupoVeiculo operacoesGrupoVeiculo;
+        private OperacoesLocacao operacoesLocacao;
+        private OperacoesVeiculo operacoesVeiculo;
+        private OperacoesTaxaServicos operacoesTaxaServicos;
+
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
             Instancia = this;
+
+            operacoesClientes = new OperacoesClientes(new ControladorClientes());
+            operacoesGrupoVeiculo = new OperacoesGrupoVeiculo(new ControladorGrupoVeiculo());
+            operacoesCondutores = new OperacoesCondutores(new ControladorCondutor());
+            operacoesTaxaServicos = new OperacoesTaxaServicos(new ControladorTaxasServicos());
+            operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
+            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoesVeiculo = new OperacoesVeiculo(new ControladorVeiculos());
         }
 
         public void AtualizarRodape(string mensagem)
@@ -91,7 +108,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoVeiculo(new ControladorGrupoVeiculo());
+            operacoes = operacoesGrupoVeiculo;
 
             ConfigurarPainelRegistros();
         }
@@ -103,7 +120,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesClientes(new ControladorClientes());
+            operacoes = operacoesClientes;
 
             ConfigurarPainelRegistros();
         }
@@ -115,7 +132,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesCondutores(new ControladorCondutor());
+            operacoes = operacoesCondutores;
 
             ConfigurarPainelRegistros();
         }
@@ -127,7 +144,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesTaxaServicos(new ControladorTaxasServicos());
+            operacoes = operacoesTaxaServicos;
 
             ConfigurarPainelRegistros();
         }
@@ -139,7 +156,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao());
+            operacoes = operacoesLocacao;
 
             ConfigurarPainelRegistros();
         }
@@ -157,7 +174,7 @@ namespace e_Locadora.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoes = operacoesFuncionario;
 
             ConfigurarPainelRegistros();
         }
@@ -171,6 +188,19 @@ namespace e_Locadora.WindowsApp
             AtualizarRodape(configuracao.TipoCadastro);
 
             operacoes = new OperacoesCombustivel();
+
+            ConfigurarPainelRegistros();
+        }
+  
+        private void menuItemVeiculo_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = operacoesVeiculo;
 
             ConfigurarPainelRegistros();
         }
@@ -204,18 +234,7 @@ namespace e_Locadora.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
-        private void menuItemContato_Click(object sender, EventArgs e)
-        {
-            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
-
-            ConfigurarToolBox(configuracao);
-
-            AtualizarRodape(configuracao.TipoCadastro);
-
-            operacoes = new OperacoesVeiculo(new ControladorVeiculos());
-
-            ConfigurarPainelRegistros();
-        }
+    
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -239,7 +258,7 @@ namespace e_Locadora.WindowsApp
             {
                 menuItemClientes.Enabled = false;
                 menuItemCondutor.Enabled = false;
-                menuItemContato.Enabled = false;
+                menuItemVeiculo.Enabled = false;
                 menuItemGrupoVeiculos.Enabled = false;
                 MenuItemTaxasEServicos.Enabled = false;
                 locaçãoToolStripMenuItem.Enabled = false;
@@ -258,5 +277,7 @@ namespace e_Locadora.WindowsApp
             TelaLogin telaLogin = new TelaLogin();
             telaLogin.ShowDialog();
         }
+
+  
     }
 }
