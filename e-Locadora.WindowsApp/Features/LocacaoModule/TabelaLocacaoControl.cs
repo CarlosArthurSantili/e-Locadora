@@ -45,6 +45,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "dataDevolucao", HeaderText = "Data de Devolução"},
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "emAberto", HeaderText = "Em Aberto"},
+
 };
 
             return colunas;

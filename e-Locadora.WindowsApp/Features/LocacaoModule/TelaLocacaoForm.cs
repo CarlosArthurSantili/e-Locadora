@@ -113,11 +113,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 return "Digite um valor Valido para Seguro Terceiro";
             }
-            if (maskedTextBoxLocacao.Text == "")
+            if (maskedTextBoxLocacao.Text.Length == 10)
             {
                 return "Digite uma data valida para Data de Locação";
             }
-            if (maskedTextBoxDevolucao.Text == "")
+            if (maskedTextBoxDevolucao.Text.Length == 10)
             {
                 return "Digite uma data valida para Data de Devolução";
             }
@@ -355,7 +355,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     if (numeroDias > 0)
                         labelVariavelDiasPrevistos.Text = numeroDias.ToString();
                     else
-                        labelVariavelDiasPrevistos.Text = "Data de Devolução inválida";
+                        labelVariavelDiasPrevistos.Text = "0";
                 }
             }
             catch { }
