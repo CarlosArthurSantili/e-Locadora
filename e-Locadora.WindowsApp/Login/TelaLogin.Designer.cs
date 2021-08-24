@@ -48,8 +48,7 @@ namespace e_Locadora.WindowsApp.Login
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(150, 26);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.KeyPress += new
-            System.Windows.Forms.KeyPressEventHandler(CheckEnter);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // txtSenha
             // 
@@ -58,8 +57,7 @@ namespace e_Locadora.WindowsApp.Login
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(150, 26);
             this.txtSenha.TabIndex = 3;
-            this.txtSenha.KeyPress += new
-            System.Windows.Forms.KeyPressEventHandler(CheckEnter);
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnter);
             // 
             // btnGravar
             // 
@@ -92,8 +90,9 @@ namespace e_Locadora.WindowsApp.Login
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 165);
+            this.label1.Location = new System.Drawing.Point(127, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 21;
@@ -102,6 +101,7 @@ namespace e_Locadora.WindowsApp.Login
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(127, 217);
             this.label2.Name = "label2";
@@ -124,13 +124,13 @@ namespace e_Locadora.WindowsApp.Login
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 347);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.DarkRed;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

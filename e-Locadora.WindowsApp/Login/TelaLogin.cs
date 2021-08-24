@@ -54,6 +54,5 @@ namespace e_Locadora.WindowsApp.Login
                 btnGravar_Click(sender, e);
             }
         }
-        
     }
 }
