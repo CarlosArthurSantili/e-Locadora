@@ -113,11 +113,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 return "Digite um valor Valido para Seguro Terceiro";
             }
-            if (maskedTextBoxLocacao.Text.Length == 10)
+            if (maskedTextBoxLocacao.Text.Length != 10)
             {
                 return "Digite uma data valida para Data de Locação";
             }
-            if (maskedTextBoxDevolucao.Text.Length == 10)
+            if (maskedTextBoxDevolucao.Text.Length != 10)
             {
                 return "Digite uma data valida para Data de Devolução";
             }
