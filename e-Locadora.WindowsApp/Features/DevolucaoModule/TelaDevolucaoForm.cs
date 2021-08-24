@@ -84,25 +84,29 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         public string ValidarCampos()
         {
-            if(maskedTextBoxDataRetornoAtual.Text == "")
+            if(maskedTextBoxDataRetornoAtual.Text.Length != 10)
             {
-                return "Data de Retorno Atual é Obrigatório";
+                return "Data de Retorno Atual inválido";
+            }
+            if (Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text) >= Convert.ToDateTime(maskedTextBoxDataLocacao.Text))
+            {
+                return "Data de Retorno Atual não pode ser menor ou igual a data da Locação!";
             }
             if (!ValidarTipoInt(txtQuilometragemAtual.Text))
             {
-                return "Valor Quilometragem Atual inválido";
+                return "Quilometragem Atual inválido";
             }
             if (Convert.ToDouble(txtQuilometragemAtual.Text) < Convert.ToDouble(txtQuilometragemInicial.Text))
             {
-                return "Valor da Quilometragem Atual não pode ser menor que a quilometragem inicial!";
+                return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
             }
             if(!ValidarTipoInt(txtQtdCombustivelRetorno.Text))
             {
-                return "Valor de Quantidade de Combustivel Inválida";
+                return "Quantidade de Combustível Inválida";
             }
             if (Convert.ToDouble(txtQtdCombustivelRetorno.Text) < 0)
             {
-                return "Valor da Quantidade de Combustivel não pode ser menos que ZERO!";
+                return "Quantidade de Combustível não pode ser menor que ZERO!";
             }
 
             return "ESTA_VALIDO";
