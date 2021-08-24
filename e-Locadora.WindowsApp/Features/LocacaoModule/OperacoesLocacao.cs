@@ -159,19 +159,25 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             Locacao locacaoSelecionado = controladorLocacao.SelecionarPorId(id);
 
             tela.Locacao = locacaoSelecionado;
-            tela.ShowDialog();
-            //inserir no botão gravar de devolução
-            //if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
-            //    "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            if(tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
+            if (locacaoSelecionado.emAberto == true)
             {
-                
-                controladorLocacao.Editar(id, locacaoSelecionado);
+                tela.ShowDialog();
+                //inserir no botão gravar de devolução
+                //if (MessageBox.Show($"Tem certeza que deseja registrar a devolução do veículo: [{locacaoSelecionado.veiculo.Modelo}] do Cliente: [{locacaoSelecionado.cliente.Nome}]?",
+                //    "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
+                {
 
-                tabelaLocacao.AtualizarRegistros();
+                    controladorLocacao.Editar(id, locacaoSelecionado);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+                    tabelaLocacao.AtualizarRegistros();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+                }
             }
+            else
+                MessageBox.Show($"Não é possível fazer a devolução de locações já finalizadas.", "Devolução já realizada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         public void AgruparRegistros()
