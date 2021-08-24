@@ -79,6 +79,8 @@ namespace e_Locadora.WindowsApp
             btnDesagrupar.Enabled = configuracao.ObterEstadoBotoes().Desagrupar;
             btnFiltrar.Enabled = configuracao.ObterEstadoBotoes().Filtrar;
             btnDevolucao.Enabled = configuracao.ObterEstadoBotoes().Devolucao;
+
+
         }
 
         private void menuItemGrupoVeiculos_Click(object sender, EventArgs e)
@@ -231,13 +233,13 @@ namespace e_Locadora.WindowsApp
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             funcionario = null;
-
             this.Hide();
             TelaPrincipalForm telaPrincipalForm = new TelaPrincipalForm();
             telaPrincipalForm.Close();
+            
             TelaLogin telaLogin = new TelaLogin();
             telaLogin.ShowDialog();
         }
