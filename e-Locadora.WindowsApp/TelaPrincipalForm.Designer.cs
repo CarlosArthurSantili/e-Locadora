@@ -49,18 +49,19 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAgrupar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnDesagrupar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDesagrupar = new System.Windows.Forms.ToolStripButton();
             this.btnDevolucao = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnSair = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSair)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -173,12 +174,11 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator3,
             this.btnAgrupar,
             this.toolStripSeparator4,
-            this.btnDesagrupar,
             this.toolStripSeparator2,
+            this.btnDesagrupar,
             this.btnDevolucao,
             this.toolStripSeparator5,
-            this.labelTipoCadastro,
-            this.btnSair});
+            this.labelTipoCadastro});
             this.toolboxAcoes.Location = new System.Drawing.Point(0, 24);
             this.toolboxAcoes.Name = "toolboxAcoes";
             this.toolboxAcoes.Size = new System.Drawing.Size(696, 41);
@@ -260,6 +260,11 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 41);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
+            // 
             // btnDesagrupar
             // 
             this.btnDesagrupar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -271,11 +276,6 @@ namespace e_Locadora.WindowsApp
             this.btnDesagrupar.Size = new System.Drawing.Size(38, 38);
             this.btnDesagrupar.Text = "toolStripButton1";
             this.btnDesagrupar.Click += new System.EventHandler(this.btnDesagrupar_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
             // 
             // btnDevolucao
             // 
@@ -299,19 +299,6 @@ namespace e_Locadora.WindowsApp
             this.labelTipoCadastro.Name = "labelTipoCadastro";
             this.labelTipoCadastro.Size = new System.Drawing.Size(174, 38);
             this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
-            // 
-            // btnSair
-            // 
-            this.btnSair.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnSair.AutoSize = false;
-            this.btnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSair.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_exit_to_app_black_24dp;
-            this.btnSair.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(38, 38);
-            this.btnSair.Text = "Sair";
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // panelRegistros
             // 
@@ -339,11 +326,24 @@ namespace e_Locadora.WindowsApp
             this.labelRodape.Size = new System.Drawing.Size(67, 17);
             this.labelRodape.Text = "Tudo Ok ;-)";
             // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.Transparent;
+            this.btnSair.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_exit_to_app_black_24dp;
+            this.btnSair.Location = new System.Drawing.Point(646, 24);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(38, 38);
+            this.btnSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnSair.TabIndex = 6;
+            this.btnSair.TabStop = false;
+            this.btnSair.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 449);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.toolboxAcoes);
@@ -358,6 +358,7 @@ namespace e_Locadora.WindowsApp
             this.toolboxAcoes.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSair)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,8 +393,8 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem combustivelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton btnSair;
         private System.Windows.Forms.ToolStripButton btnDevolucao;
+        private System.Windows.Forms.PictureBox btnSair;
     }
 }
 
