@@ -175,7 +175,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.MinimizeBox = false;
             this.Name = "TelaTaxaServicosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cadastro de Servico";
+            this.Text = "Cadastro de Taxas e Serviços";
             this.Load += new System.EventHandler(this.TelaTaxaServicosForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

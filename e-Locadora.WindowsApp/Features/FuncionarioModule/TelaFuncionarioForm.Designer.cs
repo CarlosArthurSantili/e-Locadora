@@ -211,7 +211,7 @@ namespace e_Locadora.WindowsApp.Features.FuncionarioModule
             this.MinimizeBox = false;
             this.Name = "TelaFuncionarioForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela Cadastro De Funcionario";
+            this.Text = "Cadastro De Funcionario";
             this.ResumeLayout(false);
             this.PerformLayout();
 
