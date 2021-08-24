@@ -66,6 +66,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabControlLocacao = new System.Windows.Forms.TabControl();
             this.tabPageLocacao = new System.Windows.Forms.TabPage();
             this.groupBoxLocacao = new System.Windows.Forms.GroupBox();
+            this.txtCaucao = new System.Windows.Forms.TextBox();
+            this.labelCaucao = new System.Windows.Forms.Label();
             this.txtPlano = new System.Windows.Forms.TextBox();
             this.txtIdLocacao = new System.Windows.Forms.TextBox();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
@@ -88,8 +90,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.checkBoxSeguroCliente = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.txtCaucao = new System.Windows.Forms.TextBox();
-            this.labelCaucao = new System.Windows.Forms.Label();
             this.groupBoxDatas.SuspendLayout();
             this.groupBoxVeiculo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -479,6 +479,23 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxLocacao.TabStop = false;
             this.groupBoxLocacao.Text = "Locação";
             // 
+            // txtCaucao
+            // 
+            this.txtCaucao.Enabled = false;
+            this.txtCaucao.Location = new System.Drawing.Point(117, 97);
+            this.txtCaucao.Name = "txtCaucao";
+            this.txtCaucao.Size = new System.Drawing.Size(113, 20);
+            this.txtCaucao.TabIndex = 94;
+            // 
+            // labelCaucao
+            // 
+            this.labelCaucao.AutoSize = true;
+            this.labelCaucao.Location = new System.Drawing.Point(67, 100);
+            this.labelCaucao.Name = "labelCaucao";
+            this.labelCaucao.Size = new System.Drawing.Size(44, 13);
+            this.labelCaucao.TabIndex = 93;
+            this.labelCaucao.Text = "Caução";
+            // 
             // txtPlano
             // 
             this.txtPlano.Enabled = false;
@@ -698,23 +715,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // txtCaucao
-            // 
-            this.txtCaucao.Enabled = false;
-            this.txtCaucao.Location = new System.Drawing.Point(117, 97);
-            this.txtCaucao.Name = "txtCaucao";
-            this.txtCaucao.Size = new System.Drawing.Size(113, 20);
-            this.txtCaucao.TabIndex = 94;
-            // 
-            // labelCaucao
-            // 
-            this.labelCaucao.AutoSize = true;
-            this.labelCaucao.Location = new System.Drawing.Point(67, 100);
-            this.labelCaucao.Name = "labelCaucao";
-            this.labelCaucao.Size = new System.Drawing.Size(44, 13);
-            this.labelCaucao.TabIndex = 93;
-            this.labelCaucao.Text = "Caução";
-            // 
             // TelaDevolucaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,9 +724,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.Controls.Add(this.tabControlLocacao);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaDevolucaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Devolução";
             this.Load += new System.EventHandler(this.TelaDevolucaoForm_Load);
             this.groupBoxDatas.ResumeLayout(false);
