@@ -51,7 +51,7 @@ namespace e_Locadora.Dominio.VeiculosModule
 
         public override string ToString()
         {
-            return "Modelo: " + Modelo;
+            return Modelo;
         }
 
         public override string Validar()
