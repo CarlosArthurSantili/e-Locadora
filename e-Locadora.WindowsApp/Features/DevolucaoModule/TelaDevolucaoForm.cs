@@ -88,7 +88,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             {
                 return "Data de Retorno Atual inválido";
             }
-            if (Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text) >= Convert.ToDateTime(maskedTextBoxDataLocacao.Text))
+            if (Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text) <= Convert.ToDateTime(maskedTextBoxDataLocacao.Text))
             {
                 return "Data de Retorno Atual não pode ser menor ou igual a data da Locação!";
             }
@@ -224,16 +224,14 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         {
             try
             {
-                if (maskedTextBoxDataLocacao.Text.Length == 10 && maskedTextBoxDataRetornoAtual.Text.Length == 10)
-                {
-                    DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxDataLocacao.Text);
-                    DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
-                    double numeroDias = (dataDevolucao - dataLocacao).TotalDays;
-                    if (numeroDias > 0)
-                        labelVariavelDiasPrevistos.Text = numeroDias.ToString();
-                    else
-                        labelVariavelDiasPrevistos.Text = "0";
-                }
+                DateTime dataLocacao = Convert.ToDateTime(maskedTextBoxDataLocacao.Text);
+                DateTime dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
+                double numeroDias = (dataDevolucao - dataLocacao).TotalDays;
+                if (numeroDias > 0)
+                    labelVariavelDiasPrevistos.Text = numeroDias.ToString();
+                else
+                    labelVariavelDiasPrevistos.Text = "0";
+                
             }
             catch { }
         }
@@ -258,16 +256,22 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                     else if (planoSelecionado == "Km Controlado")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmControladoValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
-                        double valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * grupoVeiculoSelecionado.planoKmControladoQuantidadeKm;
-                        labelVariavelCustosPlano.Text = valorDiario.ToString() + " + " + grupoVeiculoSelecionado.planoKmControladoValorKm + " por Km extra";
+                        double valorKm = 0;
+                        if (Convert.ToDouble(txtQuilometragemAtual.Text) - Convert.ToDouble(txtQuilometragemInicial.Text) > grupoVeiculoSelecionado.planoKmControladoQuantidadeKm)
+                             valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * (Convert.ToDouble(txtQuilometragemAtual.Text) - Convert.ToDouble(txtQuilometragemInicial.Text) - grupoVeiculoSelecionado.planoKmControladoQuantidadeKm);
+                        
                         custoPlanoLocacao = valorDiario + valorKm;
+                        labelVariavelCustosPlano.Text = custoPlanoLocacao.ToString();
                     }
                     else if (planoSelecionado == "Km Livre")
                     {
                         double valorDiario = grupoVeiculoSelecionado.planoKmLivreValorDiario * Convert.ToDouble(labelVariavelDiasPrevistos.Text);
-                        labelVariavelCustosPlano.Text = valorDiario.ToString();
                         custoPlanoLocacao = valorDiario;
+                        labelVariavelCustosPlano.Text = custoPlanoLocacao.ToString();
                     }
+
+                    if (custoPlanoLocacao < 0)
+                        labelVariavelCustosPlano.Text = "0";
                 }
             }
             catch
@@ -290,6 +294,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 }
 
                 labelVariavelCustosTaxasServicos.Text = valorTaxasServicos.ToString();
+              
             }
             catch
             {
