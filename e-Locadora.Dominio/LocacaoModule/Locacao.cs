@@ -41,6 +41,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.plano = plano;
             this.seguroCliente = seguroCliente;
             this.seguroTerceiro = seguroTerceiro;
+            this.caucao = caucao;
             this.grupoVeiculo = grupoVeiculo;
             this.veiculo = veiculo;
             this.cliente = cliente;

@@ -290,7 +290,6 @@ namespace e_Locadora.Controladores.LocacaoModule
             try
             {
                 Locacao locacaoExcluida = SelecionarPorId(id);
-                Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
                 if (!locacaoExcluida.IsNullOrEmpty())
                 {
                     if (!locacaoExcluida.taxasServicos.IsNullOrEmpty())
@@ -299,6 +298,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                             LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacaoExcluida, taxaServico);
                             Db.Delete(sqlExcluirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
                         }
+                    Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
                 }
                 else
                     return false;

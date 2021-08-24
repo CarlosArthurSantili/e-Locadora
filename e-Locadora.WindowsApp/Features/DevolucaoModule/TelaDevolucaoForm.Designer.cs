@@ -37,16 +37,17 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxVeiculo = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTipoCombustivel = new System.Windows.Forms.TextBox();
+            this.txtQtdCombustivelRetorno = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelQuantidadeCombustivel = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtVeiculo = new System.Windows.Forms.TextBox();
-            this.txtTipoCombustivel = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtQuilometragemInicial = new System.Windows.Forms.TextBox();
             this.labelModelo = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtQtdCombustivelRetorno = new System.Windows.Forms.TextBox();
-            this.labelQuantidadeCombustivel = new System.Windows.Forms.Label();
             this.txtQuilometragemAtual = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxResumoFinanceiro = new System.Windows.Forms.GroupBox();
@@ -87,9 +88,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.checkBoxSeguroCliente = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCaucao = new System.Windows.Forms.TextBox();
+            this.labelCaucao = new System.Windows.Forms.Label();
             this.groupBoxDatas.SuspendLayout();
             this.groupBoxVeiculo.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabControlLocacao.SuspendLayout();
             this.tabPageLocacao.SuspendLayout();
@@ -99,7 +102,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageAdicionais.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxDatas
@@ -110,7 +112,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxDatas.Controls.Add(this.label7);
             this.groupBoxDatas.Controls.Add(this.label6);
             this.groupBoxDatas.Controls.Add(this.label1);
-            this.groupBoxDatas.Location = new System.Drawing.Point(6, 118);
+            this.groupBoxDatas.Location = new System.Drawing.Point(6, 156);
             this.groupBoxDatas.Name = "groupBoxDatas";
             this.groupBoxDatas.Size = new System.Drawing.Size(267, 107);
             this.groupBoxDatas.TabIndex = 91;
@@ -192,6 +194,54 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxVeiculo.TabStop = false;
             this.groupBoxVeiculo.Text = "Veículo";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtTipoCombustivel);
+            this.groupBox2.Controls.Add(this.txtQtdCombustivelRetorno);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.labelQuantidadeCombustivel);
+            this.groupBox2.Location = new System.Drawing.Point(6, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(252, 79);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Combustível";
+            // 
+            // txtTipoCombustivel
+            // 
+            this.txtTipoCombustivel.Enabled = false;
+            this.txtTipoCombustivel.Location = new System.Drawing.Point(155, 19);
+            this.txtTipoCombustivel.Name = "txtTipoCombustivel";
+            this.txtTipoCombustivel.Size = new System.Drawing.Size(89, 20);
+            this.txtTipoCombustivel.TabIndex = 38;
+            // 
+            // txtQtdCombustivelRetorno
+            // 
+            this.txtQtdCombustivelRetorno.Location = new System.Drawing.Point(155, 45);
+            this.txtQtdCombustivelRetorno.Name = "txtQtdCombustivelRetorno";
+            this.txtQtdCombustivelRetorno.Size = new System.Drawing.Size(89, 20);
+            this.txtQtdCombustivelRetorno.TabIndex = 35;
+            this.txtQtdCombustivelRetorno.Text = "0";
+            this.txtQtdCombustivelRetorno.TextChanged += new System.EventHandler(this.txtQtdCombustivelRetorno_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(121, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(28, 13);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Tipo";
+            // 
+            // labelQuantidadeCombustivel
+            // 
+            this.labelQuantidadeCombustivel.AutoSize = true;
+            this.labelQuantidadeCombustivel.Location = new System.Drawing.Point(6, 48);
+            this.labelQuantidadeCombustivel.Name = "labelQuantidadeCombustivel";
+            this.labelQuantidadeCombustivel.Size = new System.Drawing.Size(146, 13);
+            this.labelQuantidadeCombustivel.TabIndex = 34;
+            this.labelQuantidadeCombustivel.Text = "Quantidade a ser resposto (L)";
+            // 
             // txtCategoria
             // 
             this.txtCategoria.Enabled = false;
@@ -207,14 +257,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.txtVeiculo.Name = "txtVeiculo";
             this.txtVeiculo.Size = new System.Drawing.Size(104, 20);
             this.txtVeiculo.TabIndex = 39;
-            // 
-            // txtTipoCombustivel
-            // 
-            this.txtTipoCombustivel.Enabled = false;
-            this.txtTipoCombustivel.Location = new System.Drawing.Point(155, 19);
-            this.txtTipoCombustivel.Name = "txtTipoCombustivel";
-            this.txtTipoCombustivel.Size = new System.Drawing.Size(89, 20);
-            this.txtTipoCombustivel.TabIndex = 38;
             // 
             // label13
             // 
@@ -242,15 +284,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.labelModelo.TabIndex = 30;
             this.labelModelo.Text = "Modelo";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(121, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 13);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "Tipo";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -259,24 +292,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 32;
             this.label5.Text = "Quilometragem Inicial";
-            // 
-            // txtQtdCombustivelRetorno
-            // 
-            this.txtQtdCombustivelRetorno.Location = new System.Drawing.Point(155, 45);
-            this.txtQtdCombustivelRetorno.Name = "txtQtdCombustivelRetorno";
-            this.txtQtdCombustivelRetorno.Size = new System.Drawing.Size(89, 20);
-            this.txtQtdCombustivelRetorno.TabIndex = 35;
-            this.txtQtdCombustivelRetorno.Text = "0";
-            this.txtQtdCombustivelRetorno.TextChanged += new System.EventHandler(this.txtQtdCombustivelRetorno_TextChanged);
-            // 
-            // labelQuantidadeCombustivel
-            // 
-            this.labelQuantidadeCombustivel.AutoSize = true;
-            this.labelQuantidadeCombustivel.Location = new System.Drawing.Point(6, 48);
-            this.labelQuantidadeCombustivel.Name = "labelQuantidadeCombustivel";
-            this.labelQuantidadeCombustivel.Size = new System.Drawing.Size(146, 13);
-            this.labelQuantidadeCombustivel.TabIndex = 34;
-            this.labelQuantidadeCombustivel.Text = "Quantidade a ser resposto (L)";
             // 
             // txtQuilometragemAtual
             // 
@@ -442,13 +457,15 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageLocacao.Location = new System.Drawing.Point(4, 22);
             this.tabPageLocacao.Name = "tabPageLocacao";
             this.tabPageLocacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLocacao.Size = new System.Drawing.Size(279, 291);
+            this.tabPageLocacao.Size = new System.Drawing.Size(279, 311);
             this.tabPageLocacao.TabIndex = 0;
             this.tabPageLocacao.Text = "Locação";
             this.tabPageLocacao.UseVisualStyleBackColor = true;
             // 
             // groupBoxLocacao
             // 
+            this.groupBoxLocacao.Controls.Add(this.txtCaucao);
+            this.groupBoxLocacao.Controls.Add(this.labelCaucao);
             this.groupBoxLocacao.Controls.Add(this.txtPlano);
             this.groupBoxLocacao.Controls.Add(this.txtIdLocacao);
             this.groupBoxLocacao.Controls.Add(this.txtFuncionario);
@@ -457,7 +474,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxLocacao.Controls.Add(this.label3);
             this.groupBoxLocacao.Location = new System.Drawing.Point(6, 6);
             this.groupBoxLocacao.Name = "groupBoxLocacao";
-            this.groupBoxLocacao.Size = new System.Drawing.Size(267, 106);
+            this.groupBoxLocacao.Size = new System.Drawing.Size(267, 134);
             this.groupBoxLocacao.TabIndex = 92;
             this.groupBoxLocacao.TabStop = false;
             this.groupBoxLocacao.Text = "Locação";
@@ -491,7 +508,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // labelPlano
             // 
             this.labelPlano.AutoSize = true;
-            this.labelPlano.Location = new System.Drawing.Point(76, 74);
+            this.labelPlano.Location = new System.Drawing.Point(77, 74);
             this.labelPlano.Name = "labelPlano";
             this.labelPlano.Size = new System.Drawing.Size(34, 13);
             this.labelPlano.TabIndex = 15;
@@ -581,7 +598,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageAdicionais.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdicionais.Name = "tabPageAdicionais";
             this.tabPageAdicionais.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdicionais.Size = new System.Drawing.Size(279, 291);
+            this.tabPageAdicionais.Size = new System.Drawing.Size(279, 311);
             this.tabPageAdicionais.TabIndex = 4;
             this.tabPageAdicionais.Text = "Adicionais";
             this.tabPageAdicionais.UseVisualStyleBackColor = true;
@@ -681,18 +698,22 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // groupBox2
+            // txtCaucao
             // 
-            this.groupBox2.Controls.Add(this.txtTipoCombustivel);
-            this.groupBox2.Controls.Add(this.txtQtdCombustivelRetorno);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.labelQuantidadeCombustivel);
-            this.groupBox2.Location = new System.Drawing.Point(6, 126);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 79);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Combustível";
+            this.txtCaucao.Enabled = false;
+            this.txtCaucao.Location = new System.Drawing.Point(117, 97);
+            this.txtCaucao.Name = "txtCaucao";
+            this.txtCaucao.Size = new System.Drawing.Size(113, 20);
+            this.txtCaucao.TabIndex = 94;
+            // 
+            // labelCaucao
+            // 
+            this.labelCaucao.AutoSize = true;
+            this.labelCaucao.Location = new System.Drawing.Point(67, 100);
+            this.labelCaucao.Name = "labelCaucao";
+            this.labelCaucao.Size = new System.Drawing.Size(44, 13);
+            this.labelCaucao.TabIndex = 93;
+            this.labelCaucao.Text = "Caução";
             // 
             // TelaDevolucaoForm
             // 
@@ -712,6 +733,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxDatas.PerformLayout();
             this.groupBoxVeiculo.ResumeLayout(false);
             this.groupBoxVeiculo.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBoxResumoFinanceiro.ResumeLayout(false);
             this.groupBoxResumoFinanceiro.PerformLayout();
             this.tabControlLocacao.ResumeLayout(false);
@@ -725,8 +748,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxTaxasServicos.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -791,5 +812,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private System.Windows.Forms.Label labelVariavelCombustivel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtCaucao;
+        private System.Windows.Forms.Label labelCaucao;
     }
 }

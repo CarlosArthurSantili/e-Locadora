@@ -1,4 +1,5 @@
-﻿using e_Locadora.Controladores.ClientesModule;
+﻿using e_Locadora.Configuracoes;
+using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
@@ -27,6 +28,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
     public partial class TelaDevolucaoForm : Form
     {
         private Locacao devolucao;
+        private double valorCombustivelSelecionado;
 
         ControladorClientes controladorCliente = new ControladorClientes();
         ControladorCondutor controladorCondutor = new ControladorCondutor();
@@ -57,6 +59,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 txtIdLocacao.Text = devolucao.Id.ToString();
                 txtFuncionario.Text = TelaPrincipalForm.Instancia.funcionario.ToString();
                 txtPlano.Text = devolucao.plano;
+                txtCaucao.Text = devolucao.caucao.ToString();
                 txtCategoria.Text = devolucao.veiculo.GrupoVeiculo.ToString();
                 txtVeiculo.Text = devolucao.veiculo.ToString();
                 txtCliente.Text = devolucao.cliente.ToString();
@@ -209,6 +212,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 }
 
             MostrarResumoFinanceiro();
+            ObterValorCombustivel();
         }
 
         private void MostrarResumoFinanceiro()
@@ -216,6 +220,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             MostrarDiasPrevistos();
             MostrarValorPlano();
             MostrarValorTaxasServicos();
+            MostrarValorCombustivel();
             MostrarValorSeguros();
             MostrarValorTotal();
         }
@@ -302,6 +307,20 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             }
         }
 
+        private void MostrarValorCombustivel()
+        {
+            try
+            {
+                double valorCombustivel = 0;
+                valorCombustivel = valorCombustivelSelecionado * Convert.ToDouble(txtQtdCombustivelRetorno.Text);
+                labelVariavelCombustivel.Text = valorCombustivel.ToString();
+            }
+            catch
+            {
+                labelVariavelCombustivel.Text = "0";
+            }
+        }
+
         private void MostrarValorSeguros()
         {
             try
@@ -325,6 +344,17 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             }
             catch { }
 
+        }
+
+        private void ObterValorCombustivel() {
+            if (txtTipoCombustivel.Text == "Alcool")
+                valorCombustivelSelecionado = Configuracao.PrecoAlcool;
+            else if (txtTipoCombustivel.Text == "Diesel")
+                valorCombustivelSelecionado = Configuracao.PrecoDiesel;
+            else if (txtTipoCombustivel.Text == "Gasolina")
+                valorCombustivelSelecionado = Configuracao.PrecoGasolina;
+            else if (txtTipoCombustivel.Text == "Gas")
+                valorCombustivelSelecionado = Configuracao.PrecoGas;
         }
 
         private void txtQuilometragemAtual_TextChanged(object sender, EventArgs e)

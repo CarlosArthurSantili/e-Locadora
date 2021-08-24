@@ -90,6 +90,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxVeiculo.SelectedItem = locacao.veiculo;
                 txtQuilometragemLocacao.Text = locacao.quilometragemDevolucao.ToString();
 
+                txtCaucao.Text = locacao.caucao.ToString();
+
             }
         }
 
