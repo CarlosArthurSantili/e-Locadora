@@ -243,7 +243,6 @@ namespace e_Locadora.WindowsApp
                 menuItemGrupoVeiculos.Enabled = false;
                 MenuItemTaxasEServicos.Enabled = false;
                 locaçãoToolStripMenuItem.Enabled = false;
-                devoluçãoToolStripMenuItem.Enabled = false;
             }
 
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
