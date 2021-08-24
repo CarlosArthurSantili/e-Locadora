@@ -146,13 +146,13 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             if (ValidarCampos().Equals("ESTA_VALIDO"))
             {
                 DialogResult = DialogResult.OK;
-                //devolucao = Locacao;
+
                 devolucao.emAberto = false;
                 devolucao.funcionario = TelaPrincipalForm.Instancia.funcionario;
                 devolucao.dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
-                
                 devolucao.quilometragemDevolucao = Convert.ToDouble(txtQuilometragemAtual.Text);
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
+                devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
 
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = devolucao.Validar();

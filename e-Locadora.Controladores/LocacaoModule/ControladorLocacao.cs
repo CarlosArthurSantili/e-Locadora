@@ -396,7 +396,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("PLANO", locacao.plano);
             parametros.Add("SEGUROCLIENTE", locacao.seguroCliente);
             parametros.Add("SEGUROTERCEIRO", locacao.seguroTerceiro);
-            parametros.Add("VALORTOTAL", locacao.CalcularValorLocacao());
+            parametros.Add("VALORTOTAL", locacao.valorTotal);
 
             return parametros;
         }
@@ -429,7 +429,7 @@ namespace e_Locadora.Controladores.LocacaoModule
 
 
             Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, grupoVeiculo, veiculo, cliente, condutor, emAberto);
-
+            locacao.valorTotal = Convert.ToDouble(reader["VALORTOTAL"]);
             locacao.Id = Convert.ToInt32(reader["ID"]);
 
             return locacao;
