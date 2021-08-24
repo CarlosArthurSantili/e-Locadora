@@ -84,45 +84,17 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         public string ValidarCampos()
         {
-            if(txtVeiculo.Text == "")
-            {
-                return "Veículo é obrigatório";
-            }
-            if(txtCliente.Text == "")
-            {
-                return "Cliente é obrigatório";
-            }
-            if(txtCondutor.Text == "")
-            {
-                return "Condutor é obrigatório";
-            }
-            if(maskedTextBoxDataLocacao.Text == "")
-            {
-                return "Data de Locação é obrigatório";
-            }
-            if(maskedTextBoxDataRetornoPrevisto.Text == "")
-            {
-                return "Data de Retorno Previsto é obrigatório";
-            }
             if(maskedTextBoxDataRetornoAtual.Text == "")
             {
                 return "Data de Retorno Atual é Obrigatório";
-            }
-            if(!ValidarTipoInt(txtQuilometragemInicial.Text))
-            {
-                return "Valor Quilometragem Inicial inválido";
-            }
-            if (Convert.ToDouble(txtQuilometragemInicial.Text) < 0)
-            {
-                return "Valor Inicial nao pode ser menos que ZERO!";
             }
             if (!ValidarTipoInt(txtQuilometragemAtual.Text))
             {
                 return "Valor Quilometragem Atual inválido";
             }
-            if (Convert.ToDouble(txtQuilometragemAtual.Text) < 0)
+            if (Convert.ToDouble(txtQuilometragemAtual.Text) < Convert.ToDouble(txtQuilometragemInicial.Text))
             {
-                return "Valor Atual nao pode ser menos que ZERO!";
+                return "Valor da Quilometragem Atual não pode ser menor que a quilometragem inicial!";
             }
             if(!ValidarTipoInt(txtQtdCombustivelRetorno.Text))
             {
@@ -130,7 +102,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             }
             if (Convert.ToDouble(txtQtdCombustivelRetorno.Text) < 0)
             {
-                return "Valor da Quantidade de Combustivel nao pode ser menos que ZERO!";
+                return "Valor da Quantidade de Combustivel não pode ser menos que ZERO!";
             }
 
             return "ESTA_VALIDO";
