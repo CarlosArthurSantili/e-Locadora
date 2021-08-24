@@ -91,7 +91,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Taxa Fixa";
+            this.label3.Text = "Valor Fixo";
             // 
             // label2
             // 
@@ -132,7 +132,7 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 43;
-            this.label4.Text = "Taxa Diaria";
+            this.label4.Text = "Valor Diário";
             // 
             // btnCancelar
             // 
