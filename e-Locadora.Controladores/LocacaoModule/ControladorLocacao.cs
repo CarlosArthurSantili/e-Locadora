@@ -233,6 +233,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             string resultadoValidacaoDominio = registro.Validar();
             string resultadoValidacaoControlador = ValidarLocacao(registro);
 
+
             if (resultadoValidacaoDominio == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
@@ -254,7 +255,7 @@ namespace e_Locadora.Controladores.LocacaoModule
         {
             string resultadoValidacaoDominio = registro.Validar();
             string resultadoValidacaoControlador = ValidarLocacao(registro, id);
-
+     
             if (resultadoValidacaoDominio == "ESTA_VALIDO")
             {
                 registro.Id = id;
@@ -283,6 +284,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 return resultadoValidacaoDominio;
             else
                 return resultadoValidacaoControlador;
+
         }
 
         public override bool Excluir(int id)
@@ -354,6 +356,40 @@ namespace e_Locadora.Controladores.LocacaoModule
             }
                    
             return locacoesPendentes;
+        }
+        public string ValidarCnh(Locacao cnhCondutor, int id = 0)
+        {
+            if (cnhCondutor != null)
+            {
+                if (id != 0)
+                {
+                    int countcnhIndisponivel = 0;
+                    DateTime data = DateTime.Now;
+                    List<Condutor> cnhvencida = controladorCondutor.SelecionarCondutoresComCnhVencida(data);
+                    foreach (Condutor condutor in cnhvencida)
+                    {
+                        if (cnhCondutor.condutor.Id == condutor.Id && condutor.Id != id && cnhCondutor.emAberto == false)
+                            countcnhIndisponivel++;
+                    }
+                    if (countcnhIndisponivel > 0)
+                        return "O Condutor Selecionado está com a CNH vencida!";
+                }
+                else
+                {
+                    int countcnhIndisponivel = 0;
+                    DateTime data = DateTime.Now;
+                    List<Condutor> cnhvencida = controladorCondutor.SelecionarCondutoresComCnhVencida(data);
+                    foreach (Condutor condutor in cnhvencida)
+                    {
+                        if (cnhCondutor.condutor.Id == condutor.Id)
+                            countcnhIndisponivel++;
+                    }
+                    if (countcnhIndisponivel > 0)
+                        return "O Condutor Selecionado está com a CNH vencida!";
+                }
+            }
+
+            return "ESTA_VALIDO";
         }
 
         public string ValidarLocacao(Locacao novoLocacao, int id = 0)

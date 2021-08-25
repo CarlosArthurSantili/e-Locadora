@@ -1,4 +1,6 @@
-﻿using e_Locadora.Controladores.LocacaoModule;
+﻿using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Dominio.CondutoresModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.WindowsApp.Features.DevolucaoModule;
@@ -16,6 +18,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
     {
         private ControladorLocacao controladorLocacao = null;
         private TabelaLocacaoControl tabelaLocacao = null;
+        private ControladorCondutor controladorCondutor = new ControladorCondutor();
+
 
         public OperacoesLocacao(ControladorLocacao controladorLocacao)
         {
@@ -26,7 +30,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             TelaLocacaoForm tela = new TelaLocacaoForm();
             tela.ShowDialog();
-            if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao) == "ESTA_VALIDO")
+            if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao) == "ESTA_VALIDO" 
+                && controladorLocacao.ValidarCnh(tela.Locacao) == "ESTA_VALIDO")
             {
                 controladorLocacao.InserirNovo(tela.Locacao);
 
@@ -53,17 +58,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             tela.Locacao = locacaoSelecionado;
             tela.ShowDialog();
-            if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
+            if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO"
+                && controladorLocacao.ValidarCnh(tela.Locacao) == "ESTA_VALIDO")
             {
-                //List<TaxasServicos> taxasServicosSelecionados = controladorLocacaoTaxasServicos.SelecionarTaxasServicosPorLocacaoId(locacaoSelecionado.Id);
-
-                //foreach (TaxasServicos taxaServicoIndividual in taxasServicosSelecionados)
-                //    controladorLocacaoTaxasServicos.ExcluirPorIdLocacaoEIdTaxa(locacaoSelecionado.Id,taxaServicoIndividual.Id);
-
-                //foreach (LocacaoTaxasServicos locacaoTaxaServicoIndividual in tela.LocacaoTaxasServicos)
-                //{
-                //   controladorLocacaoTaxasServicos.InserirNovo(locacaoTaxaServicoIndividual);
-                //}
+     
                 controladorLocacao.Editar(id, tela.Locacao);
 
                 tabelaLocacao.AtualizarRegistros();
@@ -177,6 +175,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 MessageBox.Show($"Não é possível fazer a devolução de locações já finalizadas.", "Devolução já realizada", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+ 
 
         public void AgruparRegistros()
         {
