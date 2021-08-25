@@ -373,5 +373,10 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         {
             MostrarResumoFinanceiro();
         }
+
+        private void groupBoxLocacao_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

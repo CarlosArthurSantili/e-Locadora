@@ -29,6 +29,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaDevolucaoForm));
             this.groupBoxDatas = new System.Windows.Forms.GroupBox();
             this.maskedTextBoxDataRetornoAtual = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxDataLocacao = new System.Windows.Forms.MaskedTextBox();
@@ -38,8 +39,14 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxVeiculo = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtTipoCombustivel = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtQtdCombustivelRetorno = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtTipoCombustivel = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.labelQuantidadeCombustivel = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
@@ -65,6 +72,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.labelDiasPrevistos = new System.Windows.Forms.Label();
             this.tabControlLocacao = new System.Windows.Forms.TabControl();
             this.tabPageLocacao = new System.Windows.Forms.TabPage();
+            this.groupBoxCliente = new System.Windows.Forms.GroupBox();
+            this.txtCondutor = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxLocacao = new System.Windows.Forms.GroupBox();
             this.txtCaucao = new System.Windows.Forms.TextBox();
             this.labelCaucao = new System.Windows.Forms.Label();
@@ -75,11 +87,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageClienteVeiculo = new System.Windows.Forms.TabPage();
-            this.groupBoxCliente = new System.Windows.Forms.GroupBox();
-            this.txtCondutor = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabPageAdicionais = new System.Windows.Forms.TabPage();
             this.groupBoxTaxasServicos = new System.Windows.Forms.GroupBox();
             this.cListBoxTaxasServicos = new System.Windows.Forms.CheckedListBox();
@@ -93,12 +100,13 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxDatas.SuspendLayout();
             this.groupBoxVeiculo.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabControlLocacao.SuspendLayout();
             this.tabPageLocacao.SuspendLayout();
+            this.groupBoxCliente.SuspendLayout();
             this.groupBoxLocacao.SuspendLayout();
             this.tabPageClienteVeiculo.SuspendLayout();
-            this.groupBoxCliente.SuspendLayout();
             this.tabPageAdicionais.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -112,7 +120,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxDatas.Controls.Add(this.label7);
             this.groupBoxDatas.Controls.Add(this.label6);
             this.groupBoxDatas.Controls.Add(this.label1);
-            this.groupBoxDatas.Location = new System.Drawing.Point(6, 156);
+            this.groupBoxDatas.Location = new System.Drawing.Point(6, 146);
             this.groupBoxDatas.Name = "groupBoxDatas";
             this.groupBoxDatas.Size = new System.Drawing.Size(267, 107);
             this.groupBoxDatas.TabIndex = 91;
@@ -187,47 +195,108 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxVeiculo.Controls.Add(this.label5);
             this.groupBoxVeiculo.Controls.Add(this.txtQuilometragemAtual);
             this.groupBoxVeiculo.Controls.Add(this.label4);
-            this.groupBoxVeiculo.Location = new System.Drawing.Point(6, 94);
+            this.groupBoxVeiculo.Location = new System.Drawing.Point(6, 6);
             this.groupBoxVeiculo.Name = "groupBoxVeiculo";
-            this.groupBoxVeiculo.Size = new System.Drawing.Size(264, 211);
+            this.groupBoxVeiculo.Size = new System.Drawing.Size(264, 338);
             this.groupBoxVeiculo.TabIndex = 39;
             this.groupBoxVeiculo.TabStop = false;
             this.groupBoxVeiculo.Text = "Veículo";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtTipoCombustivel);
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.txtQtdCombustivelRetorno);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtTipoCombustivel);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.labelQuantidadeCombustivel);
             this.groupBox2.Location = new System.Drawing.Point(6, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 79);
+            this.groupBox2.Size = new System.Drawing.Size(252, 206);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Combustível";
             // 
-            // txtTipoCombustivel
+            // pictureBox1
             // 
-            this.txtTipoCombustivel.Enabled = false;
-            this.txtTipoCombustivel.Location = new System.Drawing.Point(155, 19);
-            this.txtTipoCombustivel.Name = "txtTipoCombustivel";
-            this.txtTipoCombustivel.Size = new System.Drawing.Size(89, 20);
-            this.txtTipoCombustivel.TabIndex = 38;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(179, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(52, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 44;
+            this.pictureBox1.TabStop = false;
             // 
             // txtQtdCombustivelRetorno
             // 
-            this.txtQtdCombustivelRetorno.Location = new System.Drawing.Point(155, 45);
+            this.txtQtdCombustivelRetorno.Location = new System.Drawing.Point(0, 42);
             this.txtQtdCombustivelRetorno.Name = "txtQtdCombustivelRetorno";
             this.txtQtdCombustivelRetorno.Size = new System.Drawing.Size(89, 20);
             this.txtQtdCombustivelRetorno.TabIndex = 35;
             this.txtQtdCombustivelRetorno.Text = "0";
             this.txtQtdCombustivelRetorno.TextChanged += new System.EventHandler(this.txtQtdCombustivelRetorno_TextChanged);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(85, 176);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(49, 23);
+            this.button5.TabIndex = 43;
+            this.button5.Text = "0%";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(85, 147);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(49, 23);
+            this.button4.TabIndex = 42;
+            this.button4.Text = "25%";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(85, 118);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(49, 23);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "50%";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(85, 89);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(49, 23);
+            this.button2.TabIndex = 40;
+            this.button2.Text = "75%";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(85, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 23);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "100%";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtTipoCombustivel
+            // 
+            this.txtTipoCombustivel.Enabled = false;
+            this.txtTipoCombustivel.Location = new System.Drawing.Point(155, 23);
+            this.txtTipoCombustivel.Name = "txtTipoCombustivel";
+            this.txtTipoCombustivel.Size = new System.Drawing.Size(89, 20);
+            this.txtTipoCombustivel.TabIndex = 38;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(121, 22);
+            this.label12.Location = new System.Drawing.Point(121, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(28, 13);
             this.label12.TabIndex = 37;
@@ -236,11 +305,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // labelQuantidadeCombustivel
             // 
             this.labelQuantidadeCombustivel.AutoSize = true;
-            this.labelQuantidadeCombustivel.Location = new System.Drawing.Point(6, 48);
+            this.labelQuantidadeCombustivel.Location = new System.Drawing.Point(6, 26);
             this.labelQuantidadeCombustivel.Name = "labelQuantidadeCombustivel";
-            this.labelQuantidadeCombustivel.Size = new System.Drawing.Size(146, 13);
+            this.labelQuantidadeCombustivel.Size = new System.Drawing.Size(89, 13);
             this.labelQuantidadeCombustivel.TabIndex = 34;
-            this.labelQuantidadeCombustivel.Text = "Quantidade a ser resposto (L)";
+            this.labelQuantidadeCombustivel.Text = "Quantidade Atual";
             // 
             // txtCategoria
             // 
@@ -326,7 +395,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxResumoFinanceiro.Controls.Add(this.labelDiasPrevistos);
             this.groupBoxResumoFinanceiro.Location = new System.Drawing.Point(305, 12);
             this.groupBoxResumoFinanceiro.Name = "groupBoxResumoFinanceiro";
-            this.groupBoxResumoFinanceiro.Size = new System.Drawing.Size(213, 337);
+            this.groupBoxResumoFinanceiro.Size = new System.Drawing.Size(213, 377);
             this.groupBoxResumoFinanceiro.TabIndex = 91;
             this.groupBoxResumoFinanceiro.TabStop = false;
             this.groupBoxResumoFinanceiro.Text = "Resumo Financeiro";
@@ -447,20 +516,68 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabControlLocacao.Location = new System.Drawing.Point(12, 12);
             this.tabControlLocacao.Name = "tabControlLocacao";
             this.tabControlLocacao.SelectedIndex = 0;
-            this.tabControlLocacao.Size = new System.Drawing.Size(287, 337);
+            this.tabControlLocacao.Size = new System.Drawing.Size(287, 377);
             this.tabControlLocacao.TabIndex = 90;
             // 
             // tabPageLocacao
             // 
+            this.tabPageLocacao.Controls.Add(this.groupBoxCliente);
             this.tabPageLocacao.Controls.Add(this.groupBoxLocacao);
             this.tabPageLocacao.Controls.Add(this.groupBoxDatas);
             this.tabPageLocacao.Location = new System.Drawing.Point(4, 22);
             this.tabPageLocacao.Name = "tabPageLocacao";
             this.tabPageLocacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLocacao.Size = new System.Drawing.Size(279, 311);
+            this.tabPageLocacao.Size = new System.Drawing.Size(279, 351);
             this.tabPageLocacao.TabIndex = 0;
             this.tabPageLocacao.Text = "Locação";
             this.tabPageLocacao.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxCliente
+            // 
+            this.groupBoxCliente.Controls.Add(this.txtCondutor);
+            this.groupBoxCliente.Controls.Add(this.txtCliente);
+            this.groupBoxCliente.Controls.Add(this.label15);
+            this.groupBoxCliente.Controls.Add(this.label14);
+            this.groupBoxCliente.Location = new System.Drawing.Point(6, 259);
+            this.groupBoxCliente.Name = "groupBoxCliente";
+            this.groupBoxCliente.Size = new System.Drawing.Size(264, 82);
+            this.groupBoxCliente.TabIndex = 92;
+            this.groupBoxCliente.TabStop = false;
+            this.groupBoxCliente.Text = "Cliente";
+            // 
+            // txtCondutor
+            // 
+            this.txtCondutor.Enabled = false;
+            this.txtCondutor.Location = new System.Drawing.Point(146, 45);
+            this.txtCondutor.Name = "txtCondutor";
+            this.txtCondutor.Size = new System.Drawing.Size(104, 20);
+            this.txtCondutor.TabIndex = 42;
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Enabled = false;
+            this.txtCliente.Location = new System.Drawing.Point(146, 19);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(104, 20);
+            this.txtCliente.TabIndex = 41;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(101, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 13);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Cliente";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(90, 49);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(50, 13);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Condutor";
             // 
             // groupBoxLocacao
             // 
@@ -478,6 +595,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxLocacao.TabIndex = 92;
             this.groupBoxLocacao.TabStop = false;
             this.groupBoxLocacao.Text = "Locação";
+            this.groupBoxLocacao.Enter += new System.EventHandler(this.groupBoxLocacao_Enter);
             // 
             // txtCaucao
             // 
@@ -551,62 +669,14 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // 
             // tabPageClienteVeiculo
             // 
-            this.tabPageClienteVeiculo.Controls.Add(this.groupBoxCliente);
             this.tabPageClienteVeiculo.Controls.Add(this.groupBoxVeiculo);
             this.tabPageClienteVeiculo.Location = new System.Drawing.Point(4, 22);
             this.tabPageClienteVeiculo.Name = "tabPageClienteVeiculo";
             this.tabPageClienteVeiculo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClienteVeiculo.Size = new System.Drawing.Size(279, 311);
+            this.tabPageClienteVeiculo.Size = new System.Drawing.Size(279, 351);
             this.tabPageClienteVeiculo.TabIndex = 1;
             this.tabPageClienteVeiculo.Text = "Cliente e Veículo";
             this.tabPageClienteVeiculo.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxCliente
-            // 
-            this.groupBoxCliente.Controls.Add(this.txtCondutor);
-            this.groupBoxCliente.Controls.Add(this.txtCliente);
-            this.groupBoxCliente.Controls.Add(this.label15);
-            this.groupBoxCliente.Controls.Add(this.label14);
-            this.groupBoxCliente.Location = new System.Drawing.Point(6, 6);
-            this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Size = new System.Drawing.Size(264, 82);
-            this.groupBoxCliente.TabIndex = 92;
-            this.groupBoxCliente.TabStop = false;
-            this.groupBoxCliente.Text = "Cliente";
-            // 
-            // txtCondutor
-            // 
-            this.txtCondutor.Enabled = false;
-            this.txtCondutor.Location = new System.Drawing.Point(146, 45);
-            this.txtCondutor.Name = "txtCondutor";
-            this.txtCondutor.Size = new System.Drawing.Size(104, 20);
-            this.txtCondutor.TabIndex = 42;
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Enabled = false;
-            this.txtCliente.Location = new System.Drawing.Point(146, 19);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(104, 20);
-            this.txtCliente.TabIndex = 41;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(101, 22);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 13);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Cliente";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(90, 49);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Condutor";
             // 
             // tabPageAdicionais
             // 
@@ -615,7 +685,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageAdicionais.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdicionais.Name = "tabPageAdicionais";
             this.tabPageAdicionais.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdicionais.Size = new System.Drawing.Size(279, 311);
+            this.tabPageAdicionais.Size = new System.Drawing.Size(279, 351);
             this.tabPageAdicionais.TabIndex = 4;
             this.tabPageAdicionais.Text = "Adicionais";
             this.tabPageAdicionais.UseVisualStyleBackColor = true;
@@ -625,7 +695,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxTaxasServicos.Controls.Add(this.cListBoxTaxasServicos);
             this.groupBoxTaxasServicos.Location = new System.Drawing.Point(5, 6);
             this.groupBoxTaxasServicos.Name = "groupBoxTaxasServicos";
-            this.groupBoxTaxasServicos.Size = new System.Drawing.Size(268, 199);
+            this.groupBoxTaxasServicos.Size = new System.Drawing.Size(268, 259);
             this.groupBoxTaxasServicos.TabIndex = 97;
             this.groupBoxTaxasServicos.TabStop = false;
             this.groupBoxTaxasServicos.Text = "Taxas e Serviços";
@@ -636,7 +706,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.cListBoxTaxasServicos.FormattingEnabled = true;
             this.cListBoxTaxasServicos.Location = new System.Drawing.Point(6, 19);
             this.cListBoxTaxasServicos.Name = "cListBoxTaxasServicos";
-            this.cListBoxTaxasServicos.Size = new System.Drawing.Size(256, 169);
+            this.cListBoxTaxasServicos.Size = new System.Drawing.Size(256, 229);
             this.cListBoxTaxasServicos.TabIndex = 95;
             // 
             // groupBox1
@@ -645,7 +715,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBox1.Controls.Add(this.checkBoxSeguroTerceiro);
             this.groupBox1.Controls.Add(this.txtSeguroCliente);
             this.groupBox1.Controls.Add(this.checkBoxSeguroCliente);
-            this.groupBox1.Location = new System.Drawing.Point(6, 211);
+            this.groupBox1.Location = new System.Drawing.Point(6, 271);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(267, 74);
             this.groupBox1.TabIndex = 96;
@@ -698,7 +768,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(443, 355);
+            this.btnCancelar.Location = new System.Drawing.Point(443, 395);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 89;
@@ -707,7 +777,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(362, 355);
+            this.btnGravar.Location = new System.Drawing.Point(362, 395);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 88;
@@ -719,7 +789,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 386);
+            this.ClientSize = new System.Drawing.Size(533, 431);
             this.Controls.Add(this.groupBoxResumoFinanceiro);
             this.Controls.Add(this.tabControlLocacao);
             this.Controls.Add(this.btnCancelar);
@@ -737,15 +807,16 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxVeiculo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxResumoFinanceiro.ResumeLayout(false);
             this.groupBoxResumoFinanceiro.PerformLayout();
             this.tabControlLocacao.ResumeLayout(false);
             this.tabPageLocacao.ResumeLayout(false);
+            this.groupBoxCliente.ResumeLayout(false);
+            this.groupBoxCliente.PerformLayout();
             this.groupBoxLocacao.ResumeLayout(false);
             this.groupBoxLocacao.PerformLayout();
             this.tabPageClienteVeiculo.ResumeLayout(false);
-            this.groupBoxCliente.ResumeLayout(false);
-            this.groupBoxCliente.PerformLayout();
             this.tabPageAdicionais.ResumeLayout(false);
             this.groupBoxTaxasServicos.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -816,5 +887,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtCaucao;
         private System.Windows.Forms.Label labelCaucao;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
