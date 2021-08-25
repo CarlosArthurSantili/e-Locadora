@@ -82,7 +82,7 @@ namespace e_Locadora.WindowsApp.Features.VeiculoModule
             // 
             this.btnImagem.Location = new System.Drawing.Point(245, 360);
             this.btnImagem.Name = "btnImagem";
-            this.btnImagem.Size = new System.Drawing.Size(98, 23);
+            this.btnImagem.Size = new System.Drawing.Size(106, 23);
             this.btnImagem.TabIndex = 14;
             this.btnImagem.Text = "Procurar Imagem";
             this.btnImagem.UseVisualStyleBackColor = true;
