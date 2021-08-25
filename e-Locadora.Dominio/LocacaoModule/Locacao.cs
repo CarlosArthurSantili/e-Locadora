@@ -104,8 +104,6 @@ namespace e_Locadora.Dominio.LocacaoModule
         public override string Validar()
         {
             string resultadoValidacao = "";
-            if (condutor.ValidadeCNH < DateTime.Now)
-                resultadoValidacao = "O condutor está com a CNH Vencida.";
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 

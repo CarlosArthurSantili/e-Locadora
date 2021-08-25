@@ -200,6 +200,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 string resultadoValidacaoControlador = controladorLocacao.ValidarLocacao(locacao, id);
 
+                string resultadoValidacaoCNH = controladorLocacao.ValidarCNH(locacao, id);
+
                 if (resultadoValidacaoDominio != "ESTA_VALIDO")
                 {
                     string primeiroErroDominio = new StringReader(resultadoValidacaoDominio).ReadLine();
@@ -213,6 +215,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     string primeiroErroControlador = new StringReader(resultadoValidacaoControlador).ReadLine();
 
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
+
+                    DialogResult = DialogResult.None;
+                }
+                else if (resultadoValidacaoCNH != "ESTA_VALIDO")
+                {
+                    string primeiroErroCNH = new StringReader(resultadoValidacaoCNH).ReadLine();
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroCNH);
 
                     DialogResult = DialogResult.None;
                 }

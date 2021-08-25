@@ -357,40 +357,6 @@ namespace e_Locadora.Controladores.LocacaoModule
                    
             return locacoesPendentes;
         }
-        public string ValidarCnh(Locacao cnhCondutor, int id = 0)
-        {
-            if (cnhCondutor != null)
-            {
-                if (id != 0)
-                {
-                    int countcnhIndisponivel = 0;
-                    DateTime data = DateTime.Now;
-                    List<Condutor> cnhvencida = controladorCondutor.SelecionarCondutoresComCnhVencida(data);
-                    foreach (Condutor condutor in cnhvencida)
-                    {
-                        if (cnhCondutor.condutor.Id == condutor.Id && condutor.Id != id && cnhCondutor.emAberto == false)
-                            countcnhIndisponivel++;
-                    }
-                    if (countcnhIndisponivel > 0)
-                        return "O Condutor Selecionado está com a CNH vencida!";
-                }
-                else
-                {
-                    int countcnhIndisponivel = 0;
-                    DateTime data = DateTime.Now;
-                    List<Condutor> cnhvencida = controladorCondutor.SelecionarCondutoresComCnhVencida(data);
-                    foreach (Condutor condutor in cnhvencida)
-                    {
-                        if (cnhCondutor.condutor.Id == condutor.Id)
-                            countcnhIndisponivel++;
-                    }
-                    if (countcnhIndisponivel > 0)
-                        return "O Condutor Selecionado está com a CNH vencida!";
-                }
-            }
-
-            return "ESTA_VALIDO";
-        }
 
         public string ValidarLocacao(Locacao novoLocacao, int id = 0)
         {
@@ -420,6 +386,39 @@ namespace e_Locadora.Controladores.LocacaoModule
                     }
                     if (countVeiculoIndisponivel > 0)
                         return "Veiculo já alugado, tente novamente.";
+                }
+            }
+            return "ESTA_VALIDO";
+        }
+
+        public string ValidarCNH(Locacao novoLocacao, int id = 0)
+        {
+            //validar carros alugados
+            if (novoLocacao != null)
+            {
+                if (id != 0)
+                {//situação de editar
+                    int countCNHVencida = 0;
+                    List<Locacao> todasLocacoes = SelecionarTodos();
+                    foreach (Locacao locacao in todasLocacoes)
+                    {
+                        if (novoLocacao.condutor.ValidadeCNH < DateTime.Now && novoLocacao.emAberto == true && locacao.condutor.Id != id)
+                            countCNHVencida++;
+                    }
+                    if (countCNHVencida > 0)
+                        return "O Condutor Selecionado está com a CNH vencida!";
+                }
+                else
+                {//situação de inserir
+                    int countCNHVencida = 0;
+                    List<Locacao> todosLocacaos = SelecionarTodos();
+                    foreach (Locacao locacao in todosLocacaos)
+                    {
+                        if (novoLocacao.condutor.ValidadeCNH < DateTime.Now && novoLocacao.emAberto == true)
+                            countCNHVencida++;
+                    }
+                    if (countCNHVencida > 0)
+                        return "O Condutor Selecionado está com a CNH vencida!";
                 }
             }
             return "ESTA_VALIDO";
