@@ -132,6 +132,7 @@ namespace e_Locadora.WindowsApp.Login
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.DarkRed;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaLogin";
