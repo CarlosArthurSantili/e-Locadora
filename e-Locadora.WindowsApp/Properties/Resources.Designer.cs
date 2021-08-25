@@ -209,5 +209,15 @@ namespace e_Locadora.WindowsApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap por_que_a_primeira_metade_do_tanque_de_combustc3advel_22gasta22_mais_devagar {
+            get {
+                object obj = ResourceManager.GetObject("por_que_a_primeira_metade_do_tanque_de_combustc3advel_22gasta22_mais_devagar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

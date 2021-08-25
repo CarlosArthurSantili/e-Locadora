@@ -29,7 +29,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaDevolucaoForm));
             this.groupBoxDatas = new System.Windows.Forms.GroupBox();
             this.maskedTextBoxDataRetornoAtual = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxDataLocacao = new System.Windows.Forms.MaskedTextBox();
@@ -39,13 +38,12 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxVeiculo = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rb75 = new System.Windows.Forms.RadioButton();
+            this.rb100 = new System.Windows.Forms.RadioButton();
+            this.rbZero = new System.Windows.Forms.RadioButton();
+            this.rb25 = new System.Windows.Forms.RadioButton();
+            this.rb50 = new System.Windows.Forms.RadioButton();
             this.txtQtdCombustivelRetorno = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtTipoCombustivel = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.labelQuantidadeCombustivel = new System.Windows.Forms.Label();
@@ -97,10 +95,10 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.checkBoxSeguroCliente = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxDatas.SuspendLayout();
             this.groupBoxVeiculo.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabControlLocacao.SuspendLayout();
             this.tabPageLocacao.SuspendLayout();
@@ -110,6 +108,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageAdicionais.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxDatas
@@ -204,16 +203,16 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.rb75);
+            this.groupBox2.Controls.Add(this.rb100);
+            this.groupBox2.Controls.Add(this.rbZero);
+            this.groupBox2.Controls.Add(this.rb25);
+            this.groupBox2.Controls.Add(this.rb50);
             this.groupBox2.Controls.Add(this.txtQtdCombustivelRetorno);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.txtTipoCombustivel);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.labelQuantidadeCombustivel);
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Location = new System.Drawing.Point(6, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(252, 206);
@@ -221,15 +220,63 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Combustível";
             // 
-            // pictureBox1
+            // rb75
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(179, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
+            this.rb75.AutoSize = true;
+            this.rb75.BackColor = System.Drawing.Color.Transparent;
+            this.rb75.Location = new System.Drawing.Point(85, 95);
+            this.rb75.Name = "rb75";
+            this.rb75.Size = new System.Drawing.Size(14, 13);
+            this.rb75.TabIndex = 47;
+            this.rb75.TabStop = true;
+            this.rb75.UseVisualStyleBackColor = true;
+            // 
+            // rb100
+            // 
+            this.rb100.AutoSize = true;
+            this.rb100.BackColor = System.Drawing.Color.Transparent;
+            this.rb100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.rb100.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.rb100.Location = new System.Drawing.Point(59, 110);
+            this.rb100.Name = "rb100";
+            this.rb100.Size = new System.Drawing.Size(14, 13);
+            this.rb100.TabIndex = 46;
+            this.rb100.TabStop = true;
+            this.rb100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rb100.UseVisualStyleBackColor = true;
+            // 
+            // rbZero
+            // 
+            this.rbZero.AutoSize = true;
+            this.rbZero.BackColor = System.Drawing.Color.Transparent;
+            this.rbZero.Location = new System.Drawing.Point(166, 110);
+            this.rbZero.Name = "rbZero";
+            this.rbZero.Size = new System.Drawing.Size(14, 13);
+            this.rbZero.TabIndex = 50;
+            this.rbZero.TabStop = true;
+            this.rbZero.UseVisualStyleBackColor = false;
+            // 
+            // rb25
+            // 
+            this.rb25.AutoSize = true;
+            this.rb25.BackColor = System.Drawing.Color.Transparent;
+            this.rb25.Location = new System.Drawing.Point(140, 95);
+            this.rb25.Name = "rb25";
+            this.rb25.Size = new System.Drawing.Size(14, 13);
+            this.rb25.TabIndex = 49;
+            this.rb25.TabStop = true;
+            this.rb25.UseVisualStyleBackColor = false;
+            // 
+            // rb50
+            // 
+            this.rb50.AutoSize = true;
+            this.rb50.BackColor = System.Drawing.Color.Transparent;
+            this.rb50.Location = new System.Drawing.Point(111, 86);
+            this.rb50.Name = "rb50";
+            this.rb50.Size = new System.Drawing.Size(14, 13);
+            this.rb50.TabIndex = 48;
+            this.rb50.TabStop = true;
+            this.rb50.UseVisualStyleBackColor = false;
             // 
             // txtQtdCombustivelRetorno
             // 
@@ -239,51 +286,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.txtQtdCombustivelRetorno.TabIndex = 35;
             this.txtQtdCombustivelRetorno.Text = "0";
             this.txtQtdCombustivelRetorno.TextChanged += new System.EventHandler(this.txtQtdCombustivelRetorno_TextChanged);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(85, 176);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(49, 23);
-            this.button5.TabIndex = 43;
-            this.button5.Text = "0%";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(85, 147);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(49, 23);
-            this.button4.TabIndex = 42;
-            this.button4.Text = "25%";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(85, 118);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(49, 23);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "50%";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(85, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(49, 23);
-            this.button2.TabIndex = 40;
-            this.button2.Text = "75%";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(85, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "100%";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtTipoCombustivel
             // 
@@ -785,6 +787,16 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::e_Locadora.WindowsApp.Properties.Resources.por_que_a_primeira_metade_do_tanque_de_combustc3advel_22gasta22_mais_devagar;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 82);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(221, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 51;
+            this.pictureBox1.TabStop = false;
+            // 
             // TelaDevolucaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,7 +819,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxVeiculo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxResumoFinanceiro.ResumeLayout(false);
             this.groupBoxResumoFinanceiro.PerformLayout();
             this.tabControlLocacao.ResumeLayout(false);
@@ -821,6 +832,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxTaxasServicos.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -887,11 +899,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtCaucao;
         private System.Windows.Forms.Label labelCaucao;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rbZero;
+        private System.Windows.Forms.RadioButton rb25;
+        private System.Windows.Forms.RadioButton rb50;
+        private System.Windows.Forms.RadioButton rb75;
+        private System.Windows.Forms.RadioButton rb100;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
