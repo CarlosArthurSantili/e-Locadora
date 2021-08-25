@@ -115,7 +115,6 @@
     <Compile Include="Features\DevolucaoModule\TelaDevolucaoForm.Designer.cs">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\DevolucaoModule\OperacaoDevolucao.cs" />
     <Compile Include="Features\DevolucaoModule\ConfiguracaoDevolucaoToolBox.cs" />
     <Compile Include="Features\FuncionarioModule\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
