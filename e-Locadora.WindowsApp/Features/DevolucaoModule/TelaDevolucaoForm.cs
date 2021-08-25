@@ -154,6 +154,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 devolucao.funcionario = TelaPrincipalForm.Instancia.funcionario;
                 devolucao.dataDevolucao = Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text);
                 devolucao.quilometragemDevolucao = Convert.ToDouble(txtQuilometragemAtual.Text);
+                
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
                 devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
 
@@ -371,6 +372,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private void maskedTextBoxDataRetornoAtual_TextChanged(object sender, EventArgs e)
         {
             MostrarResumoFinanceiro();
+        }
+
+        private void groupBoxLocacao_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

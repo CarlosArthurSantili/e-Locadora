@@ -1,6 +1,6 @@
 ﻿using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.LocacaoModule;
-using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.WindowsApp.Features.DevolucaoModule;
@@ -17,6 +17,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
     public class OperacoesLocacao : ICadastravel
     {
         private ControladorLocacao controladorLocacao = null;
+        private ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         private TabelaLocacaoControl tabelaLocacao = null;
         private ControladorCondutor controladorCondutor = new ControladorCondutor();
 
@@ -163,7 +164,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 //    "Registro de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 if (tela.DialogResult == DialogResult.OK && controladorLocacao.ValidarLocacao(tela.Locacao, id) == "ESTA_VALIDO")
                 {
-
+                    controladorVeiculo.Editar(locacaoSelecionado.veiculo.Id, locacaoSelecionado.veiculo);
                     controladorLocacao.Editar(id, locacaoSelecionado);
 
                     tabelaLocacao.AtualizarRegistros();
