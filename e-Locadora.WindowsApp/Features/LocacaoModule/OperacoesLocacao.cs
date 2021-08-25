@@ -1,5 +1,4 @@
 ﻿using e_Locadora.Controladores.LocacaoModule;
-using e_Locadora.Controladores.LocacaoTaxasServicosModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.WindowsApp.Features.DevolucaoModule;
@@ -16,7 +15,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
     public class OperacoesLocacao : ICadastravel
     {
         private ControladorLocacao controladorLocacao = null;
-        private ControladorLocacaoTaxasServicos controladorLocacaoTaxasServicos = null;
         private TabelaLocacaoControl tabelaLocacao = null;
 
         public OperacoesLocacao(ControladorLocacao controladorLocacao)

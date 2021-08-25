@@ -293,11 +293,15 @@ namespace e_Locadora.Controladores.LocacaoModule
                 if (!locacaoExcluida.IsNullOrEmpty())
                 {
                     if (!locacaoExcluida.taxasServicos.IsNullOrEmpty())
-                        foreach (TaxasServicos taxaServico in locacaoExcluida.taxasServicos)
+                    {
+                        List<TaxasServicos> taxasServicosDaLocacao = SelecionarTaxasServicosPorLocacaoId(id);
+                        foreach (TaxasServicos taxaServico in taxasServicosDaLocacao)
                         {
                             LocacaoTaxasServicos locacao_TaxaServico = new LocacaoTaxasServicos(locacaoExcluida, taxaServico);
+
                             Db.Delete(sqlExcluirLocacaoTaxasServicos, ObtemParametrosLocacaoTaxasServicos(locacao_TaxaServico));
                         }
+                    }
                     Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
                 }
                 else

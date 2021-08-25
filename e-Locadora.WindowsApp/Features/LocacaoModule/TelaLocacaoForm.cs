@@ -2,7 +2,6 @@
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
-using e_Locadora.Controladores.LocacaoTaxasServicosModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
