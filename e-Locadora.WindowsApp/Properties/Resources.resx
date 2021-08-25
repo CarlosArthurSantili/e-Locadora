@@ -163,4 +163,7 @@
   <data name="outline_local_gas_station_black_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\outline_local_gas_station_black_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="por_que_a_primeira_metade_do_tanque_de_combustc3advel_22gasta22_mais_devagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\por-que-a-primeira-metade-do-tanque-de-combustc3advel-22gasta22-mais-devagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

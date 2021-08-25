@@ -199,6 +199,11 @@
     <Compile Include="Login\TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracaoEstadoBotoes.cs" />
     <Compile Include="Shared\ConfiguracaoToolTips.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -268,14 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +314,8 @@
     <None Include="Resources\outline_add_circle_outline_black_24dp1.png" />
     <None Include="Resources\Filter Configuration1.png" />
     <None Include="Resources\logo.jpg" />
+    <None Include="Resources\gr2s.png" />
+    <Content Include="Resources\Image1.png" />
     <Content Include="Resources\outline_add_circle_outline_black_24dp.png" />
     <Content Include="Resources\outline_compress_black_24dp.png" />
     <Content Include="Resources\outline_delete_black_24dp.png" />
@@ -326,6 +328,7 @@
     <Content Include="Resources\outline_mode_edit_black_24dp.png" />
     <Content Include="Resources\outline_table_rows_black_24dp.png" />
     <Content Include="Resources\outline_view_list_black_24dp.png" />
+    <None Include="Resources\por-que-a-primeira-metade-do-tanque-de-combustc3advel-22gasta22-mais-devagar.png" />
     <Content Include="Resources\Symbol Add.png" />
     <Content Include="Resources\Symbol Delete.png" />
     <Content Include="Resources\Symbol Pencil.png" />
