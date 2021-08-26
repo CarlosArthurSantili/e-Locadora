@@ -109,6 +109,7 @@
     <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.Designer.cs">
       <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\CuponsModule\ConfiguracaoCuponsToolBox.cs" />
     <Compile Include="Features\DevolucaoModule\TelaDevolucaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
