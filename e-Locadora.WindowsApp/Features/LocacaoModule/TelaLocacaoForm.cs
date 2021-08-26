@@ -148,12 +148,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
             if (!ValidarTipoInt(txtQuilometragemLocacao.Text))
             {
-                return "Valor Quilometragem Devolução inválido";
+                return "Quilometragem Devolução inválido";
             }
             if (Convert.ToDouble(txtQuilometragemLocacao.Text) < 0)
             {
-                return "Valor Quilometragem nao pode ser menos que ZERO!";
+                return "Quilometragem nao pode ser menos que ZERO!";
             }
+            if (!ValidarCupom())
+                return "Cupom de Desconto inválido!";
 
             return "ESTA_VALIDO";
         }
@@ -520,6 +522,53 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                             cListBoxTaxasServicos.SetItemChecked(i, true);
                     }
                 }
+        }
+
+        private void labelParceiros_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool ValidarCupom()
+        {
+            /*
+            foreach (Cupons cupom in controladorCupons.SelecionarTodos())
+            {
+                if (cupom.parceiro.nome == comboBoxParceiro.SelectedItem.ToString())
+                {
+                    if (cupom.codigo == txtCupom.Text && cupom.Validar() == "ESTA_VALIDO")
+                    {
+                        //devolucao.cupom = cupom;
+                        return true;
+                    }
+                }
+            }*/
+            return false;
+        }
+
+        private void radioButtonCupomSim_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonCupomSim.Checked == true)
+            {
+                comboBoxParceiro.Enabled = true;
+                comboBoxCupom.Enabled = true;
+            }
+        }
+
+        private void radioButtonCupomNao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonCupomNao.Checked == true)
+            {
+                comboBoxParceiro.Enabled = false;
+                comboBoxParceiro.SelectedIndex = -1;
+                comboBoxCupom.Enabled = false;
+                comboBoxCupom.SelectedIndex = -1;
+            }
         }
     }
 }
