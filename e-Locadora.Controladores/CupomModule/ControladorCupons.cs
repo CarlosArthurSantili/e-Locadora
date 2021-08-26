@@ -19,13 +19,17 @@ namespace e_Locadora.Controladores.CupomModule
 	                (	
 		                [NOME], 
 		                [VALOR_PERCENTUAL], 
-		                [VALOR_FIXO]
+		                [VALOR_FIXO],
+                        [DATA_VALIDADE],
+                        [PARCEIRO]
 	                )
 	                VALUES
 	                (
                         @NOME, 
 		                @VALOR_PERCENTUAL, 
-		                @VALOR_FIXO
+		                @VALOR_FIXO,
+                        @DATA_VALIDADE,
+                        @PARCEIRO
 	                )";
 
         private const string sqlEditarCupom =
@@ -33,7 +37,10 @@ namespace e_Locadora.Controladores.CupomModule
                     SET
                         [NOME] = @NOME, 
 		                [VALOR_PERCENTUAL] = @VALOR_PERCENTUAL, 
-		                [VALOR_FIXO] = @VALOR_FIXO
+		                [VALOR_FIXO] = @VALOR_FIXO,
+                        [DATA_VALIDADE] = @DATA_VALIDADE,
+                        [PARCEIRO] = @PARCEIRO,
+                     
                     WHERE 
                         ID = @ID";
 
@@ -57,7 +64,9 @@ namespace e_Locadora.Controladores.CupomModule
                         [ID],
                         [NOME], 
 		                [VALOR_PERCENTUAL], 
-		                [VALOR_FIXO]
+		                [VALOR_FIXO],
+                        [DATA_VALIDADE],
+                        [PARCEIRO]
 
                         FROM TBCUPONS";
 
@@ -66,7 +75,9 @@ namespace e_Locadora.Controladores.CupomModule
                         [ID],
                         [NOME], 
 		                [VALOR_PERCENTUAL], 
-		                [VALOR_FIXO]
+		                [VALOR_FIXO],
+                        [DATA_VALIDADE],
+                        [PARCEIRO]
 	                FROM
                         TBCUPONS
                     WHERE 
@@ -142,7 +153,8 @@ namespace e_Locadora.Controladores.CupomModule
             parametros.Add("NOME", cupons.Nome);
             parametros.Add("VALOR_PERCENTUAL", cupons.ValorPercentual);
             parametros.Add("VALOR_FIXO", cupons.ValorFixo);
-
+            parametros.Add("DATA_VALIDADE", cupons.DataValidade);
+            parametros.Add("PARCEIRO", cupons.Parceiro);
             return parametros;
         }
 
