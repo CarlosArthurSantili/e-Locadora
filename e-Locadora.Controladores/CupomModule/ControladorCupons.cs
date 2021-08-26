@@ -39,7 +39,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL] = @VALOR_PERCENTUAL, 
 		                [VALOR_FIXO] = @VALOR_FIXO,
                         [DATA_VALIDADE] = @DATA_VALIDADE,
-                        [PARCEIRO] = @PARCEIRO,
+                        [PARCEIRO] = @PARCEIRO
                      
                     WHERE 
                         ID = @ID";
