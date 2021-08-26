@@ -51,7 +51,7 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
 
         }
 
-        private void CarregarTbela(List<Parceiro> parceirosEcontrados)
+        public void CarregarTbela(List<Parceiro> parceirosEcontrados)
         {
             gridParceiros.DataSource = parceirosEcontrados;
         }

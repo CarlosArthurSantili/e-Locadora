@@ -1,4 +1,6 @@
-﻿using e_Locadora.WindowsApp.Shared;
+﻿using e_Locadora.Controladores.ParceiroModule;
+using e_Locadora.Dominio.ParceirosModule;
+using e_Locadora.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +12,92 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
 {
     public class OperacoesParceiros : ICadastravel
     {
+        private ControladorParceiro controladorParceiro = null;
+        private TabelaParceiroControl tabela = null;
+
+        public OperacoesParceiros(ControladorParceiro controladorParceiro)
+        {
+            this.controladorParceiro = controladorParceiro;
+            tabela = new TabelaParceiroControl(controladorParceiro);
+        }
 
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaParceiroForm tela = new TelaParceiroForm();
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controladorParceiro.ValidarParceiros(tela.Parceiro) == "ESTA_VALIDO")
+            {
+                controladorParceiro.InserirNovo(tela.Parceiro);
+
+                tabela.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.parceiro}] inserido com sucesso");
+            }
         }
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabela.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Parceiro para poder editar!", "Edição de Parceiros",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            Parceiro parceiroSelecionado = controladorParceiro.SelecionarPorId(id);
+
+            TelaParceiroForm tela = new TelaParceiroForm();
+            tela.Parceiro = parceiroSelecionado;
+            tela.ShowDialog();
+            if (tela.DialogResult == DialogResult.OK && controladorParceiro.ValidarParceiros(tela.Parceiro, id) == "ESTA_VALIDO")
+            {
+                controladorParceiro.Editar(id, tela.Parceiro);
+
+                tabela.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.parceiro}] editado com sucesso");
+            }
+
         }
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
-        } 
+            int id = tabela.ObtemIdSelecionado();
 
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Parceiro para poder excluir!", "Exclusão de Parceiros",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Parceiro parceiroSelecionado = controladorParceiro.SelecionarPorId(id);
+
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.parceiro}] ?",
+                "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (controladorParceiro.Excluir(id))
+                {
+                    tabela.AtualizarRegistros();
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.parceiro}] removido com sucesso");
+                }
+                else
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: Não foi possível excluir [{parceiroSelecionado.parceiro}], pois ele está vinculado a um Cupon de Desconto");
+                }
+            }
+        } 
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            List<Parceiro> parceiros = controladorParceiro.SelecionarTodos();
+
+            tabela.CarregarTbela(parceiros);
+
+            return tabela;
         }
+
         public void AgruparRegistros()
         {
             throw new NotImplementedException();
