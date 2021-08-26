@@ -2,6 +2,7 @@
 using e_Locadora.Dominio.CupomModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace e_Locadora.Controladores.CupomModule
 
 
         private const string sqlInserirCupom =
-        @"INSERT INTO TBCupons
+        @"INSERT INTO TBCUPONS
 	                (	
 		                [NOME], 
 		                [VALOR_PERCENTUAL], 
@@ -27,31 +28,61 @@ namespace e_Locadora.Controladores.CupomModule
 		                @VALOR_FIXO
 	                )";
 
+        private const string sqlEditarCupom =
+        @"UPDATE TBCUPONS
+                    SET
+                        [NOME] = @NOME, 
+		                [VALOR_PERCENTUAL] = @VALOR_PERCENTUAL, 
+		                [VALOR_FIXO] = @VALOR_FIXO
+                    WHERE 
+                        ID = @ID";
+
+        private const string sqlExcluirCupom =
+        @"DELETE 
+	                FROM
+                        TBCUPONS
+                    WHERE 
+                        ID = @ID";
+
+        private const string sqlExisteCupom =
+         @"SELECT 
+                    COUNT(*) 
+                FROM 
+                    [TBCUPONS]
+                WHERE 
+                    [ID] = @ID";
+
+        private const string sqlSelecionarTodosCupons =
+        @"SELECT
+                        [ID],
+                        [NOME], 
+		                [VALOR_PERCENTUAL], 
+		                [VALOR_FIXO]
+
+                        FROM TBCUPONS";
+
+        private const string sqlSelecionarCupomPorId =
+         @"SELECT
+                        [ID],
+                        [NOME], 
+		                [VALOR_PERCENTUAL], 
+		                [VALOR_FIXO]
+	                FROM
+                        TBCUPONS
+                    WHERE 
+                        ID = @ID";
 
         #endregion
+
         public override string Editar(int id, Cupons registro)
         {
-            throw new NotImplementedException();
-        }
-
-        public override bool Excluir(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Existe(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string InserirNovo(Cupons registro)
-        {
             string resultadoValidacao = registro.Validar();
-            string resultadoValidacaoControlador = ValidarCupons(registro);
+            string resultadoValidacaoControlador = ValidarCupons(registro, id);
 
             if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosTaxasServicos(registro));
+                registro.Id = id;
+                Db.Update(sqlEditarCupom, ObtemParametrosCupons(registro));
             }
 
             if (resultadoValidacao != "ESTA_VALIDO")
@@ -62,6 +93,57 @@ namespace e_Locadora.Controladores.CupomModule
             {
                 return resultadoValidacaoControlador;
             }
+        }
+
+        public override bool Excluir(int id)
+        {
+            try
+            {
+                Db.Delete(sqlExcluirCupom, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override bool Existe(int id)
+        {
+            return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
+        }
+
+        public override string InserirNovo(Cupons registro)
+        {
+            string resultadoValidacao = registro.Validar();
+            string resultadoValidacaoControlador = ValidarCupons(registro);
+
+            if (resultadoValidacao == "ESTA_VALIDO" && resultadoValidacaoControlador == "ESTA_VALIDO")
+            {
+                registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupons(registro));
+            }
+
+            if (resultadoValidacao != "ESTA_VALIDO")
+            {
+                return resultadoValidacao;
+            }
+            else
+            {
+                return resultadoValidacaoControlador;
+            }
+        }
+
+        private Dictionary<string, object> ObtemParametrosCupons(Cupons cupons)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", cupons.Id);
+            parametros.Add("NOME", cupons.Nome);
+            parametros.Add("VALOR_PERCENTUAL", cupons.ValorPercentual);
+            parametros.Add("VALOR_FIXO", cupons.ValorFixo);
+
+            return parametros;
         }
 
         private string ValidarCupons(Cupons novoCupons, int id = 0)
@@ -99,12 +181,26 @@ namespace e_Locadora.Controladores.CupomModule
 
         public override Cupons SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
 
         public override List<Cupons> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
+        }
+
+        private Cupons ConverterEmCupom(IDataReader reader)
+        {
+            int id = Convert.ToInt32(reader["ID"]);
+            string nome = Convert.ToString(reader["NOME"]);
+            int valor_Percentual = Convert.ToInt32(reader["VALOR_PERCENTUAL"]);
+            double valor_Fixo = Convert.ToDouble(reader["VALOR_FIXO"]);
+
+            Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo);
+
+            cupons.Id = id;
+
+            return cupons;
         }
     }
 }
