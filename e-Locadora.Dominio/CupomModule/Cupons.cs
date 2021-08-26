@@ -15,28 +15,39 @@ namespace e_Locadora.Dominio.CupomModule
 
         public double ValorFixo;
 
+        public DateTime DataValidade;
 
-        public Cupons(string nome, int valorPercentual, double valorFixo)
+        public string Parceiro;
+
+        public Cupons(string nome, int valorPercentual, double valorFixo, DateTime dataValidade, string parceiro)
         {
             Nome = nome;
             ValorPercentual = valorPercentual;
             ValorFixo = valorFixo;
+            DataValidade = dataValidade;
+            Parceiro = parceiro;
         }
-
         public override bool Equals(object obj)
         {
-            return obj is Cupons cupons &&
-                   Nome == cupons.Nome &&
-                   ValorPercentual == cupons.ValorPercentual &&
-                   ValorFixo == cupons.ValorFixo;
+            return Equals(obj as Cupons);
         }
-
+        public bool Equals(Cupons other)
+        {
+            return other != null && 
+                   Nome == other.Nome  &&  
+                   ValorPercentual == other.ValorPercentual &&
+                   ValorFixo == other.ValorFixo && 
+                   DataValidade == other.DataValidade &&
+                   Parceiro == other.Parceiro;
+        }
         public override int GetHashCode()
         {
             int hashCode = 918716981;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + ValorPercentual.GetHashCode();
             hashCode = hashCode * -1521134295 + ValorFixo.GetHashCode();
+            hashCode = hashCode * -1521134295 + DataValidade.GetHashCode();
+            hashCode = hashCode * -1521134295 + Parceiro.GetHashCode();
             return hashCode;
         }
 
@@ -57,6 +68,12 @@ namespace e_Locadora.Dominio.CupomModule
 
             if (ValorFixo < 0)
                 resultadoValidacao += "Valor Fixo não pode ser Menor que Zero.";
+
+            if (DataValidade == DateTime.MinValue || DataValidade == DateTime.MaxValue)
+                resultadoValidacao += "A data Invalida, Insira uma data valida";
+
+            if (string.IsNullOrEmpty(Parceiro))
+                resultadoValidacao += "O campo Parceiro é obrigatório e não pode ser vazio.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

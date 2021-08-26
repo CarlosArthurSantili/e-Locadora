@@ -195,8 +195,10 @@ namespace e_Locadora.Controladores.CupomModule
             string nome = Convert.ToString(reader["NOME"]);
             int valor_Percentual = Convert.ToInt32(reader["VALOR_PERCENTUAL"]);
             double valor_Fixo = Convert.ToDouble(reader["VALOR_FIXO"]);
+            DateTime data = Convert.ToDateTime(reader["DATA_VALIDADE"]);
+            string parceiro = Convert.ToString(reader["PARCEIRO"]);
 
-            Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo);
+            Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo, data, parceiro);
 
             cupons.Id = id;
 
