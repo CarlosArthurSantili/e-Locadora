@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using e_Locadora.Dominio.CupomModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace e_Locadora.Tests.CupomModule
@@ -7,8 +8,31 @@ namespace e_Locadora.Tests.CupomModule
     public class CupomDominioTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Deve_Validar_Cupons()
         {
+            Cupons cupons = new Cupons("Deco-5630", 0, 120);
+            Assert.AreEqual("ESTA_VALIDO", cupons.Validar());        
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Nome()
+        {
+            Cupons cupons = new Cupons("", 20, 0);
+            Assert.AreEqual("O campo nome é obrigatório e não pode ser vazio.", cupons.Validar());
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Valor_Percentual()
+        {
+            Cupons cupons = new Cupons("Deco-2140", -1, 0);
+            Assert.AreEqual("Valor Percentual não pode ser menor que Zero.", cupons.Validar());
+        }
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Valor_Fixo()
+        {
+            Cupons cupons = new Cupons("Deco-3204", 0, -1);
+            Assert.AreEqual("Valor Fixo não pode ser Menor que Zero.", cupons.Validar());
         }
     }
 }
