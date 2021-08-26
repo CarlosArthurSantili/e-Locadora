@@ -65,6 +65,7 @@
     <Compile Include="CondutorModule\ControladorCondutor.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
+    <Compile Include="ParceiroModule\ControladorParceiro.cs" />
     <Compile Include="Shared\Controlador.cs" />
     <Compile Include="Shared\Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
