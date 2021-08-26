@@ -68,6 +68,7 @@
     <Build Include="dbo\Tables\TBFuncionario.sql" />
     <Build Include="dbo\Tables\TBLocacao_TBTaxasServicos.sql" />
     <Build Include="dbo\Tables\TBLocacao.sql" />
+    <Build Include="dbo\Tables\TBParceiros.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="e-Locadora.Database.SqlServer.refactorlog" />

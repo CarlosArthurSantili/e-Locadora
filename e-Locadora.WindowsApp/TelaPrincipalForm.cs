@@ -2,6 +2,7 @@
 using e_Locadora.Controladores.CondutorModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.ParceiroModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio.FuncionarioModule;
@@ -10,6 +11,7 @@ using e_Locadora.WindowsApp.Features.CondutorModule;
 using e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel;
 using e_Locadora.WindowsApp.Features.FuncionarioModule;
 using e_Locadora.WindowsApp.Features.LocacaoModule;
+using e_Locadora.WindowsApp.Features.ParceirosModule;
 using e_Locadora.WindowsApp.Features.TaxasServicosModule;
 using e_Locadora.WindowsApp.GrupoVeiculoModule;
 using e_Locadora.WindowsApp.Login;
@@ -42,6 +44,7 @@ namespace e_Locadora.WindowsApp
         private OperacoesLocacao operacoesLocacao;
         private OperacoesVeiculo operacoesVeiculo;
         private OperacoesTaxaServicos operacoesTaxaServicos;
+        private OperacoesParceiros operacoesParceiros;
 
 
         public TelaPrincipalForm()
@@ -56,6 +59,7 @@ namespace e_Locadora.WindowsApp
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesVeiculo = new OperacoesVeiculo(new ControladorVeiculos());
+            operacoesParceiros = new OperacoesParceiros(new ControladorParceiro());
         }
 
         public void AtualizarRodape(string mensagem)
@@ -207,7 +211,15 @@ namespace e_Locadora.WindowsApp
         }
         private void perceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = operacoesParceiros;
+
+            ConfigurarPainelRegistros();
         }
 
         private void cuponsDeDescontosToolStripMenuItem_Click(object sender, EventArgs e)
