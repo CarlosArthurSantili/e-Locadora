@@ -179,7 +179,8 @@ namespace e_Locadora.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void combustivelToolStripMenuItem_Click(object sender, EventArgs e)
+ 
+        private void combustivelToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ConfiguracaoCombustivelToolBox configuracao = new ConfiguracaoCombustivelToolBox();
 
@@ -191,7 +192,7 @@ namespace e_Locadora.WindowsApp
 
             ConfigurarPainelRegistros();
         }
-  
+
         private void menuItemVeiculo_Click(object sender, EventArgs e)
         {
             ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
@@ -203,6 +204,15 @@ namespace e_Locadora.WindowsApp
             operacoes = operacoesVeiculo;
 
             ConfigurarPainelRegistros();
+        }
+        private void perceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cuponsDeDescontosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -252,7 +262,7 @@ namespace e_Locadora.WindowsApp
             if(funcionario.Usuario != "admin")
             {
                 funcionariosToolStripMenuItem.Enabled = false;
-                combustivelToolStripMenuItem.Enabled = false;
+                combustivelToolStripMenuItem1.Enabled = false;
             }
             if(funcionario.Usuario == "admin")
             {
@@ -278,6 +288,6 @@ namespace e_Locadora.WindowsApp
             telaLogin.ShowDialog();
         }
 
-  
+
     }
 }
