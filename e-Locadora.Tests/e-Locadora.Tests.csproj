@@ -66,6 +66,7 @@
     <Compile Include="LocacaoModule\LocacaoControladorTests.cs" />
     <Compile Include="LocacaoModule\LocacaoDominioTests.cs" />
     <Compile Include="ParceirosModule\ParceirosDominioTests.cs" />
+    <Compile Include="ParceirosModule\ParceiroControladorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaxasServicosModule\TaxasServicosDominioTest.cs" />
     <Compile Include="TaxasServicosModule\TaxaServicoControladorTest.cs" />
