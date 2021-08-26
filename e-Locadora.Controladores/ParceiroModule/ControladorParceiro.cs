@@ -153,7 +153,7 @@ namespace e_Locadora.Controladores.ParceiroModule
 
             return parceiros;
         }
-        private string ValidarParceiros(Parceiro NovosParceiros, int id = 0)
+        public string ValidarParceiros(Parceiro NovosParceiros, int id = 0)
         {
             if (NovosParceiros != null)
             {

@@ -56,6 +56,7 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
             this.btnGravar.TabIndex = 9;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // txtId
             // 
