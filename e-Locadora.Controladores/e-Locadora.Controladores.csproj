@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ClientesModule\ControladorClientes.cs" />
     <Compile Include="CondutorModule\ControladorCondutor.cs" />
+    <Compile Include="CupomModule\ControladorCupons.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
     <Compile Include="Shared\Controlador.cs" />
