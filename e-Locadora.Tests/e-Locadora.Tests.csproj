@@ -60,6 +60,7 @@
     <Compile Include="CondutoresModule\CodutoresDominioTests.cs" />
     <Compile Include="CondutoresModule\ControladorCondutorTests.cs" />
     <Compile Include="CupomModule\CupomDominioTest.cs" />
+    <Compile Include="CupomModule\CupomControladorTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioDominioTests.cs" />
     <Compile Include="FuncionarioModule\FuncionarioControladorTests.cs" />
     <Compile Include="GrupoVeiculos\GrupoVeiculoControladorTests.cs" />
