@@ -29,6 +29,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
     {
         private Locacao devolucao;
         private double valorCombustivelSelecionado;
+        private double porcentagemCombustivelReposto = 1;
 
         ControladorClientes controladorCliente = new ControladorClientes();
         ControladorCondutor controladorCondutor = new ControladorCondutor();
@@ -102,14 +103,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             if (Convert.ToDouble(txtQuilometragemAtual.Text) < Convert.ToDouble(txtQuilometragemInicial.Text))
             {
                 return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
-            }
-            if(!ValidarTipoInt(txtQtdCombustivelRetorno.Text))
-            {
-                return "Quantidade de Combustível Inválida";
-            }
-            if (Convert.ToDouble(txtQtdCombustivelRetorno.Text) < 0)
-            {
-                return "Quantidade de Combustível não pode ser menor que ZERO!";
             }
 
             return "ESTA_VALIDO";
@@ -212,8 +205,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                     }
                 }
 
-            MostrarResumoFinanceiro();
             ObterValorCombustivel();
+            MostrarResumoFinanceiro();
         }
 
         private void MostrarResumoFinanceiro()
@@ -313,7 +306,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             try
             {
                 double valorCombustivel = 0;
-                valorCombustivel = valorCombustivelSelecionado * Convert.ToDouble(txtQtdCombustivelRetorno.Text);
+                valorCombustivel = valorCombustivelSelecionado * devolucao.veiculo.QtdLitrosTanque * porcentagemCombustivelReposto;
                 labelVariavelCombustivel.Text = valorCombustivel.ToString();
             }
             catch
@@ -364,11 +357,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             MostrarResumoFinanceiro();
         }
 
-        private void txtQtdCombustivelRetorno_TextChanged(object sender, EventArgs e)
-        {
-            MostrarResumoFinanceiro();
-        }
-
         private void maskedTextBoxDataRetornoAtual_TextChanged(object sender, EventArgs e)
         {
             MostrarResumoFinanceiro();
@@ -377,6 +365,52 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private void groupBoxLocacao_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void rb100_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb100.Checked == true)
+            {
+                porcentagemCombustivelReposto = 1;
+                MostrarResumoFinanceiro();
+            }
+        }
+
+        private void rb75_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb75.Checked == true)
+            { 
+                porcentagemCombustivelReposto = 0.75;
+                MostrarResumoFinanceiro();
+            }
+        }
+
+        private void rb50_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb50.Checked == true)
+            {
+                porcentagemCombustivelReposto = 0.50;
+                MostrarResumoFinanceiro();
+            }
+                
+        }
+
+        private void rb25_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb25.Checked == true)
+            {
+                porcentagemCombustivelReposto = 0.25;
+                MostrarResumoFinanceiro();
+            }
+        }
+
+        private void rbZero_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbZero.Checked == true)
+            {
+                porcentagemCombustivelReposto = 0;
+                MostrarResumoFinanceiro();
+            }
         }
     }
 }

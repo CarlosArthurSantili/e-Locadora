@@ -166,7 +166,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                     tabelaLocacao.AtualizarRegistros();
 
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi removida com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{locacaoSelecionado.veiculo.Modelo}] para o Cliente: [{locacaoSelecionado.cliente.Nome}] foi devolvida com sucesso");
                 }
             }
             else
