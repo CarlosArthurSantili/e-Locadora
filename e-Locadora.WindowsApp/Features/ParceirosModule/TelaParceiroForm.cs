@@ -63,14 +63,7 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
                 DialogResult = DialogResult.None;
             }
 
-            else
-            {
-                string primeiroErroControlador = new StringReader(ValidarCampos()).ReadLine();
-
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErroControlador);
-
-                DialogResult = DialogResult.None;
-            }
+    
         }
 
     }
