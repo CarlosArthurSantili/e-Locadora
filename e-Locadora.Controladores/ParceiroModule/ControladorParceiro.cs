@@ -136,7 +136,7 @@ namespace e_Locadora.Controladores.ParceiroModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", parceiro.Id);
-            parametros.Add("PARCEIRO", parceiro.parceiro);
+            parametros.Add("PARCEIRO", parceiro.nome);
 ;
 
             return parametros;
@@ -163,7 +163,7 @@ namespace e_Locadora.Controladores.ParceiroModule
                     List<Parceiro> todosParceiros = SelecionarTodos();
                     foreach (Parceiro parceiro in todosParceiros)
                     {
-                        if (NovosParceiros.parceiro.Equals(parceiro.parceiro) && parceiro.Id != id)
+                        if (NovosParceiros.nome.Equals(parceiro.nome) && parceiro.Id != id)
                             countparceirosIguais++;
                     }
                     if (countparceirosIguais > 0)
@@ -175,7 +175,7 @@ namespace e_Locadora.Controladores.ParceiroModule
                     List<Parceiro> todosParceiros = SelecionarTodos();
                     foreach (Parceiro parceiro in todosParceiros)
                     {
-                        if (NovosParceiros.parceiro.Equals(parceiro.parceiro))
+                        if (NovosParceiros.nome.Equals(parceiro.nome))
                             countparceirosIguais++;
                     }
                     if (countparceirosIguais > 0)

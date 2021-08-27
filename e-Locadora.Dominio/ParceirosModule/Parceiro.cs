@@ -9,17 +9,17 @@ namespace e_Locadora.Dominio.ParceirosModule
 {
     public class Parceiro : EntidadeBase
     {
-        public string parceiro { get; }
+        public string nome { get; }
 
         public Parceiro(string parceiro)
         {
-            this.parceiro = parceiro;
+            this.nome = parceiro;
         }
 
         public override string Validar()
         {
             string resultadoValidacao = "";
-            if(string.IsNullOrEmpty(parceiro))
+            if(string.IsNullOrEmpty(nome))
                 resultadoValidacao = "O Nome do Parceiro é obrigatório .";
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
@@ -29,16 +29,21 @@ namespace e_Locadora.Dominio.ParceirosModule
 
         public override bool Equals(object obj)
         {
-            return obj is Parceiro parceiro &&
-                   Id == parceiro.Id &&
-                   this.parceiro == parceiro.parceiro;
+            return Equals(obj as Parceiro);
+        }
+
+        public bool Equals(Parceiro other)
+        {
+            return other!=null &&
+                   Id == other.Id &&
+                   this.nome == other.nome;
         }
 
         public override int GetHashCode()
         {
             int hashCode = 2069752152;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(parceiro);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(nome);
             return hashCode;
         }
     }

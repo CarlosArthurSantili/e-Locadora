@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Controladores.CupomModule;
 using e_Locadora.Dominio.CupomModule;
+using e_Locadora.Dominio.ParceirosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,8 +106,8 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 int valorPercentual = Convert.ToInt32(txtValorPercentual.Text);
                 double valorFixo = Convert.ToDouble(txtValorFixo.Text);
                 DateTime dataValidade = Convert.ToDateTime(maskedTextBoxDataValidade.Text);
-                string parceiro = txtParceiro.Text;
-
+                //string parceiro = txtParceiro.Text;
+                Parceiro parceiro = new Parceiro(txtParceiro.Text);
 
                 cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro);
 
