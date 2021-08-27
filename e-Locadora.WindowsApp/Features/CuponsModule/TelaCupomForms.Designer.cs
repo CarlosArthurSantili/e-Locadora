@@ -72,10 +72,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             // 
             // txtValorFixo
             // 
+            this.txtValorFixo.Enabled = false;
             this.txtValorFixo.Location = new System.Drawing.Point(98, 162);
             this.txtValorFixo.Name = "txtValorFixo";
             this.txtValorFixo.Size = new System.Drawing.Size(141, 20);
             this.txtValorFixo.TabIndex = 55;
+            this.txtValorFixo.Text = "0";
             // 
             // label4
             // 
@@ -92,6 +94,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.txtValorPercentual.Name = "txtValorPercentual";
             this.txtValorPercentual.Size = new System.Drawing.Size(141, 20);
             this.txtValorPercentual.TabIndex = 53;
+            this.txtValorPercentual.Text = "0";
             // 
             // label3
             // 

@@ -20,8 +20,6 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
             this.controlador = controlador;
             tabelaTaxaServicos = new TabelaTaxaServico(controlador);
         }
-
-
         public void EditarRegistro()
         {
             int id = tabelaTaxaServicos.ObtemIdSelecionado();

@@ -36,12 +36,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 if (cupons.ValorPercentual != 0)
                 {
                     valorPercentual.Checked = true;
-                    valorPercentual.Text = cupons.ValorPercentual.ToString();
+                    txtValorPercentual.Text = cupons.ValorPercentual.ToString();
                 }
                 if (cupons.ValorFixo != 0)
                 {
                     valorFixo.Checked = true;
-                    valorFixo.Text = cupons.ValorFixo.ToString();
+                    txtValorFixo.Text = cupons.ValorFixo.ToString();
                 }
                 maskedTextBoxDataValidade.Text = cupons.DataValidade.ToString();
                 txtParceiro.Text = cupons.Parceiro.ToString();
@@ -59,8 +59,11 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             if (valorFixo.Checked == true && !ValidarTipoDouble(txtValorFixo.Text))
                 return "Valor Fixo está inválido, tente novamente";
 
-            if (string.IsNullOrEmpty(maskedTextBoxDataValidade.Text))
+            if (!ValidarTipoDateTime(maskedTextBoxDataValidade.Text))
                 return "Data de Validade invalida, tente novamente";
+
+            if (Convert.ToDateTime(maskedTextBoxDataValidade.Text) < DateTime.Now.Date)
+                return "Data de Validade não pode ser Menor que a data Atual";
 
             if (string.IsNullOrEmpty(txtParceiro.Text))
                 return "Parceiro Inválida, tente novamente";
@@ -94,6 +97,21 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
             }
         }
+
+        private bool ValidarTipoDateTime(string texto)
+        {
+            try
+            {
+                DateTime dataConvertido = Convert.ToDateTime(texto);
+                return true;
+            }
+            catch
+            {
+                return false;
+
+            }
+        }
+
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
