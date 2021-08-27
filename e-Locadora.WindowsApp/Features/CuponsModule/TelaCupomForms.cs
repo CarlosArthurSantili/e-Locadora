@@ -48,7 +48,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                     txtValorFixo.Text = cupons.ValorFixo.ToString();
                 }
                 maskedTextBoxDataValidade.Text = cupons.DataValidade.ToString();
-                cboxParceiro.SelectedItem = cupons.Parceiro.ToString();
+                cboxParceiro.SelectedItem = cupons.Parceiro;
             }
         }
 
