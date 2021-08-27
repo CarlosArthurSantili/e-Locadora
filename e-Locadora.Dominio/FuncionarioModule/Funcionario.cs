@@ -59,6 +59,11 @@ namespace e_Locadora.Dominio.FuncionarioModule
             return resultadoValidacao;
         }
 
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Funcionario);
+        }
+
         public  bool Equals(Funcionario obj)
         {
             return obj is Funcionario funcionario &&
@@ -83,10 +88,7 @@ namespace e_Locadora.Dominio.FuncionarioModule
             hashCode = hashCode * -1521134295 + Salario.GetHashCode();
             return hashCode;
         }
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Funcionario);
-        }
+        
 
     }
 }

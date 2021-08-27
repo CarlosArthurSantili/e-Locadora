@@ -28,18 +28,20 @@ namespace e_Locadora.Dominio.CupomModule
             DataValidade = dataValidade;
             Parceiro = parceiro;
         }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Cupons);
         }
         public bool Equals(Cupons other)
         {
-            return other != null && 
-                   Nome == other.Nome  &&  
-                   ValorPercentual == other.ValorPercentual &&
-                   ValorFixo == other.ValorFixo && 
-                   DataValidade == other.DataValidade &&
-                   Parceiro == other.Parceiro;
+            return other != null 
+                && Id == other.Id 
+                && Nome == other.Nome  
+                && ValorPercentual == other.ValorPercentual 
+                && ValorFixo == other.ValorFixo 
+                && DataValidade == other.DataValidade 
+                && Parceiro == other.Parceiro;
         }
         public override int GetHashCode()
         {
