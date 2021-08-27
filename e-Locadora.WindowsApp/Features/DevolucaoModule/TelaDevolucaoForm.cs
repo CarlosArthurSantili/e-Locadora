@@ -43,6 +43,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         {
             InitializeComponent();
             CarregarTaxasServicos();
+            CarregarParceiros();
         }
 
 
@@ -70,6 +71,9 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 maskedTextBoxDataRetornoAtual.Text = Convert.ToDateTime(DateTime.Now).ToString();
                 txtTipoCombustivel.Text = devolucao.veiculo.Combustivel.ToString();
                 txtQuilometragemInicial.Text = devolucao.veiculo.Quilometragem.ToString();
+
+                //if (devolucao.cupom != null)
+                //    comboBoxCupom.SelectedItem() = devolucao.cupom;
 
                 if (devolucao.seguroCliente != 0)
                 {
@@ -104,7 +108,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             {
                 return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
             }
-
+            if (!ValidarCupom())
+                return "Cupom de Desconto inválido!";
             return "ESTA_VALIDO";
         }
 
@@ -151,6 +156,9 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
                 devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
 
+                //if (radioButtonCupomSim.Checked == true)
+                //   devolucao.cupom = comboBoxCupom.SelectedItem();
+
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = devolucao.Validar();
 
@@ -191,6 +199,18 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             {
                 cListBoxTaxasServicos.Items.Add(taxaServico);
             }
+        }
+
+        private void CarregarParceiros()
+        {
+            comboBoxParceiro.Items.Clear();
+
+            //List<Parceiro> parceiros = controladorParceiros.SelecionarTodos();
+
+            //foreach (var parceiro in parceiros)
+            //{
+            //    comboBoxParceiro.Items.Add(parceiro);
+            //}
         }
 
         private void TelaDevolucaoForm_Load(object sender, EventArgs e)
@@ -412,5 +432,47 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 MostrarResumoFinanceiro();
             }
         }
-    }
+
+        private bool ValidarCupom()
+        {
+            /*
+            foreach (Cupons cupom in controladorCupons.SelecionarTodos())
+            {
+                if (cupom.parceiro.nome == comboBoxParceiro.SelectedItem.ToString())
+                {
+                    if (cupom.codigo == txtCupom.Text && cupom.Validar() == "ESTA_VALIDO")
+                    {
+                        //devolucao.cupom = cupom;
+                        return true;
+                    }
+                }
+            }*/
+            return false;
+        }
+
+        private void comboBoxParceiro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonCupomSim_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonCupomSim.Checked == true)
+            {
+                comboBoxParceiro.Enabled = true;
+                comboBoxCupom.Enabled = true;
+            }
+        }
+
+        private void radioButtonCupomNao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonCupomNao.Checked == true)
+            {
+                comboBoxParceiro.Enabled = false;
+                comboBoxParceiro.SelectedIndex = -1;
+                comboBoxCupom.Enabled = false;
+                comboBoxCupom.SelectedIndex = -1;
+            }
+        }
+    }   
 }

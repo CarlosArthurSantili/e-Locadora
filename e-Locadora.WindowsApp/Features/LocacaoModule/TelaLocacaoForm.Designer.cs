@@ -62,6 +62,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.label6 = new System.Windows.Forms.Label();
             this.cboxCliente = new System.Windows.Forms.ComboBox();
             this.tabPageLocacao = new System.Windows.Forms.TabPage();
+            this.txtCaucao = new System.Windows.Forms.TextBox();
+            this.labelCaucao = new System.Windows.Forms.Label();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.maskedTextBoxDevolucao = new System.Windows.Forms.MaskedTextBox();
@@ -73,8 +75,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.txtIdLocacao = new System.Windows.Forms.TextBox();
             this.labelPlano = new System.Windows.Forms.Label();
             this.tabControlLocacao = new System.Windows.Forms.TabControl();
-            this.txtCaucao = new System.Windows.Forms.TextBox();
-            this.labelCaucao = new System.Windows.Forms.Label();
+            this.comboBoxParceiro = new System.Windows.Forms.ComboBox();
+            this.labelParceiros = new System.Windows.Forms.Label();
+            this.groupBoxCupom = new System.Windows.Forms.GroupBox();
+            this.labelCupom = new System.Windows.Forms.Label();
+            this.radioButtonCupomSim = new System.Windows.Forms.RadioButton();
+            this.radioButtonCupomNao = new System.Windows.Forms.RadioButton();
+            this.comboBoxCupom = new System.Windows.Forms.ComboBox();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabPageTaxasServicos.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
@@ -82,11 +89,12 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageClienteVeiculo.SuspendLayout();
             this.tabPageLocacao.SuspendLayout();
             this.tabControlLocacao.SuspendLayout();
+            this.groupBoxCupom.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(396, 225);
+            this.btnGravar.Location = new System.Drawing.Point(278, 333);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 83;
@@ -97,7 +105,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(477, 225);
+            this.btnCancelar.Location = new System.Drawing.Point(359, 333);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 84;
@@ -118,7 +126,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.groupBoxResumoFinanceiro.Controls.Add(this.labelDiasPrevistos);
             this.groupBoxResumoFinanceiro.Location = new System.Drawing.Point(271, 12);
             this.groupBoxResumoFinanceiro.Name = "groupBoxResumoFinanceiro";
-            this.groupBoxResumoFinanceiro.Size = new System.Drawing.Size(281, 207);
+            this.groupBoxResumoFinanceiro.Size = new System.Drawing.Size(163, 315);
             this.groupBoxResumoFinanceiro.TabIndex = 87;
             this.groupBoxResumoFinanceiro.TabStop = false;
             this.groupBoxResumoFinanceiro.Text = "Resumo Financeiro";
@@ -220,7 +228,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageTaxasServicos.Location = new System.Drawing.Point(4, 22);
             this.tabPageTaxasServicos.Name = "tabPageTaxasServicos";
             this.tabPageTaxasServicos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTaxasServicos.Size = new System.Drawing.Size(258, 181);
+            this.tabPageTaxasServicos.Size = new System.Drawing.Size(258, 289);
             this.tabPageTaxasServicos.TabIndex = 4;
             this.tabPageTaxasServicos.Text = "Taxas e Serviços";
             this.tabPageTaxasServicos.UseVisualStyleBackColor = true;
@@ -317,7 +325,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageClienteVeiculo.Location = new System.Drawing.Point(4, 22);
             this.tabPageClienteVeiculo.Name = "tabPageClienteVeiculo";
             this.tabPageClienteVeiculo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClienteVeiculo.Size = new System.Drawing.Size(258, 181);
+            this.tabPageClienteVeiculo.Size = new System.Drawing.Size(258, 289);
             this.tabPageClienteVeiculo.TabIndex = 1;
             this.tabPageClienteVeiculo.Text = "Cliente e Veículo";
             this.tabPageClienteVeiculo.UseVisualStyleBackColor = true;
@@ -412,6 +420,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // tabPageLocacao
             // 
+            this.tabPageLocacao.Controls.Add(this.groupBoxCupom);
             this.tabPageLocacao.Controls.Add(this.txtCaucao);
             this.tabPageLocacao.Controls.Add(this.labelCaucao);
             this.tabPageLocacao.Controls.Add(this.txtFuncionario);
@@ -427,15 +436,31 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageLocacao.Location = new System.Drawing.Point(4, 22);
             this.tabPageLocacao.Name = "tabPageLocacao";
             this.tabPageLocacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLocacao.Size = new System.Drawing.Size(258, 181);
+            this.tabPageLocacao.Size = new System.Drawing.Size(258, 289);
             this.tabPageLocacao.TabIndex = 0;
             this.tabPageLocacao.Text = "Locação";
             this.tabPageLocacao.UseVisualStyleBackColor = true;
             // 
+            // txtCaucao
+            // 
+            this.txtCaucao.Location = new System.Drawing.Point(105, 138);
+            this.txtCaucao.Name = "txtCaucao";
+            this.txtCaucao.Size = new System.Drawing.Size(77, 20);
+            this.txtCaucao.TabIndex = 28;
+            // 
+            // labelCaucao
+            // 
+            this.labelCaucao.AutoSize = true;
+            this.labelCaucao.Location = new System.Drawing.Point(55, 141);
+            this.labelCaucao.Name = "labelCaucao";
+            this.labelCaucao.Size = new System.Drawing.Size(44, 13);
+            this.labelCaucao.TabIndex = 27;
+            this.labelCaucao.Text = "Caução";
+            // 
             // txtFuncionario
             // 
             this.txtFuncionario.Enabled = false;
-            this.txtFuncionario.Location = new System.Drawing.Point(111, 76);
+            this.txtFuncionario.Location = new System.Drawing.Point(106, 60);
             this.txtFuncionario.Name = "txtFuncionario";
             this.txtFuncionario.Size = new System.Drawing.Size(113, 20);
             this.txtFuncionario.TabIndex = 26;
@@ -443,7 +468,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 78);
+            this.label8.Location = new System.Drawing.Point(37, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 25;
@@ -451,7 +476,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // maskedTextBoxDevolucao
             // 
-            this.maskedTextBoxDevolucao.Location = new System.Drawing.Point(110, 128);
+            this.maskedTextBoxDevolucao.Location = new System.Drawing.Point(105, 112);
             this.maskedTextBoxDevolucao.Mask = "00/00/0000";
             this.maskedTextBoxDevolucao.Name = "maskedTextBoxDevolucao";
             this.maskedTextBoxDevolucao.Size = new System.Drawing.Size(77, 20);
@@ -461,7 +486,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // maskedTextBoxLocacao
             // 
-            this.maskedTextBoxLocacao.Location = new System.Drawing.Point(110, 102);
+            this.maskedTextBoxLocacao.Location = new System.Drawing.Point(105, 86);
             this.maskedTextBoxLocacao.Mask = "00/00/0000";
             this.maskedTextBoxLocacao.Name = "maskedTextBoxLocacao";
             this.maskedTextBoxLocacao.Size = new System.Drawing.Size(77, 20);
@@ -472,7 +497,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 131);
+            this.label4.Location = new System.Drawing.Point(14, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 20;
@@ -481,7 +506,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 25);
+            this.label2.Location = new System.Drawing.Point(81, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 13;
@@ -494,7 +519,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             "Diário",
             "Km Controlado",
             "Km Livre"});
-            this.cboxPlano.Location = new System.Drawing.Point(110, 48);
+            this.cboxPlano.Location = new System.Drawing.Point(105, 32);
             this.cboxPlano.Name = "cboxPlano";
             this.cboxPlano.Size = new System.Drawing.Size(114, 21);
             this.cboxPlano.TabIndex = 14;
@@ -503,7 +528,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // labelDataLocacao
             // 
             this.labelDataLocacao.AutoSize = true;
-            this.labelDataLocacao.Location = new System.Drawing.Point(29, 105);
+            this.labelDataLocacao.Location = new System.Drawing.Point(24, 89);
             this.labelDataLocacao.Name = "labelDataLocacao";
             this.labelDataLocacao.Size = new System.Drawing.Size(75, 13);
             this.labelDataLocacao.TabIndex = 19;
@@ -513,7 +538,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             this.txtIdLocacao.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtIdLocacao.Enabled = false;
-            this.txtIdLocacao.Location = new System.Drawing.Point(110, 22);
+            this.txtIdLocacao.Location = new System.Drawing.Point(105, 6);
             this.txtIdLocacao.Name = "txtIdLocacao";
             this.txtIdLocacao.Size = new System.Drawing.Size(77, 20);
             this.txtIdLocacao.TabIndex = 1;
@@ -522,7 +547,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // labelPlano
             // 
             this.labelPlano.AutoSize = true;
-            this.labelPlano.Location = new System.Drawing.Point(70, 51);
+            this.labelPlano.Location = new System.Drawing.Point(65, 35);
             this.labelPlano.Name = "labelPlano";
             this.labelPlano.Size = new System.Drawing.Size(34, 13);
             this.labelPlano.TabIndex = 15;
@@ -536,30 +561,90 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabControlLocacao.Location = new System.Drawing.Point(5, 12);
             this.tabControlLocacao.Name = "tabControlLocacao";
             this.tabControlLocacao.SelectedIndex = 0;
-            this.tabControlLocacao.Size = new System.Drawing.Size(266, 207);
+            this.tabControlLocacao.Size = new System.Drawing.Size(266, 315);
             this.tabControlLocacao.TabIndex = 86;
             // 
-            // txtCaucao
+            // comboBoxParceiro
             // 
-            this.txtCaucao.Location = new System.Drawing.Point(110, 154);
-            this.txtCaucao.Name = "txtCaucao";
-            this.txtCaucao.Size = new System.Drawing.Size(77, 20);
-            this.txtCaucao.TabIndex = 28;
+            this.comboBoxParceiro.FormattingEnabled = true;
+            this.comboBoxParceiro.Location = new System.Drawing.Point(100, 54);
+            this.comboBoxParceiro.Name = "comboBoxParceiro";
+            this.comboBoxParceiro.Size = new System.Drawing.Size(113, 21);
+            this.comboBoxParceiro.TabIndex = 29;
+            this.comboBoxParceiro.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // labelCaucao
+            // labelParceiros
             // 
-            this.labelCaucao.AutoSize = true;
-            this.labelCaucao.Location = new System.Drawing.Point(60, 157);
-            this.labelCaucao.Name = "labelCaucao";
-            this.labelCaucao.Size = new System.Drawing.Size(44, 13);
-            this.labelCaucao.TabIndex = 27;
-            this.labelCaucao.Text = "Caução";
+            this.labelParceiros.AutoSize = true;
+            this.labelParceiros.Location = new System.Drawing.Point(48, 57);
+            this.labelParceiros.Name = "labelParceiros";
+            this.labelParceiros.Size = new System.Drawing.Size(46, 13);
+            this.labelParceiros.TabIndex = 30;
+            this.labelParceiros.Text = "Parceiro";
+            this.labelParceiros.Click += new System.EventHandler(this.labelParceiros_Click);
+            // 
+            // groupBoxCupom
+            // 
+            this.groupBoxCupom.Controls.Add(this.comboBoxCupom);
+            this.groupBoxCupom.Controls.Add(this.radioButtonCupomNao);
+            this.groupBoxCupom.Controls.Add(this.radioButtonCupomSim);
+            this.groupBoxCupom.Controls.Add(this.labelCupom);
+            this.groupBoxCupom.Controls.Add(this.comboBoxParceiro);
+            this.groupBoxCupom.Controls.Add(this.labelParceiros);
+            this.groupBoxCupom.Location = new System.Drawing.Point(6, 164);
+            this.groupBoxCupom.Name = "groupBoxCupom";
+            this.groupBoxCupom.Size = new System.Drawing.Size(246, 119);
+            this.groupBoxCupom.TabIndex = 88;
+            this.groupBoxCupom.TabStop = false;
+            this.groupBoxCupom.Text = "Cupom de Desconto";
+            // 
+            // labelCupom
+            // 
+            this.labelCupom.AutoSize = true;
+            this.labelCupom.Location = new System.Drawing.Point(54, 85);
+            this.labelCupom.Name = "labelCupom";
+            this.labelCupom.Size = new System.Drawing.Size(40, 13);
+            this.labelCupom.TabIndex = 32;
+            this.labelCupom.Text = "Cupom";
+            // 
+            // radioButtonCupomSim
+            // 
+            this.radioButtonCupomSim.AutoSize = true;
+            this.radioButtonCupomSim.Location = new System.Drawing.Point(11, 20);
+            this.radioButtonCupomSim.Name = "radioButtonCupomSim";
+            this.radioButtonCupomSim.Size = new System.Drawing.Size(42, 17);
+            this.radioButtonCupomSim.TabIndex = 33;
+            this.radioButtonCupomSim.TabStop = true;
+            this.radioButtonCupomSim.Text = "Sim";
+            this.radioButtonCupomSim.UseVisualStyleBackColor = true;
+            this.radioButtonCupomSim.CheckedChanged += new System.EventHandler(this.radioButtonCupomSim_CheckedChanged);
+            // 
+            // radioButtonCupomNao
+            // 
+            this.radioButtonCupomNao.AutoSize = true;
+            this.radioButtonCupomNao.Checked = true;
+            this.radioButtonCupomNao.Location = new System.Drawing.Point(62, 19);
+            this.radioButtonCupomNao.Name = "radioButtonCupomNao";
+            this.radioButtonCupomNao.Size = new System.Drawing.Size(45, 17);
+            this.radioButtonCupomNao.TabIndex = 34;
+            this.radioButtonCupomNao.TabStop = true;
+            this.radioButtonCupomNao.Text = "Não";
+            this.radioButtonCupomNao.UseVisualStyleBackColor = true;
+            this.radioButtonCupomNao.CheckedChanged += new System.EventHandler(this.radioButtonCupomNao_CheckedChanged);
+            // 
+            // comboBoxCupom
+            // 
+            this.comboBoxCupom.FormattingEnabled = true;
+            this.comboBoxCupom.Location = new System.Drawing.Point(99, 81);
+            this.comboBoxCupom.Name = "comboBoxCupom";
+            this.comboBoxCupom.Size = new System.Drawing.Size(113, 21);
+            this.comboBoxCupom.TabIndex = 35;
             // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 257);
+            this.ClientSize = new System.Drawing.Size(451, 368);
             this.Controls.Add(this.groupBoxResumoFinanceiro);
             this.Controls.Add(this.tabControlLocacao);
             this.Controls.Add(this.btnCancelar);
@@ -582,6 +667,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabPageLocacao.ResumeLayout(false);
             this.tabPageLocacao.PerformLayout();
             this.tabControlLocacao.ResumeLayout(false);
+            this.groupBoxCupom.ResumeLayout(false);
+            this.groupBoxCupom.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -633,5 +720,12 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.TextBox txtFuncionario;
         private System.Windows.Forms.TextBox txtCaucao;
         private System.Windows.Forms.Label labelCaucao;
+        private System.Windows.Forms.GroupBox groupBoxCupom;
+        private System.Windows.Forms.Label labelParceiros;
+        private System.Windows.Forms.ComboBox comboBoxParceiro;
+        private System.Windows.Forms.Label labelCupom;
+        private System.Windows.Forms.RadioButton radioButtonCupomNao;
+        private System.Windows.Forms.RadioButton radioButtonCupomSim;
+        private System.Windows.Forms.ComboBox comboBoxCupom;
     }
 }
