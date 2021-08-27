@@ -4,7 +4,10 @@
     [VALOR_PERCENTUAL] INT           NULL,
     [VALOR_FIXO]       DECIMAL (18)  NULL,
     [DATA_VALIDADE]    DATE          NOT NULL,
-    [PARCEIRO]         VARCHAR (100) NOT NULL,
-    PRIMARY KEY CLUSTERED ([ID] ASC)
+    [idParceiro]       INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [FK_TBCupons_TBParceiros] FOREIGN KEY ([idParceiro]) REFERENCES [dbo].[TBParceiros] ([Id])
 );
+
+
 

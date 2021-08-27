@@ -31,7 +31,7 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
                 parceiro = value;
 
                 txtId.Text = parceiro.Id.ToString();
-                txtNome.Text = parceiro.parceiro;
+                txtNome.Text = parceiro.nome;
             }
         }
 

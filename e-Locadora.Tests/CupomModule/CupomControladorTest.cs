@@ -1,6 +1,8 @@
 ﻿using e_Locadora.Controladores;
 using e_Locadora.Controladores.CupomModule;
+using e_Locadora.Controladores.ParceiroModule;
 using e_Locadora.Dominio.CupomModule;
+using e_Locadora.Dominio.ParceirosModule;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -12,45 +14,52 @@ namespace e_Locadora.Tests.CupomModule
     [TestCategory("Controladores")]
     public class CupomControladorTest
     {
-        ControladorCupons controlador = null;
+        ControladorCupons controladorCupom = null;
+        ControladorParceiro controladorParceiro = null;
 
         public CupomControladorTest()
         {
-            controlador = new ControladorCupons();
+            controladorCupom = new ControladorCupons();
+            controladorParceiro = new ControladorParceiro();
             LimparTelas();
         }
 
         private void LimparTelas()
         {
             Db.Update("DELETE FROM TBCUPONS");
+            Db.Update("DELETE FROM TBPARCEIROS");
         }
 
         [TestMethod]
         public void Deve_Inserir_Novo_Cupom()
         {
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021,08,26), "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021,08,26), parceiro);
 
             //action
-            controlador.InserirNovo(cupom);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom);
 
             //assert
-            var parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
-            parceiroEncontrado.Should().Be(cupom);
+            var cupomEncontrado = controladorCupom.SelecionarPorId(cupom.Id);
+            cupomEncontrado.Should().Be(cupom);
         }
 
         [TestMethod]
         public void Deve_Atualizar_Cupom()
         {
             //arrange
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom);
-            var cupomAtualizado = new Cupons("Deko-5946", 150, 0, new DateTime(2021, 08, 26), "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26).Date, parceiro);
+            var cupomAtualizado = new Cupons("Deko-5946", 150, 0, new DateTime(2021, 08, 26).Date, parceiro);
 
             //action
-            controlador.Editar(cupom.Id, cupomAtualizado);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom);
+            controladorCupom.Editar(cupom.Id, cupomAtualizado);
 
             //assert
-            Cupons cuponsEditado = controlador.SelecionarPorId(cupom.Id);
+            Cupons cuponsEditado = controladorCupom.SelecionarPorId(cupom.Id);
             cuponsEditado.Should().Be(cupomAtualizado);
         }
 
@@ -58,10 +67,13 @@ namespace e_Locadora.Tests.CupomModule
         public void Deve_SelecionarPorId_Cupons_ValorPercentual()
         {
             //arrange
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom);
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro);
+
             //action
-            Cupons cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom);
+            Cupons cupomEncontrado = controladorCupom.SelecionarPorId(cupom.Id);
 
             //assert
             cupomEncontrado.Should().NotBeNull();
@@ -71,10 +83,13 @@ namespace e_Locadora.Tests.CupomModule
         public void Deve_SelecionarPorId_Cupons_ValorFixo()
         {
             //arrange
-            var cupom = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom);
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+            
             //action
-            Cupons cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom);
+            Cupons cupomEncontrado = controladorCupom.SelecionarPorId(cupom.Id);
 
             //assert
             cupomEncontrado.Should().NotBeNull();
@@ -84,13 +99,16 @@ namespace e_Locadora.Tests.CupomModule
         public void Deve_Excluir_TaxasServicos()
         {
             //arrange
-            var cupom = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom);
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+
             //action
-            controlador.Excluir(cupom.Id);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom);
+            controladorCupom.Excluir(cupom.Id);
 
             //assert
-            var cupomEncrontrado = controlador.SelecionarPorId(cupom.Id);
+            var cupomEncrontrado = controladorCupom.SelecionarPorId(cupom.Id);
             cupomEncrontrado.Should().BeNull();
         }
 
@@ -98,18 +116,18 @@ namespace e_Locadora.Tests.CupomModule
         public void DeveSelecionar_TodosCupons()
         {
             //arrange
-            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom1);
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+            var cupom2 = new Cupons("Deko-1656", 150, 0, new DateTime(2021, 08, 26), parceiro);
+            var cupom3 = new Cupons("Deko-2015", 25, 0, new DateTime(2021, 08, 26), parceiro);
 
-            var cupom2 = new Cupons("Deko-1656", 150, 0, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom2);
-
-
-            var cupom3 = new Cupons("Deko-2015", 25, 0, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom3);
 
             //action
-            var taxasServicos = controlador.SelecionarTodos();
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom1);
+            controladorCupom.InserirNovo(cupom2);
+            controladorCupom.InserirNovo(cupom3);
+            var taxasServicos = controladorCupom.SelecionarTodos();
 
             //assert
             taxasServicos.Should().HaveCount(3);
@@ -121,34 +139,42 @@ namespace e_Locadora.Tests.CupomModule
         [TestMethod]
         public void Nao_Deve_Cadastrar_Cupons_Iguais()
         {
-            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom1);
+            //arrange
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+            
 
-            var cupom2 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom1);
+            var cupom2 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+            
 
-            string resultado = controlador.InserirNovo(cupom2);
+            
+            //action
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom1);
+            string resultado = controladorCupom.InserirNovo(cupom2);
 
+            //assert
             resultado.Should().Be("Cupom já cadastrada, tente novamente.");
-            List<Cupons> taxasServicos = controlador.SelecionarTodos();
-
+            List<Cupons> taxasServicos = controladorCupom.SelecionarTodos();
             taxasServicos.Should().HaveCount(1);
-
         }
 
         [TestMethod]
         public void Nao_Deve_Editar_Cupons_Iguais()
         {
-            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");
-            controlador.InserirNovo(cupom1);
+            //pensar sobre depois
+            var parceiro = new Parceiro("Desconto do Deko");
+            var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
+            controladorParceiro.InserirNovo(parceiro);
+            controladorCupom.InserirNovo(cupom1);
 
 
-            var cupomAtualizar = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), "Desconto do Deko");  
+            var cupomAtualizar = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);  
 
-            string resultado = controlador.Editar(cupomAtualizar.Id, cupomAtualizar);
+            string resultado = controladorCupom.Editar(cupomAtualizar.Id, cupomAtualizar);
 
             resultado.Should().Be("Cupom já cadastrada, tente novamente.");
-            List<Cupons> taxasServicos = controlador.SelecionarTodos();
+            List<Cupons> taxasServicos = controladorCupom.SelecionarTodos();
 
             taxasServicos.Should().HaveCount(1);
 
