@@ -158,7 +158,7 @@ namespace e_Locadora.Controladores.CupomModule
             return parametros;
         }
 
-        private string ValidarCupons(Cupons novoCupons, int id = 0)
+        public string ValidarCupons(Cupons novoCupons, int id = 0)
         {
             //validar placas iguais
             if (novoCupons != null)
