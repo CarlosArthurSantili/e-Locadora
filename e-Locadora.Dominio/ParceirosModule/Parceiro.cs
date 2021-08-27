@@ -40,7 +40,7 @@ namespace e_Locadora.Dominio.ParceirosModule
         }
         public override string ToString()
         {
-            return parceiro;
+            return nome;
         }
         public override int GetHashCode()
         {

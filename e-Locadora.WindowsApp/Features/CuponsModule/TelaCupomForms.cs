@@ -130,7 +130,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
                 Parceiro parceiro = (Parceiro)cboxParceiro.SelectedItem;
 
-                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro.ToString());
+                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro);
 
                 int id = Convert.ToInt32(txtId.Text);
                 resultadoValidacao = cupons.Validar();
