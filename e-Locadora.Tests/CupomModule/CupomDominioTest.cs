@@ -51,7 +51,7 @@ namespace e_Locadora.Tests.CupomModule
         [TestMethod]
         public void Nao_Deve_Validar_Parceiro()
         {
-            Cupons cupons = new Cupons("Deco-5630", 0, 20, new DateTime(2021, 08, 27), null);
+            Cupons cupons = new Cupons("Deco-5630", 0, 20, new DateTime(2021, 08, 27), null, 200);
             Assert.AreEqual("O campo Parceiro é obrigatório e não pode ser vazio.", cupons.Validar());
         }
 

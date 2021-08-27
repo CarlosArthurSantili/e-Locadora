@@ -46,23 +46,26 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.maskedTextBoxDataValidade = new System.Windows.Forms.MaskedTextBox();
             this.Parceiro = new System.Windows.Forms.Label();
             this.cboxParceiro = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtValorMinimo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(166, 281);
+            this.btnCancelar.Location = new System.Drawing.Point(166, 312);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(73, 23);
             this.btnCancelar.TabIndex = 57;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(85, 281);
+            this.btnGravar.Location = new System.Drawing.Point(85, 312);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(73, 23);
             this.btnGravar.TabIndex = 56;
@@ -210,11 +213,31 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.cboxParceiro.Size = new System.Drawing.Size(141, 21);
             this.cboxParceiro.TabIndex = 63;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 254);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Valor Minimo";
+            // 
+            // txtValorMinimo
+            // 
+            this.txtValorMinimo.Enabled = false;
+            this.txtValorMinimo.Location = new System.Drawing.Point(98, 251);
+            this.txtValorMinimo.Name = "txtValorMinimo";
+            this.txtValorMinimo.Size = new System.Drawing.Size(141, 20);
+            this.txtValorMinimo.TabIndex = 65;
+            this.txtValorMinimo.Text = "0";
+            // 
             // TelaCupomForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 314);
+            this.ClientSize = new System.Drawing.Size(252, 347);
+            this.Controls.Add(this.txtValorMinimo);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cboxParceiro);
             this.Controls.Add(this.Parceiro);
             this.Controls.Add(this.maskedTextBoxDataValidade);
@@ -262,5 +285,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDataValidade;
         private System.Windows.Forms.Label Parceiro;
         private System.Windows.Forms.ComboBox cboxParceiro;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtValorMinimo;
     }
 }
