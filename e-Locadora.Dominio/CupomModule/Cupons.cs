@@ -69,6 +69,9 @@ namespace e_Locadora.Dominio.CupomModule
             if (ValorPercentual < 0)
                 resultadoValidacao += "Valor Percentual não pode ser menor que Zero.";
 
+            if (ValorPercentual > 100)
+                resultadoValidacao += "Valor Percentual não pode ser maior que Cem.";
+
             if (ValorFixo < 0)
                 resultadoValidacao += "Valor Fixo não pode ser Menor que Zero.";
 
