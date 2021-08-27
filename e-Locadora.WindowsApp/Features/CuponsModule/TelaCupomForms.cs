@@ -65,7 +65,6 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             if (string.IsNullOrEmpty(txtParceiro.Text))
                 return "Parceiro Inválida, tente novamente";
 
-
             return "CAMPOS_VALIDOS";
         }
 

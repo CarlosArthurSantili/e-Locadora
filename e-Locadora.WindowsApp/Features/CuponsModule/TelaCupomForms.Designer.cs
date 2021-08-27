@@ -140,10 +140,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             // valorPercentual
             // 
             this.valorPercentual.AutoSize = true;
+            this.valorPercentual.Checked = true;
             this.valorPercentual.Location = new System.Drawing.Point(6, 19);
             this.valorPercentual.Name = "valorPercentual";
             this.valorPercentual.Size = new System.Drawing.Size(103, 17);
             this.valorPercentual.TabIndex = 37;
+            this.valorPercentual.TabStop = true;
             this.valorPercentual.Text = "Valor Percentual";
             this.valorPercentual.UseVisualStyleBackColor = true;
             this.valorPercentual.CheckedChanged += new System.EventHandler(this.valorPercentual_CheckedChanged);
@@ -208,7 +210,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 338);
+            this.ClientSize = new System.Drawing.Size(252, 314);
             this.Controls.Add(this.Parceiro);
             this.Controls.Add(this.txtParceiro);
             this.Controls.Add(this.maskedTextBoxDataValidade);
