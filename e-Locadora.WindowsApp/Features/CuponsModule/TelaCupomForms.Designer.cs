@@ -193,9 +193,9 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.Parceiro.AutoSize = true;
             this.Parceiro.Location = new System.Drawing.Point(7, 220);
             this.Parceiro.Name = "Parceiro";
-            this.Parceiro.Size = new System.Drawing.Size(35, 13);
+            this.Parceiro.Size = new System.Drawing.Size(46, 13);
             this.Parceiro.TabIndex = 62;
-            this.Parceiro.Text = "Nome";
+            this.Parceiro.Text = "Parceiro";
             // 
             // txtParceiro
             // 
@@ -224,8 +224,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCupomForms";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Cupom de Desconto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

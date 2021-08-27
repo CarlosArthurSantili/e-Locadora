@@ -9,15 +9,15 @@ namespace e_Locadora.Dominio.CupomModule
 {
     public class Cupons : EntidadeBase
     {
-        public string Nome;
+        public string Nome { get; }
 
-        public int ValorPercentual;
+        public int ValorPercentual { get; }
 
-        public double ValorFixo;
+        public double ValorFixo { get; }
 
-        public DateTime DataValidade;
+        public DateTime DataValidade { get; }
 
-        public string Parceiro;
+        public string Parceiro { get; }
 
         public Cupons(string nome, int valorPercentual, double valorFixo, DateTime dataValidade, string parceiro)
         {

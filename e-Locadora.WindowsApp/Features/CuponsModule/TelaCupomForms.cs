@@ -144,9 +144,9 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         {
             if (valorPercentual.Checked == true)
             {
-                txtValorPercentual.Enabled = false;
+                txtValorFixo.Enabled = false;
                 txtValorPercentual.Enabled = true;
-                txtValorPercentual.Text = "0";
+                txtValorFixo.Text = "0";
             }
         }
 
@@ -154,9 +154,9 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         {
             if (valorFixo.Checked == true)
             {
-                txtValorFixo.Enabled = false;
+                txtValorPercentual.Enabled = false;
                 txtValorFixo.Enabled = true;
-                txtValorFixo.Text = "0";
+                txtValorPercentual.Text = "0";
             }
         }
     }
