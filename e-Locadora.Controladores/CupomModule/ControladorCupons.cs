@@ -1,5 +1,7 @@
-﻿using e_Locadora.Controladores.Shared;
+﻿using e_Locadora.Controladores.ParceiroModule;
+using e_Locadora.Controladores.Shared;
 using e_Locadora.Dominio.CupomModule;
+using e_Locadora.Dominio.ParceirosModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +13,8 @@ namespace e_Locadora.Controladores.CupomModule
 {
     public class ControladorCupons : Controlador<Cupons>
     {
+        ControladorParceiro controladorParceiro = new ControladorParceiro();
+
         #region Queries
 
 
@@ -21,7 +25,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [PARCEIRO]
+                        [IDPARCEIRO]
 	                )
 	                VALUES
 	                (
@@ -29,7 +33,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                @VALOR_PERCENTUAL, 
 		                @VALOR_FIXO,
                         @DATA_VALIDADE,
-                        @PARCEIRO
+                        @IDPARCEIRO
 	                )";
 
         private const string sqlEditarCupom =
@@ -39,7 +43,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL] = @VALOR_PERCENTUAL, 
 		                [VALOR_FIXO] = @VALOR_FIXO,
                         [DATA_VALIDADE] = @DATA_VALIDADE,
-                        [PARCEIRO] = @PARCEIRO
+                        [IDPARCEIRO] = @IDPARCEIRO
                      
                     WHERE 
                         ID = @ID";
@@ -66,7 +70,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [PARCEIRO]
+                        [IDPARCEIRO]
 
                         FROM TBCUPONS";
 
@@ -77,7 +81,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [PARCEIRO]
+                        [IDPARCEIRO]
 	                FROM
                         TBCUPONS
                     WHERE 
@@ -154,7 +158,7 @@ namespace e_Locadora.Controladores.CupomModule
             parametros.Add("VALOR_PERCENTUAL", cupons.ValorPercentual);
             parametros.Add("VALOR_FIXO", cupons.ValorFixo);
             parametros.Add("DATA_VALIDADE", cupons.DataValidade);
-            parametros.Add("PARCEIRO", cupons.Parceiro);
+            parametros.Add("IDPARCEIRO", cupons.Parceiro.Id);
             return parametros;
         }
 
@@ -208,7 +212,8 @@ namespace e_Locadora.Controladores.CupomModule
             int valor_Percentual = Convert.ToInt32(reader["VALOR_PERCENTUAL"]);
             double valor_Fixo = Convert.ToDouble(reader["VALOR_FIXO"]);
             DateTime data = Convert.ToDateTime(reader["DATA_VALIDADE"]);
-            string parceiro = Convert.ToString(reader["PARCEIRO"]);
+            int idParceiro = Convert.ToInt32(reader["IDPARCEIRO"]);
+            Parceiro parceiro = controladorParceiro.SelecionarPorId(idParceiro);
 
             Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo, data, parceiro);
 

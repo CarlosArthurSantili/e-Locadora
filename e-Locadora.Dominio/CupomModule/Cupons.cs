@@ -1,4 +1,5 @@
-﻿using e_Locadora.Dominio.Shared;
+﻿using e_Locadora.Dominio.ParceirosModule;
+using e_Locadora.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace e_Locadora.Dominio.CupomModule
 
         public DateTime DataValidade { get; }
 
-        public string Parceiro { get; }
+        public Parceiro Parceiro { get; }
 
-        public Cupons(string nome, int valorPercentual, double valorFixo, DateTime dataValidade, string parceiro)
+        public Cupons(string nome, int valorPercentual, double valorFixo, DateTime dataValidade, Parceiro parceiro)
         {
             Nome = nome;
             ValorPercentual = valorPercentual;
