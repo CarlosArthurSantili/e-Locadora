@@ -34,7 +34,7 @@ namespace e_Locadora.Tests.CupomModule
         public void Deve_Inserir_Novo_Cupom()
         {
             var parceiro = new Parceiro("Desconto do Deko");
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021,08,26), parceiro);
+            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2021,08,26), parceiro);
 
             //action
             controladorParceiro.InserirNovo(parceiro);
@@ -50,8 +50,8 @@ namespace e_Locadora.Tests.CupomModule
         {
             //arrange
             var parceiro = new Parceiro("Desconto do Deko");
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26).Date, parceiro);
-            var cupomAtualizado = new Cupons("Deko-5946", 150, 0, new DateTime(2021, 08, 26).Date, parceiro);
+            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2021, 08, 26).Date, parceiro);
+            var cupomAtualizado = new Cupons("Deko-5946", 80, 0, new DateTime(2021, 08, 26).Date, parceiro);
 
             //action
             controladorParceiro.InserirNovo(parceiro);
@@ -68,7 +68,7 @@ namespace e_Locadora.Tests.CupomModule
         {
             //arrange
             var parceiro = new Parceiro("Desconto do Deko");
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro);
+            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2021, 08, 26), parceiro);
 
             //action
             controladorParceiro.InserirNovo(parceiro);
@@ -118,7 +118,7 @@ namespace e_Locadora.Tests.CupomModule
             //arrange
             var parceiro = new Parceiro("Desconto do Deko");
             var cupom1 = new Cupons("Deko-1236", 0, 250, new DateTime(2021, 08, 26), parceiro);
-            var cupom2 = new Cupons("Deko-1656", 150, 0, new DateTime(2021, 08, 26), parceiro);
+            var cupom2 = new Cupons("Deko-1656", 50, 0, new DateTime(2021, 08, 26), parceiro);
             var cupom3 = new Cupons("Deko-2015", 25, 0, new DateTime(2021, 08, 26), parceiro);
 
 
