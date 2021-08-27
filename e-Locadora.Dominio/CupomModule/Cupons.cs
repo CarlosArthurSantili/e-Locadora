@@ -73,7 +73,7 @@ namespace e_Locadora.Dominio.CupomModule
             if (DataValidade == DateTime.MinValue || DataValidade == DateTime.MaxValue)
                 resultadoValidacao += "A data Invalida, Insira uma data valida";
 
-            if (string.IsNullOrEmpty(Parceiro))
+            if (Parceiro == null)
                 resultadoValidacao += "O campo Parceiro é obrigatório e não pode ser vazio.";
 
             if (resultadoValidacao == "")
