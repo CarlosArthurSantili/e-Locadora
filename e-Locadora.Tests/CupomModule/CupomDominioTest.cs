@@ -54,5 +54,14 @@ namespace e_Locadora.Tests.CupomModule
             Cupons cupons = new Cupons("Deco-5630", 0, 20, new DateTime(2021, 08, 27), null);
             Assert.AreEqual("O campo Parceiro é obrigatório e não pode ser vazio.", cupons.Validar());
         }
+
+
+        [TestMethod]
+        public void Nao_Deve_Validar_Percentual()
+        {
+            Parceiro parceiro = new Parceiro("Deko");
+            Cupons cupons = new Cupons("Deco-5630", 120, 0, new DateTime(2021, 08, 27), parceiro);
+            Assert.AreEqual("Valor Percentual não pode ser maior que Cem.", cupons.Validar());
+        }
     }
 }
