@@ -1,14 +1,18 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.CupomModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.ParceiroModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.CupomModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
+using e_Locadora.Dominio.ParceirosModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
 using System;
@@ -33,6 +37,8 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
+        ControladorParceiro controladorParceiro = new ControladorParceiro();
+        ControladorCupons controladorCupom = new ControladorCupons();
         
         private double custoPlanoLocacao = 0;
         private Locacao locacao;
@@ -44,6 +50,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarFuncionario();
             CarregarGrupoVeiculos();
             CarregarTaxasServicos();
+            CarregarParceiros();
         }
 
         public Locacao Locacao
@@ -182,10 +189,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 Condutor condutor = (Condutor)cboxCondutor.SelectedItem;
                 bool emAberto = true;
 
+                
 
                 locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, caucao, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
-
+                if (radioButtonCupomSim.Checked == true)
+                    locacao.cupom = (Cupons)comboBoxCupom.SelectedItem;
+                
                 locacao.taxasServicos.Clear();
 
                 for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
@@ -300,6 +310,18 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             foreach (var taxaServico in taxasServicos)
             {
                 cListBoxTaxasServicos.Items.Add(taxaServico);
+            }
+        }
+
+        private void CarregarParceiros()
+        {
+            comboBoxParceiro.Items.Clear();
+
+            List<Parceiro> parceiros = controladorParceiro.SelecionarTodos();
+
+            foreach (var parceiro in parceiros)
+            {
+                comboBoxParceiro.Items.Add(parceiro);
             }
         }
 
@@ -529,25 +551,32 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxParceiro_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            comboBoxCupom.Items.Clear();
+            comboBoxCupom.Text = "";
+            foreach (Cupons cupom in controladorCupom.SelecionarTodos())
+            {
+                if (cupom.Parceiro.Equals(comboBoxParceiro.SelectedItem))
+                {
+                    comboBoxCupom.Items.Add(cupom);
+                }
+            }
         }
 
         private bool ValidarCupom()
         {
-            /*
-            foreach (Cupons cupom in controladorCupons.SelecionarTodos())
+            foreach (Cupons cupom in controladorCupom.SelecionarTodos())
             {
-                if (cupom.parceiro.nome == comboBoxParceiro.SelectedItem.ToString())
+                if (cupom.Parceiro.nome == comboBoxParceiro.SelectedItem.ToString())
                 {
-                    if (cupom.codigo == txtCupom.Text && cupom.Validar() == "ESTA_VALIDO")
+                    if (cupom.Nome == comboBoxCupom.Text && cupom.Validar() == "ESTA_VALIDO")
                     {
-                        //devolucao.cupom = cupom;
                         return true;
                     }
                 }
-            }*/
+            }
             return false;
         }
 

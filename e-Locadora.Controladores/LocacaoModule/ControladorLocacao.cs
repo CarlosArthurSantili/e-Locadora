@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.CupomModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.Shared;
 using e_Locadora.Controladores.TaxasServicoModule;
@@ -7,6 +8,7 @@ using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.CupomModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
 using e_Locadora.Dominio.TaxasServicosModule;
@@ -28,6 +30,7 @@ namespace e_Locadora.Controladores.LocacaoModule
         ControladorGrupoVeiculo controladorGrupoVeiculo = new ControladorGrupoVeiculo();
         ControladorVeiculos controladorVeiculo = new ControladorVeiculos();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
+        ControladorCupons controladorCupom = new ControladorCupons();
 
         #region Queries Locacao
         private const string sqlInserirLocacao =
@@ -37,7 +40,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		                [IDCLIENTE], 
 		                [IDCONDUTOR],
                         [IDGRUPOVEICULO], 
-                        [IDVEICULO], 
+                        [IDVEICULO],
+                        [IDCUPOM],
 		                [EMABERTO],
                         [DATALOCACAO],
                         [DATADEVOLUCAO],
@@ -54,7 +58,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		                @IDCLIENTE, 
 		                @IDCONDUTOR,
                         @IDGRUPOVEICULO, 
-                        @IDVEICULO, 
+                        @IDVEICULO,
+                        @IDCUPOM,
 		                @EMABERTO,
                         @DATALOCACAO,
                         @DATADEVOLUCAO,
@@ -73,7 +78,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		                [IDCLIENTE] = @IDCLIENTE, 
 		                [IDCONDUTOR] = @IDCONDUTOR,
                         [IDGRUPOVEICULO] = @IDGRUPOVEICULO, 
-                        [IDVEICULO] = @IDVEICULO, 
+                        [IDVEICULO] = @IDVEICULO,
+                        [IDCUPOM] = @IDCUPOM,
 		                [EMABERTO] = @EMABERTO,
                         [DATALOCACAO] = @DATALOCACAO,
                         [DATADEVOLUCAO] = @DATADEVOLUCAO,
@@ -108,7 +114,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		        [IDCLIENTE], 
 		        [IDCONDUTOR],
                 [IDGRUPOVEICULO], 
-                [IDVEICULO], 
+                [IDVEICULO],
+                [IDCUPOM],
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -130,7 +137,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		        [IDCLIENTE], 
 		        [IDCONDUTOR],
                 [IDGRUPOVEICULO], 
-                [IDVEICULO], 
+                [IDVEICULO],
+                [IDCUPOM],
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -149,7 +157,8 @@ namespace e_Locadora.Controladores.LocacaoModule
 		        [IDCLIENTE], 
 		        [IDCONDUTOR],
                 [IDGRUPOVEICULO], 
-                [IDVEICULO], 
+                [IDVEICULO],
+                [IDCUPOM],
 		        [EMABERTO],
                 [DATALOCACAO],
                 [DATADEVOLUCAO],
@@ -444,6 +453,11 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("CAUCAO", locacao.caucao);
             parametros.Add("VALORTOTAL", locacao.valorTotal);
 
+            if (locacao.cupom != null)
+                parametros.Add("IDCUPOM", locacao.cupom.Id);
+            else
+                parametros.Add("IDCUPOM", DBNull.Value);
+
             return parametros;
         }
 
@@ -473,9 +487,15 @@ namespace e_Locadora.Controladores.LocacaoModule
             var seguroTerceiro = Convert.ToDouble(reader["SEGUROTERCEIRO"]);
             var caucao = Convert.ToDouble(reader["CAUCAO"]);
 
-
-
+            
             Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, caucao, grupoVeiculo, veiculo, cliente, condutor, emAberto);
+
+            if (reader["IDCUPOM"] != DBNull.Value)
+            {
+                var idCupom = Convert.ToInt32(reader["IDCUPOM"]);
+                locacao.cupom = controladorCupom.SelecionarPorId(idCupom);
+            }
+
             locacao.valorTotal = Convert.ToDouble(reader["VALORTOTAL"]);
             locacao.Id = Convert.ToInt32(reader["ID"]);
 

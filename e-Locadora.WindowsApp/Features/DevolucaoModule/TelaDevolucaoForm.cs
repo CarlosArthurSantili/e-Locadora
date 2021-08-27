@@ -1,15 +1,19 @@
 ﻿using e_Locadora.Configuracoes;
 using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.CupomModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
+using e_Locadora.Controladores.ParceiroModule;
 using e_Locadora.Controladores.TaxasServicoModule;
 using e_Locadora.Controladores.VeiculoModule;
 using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.CupomModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
+using e_Locadora.Dominio.ParceirosModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
 using System;
@@ -38,6 +42,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         ControladorLocacao controladorLocacao = new ControladorLocacao();
         ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         ControladorTaxasServicos controladorTaxasServicos = new ControladorTaxasServicos();
+        ControladorParceiro controladorParceiro = new ControladorParceiro();
+        ControladorCupons controladorCupom = new ControladorCupons();
 
         public TelaDevolucaoForm()
         {
@@ -72,8 +78,12 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 txtTipoCombustivel.Text = devolucao.veiculo.Combustivel.ToString();
                 txtQuilometragemInicial.Text = devolucao.veiculo.Quilometragem.ToString();
 
-                //if (devolucao.cupom != null)
-                //    comboBoxCupom.SelectedItem() = devolucao.cupom;
+                if (devolucao.cupom != null)
+                {
+                    radioButtonCupomSim.Checked = true;
+                    comboBoxParceiro.SelectedItem = devolucao.cupom.Parceiro;
+                    comboBoxCupom.SelectedItem = devolucao.cupom;
+                }
 
                 if (devolucao.seguroCliente != 0)
                 {
@@ -141,7 +151,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            //MostrarResumoFinanceiro();
+            MostrarResumoFinanceiro();
             string validacaoCampos = ValidarCampos();
 
             if (ValidarCampos().Equals("ESTA_VALIDO"))
@@ -156,8 +166,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
                 devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
 
-                //if (radioButtonCupomSim.Checked == true)
-                //   devolucao.cupom = comboBoxCupom.SelectedItem();
+                if (radioButtonCupomSim.Checked == true)
+                   devolucao.cupom = (Cupons)comboBoxCupom.SelectedItem;
 
                 int id = Convert.ToInt32(txtIdLocacao.Text);
                 string resultadoValidacaoDominio = devolucao.Validar();
@@ -201,17 +211,19 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             }
         }
 
+        
         private void CarregarParceiros()
         {
             comboBoxParceiro.Items.Clear();
 
-            //List<Parceiro> parceiros = controladorParceiros.SelecionarTodos();
+            List<Parceiro> parceiros = controladorParceiro.SelecionarTodos();
 
-            //foreach (var parceiro in parceiros)
-            //{
-            //    comboBoxParceiro.Items.Add(parceiro);
-            //}
+            foreach (var parceiro in parceiros)
+            {
+                comboBoxParceiro.Items.Add(parceiro);
+            }
         }
+
 
         private void TelaDevolucaoForm_Load(object sender, EventArgs e)
         {
@@ -237,6 +249,8 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             MostrarValorCombustivel();
             MostrarValorSeguros();
             MostrarValorTotal();
+            MostrarValorDesconto();
+            MostrarValorFinal();
         }
 
         private void MostrarDiasPrevistos()
@@ -360,6 +374,58 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         }
 
+        private void MostrarValorDesconto()
+        {
+            try
+            {
+                Cupons cupom = (Cupons)comboBoxCupom.SelectedItem;
+                if (cupom != null)
+                {
+                    if (cupom.ValorFixo != 0)
+                        labelVariavelDesconto.Text = cupom.ValorFixo.ToString();
+                    else
+                        labelVariavelDesconto.Text = cupom.ValorPercentual.ToString() + "%";
+                }
+            }
+            catch
+            {
+                labelVariavelSeguros.Text = "0";
+            }
+        }
+
+        private void MostrarValorFinal()
+        {
+            try
+            {
+                Cupons cupom = devolucao.cupom;
+                if (comboBoxCupom.SelectedItem != null)
+                    cupom = (Cupons)comboBoxCupom.SelectedItem;
+                double valorFinal = 0;
+
+                if (cupom != null)
+                {
+                    if (cupom.ValorFixo != 0)
+                    {
+                        double valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
+                        valorFinal = valorTotal - cupom.ValorFixo;
+                    }
+                    else
+                    {
+                        double valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
+                        double percentualFinal = 100 - cupom.ValorPercentual;
+                        valorFinal =  (valorTotal * percentualFinal) / 100;
+                    }
+                }
+                else
+                {
+                    valorFinal = Convert.ToDouble(labelVariavelValorTotal.Text);
+                }
+                labelVariavelValorFinal.Text = valorFinal.ToString();
+            }
+            catch { }
+        }
+
+
         private void ObterValorCombustivel() {
 
             if (devolucao.veiculo.Combustivel == "Alcool")
@@ -435,24 +501,30 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
 
         private bool ValidarCupom()
         {
-            /*
-            foreach (Cupons cupom in controladorCupons.SelecionarTodos())
+            foreach (Cupons cupom in controladorCupom.SelecionarTodos())
             {
-                if (cupom.parceiro.nome == comboBoxParceiro.SelectedItem.ToString())
+                if (cupom.Parceiro.Equals(comboBoxParceiro.SelectedItem))
                 {
-                    if (cupom.codigo == txtCupom.Text && cupom.Validar() == "ESTA_VALIDO")
+                    if (cupom.Equals(comboBoxCupom.SelectedItem) && cupom.Validar() == "ESTA_VALIDO")
                     {
-                        //devolucao.cupom = cupom;
                         return true;
                     }
                 }
-            }*/
+            }
             return false;
         }
 
         private void comboBoxParceiro_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboBoxCupom.Items.Clear();
+            comboBoxCupom.Text = "";
+            foreach (Cupons cupom in controladorCupom.SelecionarTodos())
+            {
+                if (cupom.Parceiro.Equals(comboBoxParceiro.SelectedItem))
+                {
+                    comboBoxCupom.Items.Add(cupom);
+                }
+            }
         }
 
         private void radioButtonCupomSim_CheckedChanged(object sender, EventArgs e)
@@ -473,6 +545,11 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 comboBoxCupom.Enabled = false;
                 comboBoxCupom.SelectedIndex = -1;
             }
+        }
+
+        private void comboBoxCupom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarResumoFinanceiro();
         }
     }   
 }

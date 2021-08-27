@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.CupomModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.Shared;
 using e_Locadora.Dominio.TaxasServicosModule;
@@ -27,6 +28,9 @@ namespace e_Locadora.Dominio.LocacaoModule
         public Veiculo veiculo { get; set; }
         public Clientes cliente { get; set; }
         public Condutor condutor { get; set; }
+        
+        public Cupons cupom { get; set; }
+
         public List<TaxasServicos> taxasServicos { get; set; }
         public bool emAberto { get; set; }
 

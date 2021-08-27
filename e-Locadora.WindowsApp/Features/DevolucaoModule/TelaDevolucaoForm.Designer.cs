@@ -84,7 +84,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.labelPlano = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPageClienteVeiculo = new System.Windows.Forms.TabPage();
+            this.tabPageVeiculo = new System.Windows.Forms.TabPage();
             this.tabPageAdicionais = new System.Windows.Forms.TabPage();
             this.groupBoxTaxasServicos = new System.Windows.Forms.GroupBox();
             this.cListBoxTaxasServicos = new System.Windows.Forms.CheckedListBox();
@@ -93,16 +93,20 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.checkBoxSeguroTerceiro = new System.Windows.Forms.CheckBox();
             this.txtSeguroCliente = new System.Windows.Forms.MaskedTextBox();
             this.checkBoxSeguroCliente = new System.Windows.Forms.CheckBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
             this.tabPageDescontos = new System.Windows.Forms.TabPage();
             this.groupBoxCupom = new System.Windows.Forms.GroupBox();
+            this.comboBoxCupom = new System.Windows.Forms.ComboBox();
+            this.radioButtonCupomNao = new System.Windows.Forms.RadioButton();
             this.labelCupom = new System.Windows.Forms.Label();
+            this.radioButtonCupomSim = new System.Windows.Forms.RadioButton();
             this.comboBoxParceiro = new System.Windows.Forms.ComboBox();
             this.labelParceiros = new System.Windows.Forms.Label();
-            this.radioButtonCupomNao = new System.Windows.Forms.RadioButton();
-            this.radioButtonCupomSim = new System.Windows.Forms.RadioButton();
-            this.comboBoxCupom = new System.Windows.Forms.ComboBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.labelVariavelDesconto = new System.Windows.Forms.Label();
+            this.labelDesconto = new System.Windows.Forms.Label();
+            this.labelVariavelValorFinal = new System.Windows.Forms.Label();
+            this.labelValorFinal = new System.Windows.Forms.Label();
             this.groupBoxDatas.SuspendLayout();
             this.groupBoxVeiculo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,7 +116,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.tabPageLocacao.SuspendLayout();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxLocacao.SuspendLayout();
-            this.tabPageClienteVeiculo.SuspendLayout();
+            this.tabPageVeiculo.SuspendLayout();
             this.tabPageAdicionais.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -398,6 +402,10 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // 
             // groupBoxResumoFinanceiro
             // 
+            this.groupBoxResumoFinanceiro.Controls.Add(this.labelVariavelValorFinal);
+            this.groupBoxResumoFinanceiro.Controls.Add(this.labelValorFinal);
+            this.groupBoxResumoFinanceiro.Controls.Add(this.labelVariavelDesconto);
+            this.groupBoxResumoFinanceiro.Controls.Add(this.labelDesconto);
             this.groupBoxResumoFinanceiro.Controls.Add(this.labelVariavelCombustivel);
             this.groupBoxResumoFinanceiro.Controls.Add(this.label10);
             this.groupBoxResumoFinanceiro.Controls.Add(this.labelVariavelSeguros);
@@ -528,7 +536,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             // tabControlLocacao
             // 
             this.tabControlLocacao.Controls.Add(this.tabPageLocacao);
-            this.tabControlLocacao.Controls.Add(this.tabPageClienteVeiculo);
+            this.tabControlLocacao.Controls.Add(this.tabPageVeiculo);
             this.tabControlLocacao.Controls.Add(this.tabPageAdicionais);
             this.tabControlLocacao.Controls.Add(this.tabPageDescontos);
             this.tabControlLocacao.Location = new System.Drawing.Point(12, 12);
@@ -685,16 +693,16 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.label3.TabIndex = 13;
             this.label3.Text = "ID";
             // 
-            // tabPageClienteVeiculo
+            // tabPageVeiculo
             // 
-            this.tabPageClienteVeiculo.Controls.Add(this.groupBoxVeiculo);
-            this.tabPageClienteVeiculo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageClienteVeiculo.Name = "tabPageClienteVeiculo";
-            this.tabPageClienteVeiculo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClienteVeiculo.Size = new System.Drawing.Size(279, 351);
-            this.tabPageClienteVeiculo.TabIndex = 1;
-            this.tabPageClienteVeiculo.Text = "Cliente e Veículo";
-            this.tabPageClienteVeiculo.UseVisualStyleBackColor = true;
+            this.tabPageVeiculo.Controls.Add(this.groupBoxVeiculo);
+            this.tabPageVeiculo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageVeiculo.Name = "tabPageVeiculo";
+            this.tabPageVeiculo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageVeiculo.Size = new System.Drawing.Size(279, 351);
+            this.tabPageVeiculo.TabIndex = 1;
+            this.tabPageVeiculo.Text = "Veículo";
+            this.tabPageVeiculo.UseVisualStyleBackColor = true;
             // 
             // tabPageAdicionais
             // 
@@ -783,26 +791,6 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.checkBoxSeguroCliente.Text = "Seguro Cliente";
             this.checkBoxSeguroCliente.UseVisualStyleBackColor = true;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(443, 395);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 89;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.Location = new System.Drawing.Point(362, 395);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 88;
-            this.btnGravar.Text = "Devolver";
-            this.btnGravar.UseVisualStyleBackColor = true;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
-            // 
             // tabPageDescontos
             // 
             this.tabPageDescontos.Controls.Add(this.groupBoxCupom);
@@ -829,6 +817,29 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxCupom.TabStop = false;
             this.groupBoxCupom.Text = "Cupom de Desconto";
             // 
+            // comboBoxCupom
+            // 
+            this.comboBoxCupom.Enabled = false;
+            this.comboBoxCupom.FormattingEnabled = true;
+            this.comboBoxCupom.Location = new System.Drawing.Point(96, 72);
+            this.comboBoxCupom.Name = "comboBoxCupom";
+            this.comboBoxCupom.Size = new System.Drawing.Size(107, 21);
+            this.comboBoxCupom.TabIndex = 92;
+            this.comboBoxCupom.SelectedIndexChanged += new System.EventHandler(this.comboBoxCupom_SelectedIndexChanged);
+            // 
+            // radioButtonCupomNao
+            // 
+            this.radioButtonCupomNao.AutoSize = true;
+            this.radioButtonCupomNao.Checked = true;
+            this.radioButtonCupomNao.Location = new System.Drawing.Point(57, 18);
+            this.radioButtonCupomNao.Name = "radioButtonCupomNao";
+            this.radioButtonCupomNao.Size = new System.Drawing.Size(45, 17);
+            this.radioButtonCupomNao.TabIndex = 91;
+            this.radioButtonCupomNao.TabStop = true;
+            this.radioButtonCupomNao.Text = "Não";
+            this.radioButtonCupomNao.UseVisualStyleBackColor = true;
+            this.radioButtonCupomNao.CheckedChanged += new System.EventHandler(this.radioButtonCupomNao_CheckedChanged);
+            // 
             // labelCupom
             // 
             this.labelCupom.AutoSize = true;
@@ -838,8 +849,20 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.labelCupom.TabIndex = 32;
             this.labelCupom.Text = "Cupom";
             // 
+            // radioButtonCupomSim
+            // 
+            this.radioButtonCupomSim.AutoSize = true;
+            this.radioButtonCupomSim.Location = new System.Drawing.Point(6, 19);
+            this.radioButtonCupomSim.Name = "radioButtonCupomSim";
+            this.radioButtonCupomSim.Size = new System.Drawing.Size(42, 17);
+            this.radioButtonCupomSim.TabIndex = 90;
+            this.radioButtonCupomSim.Text = "Sim";
+            this.radioButtonCupomSim.UseVisualStyleBackColor = true;
+            this.radioButtonCupomSim.CheckedChanged += new System.EventHandler(this.radioButtonCupomSim_CheckedChanged);
+            // 
             // comboBoxParceiro
             // 
+            this.comboBoxParceiro.Enabled = false;
             this.comboBoxParceiro.FormattingEnabled = true;
             this.comboBoxParceiro.Location = new System.Drawing.Point(96, 45);
             this.comboBoxParceiro.Name = "comboBoxParceiro";
@@ -856,37 +879,61 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.labelParceiros.TabIndex = 30;
             this.labelParceiros.Text = "Parceiro";
             // 
-            // radioButtonCupomNao
+            // btnCancelar
             // 
-            this.radioButtonCupomNao.AutoSize = true;
-            this.radioButtonCupomNao.Checked = true;
-            this.radioButtonCupomNao.Location = new System.Drawing.Point(57, 18);
-            this.radioButtonCupomNao.Name = "radioButtonCupomNao";
-            this.radioButtonCupomNao.Size = new System.Drawing.Size(45, 17);
-            this.radioButtonCupomNao.TabIndex = 91;
-            this.radioButtonCupomNao.TabStop = true;
-            this.radioButtonCupomNao.Text = "Não";
-            this.radioButtonCupomNao.UseVisualStyleBackColor = true;
-            this.radioButtonCupomNao.CheckedChanged += new System.EventHandler(this.radioButtonCupomNao_CheckedChanged);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(443, 395);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 89;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // radioButtonCupomSim
+            // btnGravar
             // 
-            this.radioButtonCupomSim.AutoSize = true;
-            this.radioButtonCupomSim.Location = new System.Drawing.Point(6, 19);
-            this.radioButtonCupomSim.Name = "radioButtonCupomSim";
-            this.radioButtonCupomSim.Size = new System.Drawing.Size(42, 17);
-            this.radioButtonCupomSim.TabIndex = 90;
-            this.radioButtonCupomSim.Text = "Sim";
-            this.radioButtonCupomSim.UseVisualStyleBackColor = true;
-            this.radioButtonCupomSim.CheckedChanged += new System.EventHandler(this.radioButtonCupomSim_CheckedChanged);
+            this.btnGravar.Location = new System.Drawing.Point(362, 395);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 88;
+            this.btnGravar.Text = "Devolver";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // comboBoxCupom
+            // labelVariavelDesconto
             // 
-            this.comboBoxCupom.FormattingEnabled = true;
-            this.comboBoxCupom.Location = new System.Drawing.Point(96, 72);
-            this.comboBoxCupom.Name = "comboBoxCupom";
-            this.comboBoxCupom.Size = new System.Drawing.Size(107, 21);
-            this.comboBoxCupom.TabIndex = 92;
+            this.labelVariavelDesconto.AutoSize = true;
+            this.labelVariavelDesconto.Location = new System.Drawing.Point(68, 173);
+            this.labelVariavelDesconto.Name = "labelVariavelDesconto";
+            this.labelVariavelDesconto.Size = new System.Drawing.Size(13, 13);
+            this.labelVariavelDesconto.TabIndex = 13;
+            this.labelVariavelDesconto.Text = "0";
+            // 
+            // labelDesconto
+            // 
+            this.labelDesconto.AutoSize = true;
+            this.labelDesconto.Location = new System.Drawing.Point(6, 173);
+            this.labelDesconto.Name = "labelDesconto";
+            this.labelDesconto.Size = new System.Drawing.Size(56, 13);
+            this.labelDesconto.TabIndex = 12;
+            this.labelDesconto.Text = "Desconto:";
+            // 
+            // labelVariavelValorFinal
+            // 
+            this.labelVariavelValorFinal.AutoSize = true;
+            this.labelVariavelValorFinal.Location = new System.Drawing.Point(68, 196);
+            this.labelVariavelValorFinal.Name = "labelVariavelValorFinal";
+            this.labelVariavelValorFinal.Size = new System.Drawing.Size(13, 13);
+            this.labelVariavelValorFinal.TabIndex = 15;
+            this.labelVariavelValorFinal.Text = "0";
+            // 
+            // labelValorFinal
+            // 
+            this.labelValorFinal.AutoSize = true;
+            this.labelValorFinal.Location = new System.Drawing.Point(6, 196);
+            this.labelValorFinal.Name = "labelValorFinal";
+            this.labelValorFinal.Size = new System.Drawing.Size(59, 13);
+            this.labelValorFinal.TabIndex = 14;
+            this.labelValorFinal.Text = "Valor Final:";
             // 
             // TelaDevolucaoForm
             // 
@@ -919,7 +966,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             this.groupBoxCliente.PerformLayout();
             this.groupBoxLocacao.ResumeLayout(false);
             this.groupBoxLocacao.PerformLayout();
-            this.tabPageClienteVeiculo.ResumeLayout(false);
+            this.tabPageVeiculo.ResumeLayout(false);
             this.tabPageAdicionais.ResumeLayout(false);
             this.groupBoxTaxasServicos.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -970,7 +1017,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdLocacao;
         private System.Windows.Forms.Label labelPlano;
-        private System.Windows.Forms.TabPage tabPageClienteVeiculo;
+        private System.Windows.Forms.TabPage tabPageVeiculo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPageAdicionais;
@@ -1006,5 +1053,9 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
         private System.Windows.Forms.RadioButton radioButtonCupomNao;
         private System.Windows.Forms.RadioButton radioButtonCupomSim;
         private System.Windows.Forms.ComboBox comboBoxCupom;
+        private System.Windows.Forms.Label labelVariavelValorFinal;
+        private System.Windows.Forms.Label labelValorFinal;
+        private System.Windows.Forms.Label labelVariavelDesconto;
+        private System.Windows.Forms.Label labelDesconto;
     }
 }

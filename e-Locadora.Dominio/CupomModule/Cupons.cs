@@ -41,7 +41,7 @@ namespace e_Locadora.Dominio.CupomModule
                 && ValorPercentual == other.ValorPercentual 
                 && ValorFixo == other.ValorFixo 
                 && DataValidade == other.DataValidade 
-                && Parceiro == other.Parceiro;
+                && Parceiro.Equals(other.Parceiro);
         }
         public override int GetHashCode()
         {
