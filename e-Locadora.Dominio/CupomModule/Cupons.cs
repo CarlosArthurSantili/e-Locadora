@@ -79,6 +79,9 @@ namespace e_Locadora.Dominio.CupomModule
             if (ValorFixo < 0)
                 resultadoValidacao += "Valor Fixo não pode ser Menor que Zero.";
 
+            if(ValorPercentual > 100)
+                resultadoValidacao += "Valor Percentual não pode ser maior que Cem.";
+
             if (DataValidade == DateTime.MinValue || DataValidade == DateTime.MaxValue)
                 resultadoValidacao += "A data Invalida, Insira uma data valida";
 

@@ -34,7 +34,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                @VALOR_PERCENTUAL, 
 		                @VALOR_FIXO,
                         @DATA_VALIDADE,
-                        @IDPARCEIRO
+                        @IDPARCEIRO,
                         @VALOR_MINIMO
 	                )";
 
@@ -85,7 +85,7 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [IDPARCEIRO]
+                        [IDPARCEIRO],
                         [VALOR_MINIMO]
 
 	                FROM
@@ -165,6 +165,7 @@ namespace e_Locadora.Controladores.CupomModule
             parametros.Add("VALOR_FIXO", cupons.ValorFixo);
             parametros.Add("DATA_VALIDADE", cupons.DataValidade);
             parametros.Add("IDPARCEIRO", cupons.Parceiro.Id);
+            parametros.Add("VALOR_MINIMO", cupons.ValorMInimo);
             return parametros;
         }
 

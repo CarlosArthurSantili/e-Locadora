@@ -50,8 +50,8 @@ namespace e_Locadora.Tests.CupomModule
         {
             //arrange
             var parceiro = new Parceiro("Desconto do Deko");
-            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
-            var cupomAtualizado = new Cupons("Deko-5946", 150, 0, new DateTime(2021, 08, 26).Date, parceiro,250);
+            var cupom = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26).Date, parceiro, 230);
+            var cupomAtualizado = new Cupons("Deko-5946", 150, 0, new DateTime(2021, 08, 26).Date, parceiro, 250);
 
             //action
             controladorParceiro.InserirNovo(parceiro);
@@ -118,8 +118,8 @@ namespace e_Locadora.Tests.CupomModule
             //arrange
             var parceiro = new Parceiro("Desconto do Deko");
             var cupom1 = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
-            var cupom2 = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
-            var cupom3 = new Cupons("Deko-1236", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
+            var cupom2 = new Cupons("Deko-1656", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
+            var cupom3 = new Cupons("Deko-2015", 250, 0, new DateTime(2021, 08, 26), parceiro, 230);
 
 
             //action
