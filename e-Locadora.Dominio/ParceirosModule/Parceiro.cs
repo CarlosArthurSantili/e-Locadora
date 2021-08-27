@@ -33,7 +33,10 @@ namespace e_Locadora.Dominio.ParceirosModule
                    Id == parceiro.Id &&
                    this.parceiro == parceiro.parceiro;
         }
-
+        public override string ToString()
+        {
+            return parceiro;
+        }
         public override int GetHashCode()
         {
             int hashCode = 2069752152;

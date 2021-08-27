@@ -1,5 +1,7 @@
 ﻿using e_Locadora.Controladores.CupomModule;
+using e_Locadora.Controladores.ParceiroModule;
 using e_Locadora.Dominio.CupomModule;
+using e_Locadora.Dominio.ParceirosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +19,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
     {
         private Cupons cupons;
         ControladorCupons controladorCupons = new ControladorCupons();
+        ControladorParceiro controladorParceiro = new ControladorParceiro();
 
         public TelaCupomForms()
         {
             InitializeComponent();
+            CarregarParceiro();
         }
 
         public Cupons Cupons
@@ -44,7 +48,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                     txtValorFixo.Text = cupons.ValorFixo.ToString();
                 }
                 maskedTextBoxDataValidade.Text = cupons.DataValidade.ToString();
-                txtParceiro.Text = cupons.Parceiro.ToString();
+                cboxParceiro.SelectedItem = cupons.Parceiro.ToString();
             }
         }
 
@@ -65,7 +69,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             if (Convert.ToDateTime(maskedTextBoxDataValidade.Text) < DateTime.Now.Date)
                 return "Data de Validade não pode ser Menor que a data Atual";
 
-            if (string.IsNullOrEmpty(txtParceiro.Text))
+            if (string.IsNullOrEmpty(cboxParceiro.Text))
                 return "Parceiro Inválida, tente novamente";
 
             return "CAMPOS_VALIDOS";
@@ -123,10 +127,10 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 int valorPercentual = Convert.ToInt32(txtValorPercentual.Text);
                 double valorFixo = Convert.ToDouble(txtValorFixo.Text);
                 DateTime dataValidade = Convert.ToDateTime(maskedTextBoxDataValidade.Text);
-                string parceiro = txtParceiro.Text;
 
+                Parceiro parceiro = (Parceiro)cboxParceiro.SelectedItem;
 
-                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro);
+                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro.ToString());
 
                 int id = Convert.ToInt32(txtId.Text);
                 resultadoValidacao = cupons.Validar();
@@ -157,6 +161,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             }
         }
 
+        private void CarregarParceiro()
+        {
+            cboxParceiro.Items.Clear();
+            foreach (Parceiro parceiro in controladorParceiro.SelecionarTodos())
+                cboxParceiro.Items.Add(parceiro);
+        }
         private void valorPercentual_CheckedChanged(object sender, EventArgs e)
         {
             if (valorPercentual.Checked == true)
@@ -176,5 +186,8 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 txtValorPercentual.Text = "0";
             }
         }
+
+
+
     }
 }

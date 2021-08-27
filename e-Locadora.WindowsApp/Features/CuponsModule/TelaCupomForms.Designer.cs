@@ -45,7 +45,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.label5 = new System.Windows.Forms.Label();
             this.maskedTextBoxDataValidade = new System.Windows.Forms.MaskedTextBox();
             this.Parceiro = new System.Windows.Forms.Label();
-            this.txtParceiro = new System.Windows.Forms.TextBox();
+            this.cboxParceiro = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,20 +202,21 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             this.Parceiro.TabIndex = 62;
             this.Parceiro.Text = "Parceiro";
             // 
-            // txtParceiro
+            // cboxParceiro
             // 
-            this.txtParceiro.Location = new System.Drawing.Point(98, 217);
-            this.txtParceiro.Name = "txtParceiro";
-            this.txtParceiro.Size = new System.Drawing.Size(141, 20);
-            this.txtParceiro.TabIndex = 61;
+            this.cboxParceiro.FormattingEnabled = true;
+            this.cboxParceiro.Location = new System.Drawing.Point(98, 220);
+            this.cboxParceiro.Name = "cboxParceiro";
+            this.cboxParceiro.Size = new System.Drawing.Size(141, 21);
+            this.cboxParceiro.TabIndex = 63;
             // 
             // TelaCupomForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(252, 314);
+            this.Controls.Add(this.cboxParceiro);
             this.Controls.Add(this.Parceiro);
-            this.Controls.Add(this.txtParceiro);
             this.Controls.Add(this.maskedTextBoxDataValidade);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancelar);
@@ -260,6 +261,6 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDataValidade;
         private System.Windows.Forms.Label Parceiro;
-        private System.Windows.Forms.TextBox txtParceiro;
+        private System.Windows.Forms.ComboBox cboxParceiro;
     }
 }
