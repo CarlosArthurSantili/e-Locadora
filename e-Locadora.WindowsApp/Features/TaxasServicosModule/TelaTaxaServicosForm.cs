@@ -140,8 +140,5 @@ namespace e_Locadora.WindowsApp.Features.TaxasServicosModule
                 taxaDiaria.Checked = false;
             }
         }
-
-
-
     }
 }

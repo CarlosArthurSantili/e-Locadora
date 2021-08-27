@@ -1,5 +1,6 @@
 ﻿using e_Locadora.Controladores.ClientesModule;
 using e_Locadora.Controladores.CondutorModule;
+using e_Locadora.Controladores.CupomModule;
 using e_Locadora.Controladores.FuncionarioModule;
 using e_Locadora.Controladores.LocacaoModule;
 using e_Locadora.Controladores.ParceiroModule;
@@ -9,6 +10,7 @@ using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.WindowsApp.ClientesModule;
 using e_Locadora.WindowsApp.Features.CondutorModule;
 using e_Locadora.WindowsApp.Features.ConfiguracoesCombustivel;
+using e_Locadora.WindowsApp.Features.CuponsModule;
 using e_Locadora.WindowsApp.Features.FuncionarioModule;
 using e_Locadora.WindowsApp.Features.LocacaoModule;
 using e_Locadora.WindowsApp.Features.ParceirosModule;
@@ -44,6 +46,7 @@ namespace e_Locadora.WindowsApp
         private OperacoesLocacao operacoesLocacao;
         private OperacoesVeiculo operacoesVeiculo;
         private OperacoesTaxaServicos operacoesTaxaServicos;
+        private OperacoesCupons operacoesCupons;
         private OperacoesParceiros operacoesParceiros;
 
 
@@ -59,6 +62,7 @@ namespace e_Locadora.WindowsApp
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesVeiculo = new OperacoesVeiculo(new ControladorVeiculos());
+            operacoesCupons = new OperacoesCupons(new ControladorCupons());
             operacoesParceiros = new OperacoesParceiros(new ControladorParceiro());
         }
 
@@ -224,7 +228,15 @@ namespace e_Locadora.WindowsApp
 
         private void cuponsDeDescontosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoCuponsToolBox configuracao = new ConfiguracaoCuponsToolBox();
 
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = operacoesCupons;
+
+            ConfigurarPainelRegistros();
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {

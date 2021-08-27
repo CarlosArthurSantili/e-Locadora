@@ -109,6 +109,20 @@
     <Compile Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.Designer.cs">
       <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\CuponsModule\TelaCupomForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\CuponsModule\TelaCupomForms.Designer.cs">
+      <DependentUpon>TelaCupomForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CuponsModule\OperacoesCupons.cs" />
+    <Compile Include="Features\CuponsModule\ConfiguracaoCuponsToolBox.cs" />
+    <Compile Include="Features\CuponsModule\TabelaCupons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\CuponsModule\TabelaCupons.Designer.cs">
+      <DependentUpon>TabelaCupons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\DevolucaoModule\TelaDevolucaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\ConfiguracoesCombustivel\TabelaCombustivelControl.resx">
       <DependentUpon>TabelaCombustivelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CuponsModule\TabelaCupons.resx">
+      <DependentUpon>TabelaCupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CuponsModule\TelaCupomForms.resx">
+      <DependentUpon>TelaCupomForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\DevolucaoModule\TelaDevolucaoForm.resx">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
