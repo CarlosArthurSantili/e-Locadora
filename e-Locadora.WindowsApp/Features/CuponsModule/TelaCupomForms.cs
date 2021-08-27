@@ -60,6 +60,9 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             if (valorPercentual.Checked == true && !ValidarTipoInt(txtValorPercentual.Text))
                 return "Valor Percentual está inválido, tente novamente";
 
+            if (Convert.ToInt32(txtValorPercentual.Text) > 100)
+                return "Valor Perncentual não pode ser Maior que cem";
+
             if (valorFixo.Checked == true && !ValidarTipoDouble(txtValorFixo.Text))
                 return "Valor Fixo está inválido, tente novamente";
 
@@ -74,7 +77,6 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
             return "CAMPOS_VALIDOS";
         }
-
         private bool ValidarTipoDouble(string texto)
         {
             try
