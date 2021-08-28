@@ -49,6 +49,8 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 }
                 maskedTextBoxDataValidade.Text = cupons.DataValidade.ToString();
                 cboxParceiro.SelectedItem = cupons.Parceiro;
+                txtValorMinimo.Text = cupons.ValorMinimo.ToString();
+
             }
         }
 
@@ -129,10 +131,11 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 int valorPercentual = Convert.ToInt32(txtValorPercentual.Text);
                 double valorFixo = Convert.ToDouble(txtValorFixo.Text);
                 DateTime dataValidade = Convert.ToDateTime(maskedTextBoxDataValidade.Text);
+                double valorMinimo = Convert.ToDouble(txtValorMinimo.Text);
 
                 Parceiro parceiro = (Parceiro)cboxParceiro.SelectedItem;
 
-                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro);
+                cupons = new Cupons(nome, valorPercentual, valorFixo, dataValidade, parceiro, valorMinimo);
 
                 int id = Convert.ToInt32(txtId.Text);
                 resultadoValidacao = cupons.Validar();
@@ -189,7 +192,9 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

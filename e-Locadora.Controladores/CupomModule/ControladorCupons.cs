@@ -25,7 +25,8 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [IDPARCEIRO]
+                        [IDPARCEIRO],
+                        [VALOR_MINIMO]
 	                )
 	                VALUES
 	                (
@@ -33,7 +34,8 @@ namespace e_Locadora.Controladores.CupomModule
 		                @VALOR_PERCENTUAL, 
 		                @VALOR_FIXO,
                         @DATA_VALIDADE,
-                        @IDPARCEIRO
+                        @IDPARCEIRO,
+                        @VALOR_MINIMO
 	                )";
 
         private const string sqlEditarCupom =
@@ -43,7 +45,8 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL] = @VALOR_PERCENTUAL, 
 		                [VALOR_FIXO] = @VALOR_FIXO,
                         [DATA_VALIDADE] = @DATA_VALIDADE,
-                        [IDPARCEIRO] = @IDPARCEIRO
+                        [IDPARCEIRO] = @IDPARCEIRO,
+                        [VALOR_MINIMO] = @VALOR_MINIMO
                      
                     WHERE 
                         ID = @ID";
@@ -70,7 +73,8 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [IDPARCEIRO]
+                        [IDPARCEIRO],
+                        [VALOR_MINIMO]
 
                         FROM TBCUPONS";
 
@@ -81,7 +85,9 @@ namespace e_Locadora.Controladores.CupomModule
 		                [VALOR_PERCENTUAL], 
 		                [VALOR_FIXO],
                         [DATA_VALIDADE],
-                        [IDPARCEIRO]
+                        [IDPARCEIRO],
+                        [VALOR_MINIMO]
+
 	                FROM
                         TBCUPONS
                     WHERE 
@@ -159,6 +165,7 @@ namespace e_Locadora.Controladores.CupomModule
             parametros.Add("VALOR_FIXO", cupons.ValorFixo);
             parametros.Add("DATA_VALIDADE", cupons.DataValidade);
             parametros.Add("IDPARCEIRO", cupons.Parceiro.Id);
+            parametros.Add("VALOR_MINIMO", cupons.ValorMinimo);
             return parametros;
         }
 
@@ -214,8 +221,9 @@ namespace e_Locadora.Controladores.CupomModule
             DateTime data = Convert.ToDateTime(reader["DATA_VALIDADE"]);
             int idParceiro = Convert.ToInt32(reader["IDPARCEIRO"]);
             Parceiro parceiro = controladorParceiro.SelecionarPorId(idParceiro);
+            double valorMinimo = Convert.ToDouble(reader["VALOR_MINIMO"]);
 
-            Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo, data, parceiro);
+            Cupons cupons = new Cupons(nome, valor_Percentual, valor_Fixo, data, parceiro, valorMinimo);
 
             cupons.Id = id;
 
