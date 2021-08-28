@@ -20,7 +20,7 @@ namespace e_Locadora.Dominio.CupomModule
 
         public Parceiro Parceiro { get; }
 
-        public double ValorMInimo { get; }
+        public double ValorMinimo { get; }
 
 
         public Cupons(string nome, int valorPercentual, double valorFixo, DateTime dataValidade, Parceiro parceiro, double valorMInimo)
@@ -30,7 +30,7 @@ namespace e_Locadora.Dominio.CupomModule
             ValorFixo = valorFixo;
             DataValidade = dataValidade;
             Parceiro = parceiro;
-            ValorMInimo = valorMInimo;
+            ValorMinimo = valorMInimo;
 
         }
 
@@ -47,7 +47,7 @@ namespace e_Locadora.Dominio.CupomModule
                 && ValorFixo == other.ValorFixo
                 && DataValidade == other.DataValidade
                 && Parceiro == other.Parceiro
-                && ValorMInimo == other.ValorMInimo;
+                && ValorMinimo == other.ValorMinimo;
         }
         public override int GetHashCode()
         {
@@ -57,7 +57,7 @@ namespace e_Locadora.Dominio.CupomModule
             hashCode = hashCode * -1521134295 + ValorFixo.GetHashCode();
             hashCode = hashCode * -1521134295 + DataValidade.GetHashCode();
             hashCode = hashCode * -1521134295 + Parceiro.GetHashCode();
-            hashCode = hashCode * -1521134295 + ValorMInimo.GetHashCode();
+            hashCode = hashCode * -1521134295 + ValorMinimo.GetHashCode();
             return hashCode;
         }
 
@@ -88,7 +88,7 @@ namespace e_Locadora.Dominio.CupomModule
             if (Parceiro == null)
                 resultadoValidacao += "O campo Parceiro é obrigatório e não pode ser vazio.";
 
-            if(ValorMInimo < 0)
+            if(ValorMinimo < 0)
                 resultadoValidacao += "O campo Valor Minimo não pode ser menor que Zero.";
 
             if (resultadoValidacao == "")

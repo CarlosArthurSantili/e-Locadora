@@ -165,7 +165,7 @@ namespace e_Locadora.Controladores.CupomModule
             parametros.Add("VALOR_FIXO", cupons.ValorFixo);
             parametros.Add("DATA_VALIDADE", cupons.DataValidade);
             parametros.Add("IDPARCEIRO", cupons.Parceiro.Id);
-            parametros.Add("VALOR_MINIMO", cupons.ValorMInimo);
+            parametros.Add("VALOR_MINIMO", cupons.ValorMinimo);
             return parametros;
         }
 

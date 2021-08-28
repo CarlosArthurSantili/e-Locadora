@@ -49,7 +49,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 }
                 maskedTextBoxDataValidade.Text = cupons.DataValidade.ToString();
                 cboxParceiro.SelectedItem = cupons.Parceiro;
-                txtValorMinimo.Text = cupons.ValorMInimo.ToString();
+                txtValorMinimo.Text = cupons.ValorMinimo.ToString();
 
             }
         }
