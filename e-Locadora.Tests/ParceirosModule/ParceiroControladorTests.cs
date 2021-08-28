@@ -21,6 +21,7 @@ namespace e_Locadora.Tests.ParceirosModule
 
         private void LimparTebelas()
         {
+            Db.Update("DELETE FROM TBCUPONS");
             Db.Update("DELETE FROM TBPARCEIROS");
         }
 
