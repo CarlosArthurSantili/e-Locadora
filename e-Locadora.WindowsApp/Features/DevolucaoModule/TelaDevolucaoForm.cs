@@ -120,6 +120,12 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             }
             if (!ValidarCupom())
                 return "Cupom de Desconto inválido!";
+            else 
+            {
+                Cupons cupom = (Cupons)comboBoxCupom.SelectedItem;
+                if (cupom.ValorMinimo < Convert.ToDouble(labelValorTotal.Text))
+                    return "Valor total não cumpre os requisitos para utilizar este cupom. Valor minimo: "+cupom.ValorMinimo.ToString();
+            }
             return "ESTA_VALIDO";
         }
 
@@ -164,7 +170,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                 devolucao.quilometragemDevolucao = Convert.ToDouble(txtQuilometragemAtual.Text);
                 
                 devolucao.veiculo.Quilometragem = devolucao.quilometragemDevolucao;
-                devolucao.valorTotal = Convert.ToDouble(labelVariavelValorTotal.Text);
+                devolucao.valorTotal = Convert.ToDouble(labelVariavelValorFinal.Text);
 
                 if (radioButtonCupomSim.Checked == true)
                    devolucao.cupom = (Cupons)comboBoxCupom.SelectedItem;
