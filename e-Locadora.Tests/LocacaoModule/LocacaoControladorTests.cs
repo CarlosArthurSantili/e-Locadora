@@ -371,8 +371,8 @@ namespace e_Locadora.Tests.LocacaoModule
             var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
             TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
             var parceiro = new Parceiro("Desconto do Deko");
-            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2021, 08, 26).Date, parceiro, 100);
-            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date, 200, "Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
+            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2022, 10, 26).Date, parceiro, 1);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.MaxValue.Date, 200, "Livre", 200, 80, 500, grupoVeiculo, veiculo, cliente, condutor, true);
             locacao.taxasServicos.Add(taxaServico);
             locacao.cupom = cupom;
 

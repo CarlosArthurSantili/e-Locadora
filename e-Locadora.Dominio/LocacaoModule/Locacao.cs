@@ -53,48 +53,6 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.emAberto = emAberto;
             this.taxasServicos = new List<TaxasServicos>();
         }
-
-        
-        public double CalcularValorLocacao()
-        {
-            double valorTotal = 0;
-            switch (plano)
-            {
-                case "Diário": 
-                    {
-                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
-                        double kmUsados = quilometragemDevolucao - veiculo.Quilometragem;
-                        valorTotal = (grupoVeiculo.planoDiarioValorDiario * qtdDias) + (grupoVeiculo.planoDiarioValorKm * kmUsados);
-                        
-                        break; 
-                    }
-                case "Controlado": //Pedir detalhes sobre cálculo desse plano no caso "kmUsados > qtdKmEsperado"
-                    { 
-                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
-                        double kmUsados = quilometragemDevolucao - veiculo.Quilometragem;
-                        if (kmUsados > grupoVeiculo.planoKmControladoQuantidadeKm)
-                        {
-                            valorTotal = (grupoVeiculo.planoKmControladoValorDiario * qtdDias) + (grupoVeiculo.planoKmControladoValorKm * grupoVeiculo.planoKmControladoValorKm) + (grupoVeiculo.planoKmControladoValorKm * (kmUsados - grupoVeiculo.planoKmControladoQuantidadeKm) * 2);
-                        }
-                        else
-                        {
-                            valorTotal = (grupoVeiculo.planoKmControladoValorDiario * qtdDias) + (grupoVeiculo.planoKmControladoValorKm * kmUsados);
-                        }
-                        break; 
-                    }
-                case "Livre": 
-                    {
-                        double qtdDias = (dataDevolucao - dataLocacao).TotalDays;
-                        valorTotal = grupoVeiculo.planoKmLivreValorDiario * qtdDias;
-
-                        break; 
-                    }
-
-                default: { break; }
-            }
-
-            return valorTotal;
-        }
         
         public override string ToString()
         {
@@ -108,6 +66,12 @@ namespace e_Locadora.Dominio.LocacaoModule
         public override string Validar()
         {
             string resultadoValidacao = "";
+            if (caucao < 0)
+                resultadoValidacao += "Caução não pode ser negativo";
+            if (seguroCliente < 0)
+                resultadoValidacao += "Seguro do cliente não pode ser negativo";
+            if (seguroTerceiro < 0)
+                resultadoValidacao += "Seguro de terceiros não pode ser negativo";
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
