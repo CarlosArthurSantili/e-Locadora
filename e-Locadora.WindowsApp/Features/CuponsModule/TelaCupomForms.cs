@@ -77,6 +77,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             if (string.IsNullOrEmpty(cboxParceiro.Text))
                 return "Parceiro Inválida, tente novamente";
 
+            if (!ValidarTipoDouble(txtValorMinimo.Text))
+                return "Valor Minimo inválido, tente novamente";
+
+            if (Convert.ToDouble(txtValorMinimo.Text) <= 0)
+                return "Valor Minimo não pode ser menor ou igual a Zero, tente novamente";
+
             return "CAMPOS_VALIDOS";
         }
         private bool ValidarTipoDouble(string texto)
