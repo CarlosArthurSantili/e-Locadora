@@ -152,7 +152,7 @@ namespace e_Locadora.WindowsApp
             // perceirosToolStripMenuItem
             // 
             this.perceirosToolStripMenuItem.Name = "perceirosToolStripMenuItem";
-            this.perceirosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.perceirosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
             this.perceirosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.perceirosToolStripMenuItem.Text = "Parceiros";
             this.perceirosToolStripMenuItem.Click += new System.EventHandler(this.perceirosToolStripMenuItem_Click);
@@ -160,8 +160,8 @@ namespace e_Locadora.WindowsApp
             // cuponsDeDescontosToolStripMenuItem
             // 
             this.cuponsDeDescontosToolStripMenuItem.Name = "cuponsDeDescontosToolStripMenuItem";
-            this.cuponsDeDescontosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.cuponsDeDescontosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.cuponsDeDescontosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.cuponsDeDescontosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.cuponsDeDescontosToolStripMenuItem.Text = "Cupons de Desconto";
             this.cuponsDeDescontosToolStripMenuItem.Click += new System.EventHandler(this.cuponsDeDescontosToolStripMenuItem_Click);
             // 
