@@ -161,7 +161,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 return "Quilometragem nao pode ser menos que ZERO!";
             }
-            if (!ValidarCupom())
+            if (radioButtonCupomSim.Checked == true && !ValidarCupom())
                 return "Cupom de Desconto inválido!";
 
             return "ESTA_VALIDO";
@@ -195,7 +195,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                 if (radioButtonCupomSim.Checked == true)
                     locacao.cupom = (Cupons)comboBoxCupom.SelectedItem;
-                
+
                 locacao.taxasServicos.Clear();
 
                 for (int i = 0; i <= (cListBoxTaxasServicos.Items.Count - 1); i++)
