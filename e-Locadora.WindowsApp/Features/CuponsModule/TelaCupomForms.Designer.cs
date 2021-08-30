@@ -224,7 +224,6 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             // 
             // txtValorMinimo
             // 
-            this.txtValorMinimo.Enabled = false;
             this.txtValorMinimo.Location = new System.Drawing.Point(98, 251);
             this.txtValorMinimo.Name = "txtValorMinimo";
             this.txtValorMinimo.Size = new System.Drawing.Size(141, 20);
