@@ -57,7 +57,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         public string ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtNome.Text))
-                return "Nome Inválida, tente novamente";
+                return "Nome Inválido, tente novamente";
 
             if (valorPercentual.Checked == true && !ValidarTipoInt(txtValorPercentual.Text))
                 return "Valor Percentual está inválido, tente novamente";
