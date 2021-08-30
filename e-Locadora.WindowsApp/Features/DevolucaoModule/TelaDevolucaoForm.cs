@@ -123,7 +123,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             else 
             {
                 Cupons cupom = (Cupons)comboBoxCupom.SelectedItem;
-                if (cupom.ValorMinimo < Convert.ToDouble(labelValorTotal.Text))
+                if (cupom.ValorMinimo > Convert.ToDouble(labelVariavelValorTotal.Text))
                     return "Valor total não cumpre os requisitos para utilizar este cupom. Valor minimo: "+cupom.ValorMinimo.ToString();
             }
             return "ESTA_VALIDO";
