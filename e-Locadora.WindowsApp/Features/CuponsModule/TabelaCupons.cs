@@ -35,7 +35,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "ValorPercentual", HeaderText = "Valor Percentual"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "ValorFixo", HeaderText = "Taxa Diaria"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ValorFixo", HeaderText = "Valor Fixo R$"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataValidade", HeaderText = "Data de Validade"},
 
