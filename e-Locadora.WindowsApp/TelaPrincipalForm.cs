@@ -296,6 +296,9 @@ namespace e_Locadora.WindowsApp
                 menuItemGrupoVeiculos.Enabled = false;
                 MenuItemTaxasEServicos.Enabled = false;
                 locaçãoToolStripMenuItem.Enabled = false;
+                cuponsDeDescontosToolStripMenuItem.Enabled = false;
+                perceirosToolStripMenuItem.Enabled = false;
+                
             }
 
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
