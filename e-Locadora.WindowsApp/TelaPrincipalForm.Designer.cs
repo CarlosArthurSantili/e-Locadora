@@ -38,6 +38,8 @@ namespace e_Locadora.WindowsApp
             this.MenuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.locaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuponsDeDescontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.combustivelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
@@ -58,8 +60,6 @@ namespace e_Locadora.WindowsApp
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSair = new System.Windows.Forms.PictureBox();
-            this.perceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuponsDeDescontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -97,7 +97,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemGrupoVeiculos.Name = "menuItemGrupoVeiculos";
             this.menuItemGrupoVeiculos.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.menuItemGrupoVeiculos.Size = new System.Drawing.Size(217, 22);
+            this.menuItemGrupoVeiculos.Size = new System.Drawing.Size(209, 22);
             this.menuItemGrupoVeiculos.Text = "Grupo de Veiculos";
             this.menuItemGrupoVeiculos.Click += new System.EventHandler(this.menuItemGrupoVeiculos_Click);
             // 
@@ -105,7 +105,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemVeiculo.Name = "menuItemVeiculo";
             this.menuItemVeiculo.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.menuItemVeiculo.Size = new System.Drawing.Size(217, 22);
+            this.menuItemVeiculo.Size = new System.Drawing.Size(209, 22);
             this.menuItemVeiculo.Text = "Veiculos";
             this.menuItemVeiculo.Click += new System.EventHandler(this.menuItemVeiculo_Click);
             // 
@@ -113,7 +113,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemClientes.Name = "menuItemClientes";
             this.menuItemClientes.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.menuItemClientes.Size = new System.Drawing.Size(217, 22);
+            this.menuItemClientes.Size = new System.Drawing.Size(209, 22);
             this.menuItemClientes.Text = "Clientes";
             this.menuItemClientes.Click += new System.EventHandler(this.menuItemClientes_Click);
             // 
@@ -121,7 +121,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.menuItemCondutor.Name = "menuItemCondutor";
             this.menuItemCondutor.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuItemCondutor.Size = new System.Drawing.Size(217, 22);
+            this.menuItemCondutor.Size = new System.Drawing.Size(209, 22);
             this.menuItemCondutor.Text = "Condutores";
             this.menuItemCondutor.Click += new System.EventHandler(this.menuItemCondutor_Click);
             // 
@@ -129,7 +129,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.MenuItemTaxasEServicos.Name = "MenuItemTaxasEServicos";
             this.MenuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(217, 22);
+            this.MenuItemTaxasEServicos.Size = new System.Drawing.Size(209, 22);
             this.MenuItemTaxasEServicos.Text = "Taxas e Servicos";
             this.MenuItemTaxasEServicos.Click += new System.EventHandler(this.MenuItemTaxasEServicos_Click);
             // 
@@ -137,7 +137,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
             this.locaçãoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.locaçãoToolStripMenuItem.Text = "Locação";
             this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
@@ -145,9 +145,25 @@ namespace e_Locadora.WindowsApp
             // 
             this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
             this.funcionariosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.funcionariosToolStripMenuItem.Text = "Funcionário";
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
+            // 
+            // perceirosToolStripMenuItem
+            // 
+            this.perceirosToolStripMenuItem.Name = "perceirosToolStripMenuItem";
+            this.perceirosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.perceirosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.perceirosToolStripMenuItem.Text = "Parceiros";
+            this.perceirosToolStripMenuItem.Click += new System.EventHandler(this.perceirosToolStripMenuItem_Click);
+            // 
+            // cuponsDeDescontosToolStripMenuItem
+            // 
+            this.cuponsDeDescontosToolStripMenuItem.Name = "cuponsDeDescontosToolStripMenuItem";
+            this.cuponsDeDescontosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.cuponsDeDescontosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.cuponsDeDescontosToolStripMenuItem.Text = "Cupons de Desconto";
+            this.cuponsDeDescontosToolStripMenuItem.Click += new System.EventHandler(this.cuponsDeDescontosToolStripMenuItem_Click);
             // 
             // configuraçõesToolStripMenuItem
             // 
@@ -161,7 +177,7 @@ namespace e_Locadora.WindowsApp
             // 
             this.combustivelToolStripMenuItem1.Name = "combustivelToolStripMenuItem1";
             this.combustivelToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.combustivelToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.combustivelToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.combustivelToolStripMenuItem1.Text = "Combustível";
             this.combustivelToolStripMenuItem1.Click += new System.EventHandler(this.combustivelToolStripMenuItem1_Click);
             // 
@@ -340,22 +356,6 @@ namespace e_Locadora.WindowsApp
             this.btnSair.TabIndex = 6;
             this.btnSair.TabStop = false;
             this.btnSair.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // perceirosToolStripMenuItem
-            // 
-            this.perceirosToolStripMenuItem.Name = "perceirosToolStripMenuItem";
-            this.perceirosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.perceirosToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.perceirosToolStripMenuItem.Text = "Perceiros";
-            this.perceirosToolStripMenuItem.Click += new System.EventHandler(this.perceirosToolStripMenuItem_Click);
-            // 
-            // cuponsDeDescontosToolStripMenuItem
-            // 
-            this.cuponsDeDescontosToolStripMenuItem.Name = "cuponsDeDescontosToolStripMenuItem";
-            this.cuponsDeDescontosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.cuponsDeDescontosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.cuponsDeDescontosToolStripMenuItem.Text = "Cupons de Desconto";
-            this.cuponsDeDescontosToolStripMenuItem.Click += new System.EventHandler(this.cuponsDeDescontosToolStripMenuItem_Click);
             // 
             // TelaPrincipalForm
             // 
