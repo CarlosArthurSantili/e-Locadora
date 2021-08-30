@@ -57,7 +57,7 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
         public string ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtNome.Text))
-                return "Nome Inválida, tente novamente";
+                return "Nome Inválido, tente novamente";
 
             if (valorPercentual.Checked == true && !ValidarTipoInt(txtValorPercentual.Text))
                 return "Valor Percentual está inválido, tente novamente";
@@ -76,6 +76,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
             if (string.IsNullOrEmpty(cboxParceiro.Text))
                 return "Parceiro Inválida, tente novamente";
+
+            if (!ValidarTipoDouble(txtValorMinimo.Text))
+                return "Valor Minimo inválido, tente novamente";
+
+            if (Convert.ToDouble(txtValorMinimo.Text) <= 0)
+                return "Valor Minimo não pode ser menor ou igual a Zero, tente novamente";
 
             return "CAMPOS_VALIDOS";
         }

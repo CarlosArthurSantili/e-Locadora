@@ -91,6 +91,9 @@ namespace e_Locadora.Dominio.CupomModule
             if(ValorMinimo < 0)
                 resultadoValidacao += "O campo Valor Minimo não pode ser menor que Zero.";
 
+            if (ValorFixo > ValorMinimo)
+                resultadoValidacao += "O valor Minimo não pode ser menor que o valor de Desconto";
+
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
