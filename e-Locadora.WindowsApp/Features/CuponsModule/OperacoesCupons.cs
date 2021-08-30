@@ -111,5 +111,12 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
 
             return tabelaCupons;
         }
+
+        public void MostrarClassificacao()
+        {
+            TelaQuantidadeCupomForms tela = new TelaQuantidadeCupomForms();
+
+            tela.ShowDialog();
+        }
     }
 }

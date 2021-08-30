@@ -25,7 +25,8 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
             {
                 Agrupar = false,
                 Desagrupar = false,
-                Filtrar = false
+                Filtrar = false,
+                Classificacao = true
             };
         }
 
@@ -37,7 +38,8 @@ namespace e_Locadora.WindowsApp.Features.CuponsModule
                 Editar = "Atualizar um Cupom",
                 Excluir = "Excluir um Cupom",
                 Agrupar = "Agrupar Cupons",
-                Desagrupar = "Desagrupar Cupons"
+                Desagrupar = "Desagrupar Cupons",
+                Classificacao = "Classificação dos Cupons"
             };
         }
     }

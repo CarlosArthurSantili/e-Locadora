@@ -123,6 +123,12 @@
     <Compile Include="Features\CuponsModule\TabelaCupons.Designer.cs">
       <DependentUpon>TabelaCupons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\CuponsModule\TelaQuantidadeCupomForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\CuponsModule\TelaQuantidadeCupomForms.Designer.cs">
+      <DependentUpon>TelaQuantidadeCupomForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\DevolucaoModule\TelaDevolucaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,9 @@
     <EmbeddedResource Include="Features\CuponsModule\TelaCupomForms.resx">
       <DependentUpon>TelaCupomForms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\CuponsModule\TelaQuantidadeCupomForms.resx">
+      <DependentUpon>TelaQuantidadeCupomForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\DevolucaoModule\TelaDevolucaoForm.resx">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +372,8 @@
     <None Include="Resources\outline_directions_car_black_24dp.png" />
     <Content Include="Resources\outline_expand_black_24dp.png" />
     <Content Include="Resources\outline_filter_alt_black_24dp.png" />
+    <None Include="Resources\outline_insert_chart_outlined_black_24dp.png" />
+    <None Include="Resources\outline_insert_chart_outlined_black_24dp1.png" />
     <Content Include="Resources\outline_list_alt_black_24dp.png" />
     <None Include="Resources\outline_local_gas_station_black_24dp.png" />
     <Content Include="Resources\outline_mode_edit_black_24dp.png" />

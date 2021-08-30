@@ -15,6 +15,7 @@ namespace e_Locadora.WindowsApp.Shared
             Editar = true;
             Excluir = true;
             Devolucao = false;
+            Classificacao = false;
         }
 
         public bool Adicionar { get; internal set; }
@@ -24,5 +25,6 @@ namespace e_Locadora.WindowsApp.Shared
         public bool Desagrupar { get; internal set; }
         public bool Filtrar { get; internal set; }
         public bool Devolucao { get; internal set; }
+        public bool Classificacao { get; internal set; }
     }
 }

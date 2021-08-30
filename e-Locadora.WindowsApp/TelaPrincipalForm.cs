@@ -95,6 +95,7 @@ namespace e_Locadora.WindowsApp
             btnDesagrupar.ToolTipText = configuracao.ObterToolTips().Desagrupar;
             btnFiltrar.ToolTipText = configuracao.ObterToolTips().Filtrar;
             btnDevolucao.ToolTipText = configuracao.ObterToolTips().Devolucao;
+            btnClassificacao.ToolTipText = configuracao.ObterToolTips().Classificacao;
 
             btnAdicionar.Enabled = configuracao.ObterEstadoBotoes().Adicionar;
             btnEditar.Enabled = configuracao.ObterEstadoBotoes().Editar;
@@ -104,7 +105,7 @@ namespace e_Locadora.WindowsApp
             btnDesagrupar.Enabled = configuracao.ObterEstadoBotoes().Desagrupar;
             btnFiltrar.Enabled = configuracao.ObterEstadoBotoes().Filtrar;
             btnDevolucao.Enabled = configuracao.ObterEstadoBotoes().Devolucao;
-
+            btnClassificacao.Enabled = configuracao.ObterEstadoBotoes().Classificacao;
 
         }
 
@@ -315,6 +316,10 @@ namespace e_Locadora.WindowsApp
             telaLogin.ShowDialog();
         }
 
-
+        private void btnQuantidadeCupons_Click(object sender, EventArgs e)
+        {
+            OperacoesCupons operacaoCupom = (OperacoesCupons)operacoes;
+            operacaoCupom.MostrarClassificacao();
+        }
     }
 }
