@@ -32,7 +32,7 @@ namespace e_Locadora.WindowsApp.Features.ParceirosModule
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Parceiro", HeaderText = "Nome do Parceiro"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "nome", HeaderText = "Nome do Parceiro"}
            };
 
             return colunas;
