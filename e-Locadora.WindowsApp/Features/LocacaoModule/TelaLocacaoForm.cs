@@ -95,9 +95,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 cboxGrupoVeiculo.SelectedItem = locacao.grupoVeiculo;
                 cboxVeiculo.SelectedItem = locacao.veiculo;
                 txtQuilometragemLocacao.Text = locacao.quilometragemDevolucao.ToString();
-
                 txtCaucao.Text = locacao.caucao.ToString();
 
+                if (locacao.cupom != null)
+                {
+                    radioButtonCupomSim.Checked = true;
+                    comboBoxParceiro.SelectedItem = locacao.cupom.Parceiro;
+                    CarregarCupons();
+                    comboBoxCupom.SelectedItem = locacao.cupom;
+                }
             }
         }
 
@@ -553,7 +559,11 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void comboBoxParceiro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            CarregarCupons();
+        }
+
+        private void CarregarCupons()
+        {
             comboBoxCupom.Items.Clear();
             comboBoxCupom.Text = "";
             foreach (Cupons cupom in controladorCupom.SelecionarTodos())
