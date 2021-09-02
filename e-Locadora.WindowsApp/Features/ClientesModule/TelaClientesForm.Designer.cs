@@ -79,7 +79,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(247, 101);
+            this.label6.Location = new System.Drawing.Point(254, 101);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 25;
@@ -88,7 +88,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(247, 75);
+            this.label5.Location = new System.Drawing.Point(258, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 24;
@@ -97,7 +97,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(281, 49);
+            this.label4.Location = new System.Drawing.Point(287, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 23;
@@ -115,7 +115,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 53);
+            this.label2.Location = new System.Drawing.Point(25, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 21;
@@ -124,7 +124,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Location = new System.Drawing.Point(44, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 20;
@@ -160,7 +160,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.TxtTelefone.Mask = "(99) 00000-0000";
             this.TxtTelefone.Name = "TxtTelefone";
             this.TxtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.TxtTelefone.TabIndex = 3;
+            this.TxtTelefone.TabIndex = 4;
             // 
             // label7
             // 
@@ -177,7 +177,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtRG.Mask = "000000000";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 20);
-            this.txtRG.TabIndex = 4;
+            this.txtRG.TabIndex = 5;
             // 
             // txtCPF
             // 
@@ -185,7 +185,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(100, 20);
-            this.txtCPF.TabIndex = 5;
+            this.txtCPF.TabIndex = 6;
             // 
             // txtCnpj
             // 
@@ -193,7 +193,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtCnpj.Mask = "00000000/0000-00";
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(100, 20);
-            this.txtCnpj.TabIndex = 6;
+            this.txtCnpj.TabIndex = 7;
             // 
             // rbCPF
             // 
@@ -258,12 +258,12 @@ namespace e_Locadora.WindowsApp.ClientesModule
             this.txtEmail.Location = new System.Drawing.Point(66, 102);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(165, 20);
-            this.txtEmail.TabIndex = 29;
+            this.txtEmail.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 105);
+            this.label8.Location = new System.Drawing.Point(28, 105);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 30;
