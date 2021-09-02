@@ -247,6 +247,10 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
                     DialogResult = DialogResult.None;
                 }
+                else
+                {
+                    GerarPDF();
+                }
 
             }
             else
@@ -612,8 +616,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 comboBoxCupom.SelectedIndex = -1;
             }
         }
-
-        private void btnPDF_Click(object sender, EventArgs e)
+        private void GerarPDF()
         {
             string nomeArquivo = @"C:\Users\negao\Desktop\Relarotio\" + "Contrato.pdf";
             FileStream arquivoPDF = new FileStream(nomeArquivo, FileMode.Create);
@@ -632,9 +635,16 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             paragrafo.Add("Data de Locação: " + maskedTextBoxLocacao.Text + "\n");
             paragrafo.Add("Data de Devolução: " + maskedTextBoxDevolucao.Text + "\n");
 
-            if(radioButtonCupomSim.Checked == true)
+            if (radioButtonCupomSim.Checked == true)
             {
-                paragrafo.Add("Cupom: " + comboBoxCupom.SelectedItem);
+                Cupons cupons = (Cupons)comboBoxCupom.SelectedItem;
+
+                if(cupons.ValorFixo !=0)
+                    paragrafo.Add("Cupom: " + cupons.Nome + "\nValor do Desconto: " + cupons.ValorFixo+"R$");
+
+                else
+                    paragrafo.Add("Cupom: " + cupons.Nome + "\nPorcentagem de Desconto na Locação: " + cupons.ValorPercentual +"%" );
+
             }
 
             doc.Open();
