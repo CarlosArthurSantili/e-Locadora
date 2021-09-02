@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-Locadora.Tests", "e-Locad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-Locadora.Configuracoes", "e-Locadora.Configuracoes\e-Locadora.Configuracoes.csproj", "{FAB29872-F287-4A65-97E0-E638502746D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contratos", "Contratos", "{37CD673D-532C-4FDF-836B-D073C0AF3FF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
