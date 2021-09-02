@@ -20,7 +20,8 @@ namespace e_Locadora.Controladores.ClientesModule
 		                [TELEFONE],
                         [RG], 
 		                [CPF],
-                        [CNPJ]
+                        [CNPJ],
+                        [EMAIL]
 	                ) 
 	                VALUES
 	                (
@@ -29,7 +30,8 @@ namespace e_Locadora.Controladores.ClientesModule
 		                @TELEFONE,
                         @RG, 
 		                @CPF,
-                        @CNPJ
+                        @CNPJ,
+                        @EMAIL
 	                )";
 
         private const string sqlEditarCliente =
@@ -40,7 +42,8 @@ namespace e_Locadora.Controladores.ClientesModule
 		                [TELEFONE] = @TELEFONE,
                         [RG] = @RG, 
 		                [CPF] = @CPF,
-                        [CNPJ] = @CNPJ
+                        [CNPJ] = @CNPJ,
+                        [EMAIL] = @EMAIL
                     WHERE 
                         ID = @ID";
 
@@ -59,7 +62,8 @@ namespace e_Locadora.Controladores.ClientesModule
 		                [TELEFONE],
                         [RG], 
 		                [CPF],
-                        [CNPJ]
+                        [CNPJ],
+                        [EMAIL]
 	                FROM
                         TBCLIENTES
                     WHERE 
@@ -73,7 +77,8 @@ namespace e_Locadora.Controladores.ClientesModule
 		                [TELEFONE],
                         [RG], 
 		                [CPF],
-                        [CNPJ] FROM TBCLIENTES";
+                        [CNPJ],
+                        [EMAIL] FROM TBCLIENTES";
 
         private const string sqlExisteCliente =
             @"SELECT 
@@ -204,6 +209,7 @@ namespace e_Locadora.Controladores.ClientesModule
             parametros.Add("RG", clientes.RG);
             parametros.Add("CPF", clientes.CPF);
             parametros.Add("CNPJ", clientes.CNPJ);
+            parametros.Add("EMAIL", clientes.Email);
 
             return parametros;
         }

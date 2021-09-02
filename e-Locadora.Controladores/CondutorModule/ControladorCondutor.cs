@@ -84,7 +84,8 @@ namespace e_Locadora.Controladores.CondutorModule
                 CT.[TELEFONE],                    
                 CT.[RG], 
                 CT.[CPF],
-                CT.[CNPJ]
+                CT.[CNPJ],
+                CT.[EMAIL]
             FROM
                 [TBCONDUTOR] AS CP LEFT JOIN 
                 [TBCLIENTES] AS CT
@@ -109,7 +110,8 @@ namespace e_Locadora.Controladores.CondutorModule
                 CT.[TELEFONE],                    
                 CT.[RG], 
                 CT.[CPF],
-                CT.[CNPJ]
+                CT.[CNPJ],
+                CT.[EMAIL]
             FROM
                 [TBCONDUTOR] AS CP LEFT JOIN 
                 [TBCLIENTES] AS CT
@@ -131,7 +133,8 @@ namespace e_Locadora.Controladores.CondutorModule
                 CT.[TELEFONE],                    
                 CT.[RG], 
                 CT.[CPF],
-                CT.[CNPJ]
+                CT.[CNPJ],
+                CT.[EMAIL]
             FROM
                 [TBCONDUTOR] AS CP LEFT JOIN 
                 [TBCLIENTES] AS CT
