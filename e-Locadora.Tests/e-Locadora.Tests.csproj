@@ -67,6 +67,7 @@
     <Compile Include="GrupoVeiculos\GrupoVeiculosDominioTest.cs" />
     <Compile Include="LocacaoModule\LocacaoControladorTests.cs" />
     <Compile Include="LocacaoModule\LocacaoDominioTests.cs" />
+    <Compile Include="LocacaoModule\EmailTests.cs" />
     <Compile Include="ParceirosModule\ParceirosDominioTests.cs" />
     <Compile Include="ParceirosModule\ParceiroControladorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
