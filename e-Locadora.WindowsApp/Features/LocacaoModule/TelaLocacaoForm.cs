@@ -28,6 +28,7 @@ using System.Windows.Forms;
 using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using e_Locadora.Email;
 
 namespace e_Locadora.WindowsApp.Features.LocacaoModule
 {
@@ -249,7 +250,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 }
                 else
                 {
-                    GerarPDF();
+                    string localPDF = GerarPDF();
+                    SMTP email = new SMTP();
+                    email.enviarEmail(locacao.cliente.Email, "Resumo Financeiro de Locação", "", localPDF);
                 }
 
             }
@@ -616,9 +619,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 comboBoxCupom.SelectedIndex = -1;
             }
         }
-        private void GerarPDF()
+        private string GerarPDF()
         {
-            string nomeArquivo = @"C:\Users\negao\Desktop\Relarotio\" + "Contrato.pdf";
+            string nomeArquivo = $@"..\..\..\Contratos\" + "Contrato.pdf";
             FileStream arquivoPDF = new FileStream(nomeArquivo, FileMode.Create);
             Document doc = new Document(PageSize.A4);
             PdfWriter escritoPDF = PdfWriter.GetInstance(doc, arquivoPDF);
@@ -637,19 +640,23 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             if (radioButtonCupomSim.Checked == true)
             {
-                Cupons cupons = (Cupons)comboBoxCupom.SelectedItem;
+                if (comboBoxCupom.SelectedItem != null)
+                {
+                    Cupons cupons = (Cupons)comboBoxCupom.SelectedItem;
 
-                if(cupons.ValorFixo !=0)
-                    paragrafo.Add("Cupom: " + cupons.Nome + "\nValor do Desconto: " + cupons.ValorFixo+"R$");
+                    if (cupons.ValorFixo != 0)
+                        paragrafo.Add("Cupom: " + cupons.Nome + "\nValor do Desconto: " + cupons.ValorFixo + "R$");
 
-                else
-                    paragrafo.Add("Cupom: " + cupons.Nome + "\nPorcentagem de Desconto na Locação: " + cupons.ValorPercentual +"%" );
-
+                    else
+                        paragrafo.Add("Cupom: " + cupons.Nome + "\nPorcentagem de Desconto na Locação: " + cupons.ValorPercentual + "%");
+                }
             }
 
             doc.Open();
             doc.Add(paragrafo);
             doc.Close();
+
+            return nomeArquivo;
         }
     }
 }
