@@ -32,6 +32,7 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 txtId.Text = cliente.Id.ToString();
                 txtNome.Text = cliente.Nome;
                 txtEndereco.Text = cliente.Endereco;
+                txtEmail.Text = cliente.Email;
 
                 TxtTelefone.Text = cliente.Telefone;
                 if (!cliente.CNPJ.Equals(""))
@@ -57,12 +58,13 @@ namespace e_Locadora.WindowsApp.ClientesModule
                 string rg = txtRG.Text;
                 string cpf = txtCPF.Text;
                 string cnpj = txtCnpj.Text;
+                string email = txtEmail.Text;
 
                 cpf = RemoverPontosETracos(cpf);
                 cnpj = RemoverPontosETracos(cnpj);
 
 
-                cliente = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+                cliente = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
 
                 int id = Convert.ToInt32(txtId.Text);
 

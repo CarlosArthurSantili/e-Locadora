@@ -43,7 +43,10 @@ namespace e_Locadora.WindowsApp.ClientesModule
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "CPF", HeaderText = "Numero CPF"},
 
-                 new DataGridViewTextBoxColumn {DataPropertyName = "CNPJ", HeaderText = "Numero CNPJ"}
+                 new DataGridViewTextBoxColumn {DataPropertyName = "CNPJ", HeaderText = "Numero CNPJ"},
+
+                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "Email Cliente"}
+
             };
 
             return colunas;
