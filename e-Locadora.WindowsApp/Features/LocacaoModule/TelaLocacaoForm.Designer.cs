@@ -82,6 +82,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.txtIdLocacao = new System.Windows.Forms.TextBox();
             this.labelPlano = new System.Windows.Forms.Label();
             this.tabControlLocacao = new System.Windows.Forms.TabControl();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.groupBoxResumoFinanceiro.SuspendLayout();
             this.tabPageTaxasServicos.SuspendLayout();
             this.groupBoxTaxasServicos.SuspendLayout();
@@ -642,11 +643,22 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.tabControlLocacao.Size = new System.Drawing.Size(266, 315);
             this.tabControlLocacao.TabIndex = 86;
             // 
+            // btnPDF
+            // 
+            this.btnPDF.Location = new System.Drawing.Point(279, 333);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(75, 23);
+            this.btnPDF.TabIndex = 88;
+            this.btnPDF.Text = "Gerar PDF";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 368);
+            this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.groupBoxResumoFinanceiro);
             this.Controls.Add(this.tabControlLocacao);
             this.Controls.Add(this.btnCancelar);
@@ -729,5 +741,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.RadioButton radioButtonCupomNao;
         private System.Windows.Forms.RadioButton radioButtonCupomSim;
         private System.Windows.Forms.ComboBox comboBoxCupom;
+        private System.Windows.Forms.Button btnPDF;
     }
 }
