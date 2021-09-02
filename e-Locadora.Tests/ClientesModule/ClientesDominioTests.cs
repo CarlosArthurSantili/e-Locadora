@@ -22,8 +22,9 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "5231255";
             string cpf = "10250540499";
             string cnpj = "";
+            string email = "Joao.pereira@gmail.com";
 
-            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
             Assert.AreEqual("ESTA_VALIDO", grupoVeiculo.Validar());
         }
 
@@ -36,10 +37,11 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "";
             string cpf = "";
             string cnpj = "02914460029615";
+            string email = "Joao.pereira@gmail.com";
 
 
 
-            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
             Assert.AreEqual("ESTA_VALIDO", grupoVeiculo.Validar());
         }
         [TestMethod]
@@ -51,10 +53,11 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "";
             string cpf = "";
             string cnpj = "02914460029615";
+            string email = "Joao.pereira@gmail.com";
 
 
 
-            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
             Assert.AreEqual("O atributo nome é obrigatório e não pode ser vazio.", grupoVeiculo.Validar());
         }
         [TestMethod]
@@ -66,10 +69,11 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "";
             string cpf = "";
             string cnpj = "02914460029615";
+            string email = "Joao.pereira@gmail.com";
 
 
 
-            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
             Assert.AreEqual("O atributo endereço é obrigatório e não pode ser vazio.", grupoVeiculo.Validar());
         }
         [TestMethod]
@@ -81,11 +85,28 @@ namespace e_Locadora.Tests.ClientesModule
             string rg = "";
             string cpf = "";
             string cnpj = "02914460029615";
+            string email = "Joao.pereira@gmail.com";
 
 
 
-            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
             Assert.AreEqual("O atributo Telefone está invalido.", grupoVeiculo.Validar());
+        }
+        [TestMethod]
+        public void Deve_Validar_Clientes_Email()
+        {
+            string nome = "Seara Alimentos LTDA";
+            string endereco = "Avenida Jucelino Kub. de Oliveira Numero 454";
+            string telefone = "";
+            string rg = "";
+            string cpf = "";
+            string cnpj = "02914460029615";
+            string email = "";
+
+
+
+            Clientes grupoVeiculo = new Clientes(nome, endereco, telefone, rg, cpf, cnpj, email);
+            Assert.AreEqual("O campo Email está inválido", grupoVeiculo.Validar());
         }
     }
 }

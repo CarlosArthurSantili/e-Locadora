@@ -32,7 +32,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void Deve_InserirUmCondutor()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
 
@@ -49,7 +49,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveAtualizar_Condutor()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
 
@@ -70,7 +70,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveExcluir_Condutor()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
 
@@ -87,7 +87,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveSelecionar_Condutor_PorId()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
 
@@ -103,7 +103,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveSelecionar_TodosCondutores()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220222", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
             var condutores = new List<Condutor>
@@ -126,7 +126,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void DeveSelecionar_Condutores_Com_CNH_Vencida()
         {
-            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220221", "");
+            Clientes cliente = new Clientes("Arnaldo", "rua sem numero", "9524282242", "853242", "20220220221", "", "Joao.pereira@gmail.com");
 
             controladorCliente.InserirNovo(cliente);
             var condutores = new List<Condutor>

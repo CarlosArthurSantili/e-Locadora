@@ -217,8 +217,9 @@ namespace e_Locadora.Controladores.ClientesModule
             string rg = Convert.ToString(reader["RG"]);
             string cpf = Convert.ToString(reader["CPF"]);
             string cnpj = Convert.ToString(reader["CNPJ"]);
+            string email = Convert.ToString(reader["EMAIL"]);
 
-            Clientes clientes = new Clientes(nome, endereco, telefone, rg, cpf, cnpj);
+            Clientes clientes = new Clientes(nome, endereco, telefone, rg, cpf, cnpj,email);
 
             clientes.Id = id;
 

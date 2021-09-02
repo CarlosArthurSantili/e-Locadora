@@ -32,7 +32,7 @@ namespace e_Locadora.Tests.ClientesModule
         public void Deve_InserirNovo_Cliente_CPF()
         {
             //arrange
-            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222","");
+            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222","", "Joao.pereira@gmail.com");
 
             //action
             controlador.InserirNovo(cliente);
@@ -45,7 +45,7 @@ namespace e_Locadora.Tests.ClientesModule
         public void Deve_InserirNovo_Cliente_Cnpj()
         {
             //arrange
-            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
+            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
 
             //action
             controlador.InserirNovo(cliente);
@@ -58,9 +58,9 @@ namespace e_Locadora.Tests.ClientesModule
         public void Deve_Atualizar_Cliente()
         {
             //arrange
-            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
+            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
             controlador.InserirNovo(cliente);
-            var clienteAtualizado = new Clientes("FDG limitada", "rua souza khdsd", "9524282242", "", "", "02914460029615");
+            var clienteAtualizado = new Clientes("FDG limitada", "rua souza khdsd", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
 
             //action
             controlador.Editar(cliente.Id, clienteAtualizado);
@@ -73,7 +73,7 @@ namespace e_Locadora.Tests.ClientesModule
         public void Deve_SelecionarPorId_Cliente_Cnpj()
         {
             //arrange
-            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
+            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
             controlador.InserirNovo(cliente);
             //action
             Clientes clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
@@ -85,7 +85,7 @@ namespace e_Locadora.Tests.ClientesModule
         public void Deve_Excluir_Cliente_Cnpj()
         {
             //arrange
-            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
+            var cliente = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
             controlador.InserirNovo(cliente);
             //action
             controlador.Excluir(cliente.Id);
@@ -98,13 +98,13 @@ namespace e_Locadora.Tests.ClientesModule
         public void DeveSelecionar_TodosClientes()
         {
             //arrange
-            var c1 = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615");
+            var c1 = new Clientes("FDG", "rua souza", "9524282242", "", "", "02914460029615", "Joao.pereira@gmail.com");
             controlador.InserirNovo(c1);
 
-            var c2 = new Clientes("NDD", "rua souza", "9524282242", "", "", "02914460029614");
+            var c2 = new Clientes("NDD", "rua souza", "9524282242", "", "", "02914460029614", "Joao.pereira@gmail.com");
             controlador.InserirNovo(c2);
 
-            var c3 = new Clientes("JBS", "rua souza", "9524282242", "", "", "02914460029616");
+            var c3 = new Clientes("JBS", "rua souza", "9524282242", "", "", "02914460029616", "Joao.pereira@gmail.com");
             controlador.InserirNovo(c3);
 
             //action

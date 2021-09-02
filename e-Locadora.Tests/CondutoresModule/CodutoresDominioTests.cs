@@ -13,7 +13,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void Deve_Validar_Condutor()
         {
-            var cliente = new Clientes("Joao","Rua dos joao","9522185224","5222522","20202020222","");
+            var cliente = new Clientes("Joao","Rua dos joao","9522185224","5222522","20202020222","", "Joao.pereira@gmail.com");
 
             Condutor condutor = new Condutor("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "522542",
                 new DateTime(2022,05,26), cliente);
@@ -25,7 +25,7 @@ namespace e_Locadora.Tests.CondutoresModule
         [TestMethod]
         public void Deve_Validar_informacoes()
         {
-            var cliente = new Clientes("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "");
+            var cliente = new Clientes("Joao", "Rua dos joao", "9522185224", "5222522", "20202020222", "", "Joao.pereira@gmail.com");
 
             Condutor condutor = new Condutor("", "", "", "", "", "",
                 DateTime.MinValue, cliente);
