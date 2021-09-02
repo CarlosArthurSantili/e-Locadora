@@ -6,6 +6,7 @@
     [RG]       VARCHAR (30)  NULL,
     [CPF]      VARCHAR (30)  NULL,
     [CNPJ]     VARCHAR (30)  NULL,
+    [Email] VARCHAR(50) NOT NULL, 
     CONSTRAINT [PK_TBClientes] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

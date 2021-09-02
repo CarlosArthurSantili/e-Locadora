@@ -97,7 +97,7 @@ namespace e_Locadora.Tests.ClientesModule
         {
             string nome = "Seara Alimentos LTDA";
             string endereco = "Avenida Jucelino Kub. de Oliveira Numero 454";
-            string telefone = "";
+            string telefone = "98522422582";
             string rg = "";
             string cpf = "";
             string cnpj = "02914460029615";
