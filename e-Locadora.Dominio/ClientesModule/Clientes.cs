@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace e_Locadora.Dominio.ClientesModule
@@ -36,15 +37,22 @@ namespace e_Locadora.Dominio.ClientesModule
 
         public override string Validar()
         {
+            Regex templateEmail = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Nome))
                 resultadoValidacao = "O atributo nome é obrigatório e não pode ser vazio.";
+           
             if(string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo endereço é obrigatório e não pode ser vazio.";
+           
             if(Telefone.Length < 9 )
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O atributo Telefone está invalido.";
-           
+
+            if (templateEmail.IsMatch(Email) == false)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Email está inválido";
+
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
@@ -60,7 +68,8 @@ namespace e_Locadora.Dominio.ClientesModule
                    Telefone == clientes.Telefone &&
                    RG == clientes.RG &&
                    CPF == clientes.CPF &&
-                   CNPJ == clientes.CNPJ;
+                   CNPJ == clientes.CNPJ &&
+                   Email == clientes.Email;
         }
 
         public override int GetHashCode()
@@ -73,6 +82,7 @@ namespace e_Locadora.Dominio.ClientesModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RG);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CPF);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CNPJ);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
             return hashCode;
         }
         public override bool Equals(object obj)
