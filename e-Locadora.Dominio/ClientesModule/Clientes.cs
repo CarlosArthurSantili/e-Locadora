@@ -15,9 +15,10 @@ namespace e_Locadora.Dominio.ClientesModule
         public string RG { get; }
         public string CPF { get; }
         public string CNPJ { get; }
+        public string Email { get; }
 
         public Clientes(string nome, string endereco, string telefone, string rG,
-            string cPF, string cNPJ)
+            string cPF, string cNPJ, string email)
         {
             Nome = nome;
             Endereco = endereco;
@@ -25,6 +26,7 @@ namespace e_Locadora.Dominio.ClientesModule
             RG = rG;
             CPF = cPF;
             CNPJ = cNPJ;
+            Email = email;
         }
 
         public override string ToString()
