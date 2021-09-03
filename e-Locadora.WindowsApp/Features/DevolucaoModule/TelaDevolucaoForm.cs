@@ -106,18 +106,12 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
             {
                 return "Data de Retorno Atual inválido";
             }
-            if (Convert.ToDateTime(maskedTextBoxDataRetornoAtual.Text) <= Convert.ToDateTime(maskedTextBoxDataLocacao.Text))
-            {
-                return "Data de Retorno Atual não pode ser menor ou igual a data da Locação!";
-            }
+            
             if (!ValidarTipoInt(txtQuilometragemAtual.Text))
             {
                 return "Quilometragem Atual inválido";
             }
-            if (Convert.ToDouble(txtQuilometragemAtual.Text) < Convert.ToDouble(txtQuilometragemInicial.Text))
-            {
-                return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
-            }
+            
             if (!ValidarCupom())
                 return "Cupom de Desconto inválido!";
             else 
@@ -176,7 +170,7 @@ namespace e_Locadora.WindowsApp.Features.DevolucaoModule
                    devolucao.cupom = (Cupons)comboBoxCupom.SelectedItem;
 
                 int id = Convert.ToInt32(txtIdLocacao.Text);
-                string resultadoValidacaoDominio = devolucao.Validar();
+                string resultadoValidacaoDominio = devolucao.ValidarDevolucao();
 
                 string resultadoValidacaoControlador = controladorLocacao.ValidarLocacao(devolucao, id);
 

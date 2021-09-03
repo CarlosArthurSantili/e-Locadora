@@ -143,10 +143,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             {
                 return "Digite um valor valido para Caução";
             }
-            if (Convert.ToDouble(txtCaucao.Text) < 0)
-            {
-                return "Digite um valor positivo para Caução";
-            }
             if (cboxCliente.SelectedItem == null)
             {
                 return "Cliente é obrigatótio";
@@ -157,19 +153,15 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             }
             if (cboxGrupoVeiculo.SelectedItem == null)
             {
-                return "Categoria de Veiculo é obrigatória";
+                return "Grupo de Veículo é obrigatório";
             }
             if (cboxVeiculo.SelectedItem == null)
             {
-                return "Veiculo é obrigatoria";
+                return "Veiculo é obrigatório";
             }
             if (!ValidarTipoInt(txtQuilometragemLocacao.Text))
             {
                 return "Quilometragem Devolução inválido";
-            }
-            if (Convert.ToDouble(txtQuilometragemLocacao.Text) < 0)
-            {
-                return "Quilometragem nao pode ser menos que ZERO!";
             }
             if (radioButtonCupomSim.Checked == true && !ValidarCupom())
                 return "Cupom de Desconto inválido!";

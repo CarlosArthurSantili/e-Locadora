@@ -72,6 +72,29 @@ namespace e_Locadora.Dominio.LocacaoModule
                 resultadoValidacao += "Seguro do cliente não pode ser negativo";
             if (seguroTerceiro < 0)
                 resultadoValidacao += "Seguro de terceiros não pode ser negativo";
+            if (caucao < 0)
+                resultadoValidacao += "Digite um valor positivo para Caução";
+            if (quilometragemDevolucao < 0)
+                resultadoValidacao += "Quilometragem não pode ser negativo!";
+            
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
+        }
+
+        public string ValidarDevolucao() {
+            string resultadoValidacao = "";
+            if (quilometragemDevolucao < veiculo.Quilometragem)
+            {
+                return "Quilometragem Atual não pode ser menor que a quilometragem inicial!";
+            }
+            if (dataDevolucao <= dataLocacao)
+            {
+                return "Data de Retorno Atual não pode ser menor ou igual a data da Locação!";
+            }
+
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
