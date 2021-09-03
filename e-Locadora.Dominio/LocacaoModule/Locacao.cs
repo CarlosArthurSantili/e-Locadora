@@ -54,6 +54,10 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.taxasServicos = new List<TaxasServicos>();
         }
 
+        public Locacao()
+        {
+            taxasServicos = new List<TaxasServicos>();
+        }
 
         public override string ToString()
         {
@@ -67,17 +71,26 @@ namespace e_Locadora.Dominio.LocacaoModule
         public override string Validar()
         {
             string resultadoValidacao = "";
+
             if (caucao < 0)
                 resultadoValidacao += "Caução não pode ser negativo";
             if (seguroCliente < 0)
-                resultadoValidacao += "Seguro do cliente não pode ser negativo";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Seguro do cliente não pode ser negativo";
             if (seguroTerceiro < 0)
-                resultadoValidacao += "Seguro de terceiros não pode ser negativo";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Seguro de terceiros não pode ser negativo";
             if (caucao < 0)
-                resultadoValidacao += "Digite um valor positivo para Caução";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Digite um valor positivo para Caução";
             if (quilometragemDevolucao < 0)
-                resultadoValidacao += "Quilometragem não pode ser negativo!";
-            
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Quilometragem não pode ser negativo!";
+            if (funcionario == null)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um funcionário";
+
+            if (condutor == null)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um condutor";
+
+            if (veiculo == null)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um veículo";
+
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
@@ -127,5 +140,47 @@ namespace e_Locadora.Dominio.LocacaoModule
         {
             return base.GetHashCode();
         }
+        private int QuantidadeDeDias
+        {
+            get
+            {
+                int qtdDiasLocacao;
+
+                if (dataDevolucao == DateTime.MinValue)
+                    qtdDiasLocacao = (dataDevolucao - dataLocacao).Days;
+                else
+                    qtdDiasLocacao = (dataDevolucao - dataLocacao).Days;
+
+                return qtdDiasLocacao;
+            }
+        }
+        private double MostrarValorPlano()
+        {
+            GrupoVeiculo grupoVeiculoSelecionado =  GrupoVeiculo.Equals() ;
+            string planoSelecionado = "";
+            double valorPlano = 0;
+
+            if (grupoVeiculoSelecionado != null && planoSelecionado != "")
+            {
+                if (planoSelecionado == "Diário")
+                {
+                    double valorDiario = grupoVeiculoSelecionado.planoDiarioValorDiario * QuantidadeDeDias;
+                    valorPlano = valorDiario;
+                }
+                else if (planoSelecionado == "Km Controlado")
+                {
+                    double valorDiario = grupoVeiculoSelecionado.planoKmControladoValorDiario * QuantidadeDeDias;
+                    double valorKm = grupoVeiculoSelecionado.planoKmControladoValorKm * grupoVeiculoSelecionado.planoKmControladoQuantidadeKm;
+                    valorPlano = valorDiario + valorKm;
+                }
+                else if (planoSelecionado == "Km Livre")
+                {
+                    double valorDiario = grupoVeiculoSelecionado.planoKmLivreValorDiario * QuantidadeDeDias;
+                    valorPlano = valorDiario;
+                }
+            }
+            return valorPlano;
+        }
+
     }
 }
