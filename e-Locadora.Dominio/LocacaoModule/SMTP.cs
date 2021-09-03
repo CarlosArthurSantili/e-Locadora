@@ -93,16 +93,20 @@ namespace e_Locadora.Email
 
         public bool estaConectadoInternet()
         {
-            string host = "http://www.c-sharpcorner.com";
-            Ping p = new Ping();
             try
             {
-                PingReply reply = p.Send(host, 3000);
-                if (reply.Status == IPStatus.Success)
-                    return true;
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
             }
-            catch { }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
     }
