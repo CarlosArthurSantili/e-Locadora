@@ -53,11 +53,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.emAberto = emAberto;
             this.taxasServicos = new List<TaxasServicos>();
         }
-
-        public Locacao()
-        {
-            taxasServicos = new List<TaxasServicos>();
-        }
+    
 
         public override string ToString()
         {
@@ -154,9 +150,9 @@ namespace e_Locadora.Dominio.LocacaoModule
                 return qtdDiasLocacao;
             }
         }
-        private double MostrarValorPlano()
+        public double CalcularValorPlano()
         {
-            GrupoVeiculo grupoVeiculoSelecionado =  GrupoVeiculo.Equals() ;
+            GrupoVeiculo grupoVeiculoSelecionado = grupoVeiculo;
             string planoSelecionado = "";
             double valorPlano = 0;
 
@@ -181,6 +177,20 @@ namespace e_Locadora.Dominio.LocacaoModule
             }
             return valorPlano;
         }
+        public double CalcularValorTaxas()
+        {
+            List<TaxasServicos> taxasServicosSelecionadas = new List<TaxasServicos>();
+            double valorTaxasServicos = 0;
+
+            foreach (TaxasServicos taxasServicos in taxasServicosSelecionadas)
+            {
+                TaxasServicos taxaServico = taxasServicos;
+                valorTaxasServicos += (taxaServico.TaxaDiaria * QuantidadeDeDias + taxaServico.TaxaFixa);
+            }
+
+            return valorTaxasServicos;
+        }
+
 
     }
 }
