@@ -26,7 +26,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             Document doc = new Document(PageSize.A4);
             PdfWriter escritoPDF = PdfWriter.GetInstance(doc, arquivoPDF);
 
-            doc.Open();
+            //doc.Open();
             string dados = "";
 
             Paragraph paragrafo = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14));
@@ -50,7 +50,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             paragrafo.Add("==================================\n");
 
             if (locacao.cupom != null)
-            {;
+            {
 
                 if (locacao.cupom.ValorFixo != 0)
                     paragrafo.Add("Cupom: " + locacao.cupom.Nome + "\nValor do Desconto: " + locacao.cupom.ValorFixo + "R$\n");
