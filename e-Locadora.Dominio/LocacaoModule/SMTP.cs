@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
 namespace e_Locadora.Email
 {
@@ -89,5 +90,21 @@ namespace e_Locadora.Email
             message.Attachments.Add(new Attachment(localPDF));
             smtp.Send(message);
         }
+
+        public bool estaConectadoInternet()
+        {
+            string host = "http://www.c-sharpcorner.com";
+            Ping p = new Ping();
+            try
+            {
+                PingReply reply = p.Send(host, 3000);
+                if (reply.Status == IPStatus.Success)
+                    return true;
+            }
+            catch { }
+            return false;
+        }
+
     }
-}
+
+ }
