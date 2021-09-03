@@ -53,7 +53,8 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.emAberto = emAberto;
             this.taxasServicos = new List<TaxasServicos>();
         }
-        
+
+
         public override string ToString()
         {
             return "Cliente: " + cliente + "Veiculo: " + veiculo;
