@@ -631,26 +631,32 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
             Paragraph paragrafo = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14, (int)System.Drawing.FontStyle.Bold));
 
-            paragrafo.Alignment = Element.ALIGN_CENTER;
-            paragrafo.Add("Valor Total:" + labelVariavelValorTotal.Text + "\n");
+            paragrafo.Alignment = Element.ALIGN_LEFT;
+            paragrafo.Add("==================================\n");
+            paragrafo.Add("Cliente: " + cboxCliente.SelectedItem + "\n");
+            paragrafo.Add("==================================\n");
             paragrafo.Add("Taxas e Serviços: " + cListBoxTaxasServicos.SelectedItem + "\n");
+            paragrafo.Add("==================================\n");
             paragrafo.Add("PLano Selecionado: " + cboxPlano.SelectedItem + "\n");
+            paragrafo.Add("==================================\n");
             paragrafo.Add("Data de Locação: " + maskedTextBoxLocacao.Text + "\n");
+            paragrafo.Add("==================================\n");
             paragrafo.Add("Data de Devolução: " + maskedTextBoxDevolucao.Text + "\n");
+            paragrafo.Add("==================================\n");
 
             if (radioButtonCupomSim.Checked == true)
             {
-                if (comboBoxCupom.SelectedItem != null)
-                {
-                    Cupons cupons = (Cupons)comboBoxCupom.SelectedItem;
+                Cupons cupons = (Cupons)comboBoxCupom.SelectedItem;
 
-                    if (cupons.ValorFixo != 0)
-                        paragrafo.Add("Cupom: " + cupons.Nome + "\nValor do Desconto: " + cupons.ValorFixo + "R$");
+                if (cupons.ValorFixo != 0)
+                    paragrafo.Add("Cupom: " + cupons.Nome + "\nValor do Desconto: " + cupons.ValorFixo + "R$\n");
 
-                    else
-                        paragrafo.Add("Cupom: " + cupons.Nome + "\nPorcentagem de Desconto na Locação: " + cupons.ValorPercentual + "%");
-                }
+                else
+                    paragrafo.Add("Cupom: " + cupons.Nome + "\nPorcentagem de Desconto na Locação: " + cupons.ValorPercentual + "%\n");
+
             }
+            paragrafo.Add("==================================\n");
+            paragrafo.Add("Valor Total:" + labelVariavelValorTotal.Text + "\n");
 
             doc.Open();
             doc.Add(paragrafo);
