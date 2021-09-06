@@ -37,6 +37,11 @@ namespace e_Locadora.Dominio.LocacaoModule
             paragrafo.Add("Condutor: " + locacao.condutor.Nome + " " + "RG: " + locacao.condutor.Rg+ "\n");
             paragrafo.Add("==================================\n");
 
+            paragrafo.Add("Veiculo: " + locacao.veiculo.Modelo + "\n");
+            paragrafo.Add("Placa: " + locacao.veiculo.Placa + "\n");
+            paragrafo.Add("Cor: " + locacao.veiculo.Cor + "\n");
+            paragrafo.Add("==================================\n");
+
             foreach (var taxasServicos in locacao.taxasServicos)
             {
                 paragrafo.Add("Taxas e Serviços: " + taxasServicos.Descricao + "\n");
@@ -52,7 +57,7 @@ namespace e_Locadora.Dominio.LocacaoModule
 
             if (locacao.cupom != null)
             {
-                if (locacao.cupom.ValorMinimo >= locacao.CalcularValorLocacao())
+                if (locacao.cupom.ValorMinimo <= locacao.CalcularValorLocacao())
                 {
                     if (locacao.cupom.ValorFixo != 0)
                         paragrafo.Add("Cupom: " + locacao.cupom.Nome + "\nValor do Desconto: " + locacao.cupom.ValorFixo + "R$\n");
@@ -70,9 +75,6 @@ namespace e_Locadora.Dominio.LocacaoModule
                 }
             }
 
-            paragrafo.Add("Veiculo: " + locacao.veiculo.Modelo + "\n");
-            paragrafo.Add("Placa: " + locacao.veiculo.Placa + "\n");
-            paragrafo.Add("Cor: " + locacao.veiculo.Cor + "\n");
             paragrafo.Add("==================================\n");
             paragrafo.Add("Valor Total:" + locacao.CalcularValorLocacao() + "\n");
 
