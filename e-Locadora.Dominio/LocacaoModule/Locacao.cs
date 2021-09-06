@@ -192,6 +192,42 @@ namespace e_Locadora.Dominio.LocacaoModule
             return valorTaxasServicos;
         }
 
+        private bool TemCupons()
+        {
+            return cupom  != null;
+        }
+        public void estaHáFinalizarLocacao()
+        {
+            emAberto = false;
+        }
 
+        public double CalcularValorLocacao(double precoCombustivel = 0)
+        {
+            if (plano == null)
+                return 0;
+
+            double valorPlano = CalcularValorPlano();
+
+            double ValorTaxas = 0;
+
+            if (taxasServicos == null)
+                return 0;
+             double  valorTaxas = CalcularValorTaxas();
+
+            double valorCombustivel = 0;
+
+            if (veiculo != null)
+                valorCombustivel = Veiculo.QuantidadeDeListrosParaAbastecer(MarcadorCombustivel) * precoCombustivel;
+
+            valorTotal  decimal = valorPlano + valorCombustivel + valorTaxas;
+
+            if (TemMulta())
+                valorTotal + = valorTotal * DezPorcento;
+
+            if (TemCupom())
+                valorTotal - = Cupom.CalcularDesconto(valorTotal);
+
+            return valorTotal;
+        }
     }
 }
