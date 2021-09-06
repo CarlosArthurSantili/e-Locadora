@@ -39,7 +39,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(505, 237);
+            this.btnCancelar.Location = new System.Drawing.Point(670, 237);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -49,7 +49,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(424, 237);
+            this.btnEnviar.Location = new System.Drawing.Point(589, 237);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(75, 23);
             this.btnEnviar.TabIndex = 13;
@@ -62,7 +62,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.groupBoxLocacoes.Controls.Add(this.panelLocacoes);
             this.groupBoxLocacoes.Location = new System.Drawing.Point(12, 12);
             this.groupBoxLocacoes.Name = "groupBoxLocacoes";
-            this.groupBoxLocacoes.Size = new System.Drawing.Size(568, 219);
+            this.groupBoxLocacoes.Size = new System.Drawing.Size(733, 219);
             this.groupBoxLocacoes.TabIndex = 14;
             this.groupBoxLocacoes.TabStop = false;
             this.groupBoxLocacoes.Text = "Locações com Emails Pendentes";
@@ -72,14 +72,14 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.panelLocacoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLocacoes.Location = new System.Drawing.Point(3, 16);
             this.panelLocacoes.Name = "panelLocacoes";
-            this.panelLocacoes.Size = new System.Drawing.Size(562, 200);
+            this.panelLocacoes.Size = new System.Drawing.Size(727, 200);
             this.panelLocacoes.TabIndex = 15;
             // 
             // TelaEmailsPendentesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 272);
+            this.ClientSize = new System.Drawing.Size(757, 272);
             this.Controls.Add(this.groupBoxLocacoes);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.btnCancelar);
