@@ -196,7 +196,7 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         private bool TemCupons()
         {
-            return cupom  != null;
+            return cupom != null;
         }
         public void estaHáFinalizarLocacao()
         {
@@ -205,24 +205,19 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public double CalcularValorLocacao(double precoCombustivel = 0)
         {
-            if (plano == null)
-                return 0;
+            double valorPlano = 0;
+            if (plano != null)
+                valorPlano = CalcularValorPlano();
 
-            double valorPlano = CalcularValorPlano();
-
-            double ValorTaxas = 0;
-
-            if (taxasServicos == null)
-                return 0;
-             double  valorTaxas = CalcularValorTaxas();
+            double valorTaxas = 0;
+            if (taxasServicos != null)
+                valorTaxas = CalcularValorTaxas();
 
             double valorCombustivel = 0;
-
             if (veiculo != null)
                 valorCombustivel = veiculo.QuantidadeDeListrosParaAbastecer(MarcadorCombustivel) * precoCombustivel;
 
             double valorTotal = valorPlano + valorCombustivel + valorTaxas;
-     
             if (TemCupons())
                 valorTotal -= cupom.CalcularDesconto(valorTotal);
 

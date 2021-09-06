@@ -42,10 +42,10 @@ namespace e_Locadora.Dominio.CupomModule
                 valor = 0;
 
             else if (ValorFixo > 0)
-                valor = valorTotal;
+                valor = valorTotal - ValorFixo;
 
             else if (ValorPercentual > 0)
-                valor = (valorTotal / 100) * valorTotal;
+                valor = (valorTotal / 100) * ValorPercentual;
 
             return valor;
         }

@@ -1,8 +1,10 @@
 ﻿using e_Locadora.Dominio;
 using e_Locadora.Dominio.ClientesModule;
 using e_Locadora.Dominio.CondutoresModule;
+using e_Locadora.Dominio.CupomModule;
 using e_Locadora.Dominio.FuncionarioModule;
 using e_Locadora.Dominio.LocacaoModule;
+using e_Locadora.Dominio.ParceirosModule;
 using e_Locadora.Dominio.TaxasServicosModule;
 using e_Locadora.Dominio.VeiculosModule;
 using FluentAssertions;
@@ -142,6 +144,51 @@ namespace e_Locadora.Tests.LocacaoModule
 
             //assert
             resultado.Should().Be(200.0);
+        }
+
+        [TestMethod]
+        public void DeveCalcular_ValorTotal_SemCupom()
+        {
+            //arrange
+            var funcionario = new Funcionario("nome", "460162200", "usuario", "senha", DateTime.Now.Date, 600.0);
+            var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
+            var imagem = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            var veiculo = new Veiculo("placa", "modelo", "fabricante", 400.0, 50, 4, "123456", "azul", 4, 1996, "Grande", "Gasolina", grupoVeiculo, imagem);
+            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232", "Joao.pereira@gmail.com");
+            var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
+            TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date.AddDays(2), 200, "Km Livre", 200, 00, 500, grupoVeiculo, veiculo, cliente, condutor, true);
+            locacao.taxasServicos.Add(taxaServico);
+            
+            //action
+            double resultado = locacao.CalcularValorLocacao();
+
+            //assert
+            resultado.Should().Be(212.0);
+        }
+
+        [TestMethod]
+        public void DeveCalcular_ValorTotal_ComCupom()
+        {
+            //arrange
+            var funcionario = new Funcionario("nome", "460162200", "usuario", "senha", DateTime.Now.Date, 600.0);
+            var grupoVeiculo = new GrupoVeiculo("Economico", 1, 2, 3, 4, 5, 6);
+            var imagem = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            var veiculo = new Veiculo("placa", "modelo", "fabricante", 400.0, 50, 4, "123456", "azul", 4, 1996, "Grande", "Gasolina", grupoVeiculo, imagem);
+            var cliente = new Clientes("Joao", "rua souza", "9524282242", "853242", "20220220222", "1239232", "Joao.pereira@gmail.com");
+            var condutor = new Condutor("Joao", "Rua dos Joao", "9522185224", "5222522", "20202020222", "522542", new DateTime(2022, 05, 26), cliente);
+            TaxasServicos taxaServico = new TaxasServicos("descricao", 200, 0);
+            var locacao = new Locacao(funcionario, DateTime.Now.Date, DateTime.Now.Date.AddDays(2), 200, "Km Livre", 200, 0, 500, grupoVeiculo, veiculo, cliente, condutor, true);
+            locacao.taxasServicos.Add(taxaServico);
+            var parceiro = new Parceiro("Deko");
+            var cupom = new Cupons("Deko-1236", 50, 0, new DateTime(2022, 10, 26).Date, parceiro, 1);
+            locacao.cupom = cupom;
+
+            //action
+            double resultado = locacao.CalcularValorLocacao();
+
+            //assert
+            resultado.Should().Be(106.0);
         }
     }
 }
