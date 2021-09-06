@@ -154,7 +154,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         public double CalcularValorPlano()
         {
             GrupoVeiculo grupoVeiculoSelecionado = grupoVeiculo;
-            string planoSelecionado = "";
+            string planoSelecionado = plano;
             double valorPlano = 0;
 
             if (grupoVeiculoSelecionado != null && planoSelecionado != "")
@@ -180,7 +180,7 @@ namespace e_Locadora.Dominio.LocacaoModule
         }
         public double CalcularValorTaxas()
         {
-            List<TaxasServicos> taxasServicosSelecionadas = new List<TaxasServicos>();
+            List<TaxasServicos> taxasServicosSelecionadas = taxasServicos;
             double valorTaxasServicos = 0;
 
             foreach (TaxasServicos taxasServicos in taxasServicosSelecionadas)
