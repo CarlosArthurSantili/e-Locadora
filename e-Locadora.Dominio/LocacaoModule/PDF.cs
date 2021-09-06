@@ -45,9 +45,9 @@ namespace e_Locadora.Dominio.LocacaoModule
             paragrafo.Add("==================================\n");
             paragrafo.Add("PLano Selecionado: " + locacao.plano + "\n");
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Data de Locação: " + locacao.dataLocacao + "\n");
+            paragrafo.Add("Data de Locação: " + locacao.dataLocacao.Date + "\n");
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Data de Devolução: " + locacao.dataDevolucao + "\n");
+            paragrafo.Add("Data de Devolução: " + locacao.dataDevolucao.Date + "\n");
             paragrafo.Add("==================================\n");
 
             if (locacao.cupom != null)
