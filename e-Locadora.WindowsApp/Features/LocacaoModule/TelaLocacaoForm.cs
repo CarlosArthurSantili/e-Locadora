@@ -255,14 +255,18 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                             TelaPrincipalForm.Instancia.AtualizarRodape("Enviando email para " + locacao.cliente.Email);
                             email.enviarEmail(locacao.cliente.Email, "Resumo Financeiro de Locação", "", localPDF);
                             TelaPrincipalForm.Instancia.AtualizarRodape("Email com resumo financeiro enviado para " + locacao.cliente.Email);
+                            locacao.emailEnviado = true;
                             break;
                         }
                         else
                         {
                             TelaPrincipalForm.Instancia.AtualizarRodape("Não foi possível se conectar a internet para enviar o resumo financeiro");
                             if (MessageBox.Show($"Não foi possível conectar-se a internet. Deseja tentar novamente?",
-                                "Envio de email", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
+                                "Envio de email", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            {
                                 TelaPrincipalForm.Instancia.AtualizarRodape("Tentando se conectar a internet...");
+                                break;
+                            }
                         }
                     } while (true);
 

@@ -179,6 +179,12 @@
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.Designer.cs">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\LocacaoModule\TelaEmailsPendentesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaEmailsPendentesForm.Designer.cs">
+      <DependentUpon>TelaEmailsPendentesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\LocacaoModule\TelaFiltroLocacaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     <EmbeddedResource Include="Features\LocacaoModule\TabelaLocacaoControl.resx">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TelaEmailsPendentesForm.resx">
+      <DependentUpon>TelaEmailsPendentesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\LocacaoModule\TelaFiltroLocacaoForm.resx">
       <DependentUpon>TelaFiltroLocacaoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +391,7 @@
     <None Include="Resources\outline_insert_chart_outlined_black_24dp1.png" />
     <Content Include="Resources\outline_list_alt_black_24dp.png" />
     <None Include="Resources\outline_local_gas_station_black_24dp.png" />
+    <None Include="Resources\outline_mail_black_24dp.png" />
     <Content Include="Resources\outline_mode_edit_black_24dp.png" />
     <Content Include="Resources\outline_table_rows_black_24dp.png" />
     <Content Include="Resources\outline_view_list_black_24dp.png" />

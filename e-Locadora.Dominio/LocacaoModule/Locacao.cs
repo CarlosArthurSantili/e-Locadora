@@ -36,6 +36,8 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public double valorTotal { get; set; }
 
+        public bool emailEnviado { get; set; }
+
         public Locacao(Funcionario funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, double caucao, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
         {
             this.funcionario = funcionario;
@@ -52,6 +54,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             this.condutor = condutor;
             this.emAberto = emAberto;
             this.taxasServicos = new List<TaxasServicos>();
+            emailEnviado = false;
         }
     
 
@@ -74,8 +77,6 @@ namespace e_Locadora.Dominio.LocacaoModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Seguro do cliente não pode ser negativo";
             if (seguroTerceiro < 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Seguro de terceiros não pode ser negativo";
-            if (caucao < 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Digite um valor positivo para Caução";
             if (quilometragemDevolucao < 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Quilometragem não pode ser negativo!";
             if (funcionario == null)

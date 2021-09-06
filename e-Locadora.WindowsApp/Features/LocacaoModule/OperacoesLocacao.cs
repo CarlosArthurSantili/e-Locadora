@@ -107,6 +107,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             return tabelaLocacao;
         }
 
+        public UserControl ObterTabelaEmailsPendentes()
+        {
+            tabelaLocacao.AtualizarLocacoesEmailsPendentes();
+
+            return tabelaLocacao;
+        }
+
 
         public void FiltrarRegistros()
         {
@@ -173,7 +180,20 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 MessageBox.Show($"Não é possível fazer a devolução de locações já finalizadas.", "Devolução já realizada", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
- 
+
+        public void VisualizarEmailsPendentes()
+        {
+            TelaEmailsPendentesForm tela = new TelaEmailsPendentesForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                List<Locacao> locacoes = new List<Locacao>();
+                locacoes = controladorLocacao.SelecionarTodos();
+                        
+                tabelaLocacao.CarregarTabela(locacoes);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} locações");
+            }
+        }
 
         public void AgruparRegistros()
         {

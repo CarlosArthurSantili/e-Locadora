@@ -18,6 +18,7 @@ namespace e_Locadora.WindowsApp.Shared
             Filtrar = "Filtrar";
             Devolucao = "Devolução";
             Classificacao = "Classificação";
+            Email = "Email";
         }
 
         public string Adicionar { get; internal set; }
@@ -28,5 +29,6 @@ namespace e_Locadora.WindowsApp.Shared
         public string Filtrar { get; internal set; }
         public string Devolucao { get; internal set; }
         public string Classificacao { get; internal set; }
+        public string Email { get; internal set; }
     }
 }

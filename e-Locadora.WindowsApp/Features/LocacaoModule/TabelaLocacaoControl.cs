@@ -64,6 +64,13 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             CarregarTabela(locacao);
         }
 
+        public void AtualizarLocacoesEmailsPendentes()
+        {
+            var locacao = controladorLocacao.SelecionarLocacoesEmailPendente();
+
+            CarregarTabela(locacao);
+        }
+
         public void CarregarTabela(List<Locacao> locacaos)
         {
             gridLocacao.DataSource = locacaos;

@@ -50,7 +50,8 @@ namespace e_Locadora.Controladores.LocacaoModule
                         [SEGUROCLIENTE],
                         [SEGUROTERCEIRO],
                         [CAUCAO],
-                        [VALORTOTAL]
+                        [VALORTOTAL],
+                        [EMAILENVIADO]
 	                ) 
 	                VALUES
 	                (
@@ -68,7 +69,8 @@ namespace e_Locadora.Controladores.LocacaoModule
                         @SEGUROCLIENTE,
                         @SEGUROTERCEIRO,
                         @CAUCAO,
-                        @VALORTOTAL
+                        @VALORTOTAL,
+                        @EMAILENVIADO
 	                )";
 
         private const string sqlEditarLocacao =
@@ -88,7 +90,8 @@ namespace e_Locadora.Controladores.LocacaoModule
                         [SEGUROCLIENTE] = @SEGUROCLIENTE,
                         [SEGUROTERCEIRO] = @SEGUROTERCEIRO,
                         [CAUCAO] = @CAUCAO,
-                        [VALORTOTAL] = @VALORTOTAL
+                        [VALORTOTAL] = @VALORTOTAL,
+                        [EMAILENVIADO] = @EMAILENVIADO
                     WHERE 
                         ID = @ID";
 
@@ -124,7 +127,8 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
                 [CAUCAO],
-                [VALORTOTAL]
+                [VALORTOTAL],
+                [EMAILENVIADO]
             FROM
                 [TBLOCACAO]
             WHERE
@@ -147,7 +151,8 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
                 [CAUCAO],
-                [VALORTOTAL]
+                [VALORTOTAL],
+                [EMAILENVIADO]
             FROM
                 [TBLOCACAO]";
         private const string sqlSelecionarLocacoesPendentes =
@@ -167,13 +172,37 @@ namespace e_Locadora.Controladores.LocacaoModule
                 [SEGUROCLIENTE],
                 [SEGUROTERCEIRO],
                 [CAUCAO],
-                [VALORTOTAL]
+                [VALORTOTAL],
+                [EMAILENVIADO]
             FROM
                 [TBLOCACAO]
            WHERE 
                 [EMABERTO] = @EMABERTO
             AND
                 [DATADEVOLUCAO] < @DATADEVOLUCAO";
+        private const string sqlSelecionarLocacoesEmailPendente =
+            @"SELECT 
+                [ID],
+		        [IDFUNCIONARIO], 
+		        [IDCLIENTE], 
+		        [IDCONDUTOR],
+                [IDGRUPOVEICULO], 
+                [IDVEICULO],
+                [IDCUPOM],
+		        [EMABERTO],
+                [DATALOCACAO],
+                [DATADEVOLUCAO],
+                [QUILOMETRAGEMDEVOLUCAO],
+                [PLANO],
+                [SEGUROCLIENTE],
+                [SEGUROTERCEIRO],
+                [CAUCAO],
+                [VALORTOTAL],
+                [EMAILENVIADO]
+            FROM
+                [TBLOCACAO]
+           WHERE
+                [EMAILENVIADO] == @EMAILENVIADO";
 
 
         #endregion
@@ -367,6 +396,25 @@ namespace e_Locadora.Controladores.LocacaoModule
             return locacoesPendentes;
         }
 
+        public List<Locacao> SelecionarLocacoesEmailPendente()
+        {
+
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("EMAILENVIADO", false);
+
+            List<Locacao> locacoesEmailPendente = new List<Locacao>();
+            locacoesEmailPendente = Db.GetAll(sqlSelecionarLocacoesEmailPendente, ConverterEmLocacao, parametros);
+            foreach (Locacao locacaoIndividual in locacoesEmailPendente)
+            {
+                List<TaxasServicos> taxasServicosIndividuais = SelecionarTaxasServicosPorLocacaoId(locacaoIndividual.Id);
+                locacaoIndividual.taxasServicos = taxasServicosIndividuais;
+            }
+
+            return locacoesEmailPendente;
+        }
+
+
         public string ValidarLocacao(Locacao novoLocacao, int id = 0)
         {
             //validar carros alugados
@@ -452,6 +500,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             parametros.Add("SEGUROTERCEIRO", locacao.seguroTerceiro);
             parametros.Add("CAUCAO", locacao.caucao);
             parametros.Add("VALORTOTAL", locacao.valorTotal);
+            parametros.Add("EMAILENVIADO", locacao.emailEnviado);
 
             if (locacao.cupom != null)
                 parametros.Add("IDCUPOM", locacao.cupom.Id);
@@ -486,8 +535,8 @@ namespace e_Locadora.Controladores.LocacaoModule
             var seguroCliente = Convert.ToDouble(reader["SEGUROCLIENTE"]);
             var seguroTerceiro = Convert.ToDouble(reader["SEGUROTERCEIRO"]);
             var caucao = Convert.ToDouble(reader["CAUCAO"]);
+            var emailEnviado = Convert.ToBoolean(reader["EMAILENVIADO"]);
 
-            
             Locacao locacao = new Locacao(funcionario, dataLocacao, dataDevolucao, quilometragemDevolucao, plano, seguroCliente, seguroTerceiro, caucao, grupoVeiculo, veiculo, cliente, condutor, emAberto);
 
             if (reader["IDCUPOM"] != DBNull.Value)
@@ -496,6 +545,7 @@ namespace e_Locadora.Controladores.LocacaoModule
                 locacao.cupom = controladorCupom.SelecionarPorId(idCupom);
             }
 
+            locacao.emailEnviado = emailEnviado;
             locacao.valorTotal = Convert.ToDouble(reader["VALORTOTAL"]);
             locacao.Id = Convert.ToInt32(reader["ID"]);
 

@@ -47,12 +47,12 @@ namespace e_Locadora.WindowsApp
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSair = new System.Windows.Forms.PictureBox();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -62,6 +62,8 @@ namespace e_Locadora.WindowsApp
             this.btnDesagrupar = new System.Windows.Forms.ToolStripButton();
             this.btnDevolucao = new System.Windows.Forms.ToolStripButton();
             this.btnClassificacao = new System.Windows.Forms.ToolStripButton();
+            this.btnEmail = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -200,6 +202,8 @@ namespace e_Locadora.WindowsApp
             this.btnDevolucao,
             this.toolStripSeparator6,
             this.btnClassificacao,
+            this.toolStripSeparator7,
+            this.btnEmail,
             this.toolStripSeparator5,
             this.labelTipoCadastro});
             this.toolboxAcoes.Location = new System.Drawing.Point(0, 24);
@@ -227,6 +231,11 @@ namespace e_Locadora.WindowsApp
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 41);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 41);
             // 
             // toolStripSeparator5
             // 
@@ -265,11 +274,6 @@ namespace e_Locadora.WindowsApp
             this.labelRodape.Size = new System.Drawing.Size(67, 17);
             this.labelRodape.Text = "Tudo Ok ;-)";
             // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 41);
-            // 
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.Transparent;
@@ -280,7 +284,7 @@ namespace e_Locadora.WindowsApp
             this.btnSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSair.TabIndex = 6;
             this.btnSair.TabStop = false;
-            this.btnSair.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAdicionar
             // 
@@ -376,6 +380,21 @@ namespace e_Locadora.WindowsApp
             this.btnClassificacao.Size = new System.Drawing.Size(28, 38);
             this.btnClassificacao.Click += new System.EventHandler(this.btnQuantidadeCupons_Click);
             // 
+            // btnEmail
+            // 
+            this.btnEmail.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEmail.Image = global::e_Locadora.WindowsApp.Properties.Resources.outline_mail_black_24dp;
+            this.btnEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(28, 38);
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 41);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +456,8 @@ namespace e_Locadora.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem cuponsDeDescontosToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton btnClassificacao;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton btnEmail;
     }
 }
 

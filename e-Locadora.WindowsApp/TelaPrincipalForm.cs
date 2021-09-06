@@ -96,6 +96,7 @@ namespace e_Locadora.WindowsApp
             btnFiltrar.ToolTipText = configuracao.ObterToolTips().Filtrar;
             btnDevolucao.ToolTipText = configuracao.ObterToolTips().Devolucao;
             btnClassificacao.ToolTipText = configuracao.ObterToolTips().Classificacao;
+            btnEmail.ToolTipText = configuracao.ObterToolTips().Email;
 
             btnAdicionar.Enabled = configuracao.ObterEstadoBotoes().Adicionar;
             btnEditar.Enabled = configuracao.ObterEstadoBotoes().Editar;
@@ -106,7 +107,7 @@ namespace e_Locadora.WindowsApp
             btnFiltrar.Enabled = configuracao.ObterEstadoBotoes().Filtrar;
             btnDevolucao.Enabled = configuracao.ObterEstadoBotoes().Devolucao;
             btnClassificacao.Enabled = configuracao.ObterEstadoBotoes().Classificacao;
-
+            btnEmail.Enabled = configuracao.ObterEstadoBotoes().Email;
         }
 
         private void menuItemGrupoVeiculos_Click(object sender, EventArgs e)
@@ -269,13 +270,6 @@ namespace e_Locadora.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
-    
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDevolucao_Click(object sender, EventArgs e)
         {
             OperacoesLocacao operacaoDevolucao = (OperacoesLocacao)operacoes;
@@ -305,7 +299,7 @@ namespace e_Locadora.WindowsApp
             labelRodape.Text = "Seja bem vindo " + funcionario.Nome;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
             funcionario = null;
             this.Hide();
@@ -320,6 +314,12 @@ namespace e_Locadora.WindowsApp
         {
             OperacoesCupons operacaoCupom = (OperacoesCupons)operacoes;
             operacaoCupom.MostrarClassificacao();
+        }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            OperacoesLocacao operacaoDevolucao = (OperacoesLocacao)operacoes;
+            operacaoDevolucao.VisualizarEmailsPendentes();
         }
     }
 }
