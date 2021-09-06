@@ -45,9 +45,9 @@ namespace e_Locadora.Dominio.LocacaoModule
             paragrafo.Add("==================================\n");
             paragrafo.Add("PLano Selecionado: " + locacao.plano + "\n");
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Data de Locação: " + locacao.dataLocacao.Date + "\n");
+            paragrafo.Add("Data de Locação: " + locacao.dataLocacao.ToShortDateString() + "\n");
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Data de Devolução: " + locacao.dataDevolucao.Date + "\n");
+            paragrafo.Add("Data de Devolução: " + locacao.dataDevolucao.ToShortDateString() + "\n");
             paragrafo.Add("==================================\n");
 
             if (locacao.cupom != null)
@@ -65,7 +65,7 @@ namespace e_Locadora.Dominio.LocacaoModule
             paragrafo.Add("Placa: " + locacao.veiculo.Placa + "\n");
             paragrafo.Add("Cor: " + locacao.veiculo.Cor + "\n");
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Valor Total:" + locacao.valorTotal + "\n");
+            paragrafo.Add("Valor Total:" + locacao.CalcularValorLocacao() + "\n");
 
             doc.Open();
             doc.Add(paragrafo);
