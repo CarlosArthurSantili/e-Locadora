@@ -38,6 +38,8 @@ namespace e_Locadora.Dominio.LocacaoModule
 
         public bool emailEnviado { get; set; }
 
+        public MarcadorCombustivelEnum MarcadorCombustivel { get; set; }
+
         public Locacao(Funcionario funcionario, DateTime dataLocacao, DateTime dataDevolucao, double quilometragemDevolucao, string plano, double seguroCliente, double seguroTerceiro, double caucao, GrupoVeiculo grupoVeiculo, Veiculo veiculo, Clientes cliente, Condutor condutor, bool emAberto)
         {
             this.funcionario = funcionario;
@@ -192,6 +194,45 @@ namespace e_Locadora.Dominio.LocacaoModule
             return valorTaxasServicos;
         }
 
+        private bool TemCupons()
+        {
+            return cupom  != null;
+        }
+        public void estaHáFinalizarLocacao()
+        {
+            emAberto = false;
+        }
 
+        public double CalcularValorLocacao(double precoCombustivel = 0)
+        {
+            if (plano == null)
+                return 0;
+
+            double valorPlano = CalcularValorPlano();
+
+            double ValorTaxas = 0;
+
+            if (taxasServicos == null)
+                return 0;
+             double  valorTaxas = CalcularValorTaxas();
+
+            double valorCombustivel = 0;
+
+            if (veiculo != null)
+                valorCombustivel = veiculo.QuantidadeDeListrosParaAbastecer(MarcadorCombustivel) * precoCombustivel;
+
+            double valorTotal = valorPlano + valorCombustivel + valorTaxas;
+     
+            if (TemCupons())
+                valorTotal -= cupom.CalcularDesconto(valorTotal);
+
+            return valorTotal;
+        }
+        public void AlugarVeiculo(Veiculo Veiculo)
+        {
+            veiculo = Veiculo;
+
+            Veiculo.RegistrarLocacao(this);
+        }
     }
 }

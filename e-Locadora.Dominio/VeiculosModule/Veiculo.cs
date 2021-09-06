@@ -8,6 +8,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
+using e_Locadora.Dominio.LocacaoModule;
 
 namespace e_Locadora.Dominio.VeiculosModule
 {
@@ -47,6 +48,8 @@ namespace e_Locadora.Dominio.VeiculosModule
         public GrupoVeiculo GrupoVeiculo { get; set; }
 
         public byte[] Imagem { get; }
+
+        public List<Locacao> Locacoes { get; set; }
 
 
         public override string ToString()
@@ -130,6 +133,31 @@ namespace e_Locadora.Dominio.VeiculosModule
                    Combustivel == other.Combustivel &&
                    EqualityComparer<GrupoVeiculo>.Default.Equals(GrupoVeiculo, other.GrupoVeiculo) &&
                    Imagem.SequenceEqual(other.Imagem);
+        }
+        public int QuantidadeDeListrosParaAbastecer(MarcadorCombustivelEnum marcadorCombustivel)
+        {
+            switch (marcadorCombustivel)
+            {
+                case MarcadorCombustivelEnum.Vazio: return QtdLitrosTanque;
+
+                case MarcadorCombustivelEnum.UmQuarto: return (QtdLitrosTanque - (QtdLitrosTanque * 1 / 4));
+
+                case MarcadorCombustivelEnum.MeioTanque: return (QtdLitrosTanque - (QtdLitrosTanque * 1 / 2));
+
+                case MarcadorCombustivelEnum.TresQuartos:
+                    return (QtdLitrosTanque - (QtdLitrosTanque * 3 / 4));
+
+                default:
+                    return 0;
+            }
+        }
+        public void RegistrarLocacao(Locacao locacao)
+        {
+            Locacoes.Add(locacao);
+        }
+        public bool EstaAlugado()
+        {
+            return Locacoes.Exists(x => x.emAberto);
         }
     }
 }

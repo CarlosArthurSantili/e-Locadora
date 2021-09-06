@@ -52,6 +52,7 @@
     <Compile Include="CupomModule\Cupons.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="GrupoVeiculoModule\GrupoVeiculo.cs" />
+    <Compile Include="LocacaoModule\MarcadorDeCombustivelEnum.cs" />
     <Compile Include="LocacaoModule\PDF.cs" />
     <Compile Include="LocacaoModule\Locacao.cs" />
     <Compile Include="LocacaoModule\LocacaoTaxasServicos.cs" />
