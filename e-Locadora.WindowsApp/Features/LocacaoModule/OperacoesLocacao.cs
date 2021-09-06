@@ -190,7 +190,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                 locacoes = controladorLocacao.SelecionarTodos();
                         
                 tabelaLocacao.CarregarTabela(locacoes);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} locações");
             }
         }
 

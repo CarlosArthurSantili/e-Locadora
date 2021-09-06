@@ -63,7 +63,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                     if (MessageBox.Show($"Não foi possível conectar-se a internet. Deseja tentar novamente?",
                         "Envio de email", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     {
-                        TelaPrincipalForm.Instancia.AtualizarRodape("Cancelado envio de email");
+                        TelaPrincipalForm.Instancia.AtualizarRodape("Cancelado envio da segunda via do email");
                         break;
                     }
                 }
@@ -79,7 +79,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            TelaPrincipalForm.Instancia.AtualizarRodape("Cancelado envio da segunda via do email");
         }
 
         private void ConfigurarPainelRegistros()
