@@ -34,6 +34,22 @@ namespace e_Locadora.Dominio.CupomModule
 
         }
 
+        public double CalcularDesconto(double valorTotal)
+        {
+            double valor = 0;
+
+            if (valorTotal <= ValorMinimo)
+                valor = 0;
+
+            else if (ValorFixo > 0)
+                valor = valorTotal;
+
+            else if (ValorPercentual > 0)
+                valor = (valorTotal / 100) * valorTotal;
+
+            return valor;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Cupons);
