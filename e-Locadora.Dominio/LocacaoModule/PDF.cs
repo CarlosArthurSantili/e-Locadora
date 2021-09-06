@@ -33,7 +33,8 @@ namespace e_Locadora.Dominio.LocacaoModule
 
             paragrafo.Alignment = Element.ALIGN_LEFT;
             paragrafo.Add("==================================\n");
-            paragrafo.Add("Cliente: " + locacao.cliente.Nome + "\n");
+            paragrafo.Add("Cliente: " + locacao.cliente.Nome + " " + "RG: " + locacao.cliente.RG + "\n");
+            paragrafo.Add("Condutor: " + locacao.condutor.Nome + " " + "RG: " + locacao.condutor.Rg+ "\n");
             paragrafo.Add("==================================\n");
 
             foreach (var taxasServicos in locacao.taxasServicos)
@@ -59,6 +60,10 @@ namespace e_Locadora.Dominio.LocacaoModule
                     paragrafo.Add("Cupom: " + locacao.cupom.Nome + "\nPorcentagem de Desconto na Locação: " + locacao.cupom.ValorPercentual + "%\n");
 
             }
+            paragrafo.Add("==================================\n");
+            paragrafo.Add("Veiculo: " + locacao.veiculo.Modelo + "\n");
+            paragrafo.Add("Placa: " + locacao.veiculo.Placa + "\n");
+            paragrafo.Add("Cor: " + locacao.veiculo.Cor + "\n");
             paragrafo.Add("==================================\n");
             paragrafo.Add("Valor Total:" + locacao.valorTotal + "\n");
 
