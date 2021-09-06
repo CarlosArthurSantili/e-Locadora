@@ -114,7 +114,6 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             return tabelaLocacao;
         }
 
-
         public void FiltrarRegistros()
         {
             TelaFiltroLocacaoForm tela = new TelaFiltroLocacaoForm();

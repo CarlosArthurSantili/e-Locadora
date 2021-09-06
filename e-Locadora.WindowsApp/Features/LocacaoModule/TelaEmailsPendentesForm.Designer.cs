@@ -31,9 +31,9 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEnviar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxLocacoes = new System.Windows.Forms.GroupBox();
+            this.panelLocacoes = new System.Windows.Forms.Panel();
+            this.groupBoxLocacoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -57,30 +57,30 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
-            // groupBox1
+            // groupBoxLocacoes
             // 
-            this.groupBox1.Controls.Add(this.panelRegistros);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 196);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Locações com Emails Pendentes";
+            this.groupBoxLocacoes.Controls.Add(this.panelLocacoes);
+            this.groupBoxLocacoes.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxLocacoes.Name = "groupBoxLocacoes";
+            this.groupBoxLocacoes.Size = new System.Drawing.Size(432, 196);
+            this.groupBoxLocacoes.TabIndex = 14;
+            this.groupBoxLocacoes.TabStop = false;
+            this.groupBoxLocacoes.Text = "Locações com Emails Pendentes";
             // 
-            // panelRegistros
+            // panelLocacoes
             // 
-            this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(3, 16);
-            this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(426, 177);
-            this.panelRegistros.TabIndex = 15;
+            this.panelLocacoes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLocacoes.Location = new System.Drawing.Point(3, 16);
+            this.panelLocacoes.Name = "panelLocacoes";
+            this.panelLocacoes.Size = new System.Drawing.Size(426, 177);
+            this.panelLocacoes.TabIndex = 15;
             // 
             // TelaEmailsPendentesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 241);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxLocacoes);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.btnCancelar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -89,7 +89,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
             this.Name = "TelaEmailsPendentesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emails Pendentes";
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxLocacoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -98,7 +98,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEnviar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panelRegistros;
+        private System.Windows.Forms.GroupBox groupBoxLocacoes;
+        private System.Windows.Forms.Panel panelLocacoes;
     }
 }

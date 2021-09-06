@@ -264,7 +264,7 @@ namespace e_Locadora.WindowsApp.Features.LocacaoModule
                             if (MessageBox.Show($"Não foi possível conectar-se a internet. Deseja tentar novamente?",
                                 "Envio de email", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                             {
-                                TelaPrincipalForm.Instancia.AtualizarRodape("Tentando se conectar a internet...");
+                                TelaPrincipalForm.Instancia.AtualizarRodape("Cancelado envio de email");
                                 break;
                             }
                         }

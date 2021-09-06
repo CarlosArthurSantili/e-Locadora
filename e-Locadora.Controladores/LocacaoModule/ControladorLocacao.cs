@@ -202,7 +202,7 @@ namespace e_Locadora.Controladores.LocacaoModule
             FROM
                 [TBLOCACAO]
            WHERE
-                [EMAILENVIADO] == @EMAILENVIADO";
+                [EMAILENVIADO] = @EMAILENVIADO";
 
 
         #endregion
