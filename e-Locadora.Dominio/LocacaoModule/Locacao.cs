@@ -219,7 +219,8 @@ namespace e_Locadora.Dominio.LocacaoModule
 
             double valorTotal = valorPlano + valorCombustivel + valorTaxas;
             if (TemCupons())
-                valorTotal -= cupom.CalcularDesconto(valorTotal);
+                if(cupom.ValorMinimo <= valorTotal) 
+                    valorTotal -= cupom.CalcularDesconto(valorTotal);
 
             return valorTotal;
         }
