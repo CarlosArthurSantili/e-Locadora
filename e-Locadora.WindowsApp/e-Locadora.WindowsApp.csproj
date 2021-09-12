@@ -401,20 +401,6 @@
     <Content Include="Resources\Symbol Pencil.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\e-Locadora.Configuracoes\e-Locadora.Configuracoes.csproj">
-      <Project>{FAB29872-F287-4A65-97E0-E638502746D9}</Project>
-      <Name>e-Locadora.Configuracoes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
-      <Project>{D6EB05FA-C0B1-496A-A5FA-C38095977FE1}</Project>
-      <Name>e-Locadora.Controladores</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
-      <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
-      <Name>e-Locadora.Dominio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>

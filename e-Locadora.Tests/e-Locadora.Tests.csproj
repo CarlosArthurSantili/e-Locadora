@@ -81,17 +81,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\e-Locadora.Controladores\e-Locadora.Controladores.csproj">
-      <Project>{d6eb05fa-c0b1-496a-a5fa-c38095977fe1}</Project>
-      <Name>e-Locadora.Controladores</Name>
-    </ProjectReference>
     <ProjectReference Include="..\e-Locadora.Database.SqlServer\e-Locadora.Database.SqlServer.sqlproj">
       <Project>{83e89b3f-3c2c-491b-b248-130f72c2cfc0}</Project>
       <Name>e-Locadora.Database.SqlServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\e-Locadora.Dominio\e-Locadora.Dominio.csproj">
-      <Project>{bf3e7c9c-3390-46cb-93b6-54e8929f509a}</Project>
-      <Name>e-Locadora.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
